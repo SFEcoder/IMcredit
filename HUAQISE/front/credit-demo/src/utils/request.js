@@ -6,7 +6,7 @@ import store from '@/store'
 
 // 创建 axios 实例
 const service = axios.create({
-    baseURL: process.env.NODE_ENV === 'production' ? '': 'http://localhost:8080',
+    baseURL: process.env.NODE_ENV === 'production' ? '': 'http://localhost:8040',
     withCredentials: true
 })
 console.log(process.env.NODE_ENV)

@@ -1,7 +1,7 @@
 module.exports = {
     publicPath: './',
     devServer: {
-        port: 8000
+        port: 8090
     },
     css: {
         loaderOptions: {

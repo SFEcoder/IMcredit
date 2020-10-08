@@ -1,7 +1,7 @@
 import { axios } from '@/utils/request'
 
 const api = {
-    userPre: '/api/user'
+    userPre: '/userservice/api/user'
 }
 export function loginAPI(data){
     return axios({
