@@ -1,0 +1,25 @@
+@font-face {
+    /**/
+    font-family: 'thin_font';
+    src: url("font/1.otf");
+}
+
+@font-face {
+    /**/
+    font-family: 'jump_cool';
+    src: url("font/4.ttf");
+}
+
+
+hgroup {
+    font-family: 'thin_font';
+}
+
+.mr_frUl ul li > div h4 {
+    margin-top: 10px;
+    color: #f3f3f3;
+    line-height: 32px;
+    font-size: 30px;
+    font-family: jump_cool;
+}
+
