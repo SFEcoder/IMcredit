@@ -7,14 +7,20 @@
 </template>
 
 <script>
-
+    import { mapGetters, mapMutations, mapActions } from 'vuex'
     export default {
+
         name: 'Home',
 
         methods: {
+            ...mapActions([
+                'test',
+            ]),
             jumpToLogin(){
+                this.test()
                 // this.$router.push(`/login?redirect='/credit/main'`)
                 this.$router.push(`/login`)
+
             }
         }
     }
