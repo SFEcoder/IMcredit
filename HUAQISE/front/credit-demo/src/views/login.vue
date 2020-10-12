@@ -1,10 +1,9 @@
 <template>
     <div class="login-register">
         <!--        <div class="contain">-->
-        <div class="big-box" :class="{active:isLogin}">
+        <div class="big-box" :class="{active:isLogin}" id="big">
             <div class="big-contain" v-if="isLogin">
                 <a-form
-                        id="formLogin"
                         class="user-layout-login"
                         ref="formLogin"
                         :form="form"
@@ -96,6 +95,7 @@
                                 <a-input
                                         size="default"
                                         type="email"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
                                         placeholder="邮箱"
                                         v-decorator="[
               'registerUserMail',
@@ -106,6 +106,7 @@
                             <a-form-item>
                                 <a-input
                                         size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
                                         placeholder="用户名"
                                         v-decorator="[
               'registerUsername',
@@ -116,6 +117,7 @@
                             <a-form-item>
                                 <a-input
                                         size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
                                         placeholder="手机号"
                                         v-decorator="[
               'registerPhoneNumber',
@@ -126,6 +128,7 @@
                             <a-form-item>
                                 <a-input
                                         size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
                                         type="password"
                                         placeholder="密码"
                                         v-decorator="[
@@ -137,6 +140,7 @@
                             <a-form-item>
                                 <a-input
                                         size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
                                         type="password"
                                         placeholder="确认密码"
                                         v-decorator="[
@@ -149,7 +153,7 @@
                                 <a-button
                                         size="default"
                                         type= "primary"
-                                        class="bbutton"
+                                        class="sbutton"
                                         :loading="loginLoading"
                                         @click="handleRegister()"
                                 >确定</a-button>
@@ -160,6 +164,7 @@
                             <a-form-item>
                                 <a-input
                                         size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
                                         type="email"
                                         placeholder="企业全称"
                                         v-decorator="[
@@ -171,6 +176,7 @@
                             <a-form-item>
                                 <a-input
                                         size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
                                         placeholder="企业注册号/信用码"
                                         v-decorator="[
               'registerUsername',
@@ -181,6 +187,7 @@
                             <a-form-item>
                                 <a-input
                                         size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
                                         placeholder="企业联系人"
                                         v-decorator="[
               'registerPhoneNumber',
@@ -191,6 +198,7 @@
                             <a-form-item>
                                 <a-input
                                         size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
                                         type="email"
                                         placeholder="邮箱"
                                         v-decorator="[
@@ -202,6 +210,7 @@
                             <a-form-item>
                                 <a-input
                                         size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
                                         placeholder="联系方式"
                                         v-decorator="[
               'registerPhoneNumber',
@@ -209,41 +218,12 @@
                                     <a-icon slot="prefix" type="book" :style="{ color: 'rgba(0,0,0,.25)' }"/>
                                 </a-input>
                             </a-form-item>
-                            <!--                            <a-form-item>-->
-                            <!--                                <a-input-->
-                            <!--                                        size="default"-->
-                            <!--                                        placeholder="营业执照"-->
-                            <!--                                        v-decorator="[-->
-                            <!--              'registerPhoneNumber',-->
-                            <!--              {rules: [{ required: true, message: '请输入营业执照' }], validateTrigger: 'blur'}]">-->
-                            <!--                                    <a-icon slot="prefix" type="book" :style="{ color: 'rgba(0,0,0,.25)' }"/>-->
-                            <!--                                </a-input>-->
-                            <!--                            </a-form-item>-->
-
-                            <div class="clearfix">
-                                <a-upload
-                                        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                                        list-type="picture-card"
-                                        :file-list="fileList"
-                                        @preview="handlePreview"
-                                        @change="handleChange"
-                                >
-                                    <div v-if="fileList.length < 8">
-                                        <a-icon type="plus" />
-                                        <div class="ant-upload-text">
-                                            Upload
-                                        </div>
-                                    </div>
-                                </a-upload>
-                                <a-modal :visible="previewVisible" :footer="null" @cancel="handleCancel">
-                                    <img alt="example" style="width: 100%" :src="previewImage" />
-                                </a-modal>
-                            </div>
 
 
                             <a-form-item>
                                 <a-input
                                         size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
                                         type="password"
                                         placeholder="密码"
                                         v-decorator="[
@@ -255,6 +235,7 @@
                             <a-form-item>
                                 <a-input
                                         size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
                                         type="password"
                                         placeholder="确认密码"
                                         v-decorator="[
@@ -263,11 +244,31 @@
                                     <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
                                 </a-input>
                             </a-form-item>
+                            <div class="clearfix">
+                                <a-upload
+                                        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                                        list-type="picture-card"
+                                        style="left: 500px"
+                                        :file-list="fileList"
+                                        @preview="handlePreview"
+                                        @change="handleChange"
+                                >
+                                    <div v-if="fileList.length < 8">
+                                        <a-icon type="plus" />
+                                        <div class="ant-upload-text">
+                                            营业执照
+                                        </div>
+                                    </div>
+                                </a-upload>
+                                <a-modal :visible="previewVisible" :footer="null" @cancel="handleCancel">
+                                    <img alt="example" style="width: 100%" :src="previewImage" />
+                                </a-modal>
+                            </div>
                             <a-form-item style="margin-top:24px" >
                                 <a-button
                                         size="default"
                                         type= "primary"
-                                        class="bbutton"
+                                        class="sbutton"
                                         :loading="loginLoading"
                                         @click="handleRegister()"
                                 >确定</a-button>
@@ -277,12 +278,12 @@
                 </a-form>
             </div>
         </div>
-        <div class="small-box" :class="{active:isLogin}">
+        <div class="small-box" :class="{active:isLogin}" id="small">
             <div class="small-contain" v-if="isLogin">
-                <button class="sbutton" @click="changeType">注册</button>
+                <button class="changeButton" @click="changeType">注册</button>
             </div>
             <div class="small-contain" v-else>
-                <button class="sbutton" @click="changeType">登录</button>
+                <button class="changeButton" @click="changeType">登录</button>
             </div>
         </div>
     </div>
@@ -585,19 +586,25 @@
         justify-content: center;
         align-items: center;
     }
-    .stitle{
-        font-size: 1.5em;
-        font-weight: bold;
-        color: #fff;
-    }
-    .scontent{
-        font-size: 0.8em;
-        color: #fff;
-        text-align: center;
-        padding: 2em 4em;
-        line-height: 1.7em;
-    }
+
     .sbutton{
+        width: 10%;
+        height: 40px;
+        border-radius: 24px;
+        border: none;
+        outline: none;
+        background-color: rgb(57,167,176);
+        color: #fff;
+        font-size: 0.9em;
+        cursor: pointer;
+        text-align: center;
+        margin: auto;
+        float: left;
+        left: 45%;
+
+    }
+
+    .changeButton{
         width: 60%;
         height: 40px;
         border-radius: 24px;
@@ -608,7 +615,6 @@
         font-size: 0.9em;
         cursor: pointer;
     }
-
     .big-box.active{
         left: 0;
         transition: all 0.5s;
@@ -623,11 +629,6 @@
         transition: all 1s;
     }
 
-    .login-button {
-        padding: 0 15px;
-        font-size: 16px;
-        height: 40px;
-        width: 100%;
-    }
+
 
 </style>
