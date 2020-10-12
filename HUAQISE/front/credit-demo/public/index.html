@@ -1,17 +1,636 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title><%= htmlWebpackPlugin.options.title %></title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<head>
+    <title>IM Credit</title>
+    <link href="style/style.css" rel="stylesheet" type="text/css"/>
+    <link href="style/top.css" rel="stylesheet" type="text/css"/>
+    <link href="style/Intro.css" rel="stylesheet" type="text/css"/>
+    <link href="style/fontAlter.css" rel="stylesheet" type="text/css"/>
+
+    <!--    导入jquery库-->
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/switch.js"></script>
+    <script src="js/js.js"></script>
+    <script src="js/jquery-1.8.2.min.js"></script>
+    <script src="js/switch.js"></script>
+    <script src="js/js.js"></script>
+    <!--    导入jquery库-->
+
+</head>
+
+<style>
+    html {
+        overflow: hidden;
+    }
+</style>
+
+<body>
+<!--首页顶部标题栏-->
+<div class="head">
+    <a href="#/home" class="logo_href back_to_index_entrance  back_to_index_entrance_title">
+        <img src="./images/logob.png" class="logo"/>
+        <script>$(function () {
+            $('.back_to_index_entrance').click(function () {
+                $('#app').fadeOut()
+                $('.toHide').fadeIn(500)
+            })
+        })</script>
+    </a>
+    <ul>
+        <li><a class="active back_to_index_entrance  back_to_index_entrance_title" href="#/home">首页<br/><span>首页</span></a>
+        </li>
+        <li class="nav_num1  back_to_index_entrance"><a>服务<br/><span>服务</span></a></li>
+        <li class="nav_num2  back_to_index_entrance"><a>指南<br/><span>指南</span></a></li>
+        <li class="nav_num3  back_to_index_entrance"><a>团队<br/><span>团队</span></a></li>
+        <li class="nav_num4  back_to_index_entrance"><a>客户<br/><span>客户</span></a></li>
+        <li class="nav_num5  back_to_index_entrance"><a>联系<br/><span>联系</span></a></li>
+    </ul>
+    <div class="titleUpRight">
+        <img src="./images/telw.png" alt=""/>
+        <span>njuse前端分队</span>
+    </div>
+    <div class="xiangying_nav"></div>
+</div>
+<!--首页顶部标题栏翻转效果-->
+<script>
+    $('.head ul li a').hover(function () {
+        $(this).stop().animate({'margin-top': '-30px'}, 200)
+    }, function () {
+        $(this).stop().animate({'margin-top': '0px'}, 200)
+    })
+</script>
+
+<!--非首页顶部的标题栏，要变灰-->
+<div class=" header">
+    <a href="#/home" class="logo_href">
+        <img src="./images/logob.png" class="logo nav_num0"/>
+    </a>
+    <ul>
+        <li><a class="active  nav_num0" id="header_title_index">首页<br/><span>首页</span></a></li>
+        <li class="nav_num1  back_to_index_entrance"><a>服务<br/><span>服务</span></a></li>
+        <li class="nav_num2  back_to_index_entrance"><a>指南<br/><span>指南</span></a></li>
+        <li class="nav_num3  back_to_index_entrance"><a>团队<br/><span>团队</span></a></li>
+        <li class="nav_num4  back_to_index_entrance"><a>客户<br/><span>客户</span></a></li>
+        <li class="nav_num5  back_to_index_entrance"><a>联系<br/><span>联系</span></a></li>
+    </ul>
+    <div class="titleUpRight">
+        <!--        <img src="./images/telw.png" alt=""/>-->
+        <span>njuse前端分队</span>
+    </div>
+</div>
+<!--非首页顶部的标题栏的翻转效果-->
+<script>
+    $(function () {
+        $('.header ul li a').hover(function () {
+            $(this).stop().animate({'margin-top': '-30px'}, 200)
+        }, function () {
+            $(this).stop().animate({'margin-top': '0px'}, 200)
+        })
+    })
+</script>
+<script>
+    $(function () {
+        $('#header_title_index').click(function () {
+            $('.header').hide()
+            $('.head').fadeIn()
+        })
+    })
+</script>
+
+<div class="num_box toHide">
+    <div class="num" id="num_0">
+        <div class="mask">
+            <div id="slideBox" class="slideBox">
+                <div class="hd">
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="bd">
+                    <ul>
+                        <li class="banner1">
+                            <div class="fangan" id="a3">
+                                <hgroup class="cool_font">
+                                    <h2 style="display: inline"><span>IM  &nbsp&nbsp  Credit</span></h2>
+                                    <h3><span>智能制造业企业评级系统</span></h3>
+                                    <h6></h6>
+                                    <h4><a href="#/login" class="entranceBtn" style="color: #ffffff">进入系统</a></h4>
+                                    <script>
+                                        $(function () {
+                                            $('.entranceBtn').fadeOut(800).fadeIn(800).fadeIn(800).fadeOut(800).fadeIn(800).fadeOut(800).fadeIn(800).fadeIn(800).fadeOut(800).fadeIn(800).fadeOut(800).fadeIn(800).fadeIn(800).fadeOut(800).fadeIn(800)
+                                        })
+                                    </script>
+                                    <script>
+                                        $(function () {
+                                            $('.entranceBtn').click(function () {
+                                                $('.toHide').fadeOut()
+                                                $('#app').fadeIn()
+                                            })
+                                        })
+                                    </script>
+                                </hgroup>
+                            </div>
+                        </li>
+                        <li>
+                            <div>
+                                <div class="fengxian" id="a1">
+                                    <div>
+                                        <img src="./images/fengxian.png" alt=""/>
+                                        <hgroup>
+                                            <h3 style="color: #ffffff">新兴领域</h3>
+                                            <h2><a href="#/login" class="entranceBtn" style="color: #ffffff">进入系统</a>
+                                            </h2>
+                                            <h3 style="color: #ffffff">更全面的评价体系</h3>
+
+                                        </hgroup>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="banner3">
+                            <div class="six" id="a2">
+                                <div>
+                                    <img src="./images/six2.png" alt="" class="sixb"/>
+                                    <img src="./images/six1.png" alt="" class="sixa"/>
+                                    <hgroup>
+                                        <h3>全面的评价体系<br/>精准的金融模型</h3>
+                                        <h2>666</h2>
+                                        <h4>评级数据公示 评级报告自动生成<br/>No zuo no die why you try
+                                        </h4>
+                                    </hgroup>
+                                </div>
+                            </div>
+                            <div class="another">
+
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <script src="js/jquery.SuperSlide.2.1.1.js"></script>
+            <script type="text/javascript">
+                // 轮播
+                $(".slideBox").slide({
+                    mainCell: ".bd ul", effect: "leftLoop", autoPlay: true,
+                    startFun: function (i, c) {
+                        del();
+                        switch (i) {
+                            case 0:
+                                $(".banner1 #a3").addClass('animation3');
+                                break;
+                            case 1:
+                                $("#a1").addClass('animation1');
+                                break;
+                            case 2:
+                                $(".banner3 #a2").addClass('animation2');
+                                $(".banner3 .another").addClass('animation2_1');
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                });
+            </script>
+            <script src="./js/jquery.easing.min.js" type="text/javascript"></script>
+            <script src="js/banner-1.js"></script>
+        </div>
+    </div>
+    <div class="num" id="num_1">
+        <div class="server">
+            <ul class="server_ul">
+                <li>
+                    <div class="server_cont">
+                        <div class="server_img server_img1">
+                            <img src="./images/search.png" alt="" class="sho"/>
+                            <img src="./images/search1.png" alt="" class="hid"/>
+                        </div>
+                        <p>搜索企业评级</p>
+                        <div class="server_intro">
+                            搜索目标企业评级
+                            <br>
+                            游客仅可查看评级 ，查看评级报告需登录
+                        </div>
+                    </div>
+                    <div class="server_mask">
+                        <div class="server_mask_div"></div>
+                    </div>
+                    <img src="./images/serv1.png" alt=""/>
+                </li>
+                <li>
+                    <div class="server_cont">
+                        <div class="server_img server_img2">
+                            <img src="./images/exhibit.png" alt="" class="sho"/>
+                            <img src="./images/exhibit1.png" alt="" class="hid"/>
+                        </div>
+                        <p>评级数据公示</p>
+                        <div class="server_intro">
+                            全面展示参评企业数量以及企业可公开部分评级信息
+                        </div>
+                    </div>
+                    <div class="server_mask">
+                        <div class="server_mask_div"></div>
+                    </div>
+                    <img src="./images/serv2.png" alt=""/>
+                </li>
+                <li>
+                    <div class="server_cont">
+                        <div class="server_img server_img3">
+                            <img src="./images/pdf_icon.png" alt="" class="sho"/>
+                            <img src="./images/wrod_icon.png" alt="" class="hid"/>
+                        </div>
+                        <p>申请评级报告</p>
+                        <div class="server_intro">
+                            pdf - word 格式信用评估报告 一键生成
+                        </div>
+                    </div>
+                    <div class="server_mask">
+                        <div class="server_mask_div"></div>
+                    </div>
+                    <img src="./images/serv3.png" alt=""/>
+                </li>
+                <li>
+                    <div class="server_cont">
+                        <div class="server_img">
+                            <img src="./images/diannao1.png" alt="" class="sho"/>
+                            <img src="./images/diannao.png" alt="" class="hid"/>
+                        </div>
+                        <p>注册登录</p>
+                        <div class="server_intro">
+                            游客只能查看信用等级
+                            <br>
+                            注册以获得查看评级报告的权限
+                        </div>
+                    </div>
+                    <div class="server_mask">
+                        <div class="server_mask_div"></div>
+                    </div>
+                    <img src="./images/serv4.png" alt=""/>
+                </li>
+                <li>
+                    <div class="server_cont">
+                        <div class="server_img">
+                            <img src="./images/email.png" alt="" class="sho"/>
+                            <img src="./images/email1.png" alt="" class="hid"/>
+                        </div>
+                        <p>联系我们</p>
+                        <div class="server_intro">
+                            联系我们，获取更多帮助
+                        </div>
+                    </div>
+                    <div class="server_mask">
+                        <div class="server_mask_div"></div>
+                    </div>
+                    <img src="./images/serv5.png" alt=""/>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        $('.server ul li').hover(function () {
+            $(this).find('.server_mask').stop().animate({height: '100%'}, 'slow')
+        }, function () {
+            $(this).find('.server_mask').stop().animate({height: '0%'})
+        })
+    </script>
+    <div class="num" id="num_2">
+        <div class="case">
+            <div class="case-top width_1000">
+                <div class="case-top-left" style="font-family: jump_cool">
+                    <p class="case-top-left-top">参评智能制造企业数量</p>
+                    <p class="case-top-left-bottom">更精准的评价金融模型</p>
+                </div>
+                <div class="case-top-right" style="font-family: jump_cool; color: #42b983">
+                    <span></span><sup>+</sup>
+                </div>
+            </div>
+            <div class="case_ul_wrap">
+                <ul class="case_ul">
+                    <li>
+                        <a href="">
+                            <div class="show">
+                                <img src="./images/icons.png" alt=""/>
+                            </div>
+                            <img src="./images/zhinan01.png" alt=""/>
+                            <div class="auto">
+                                <h4 style="font-size: 18px">信用报告生成教程</h4>
+                                <span style="font-size: 16px">pdf    word 快速上手 ！</span>
+                                <div class="auto_mask"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="case_ul">
+                    <li>
+                        <a href="">
+                            <div class="show">
+                                <img src="./images/icons.png" alt=""/>
+                            </div>
+                            <img src="./images/case02.jpg" alt=""/>
+                            <div class="auto">
+                                <h4 style="font-size: 18px">公司注册、参评指南</h4>
+                                <span style="font-size: 16px">公司如何提交文件参与信用评估 ？</span>
+                                <div class="auto_mask"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="case_ul">
+                    <li>
+                        <a href="">
+                            <div class="show">
+                                <img src="./images/icons.png" alt=""/>
+                            </div>
+                            <img src="./images/case03.jpg" alt=""/>
+                            <div class="auto">
+                                <h4 style="font-size: 18px">关于企业评级隐私</h4>
+                                <span style="font-size: 16px">商业数据泄露是否会泄露 ？</span>
+                                <div class="auto_mask"></div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <script language="javascript">
+                jQuery(".mr_frbox1").slide({
+                    titCell: "",
+                    mainCell: ".mr_frUl1 ul",
+                    autoPage: true,
+                    effect: "leftLoop",
+                    autoPlay: true,
+                    vis: 1
+                });
+            </script>
+
+
+            <!--            <div class="case-bottm"><a href="list-case.html" style="display:block;width:100%;height:100%;"></a></div>-->
+        </div>
+    </div>
+    <div class="num" id="num_3">
+        <div class="team width_1000">
+            <div class="title team-title">
+                <img src="./images/team.png" alt=""/>
+            </div>
+        </div>
+        <div class="teachshow">
+            <div id="teach" class="mr_frbox">
+                <img class="mr_frBtnL prev" style="height:70%;width: 5% ;" src="./images/prev.png">
+                <div class="mr_frUl">
+                    <ul>
+                        <li>
+                            <a href="#">
+                                <img src="./images/lhf1.png"/>
+                                <img src="./images/lhf.png"/>
+                            </a>
+                            <div>
+                                <h4>刘海飞</h4>
+                                <p>南京大学金融工程教授<br/>管理学博士,中共党员</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <img src="./images/xwy.png"/>
+                                <img src="./images/xwy.png"/>
+                            </a>
+                            <div>
+                                <h4>徐文宇</h4>
+                                <p>花旗杯队长<br>金融组</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <img src="./images/zzx.png"/>
+                                <img src="./images/zzx.png"/>
+                            </a>
+                            <div>
+                                <h4>赵志翔</h4>
+                                <p>软件组leader<br/>南京大学软件学院</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./images/lzy.png"/>
+                                <img src="./images/lzy.png"/>
+                            </a>
+                            <div>
+                                <h4>刘子仰</h4>
+                                <p>软件组<br/>南京大学软件学院</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./images/zrx.png"/>
+                                <img src="./images/zrx.png"/>
+                            </a>
+                            <div>
+                                <h4>周润兴</h4>
+                                <p>软件组<br/>南京大学软件学院</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <img src="./images/yyf.png"/>
+                                <img src="./images/yyf.png"/>
+                            </a>
+                            <div>
+                                <h4>袁易锋</h4>
+                                <p>软件组<br/>南京大学软件学院</p>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="#">
+                                <img src="./images/pj.png"/>
+                                <img src="./images/pj.png"/>
+                            </a>
+                            <div>
+                                <h4>潘江</h4>
+                                <p>软件组<br/>南京大学软件学院</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="./images/xj.png"/>
+                                <img src="./images/xj.png"/>
+                            </a>
+                            <div>
+                                <h4>徐婧</h4>
+                                <p>软件组<br/>南京大学计算机科学与技术系</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <img class="mr_frBtnR next" style="height:70%;width: 5%;" src="./images/next.png">
+            </div>
+        </div>
+    </div>
+    <script language="javascript">
+        jQuery(".mr_frbox").slide({
+            titCell: "",
+            mainCell: ".mr_frUl ul",
+            autoPage: false,
+            effect: "leftLoop",
+            autoPlay: false,
+            vis: 4
+        });
+    </script>
+
+
+    <div class="num" id="num_5">
+        <div class="cust">
+            <div class="title cust-title width_1000">
+                <img src="./images/cust.png" alt=""/>
+            </div>
+            <div class="pic-cont">
+                <div class="v_out v_out_p">
+<!--                    <div class="prev"><a href="javascript:void(0)"></a></div>-->
+                    <div class="v_show">
+                        <div class="v_cont">
+                            <ul>
+                                <li>
+                                    <div>
+                    <span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span>
+                                        <span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span><span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span>
+                                        <span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span>
+                                        <span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span>
+                                    </div>
+                                    <div>
+                   <span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span><span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span><span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span><span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span><span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                    <span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span><span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span><span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span><span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span><span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span>
+                                    </div>
+                                    <div>
+
+                      <span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span><span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span><span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span><span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span><span>
+                      <img src="./images/logo1.png" alt=""/>
+                    </span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <script type="text/javascript" src="js/gundong.js"></script>
+                        <script language="javascript">
+                            jQuery(".ml_frbox").slide({
+                                titCell: "",
+                                mainCell: ".mr_frUl ul",
+                                autoPage: true,
+                                effect: "leftLoop",
+                                autoPlay: true,
+                                vis: 5
+                            });
+                        </script>
+                        <script type="text/javascript" src="js/gundong1.js"></script>
+                        <script language="javascript">
+                            jQuery(".ml_frbox").slide({
+                                titCell: "",
+                                mainCell: ".mr_frUl ul",
+                                autoPage: true,
+                                effect: "leftLoop",
+                                autoPlay: true,
+                                vis: 5
+                            });
+                        </script>
+                    </div>
+                    <div class="next"><a href="javascript:void(0)"></a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="num" id="num_6">
+        <div class="cont">
+            <div class="cont-cont width_1000">
+                <div class="title cust-title">
+                    <img src="./images/cont.png" alt=""/>
+                </div>
+                <div class="cont-left">
+                    <div class="connect">
+                        <img src="./images/connect.png" alt=""/>
+                        <div>
+                            电话<br/>
+                            南京大学 86-25-89683186
+                        </div>
+                    </div>
+                    <div class="address">
+                        <img src="./images/address.png" alt=""/>
+                        <div>
+                            地址<br/>
+                            南京市栖霞区仙林大道163号
+                        </div>
+                    </div>
+                    <div class="email">
+                        <img src="./images/email_contact.png" alt=""/>
+                        <div>
+                            邮箱<br/>
+                            IMCredit@smail.nju.edu.cn
+                        </div>
+                    </div>
+                </div>
+<!--                <img src="./images/num1_bg.jpg" alt="" class="cont-right"/>-->
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<!--便于翻页的-->
+<input type="hidden" value="0" class="ddw">
+<input type="hidden" value="0" class="ddw2">
+<script type="text/javascript" src="js/scroll.js"></script>
+<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+
+
+<noscript>
+    <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
+        Please enable it to continue.</strong>
+</noscript>
+<div id="app"></div>
+</body>
 </html>

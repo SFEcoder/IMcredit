@@ -1,0 +1,21 @@
+/*设置顶部导航栏样式*/
+.head, .header{font-size: 18px;line-height:30px;height:67px;background: rgba(105,0,75, 0.8);color:lightgray;position: absolute;width:100%;z-index: 66}
+.head ul,.header ul{overflow: hidden;text-align: center;margin-top: 18px;}
+.head ul li,.header ul li{margin:0 30px;display: inline-block;font-size: 0;height:30px;overflow: hidden;}
+.head ul li:last-child,.header ul li:last-child{margin-right: 0}
+.head ul li a,.header ul li a{display: block;color:inherit;font-size: 18px;cursor: pointer;}
+.head ul li a:hover,.header ul li a.active,.header ul li a:hover{color:#ffffff; font-weight: bold}
+/*顶部导航栏标题样式*/
+.logo_href{position:absolute;height: 100%;display: block;top: 10%;text-align: left;left: 25px;}
+.logo{height: 80%}
+
+/*非首页顶部导航栏的背景*/
+.header {background: url(../images/mask.png) repeat;color:#fff;display: none;}
+.header ul li a.active{color: #f3f3f3}
+.header ul li a:hover{color:rgb(105,0,75);}
+
+/*右边标题*/
+.titleUpRight{position:absolute;width:200px;line-height: 65px;text-align: right;right: 25px;top: 0px;}
+.titleUpRight img{vertical-align: middle;}
+.titleUpRight span{vertical-align: middle;font-size: 18px;color: #ffffff;}
+.header .titleUpRight span{color: #fff;}

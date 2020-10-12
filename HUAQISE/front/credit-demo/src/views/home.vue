@@ -1,20 +1,24 @@
 <template>
     <div class="home">
 
-        <a-button class="button_style" type="primary" size="large" @click="jumpToLogin">登录</a-button>
-        <a-button class="button_style" type="primary" size="large">合作</a-button>
     </div>
 </template>
 
 <script>
-
+    import { mapGetters, mapMutations, mapActions } from 'vuex'
     export default {
+
         name: 'Home',
 
         methods: {
+            ...mapActions([
+                'test',
+            ]),
             jumpToLogin(){
+                this.test()
                 // this.$router.push(`/login?redirect='/credit/main'`)
                 this.$router.push(`/login`)
+
             }
         }
     }

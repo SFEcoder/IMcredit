@@ -1,10 +1,12 @@
 package com.example.user.controller.user;
 
 import com.example.common.vo.ResponseVO;
+import com.example.user.api.UserServiceClient;
 import com.example.user.bl.user.UserService;
 import com.example.user.vo.UserForm;
 import com.example.user.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -17,6 +19,7 @@ public class UserController {
     private final static String ACCOUNT_INFO_ERROR = "用户名或密码错误";
     @Autowired
     private UserService userService;
+
 
     @PostMapping("/login")
     public ResponseVO login(@RequestBody UserForm userForm){
@@ -46,5 +49,6 @@ public class UserController {
         }
         return ResponseVO.buildSuccess(user);
     }
+    
 
 }

@@ -1,6 +1,7 @@
 package com.example.user.blImpl.user;
 
 import com.example.common.cache.RedisCacheClient;
+import com.example.user.api.UserServiceClient;
 import com.example.user.bl.user.UserService;
 import com.example.user.data.user.UserMapper;
 import com.example.user.po.User;
@@ -26,7 +27,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private RedisCacheClient redisCacheClient;
-
 
     @Autowired
     private UserMapper userMapper;

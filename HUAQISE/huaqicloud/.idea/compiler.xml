@@ -9,6 +9,7 @@
         <module name="eurake-server" />
         <module name="common" />
         <module name="zuul-gateway" />
+        <module name="service-enterprise" />
         <module name="service-user" />
       </profile>
     </annotationProcessing>
@@ -18,6 +19,7 @@
       <module name="common" options="-parameters" />
       <module name="eurake-server" options="-parameters" />
       <module name="huaqicloud" options="-parameters" />
+      <module name="service-enterprise" options="-parameters" />
       <module name="service-user" options="-parameters" />
       <module name="zuul-gateway" options="-parameters" />
     </option>
