@@ -35,3 +35,6 @@ mybatis:
   mapper-locations: classpath:dataImpl/*/*Mapper.xml
 server:
   port: 8000
+
+swagger:
+  enable: true

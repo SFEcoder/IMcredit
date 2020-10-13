@@ -1,7 +1,7 @@
 package com.example.user.blImpl.user;
 
 import com.example.common.cache.RedisCacheClient;
-import com.example.user.api.UserServiceClient;
+import com.example.common.vo.ResponseVO;
 import com.example.user.bl.user.UserService;
 import com.example.user.data.user.UserMapper;
 import com.example.user.po.User;
@@ -11,7 +11,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import com.example.common.vo.ResponseVO;
 
 /**
  * @Author: zzx
@@ -36,14 +35,14 @@ public class UserServiceImpl implements UserService {
         String email=userForm.getEmail();
         User user=userMapper.getUserByEmail(email);
         if(user==null){
-            return ResponseVO.buildFailure(ACCOUNT_NOT_EXIST);
+            return new ResponseVO<>(null,ACCOUNT_NOT_EXIST);
         }else if(!userForm.getPassword().equals(user.getPassword())){
-            return ResponseVO.buildFailure(PASSWORD_INCORRECT);
+            return new ResponseVO<>(null,PASSWORD_INCORRECT);
         }else{
             log.info(user.getUsername()+" login successfully with password " +user.getPassword());
             UserVO userVO=new UserVO();
             BeanUtils.copyProperties(user,userVO);
-            return ResponseVO.buildSuccess(userVO);
+            return new ResponseVO<>(userVO);
         }
     }
 
@@ -52,37 +51,24 @@ public class UserServiceImpl implements UserService {
         User user=new User();
         BeanUtils.copyProperties(userVO,user);
         user.setAvatarUrl("https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c");
-        try {
-            userMapper.createNewUser(user);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-            return ResponseVO.buildFailure(ACCOUNT_EXIST);
+        int effect = userMapper.createNewUser(user);
+        if(effect>0){
+            return new ResponseVO<>(true);
+        }else{
+            return new ResponseVO(null,"注册失败");
         }
-        return ResponseVO.buildSuccess();
     }
 
     @Override
-    public ResponseVO updateUser(UserVO userVO) {
+    public Integer updateUser(UserVO userVO) {
         User user=new User();
         BeanUtils.copyProperties(userVO,user);
-        try {
-            userMapper.updateUser(user);
-            return ResponseVO.buildSuccess("更新成功");
-        } catch (Exception e) {
-            return ResponseVO.buildFailure("更新失败");
-        }
-
+        return  userMapper.updateUser(user);
     }
 
     @Override
-    public ResponseVO deleteUserById(Integer id) {
-        try {
-            userMapper.deleteUserById(id);
-            return ResponseVO.buildSuccess("删除成功");
-        } catch (Exception e) {
-            return ResponseVO.buildFailure("删除失败");
-        }
-
+    public Integer deleteUserById(Integer id) {
+        return userMapper.deleteUserById(id);
     }
 
     @Override

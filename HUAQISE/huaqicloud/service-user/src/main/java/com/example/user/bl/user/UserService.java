@@ -1,8 +1,8 @@
 package com.example.user.bl.user;
 
+import com.example.common.vo.ResponseVO;
 import com.example.user.vo.UserForm;
 import com.example.user.vo.UserVO;
-import com.example.common.vo.ResponseVO;
 
 /**
  * @Author: zzx
@@ -32,7 +32,7 @@ public interface UserService {
      * @param userVO
      * @return com.example.credit.com.example.common.vo.UserVO
      */
-    ResponseVO updateUser(UserVO userVO);
+    Integer updateUser(UserVO userVO);
 
     /**
      * description: 根据用户id删除用户
@@ -40,7 +40,7 @@ public interface UserService {
      * @param id
      * @return com.example.credit.com.example.common.vo.ResponseVO
      */
-    ResponseVO deleteUserById(Integer id);
+    Integer deleteUserById(Integer id);
 
     /**
      * description: 根据id返回相应的用户信息

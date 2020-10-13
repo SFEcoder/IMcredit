@@ -1,12 +1,10 @@
 package com.example.enterprise.blImpl.enterprise;
 
-import com.example.common.vo.ResponseVO;
 import com.example.enterprise.bl.enterprise.EnterpriseService;
 import com.example.enterprise.dao.enterprise.EnterpriseMapper;
 import com.example.enterprise.po.Enterprise;
 import com.example.enterprise.vo.EnterpriseForm;
 import com.example.enterprise.vo.EnterpriseVO;
-import com.netflix.discovery.converters.Auto;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,44 +26,32 @@ public class EnterpriseServiceImpl implements EnterpriseService {
     private EnterpriseMapper enterpriseMapper;
 
     @Override
-    public ResponseVO login(EnterpriseForm enterpriseForm) {
+    public EnterpriseVO login(EnterpriseForm enterpriseForm) {
         String email=enterpriseForm.getEmail();
         String password = enterpriseForm.getPassword();
         Enterprise enterprise=enterpriseMapper.getEnterpriseByEmail(email);
         if(enterprise == null){
-            return ResponseVO.buildFailure("该邮箱地址无效");
+            return null;
         }else if(!password.equals(enterprise.getPassword())){
-            return ResponseVO.buildFailure("输入密码不正确，请重新输入");
+            return null;
         }else{
             EnterpriseVO enterpriseVO=new EnterpriseVO();
             BeanUtils.copyProperties(enterprise,enterpriseVO);
-            return ResponseVO.buildSuccess(enterpriseVO);
+            return enterpriseVO;
         }
 
     }
 
     @Override
-    public ResponseVO createNewEnterPrise(EnterpriseVO enterpriseVO) {
+    public Integer createNewEnterPrise(EnterpriseVO enterpriseVO) {
         Enterprise enterprise=new Enterprise();
         BeanUtils.copyProperties(enterpriseVO,enterprise);
-        try {
-            enterpriseMapper.insertEnterprise(enterprise);
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-            return ResponseVO.buildFailure(SIGN_UP_FAIL);
-        }
-        return ResponseVO.buildSuccess(SIGN_UP_SUCCESS);
+        return enterpriseMapper.insertEnterprise(enterprise);
     }
 
     @Override
-    public ResponseVO deleteEnterPrise(Integer id) {
-        try {
-            enterpriseMapper.deleteEnterprise(id);
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-            return ResponseVO.buildFailure("删除企业失败");
-        }
-        return ResponseVO.buildSuccess("删除企业成功");
+    public Integer deleteEnterPrise(Integer id) {
+        return enterpriseMapper.deleteEnterprise(id);
     }
 
     @Override
@@ -81,21 +67,14 @@ public class EnterpriseServiceImpl implements EnterpriseService {
     }
 
     @Override
-    public ResponseVO updateEnterprise(EnterpriseVO enterpriseVO) {
+    public Integer updateEnterprise(EnterpriseVO enterpriseVO) {
         if (null == enterpriseVO){
-            return ResponseVO.buildFailure(UPDATE_FAILURE);
+            return 0;
         }else {
             Enterprise enterprise = new Enterprise();
             BeanUtils.copyProperties(enterpriseVO,enterprise);
-            try {
-                enterpriseMapper.updateEnterprise(enterprise);
-            }catch (Exception e){
-                System.out.println(e.getMessage());
-                return ResponseVO.buildFailure(UPDATE_FAILURE);
-            }
+            return enterpriseMapper.updateEnterprise(enterprise);
         }
-
-        return ResponseVO.buildSuccess("更新成功");
     }
 
 

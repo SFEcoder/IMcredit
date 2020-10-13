@@ -1,7 +1,5 @@
 package com.example.enterprise.bl.enterprise;
 
-import com.example.common.vo.ResponseVO;
-import com.example.enterprise.po.Enterprise;
 import com.example.enterprise.vo.EnterpriseForm;
 import com.example.enterprise.vo.EnterpriseVO;
 
@@ -16,21 +14,21 @@ public interface EnterpriseService {
      * @param enterpriseForm
      * @return
      */
-     ResponseVO login(EnterpriseForm enterpriseForm);
+     EnterpriseVO login(EnterpriseForm enterpriseForm);
 
     /**
      * 注册新的企业
      * @param enterpriseVO
      * @return
      */
-     ResponseVO createNewEnterPrise(EnterpriseVO enterpriseVO);
+     Integer createNewEnterPrise(EnterpriseVO enterpriseVO);
 
     /**
      * 从数据库中删除某个企业
      * @param id
      * @return
      */
-     ResponseVO deleteEnterPrise(Integer id);
+    Integer deleteEnterPrise(Integer id);
 
     /**
      * 根据Id去获取某个企业
@@ -45,5 +43,5 @@ public interface EnterpriseService {
      * @param enterpriseVO
      * @return
      */
-     ResponseVO updateEnterprise(EnterpriseVO enterpriseVO);
+     Integer updateEnterprise(EnterpriseVO enterpriseVO);
 }
