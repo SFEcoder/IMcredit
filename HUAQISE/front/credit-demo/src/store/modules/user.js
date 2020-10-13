@@ -57,13 +57,19 @@ const user = {//定义对象user
             console.log('解密后'+str_de)
         },
         login: async ({dispatch , commit} , userData) => {
-            const res = await loginAPI(userData)
-            if (res) {
-                setToken(res.id)//从'@/utils/auth'中导入的方法
-                commit('set_userId' , res.id)
-                dispatch('getUserInfo')
-                router.push('/credit/main')//mutations的方法用commit，actions的方法用dispatch
-            }
+            // const res = await loginAPI(userData)
+            // if (res) {
+            //     setToken(res.id)//从'@/utils/auth'中导入的方法
+            //     commit('set_userId' , res.id)
+            //     dispatch('getUserInfo')
+            //     router.push('/credit/main')//mutations的方法用commit，actions的方法用dispatch
+            // }
+
+            //假数据
+            setToken('1')
+            commit('set_userId' , '1')
+            dispatch('getUserInfo')
+            router.push('/credit/main')
         } ,
 
         register: async ({commit},data) => {
@@ -74,18 +80,31 @@ const user = {//定义对象user
         } ,
         getUserInfo({state , commit}) {
             return new Promise((resolve , reject) => {
-                getUserInfoAPI(state.userId).then(response => {
-                    const data = response
-                    if (!data) {
-                        reject('登录已过期，请重新登录')
-                    }
-                    commit('set_userInfo' , data)
-                    commit('set_userId' , data.id)
-                    console.log('getUserInfo')
-                    resolve(data)
-                }).catch(error => {
-                    reject(error)
-                })
+                // getUserInfoAPI(state.userId).then(response => {
+                //     const data = response
+                //     if (!data) {
+                //         reject('登录已过期，请重新登录')
+                //     }
+                //     commit('set_userInfo' , data)
+                //     commit('set_userId' , data.id)
+                //     console.log('getUserInfo')
+                //     resolve(data)
+                // }).catch(error => {
+                //     reject(error)
+                // })
+
+                //假数据
+                const data = {
+                    id:'1',
+                    email:'C1@qq.com',
+                    password:'123456',
+                    phoneNumber:'123456789',
+                    userType: 'Client',
+                    avatarUrl:'https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c'
+                }
+                commit('set_userInfo' , data)
+                commit('set_userId' , data.id)
+                resolve(data)
             })
         } ,
         updateUserInfo: async ({state , dispatch} , data) => {

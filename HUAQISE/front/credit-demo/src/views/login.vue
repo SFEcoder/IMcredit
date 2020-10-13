@@ -1,164 +1,334 @@
 <template>
-    <div class="main">
-        <div class="top">
-            <div>
-                <div>
-                    <img src="@/assets/temp.jpg" style="height: 200px;
-
-            vertical-align: top;
-            margin-right: 16px;
-            border-style: none;" alt="logo" >
-
-                </div>
-                <span style="font-size: 33px;
-            color: rgba(0, 0, 0, .85);
-            font-family: Avenir, 'Helvetica Neue', Arial, Helvetica, sans-serif;
-            font-weight: 600;
-            position: relative;
-            top: 2px;">NJU智能信用评估系统</span>
-            </div>
-            <div class="desc">
-
-            </div>
-        </div>
-        <div class="desc">
-            <a-form
-                    id="formLogin"
-                    class="user-layout-login"
-                    ref="formLogin"
-                    :form="form"
-            >
-                <a-tabs
-                        :activeKey="customActiveKey"
-                        :tabBarStyle="{ textAlign: 'center', borderBottom: 'unset' }"
-                        @change="handleTabClick"
+    <div class="login-register">
+        <!--        <div class="contain">-->
+        <div class="big-box" :class="{active:isLogin}" id="big">
+            <div class="big-contain" v-if="isLogin">
+                <a-form
+                        class="user-layout-login"
+                        ref="formLogin"
+                        :form="form"
                 >
-                    <a-tab-pane key="tab1" tab="账号密码登录">
-                        <a-form-item>
-                            <a-input
-                                    size="large"
-                                    type="text"
-                                    placeholder="邮箱"
-                                    v-decorator="[
+                    <div class="loginBox">
+
+                    </div>
+                    <div class="btitle">
+                        登录
+                    </div>
+                    <a-form-item>
+                        <a-input
+                                size="default"
+                                type="text"
+                                style="width: 300px"
+                                placeholder="邮箱"
+                                v-decorator="[
                 'username',
                 {rules: [{ required: true, message: '请输入邮箱地址' }], validateTrigger: 'blur'}
               ]"
-                            >
-                                <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                            </a-input>
-                        </a-form-item>
-
-                        <a-form-item>
-                            <a-input
-                                    size="large"
-                                    type="password"
-                                    autocomplete="false"
-                                    placeholder="密码"
-                                    v-decorator="[
+                        >
+                            <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                        </a-input>
+                    </a-form-item>
+                    <a-form-item>
+                        <a-input
+                                size="default"
+                                type="password"
+                                style="width: 300px"
+                                autocomplete="false"
+                                placeholder="密码"
+                                v-decorator="[
                 'password',
                 {rules: [{ required: true, message: '请输入密码' }], validateTrigger: 'blur'}
               ]"
-                            >
-                                <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                            </a-input>
-                        </a-form-item>
-                        <a-form-item style="margin-top:24px">
-                            <a-button
-                                    size="large"
-                                    type="primary"
-                                    class="login-button"
-                                    :loading="loginLoading"
-                                    @click="handlelogin()"
-                            >确定</a-button>
-                        </a-form-item>
-                    </a-tab-pane>
-
-                    <a-tab-pane key="tab2" tab="注册新账号">
-                        <a-form-item>
+                        >
+                            <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                        </a-input>
+                    </a-form-item>
+                    <!--验证码-->
+                    <a-row>
+                        <a-col :span="13"
+                        >
                             <a-input
-                                    size="large"
-                                    type="email"
-                                    placeholder="邮箱"
-                                    v-decorator="[
+                                    placeholder="验证码"
+                                    v-model="code"
+                                    clearable
+                                    prop="Identify"
+                            >
+                            </a-input>
+                        </a-col>
+                        <a-col :span="10" style="margin-left: 12px">
+                            <div class="code" @click="refreshCode">
+                                <Identify :identifyCode="identifyCode"></Identify>
+                            </div>
+                        </a-col>
+                    </a-row>
+                    <!--确定按钮-->
+                    <a-form-item style="margin-top:24px" >
+                        <a-button
+                                size="default"
+                                type= "primary"
+                                class="bbutton"
+                                :loading="loginLoading"
+                                @click="handlelogin()"
+                        >确定</a-button>
+                    </a-form-item>
+
+                </a-form>
+            </div>
+
+            <div class="big-contain" v-else>
+                <a-form
+                        id="formLogin"
+                        class="user-layout-login"
+                        ref="formLogin"
+                        :form="form"
+                >
+                    <div class="btitle" >
+                        注册
+                    </div>
+                    <a-tabs
+                            :activeKey="customActiveKey"
+                            :tabBarStyle="{ textAlign: 'center', borderBottom: 'unset' }"
+                            @change="handleTabClick"
+                    >
+                        <a-tab-pane key="tab1" tab="个人">
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        type="email"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        placeholder="邮箱"
+                                        v-decorator="[
               'registerUserMail',
               {rules: [{ required: true, type: 'email', message: '请输入邮箱' }], validateTrigger: 'blur'}]">
-                                <a-icon slot="prefix" type="mail" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                            </a-input>
-                        </a-form-item>
-                        <a-form-item>
-                            <a-input
-                                    size="large"
-                                    placeholder="用户名"
-                                    v-decorator="[
+                                    <a-icon slot="prefix" type="mail" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        placeholder="用户名"
+                                        v-decorator="[
               'registerUsername',
               {rules: [{ required: true, message: '请输入用户名' }], validateTrigger: 'blur'}]">
-                                <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                            </a-input>
-                        </a-form-item>
-                        <a-form-item>
-                            <a-input
-                                    size="large"
-                                    placeholder="手机号"
-                                    v-decorator="[
+                                    <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        placeholder="手机号"
+                                        v-decorator="[
               'registerPhoneNumber',
               {rules: [{ required: true, message: '请输入手机号' }], validateTrigger: 'blur'}]">
-                                <a-icon slot="prefix" type="book" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                            </a-input>
-                        </a-form-item>
-                        <a-form-item>
-                            <a-input
-                                    size="large"
-                                    type="password"
-                                    placeholder="密码"
-                                    v-decorator="[
+                                    <a-icon slot="prefix" type="book" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        type="password"
+                                        placeholder="密码"
+                                        v-decorator="[
                 'registerPassword',
                 {rules: [{ required: true, message: '请输入密码' }, { validator: this.handlePassword }], validateTrigger: 'blur'}]">
-                                <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                            </a-input>
-                        </a-form-item>
-                        <a-form-item>
-                            <a-input
-                                    size="large"
-                                    type="password"
-                                    placeholder="确认密码"
-                                    v-decorator="[
+                                    <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        type="password"
+                                        placeholder="确认密码"
+                                        v-decorator="[
                 'registerPasswordconfirm',
                 {rules: [{ required: true, message: '请输入密码' }, { validator: this.handlePasswordCheck }], validateTrigger: 'blur'}]">
-                                <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                            </a-input>
-                        </a-form-item>
-                        <a-form-item style="margin-top:24px">
-                            <a-button
-                                    size="large"
-                                    type="primary"
-                                    class="login-button"
-                                    :loading="registerLoading"
-                                    @click="handleRegister()"
-                            >确定</a-button>
-                        </a-form-item>
-                    </a-tab-pane>
-                </a-tabs>
-            </a-form>
+                                    <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
+                            <a-form-item style="margin-top:24px" >
+                                <a-button
+                                        size="default"
+                                        type= "primary"
+                                        class="sbutton"
+                                        :loading="loginLoading"
+                                        @click="handleRegister()"
+                                >确定</a-button>
+                            </a-form-item>
+                        </a-tab-pane>
+
+                        <a-tab-pane key="tab2" tab="企业">
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        type="email"
+                                        placeholder="企业全称"
+                                        v-decorator="[
+              'registerUserMail',
+              {rules: [{ required: true, type: 'email', message: '请输入企业全称' }], validateTrigger: 'blur'}]">
+                                    <a-icon slot="prefix" type="mail" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        placeholder="企业注册号/信用码"
+                                        v-decorator="[
+              'registerUsername',
+              {rules: [{ required: true, message: '请输入企业注册号/信用码' }], validateTrigger: 'blur'}]">
+                                    <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        placeholder="企业联系人"
+                                        v-decorator="[
+              'registerPhoneNumber',
+              {rules: [{ required: true, message: '请输入企业联系人' }], validateTrigger: 'blur'}]">
+                                    <a-icon slot="prefix" type="book" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        type="email"
+                                        placeholder="邮箱"
+                                        v-decorator="[
+              'registerPhoneNumber',
+              {rules: [{ required: true, message: '请输入邮箱' }], validateTrigger: 'blur'}]">
+                                    <a-icon slot="prefix" type="book" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        placeholder="联系方式"
+                                        v-decorator="[
+              'registerPhoneNumber',
+              {rules: [{ required: true, message: '请输入联系方式' }], validateTrigger: 'blur'}]">
+                                    <a-icon slot="prefix" type="book" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
+
+
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        type="password"
+                                        placeholder="密码"
+                                        v-decorator="[
+                'registerPassword',
+                {rules: [{ required: true, message: '请输入密码' }, { validator: this.handlePassword }], validateTrigger: 'blur'}]">
+                                    <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        type="password"
+                                        placeholder="确认密码"
+                                        v-decorator="[
+                'registerPasswordconfirm',
+                {rules: [{ required: true, message: '请输入密码' }, { validator: this.handlePasswordCheck }], validateTrigger: 'blur'}]">
+                                    <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
+                            <div class="clearfix">
+                                <a-upload
+                                        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                                        list-type="picture-card"
+                                        style="left: 500px"
+                                        :file-list="fileList"
+                                        @preview="handlePreview"
+                                        @change="handleChange"
+                                >
+                                    <div v-if="fileList.length < 8">
+                                        <a-icon type="plus" />
+                                        <div class="ant-upload-text">
+                                            营业执照
+                                        </div>
+                                    </div>
+                                </a-upload>
+                                <a-modal :visible="previewVisible" :footer="null" @cancel="handleCancel">
+                                    <img alt="example" style="width: 100%" :src="previewImage" />
+                                </a-modal>
+                            </div>
+                            <a-form-item style="margin-top:24px" >
+                                <a-button
+                                        size="default"
+                                        type= "primary"
+                                        class="sbutton"
+                                        :loading="loginLoading"
+                                        @click="handleRegister()"
+                                >确定</a-button>
+                            </a-form-item>
+                        </a-tab-pane>
+                    </a-tabs>
+                </a-form>
+            </div>
         </div>
-
-
+        <div class="small-box" :class="{active:isLogin}" id="small">
+            <div class="small-contain" v-if="isLogin">
+                <button class="changeButton" @click="changeType">注册</button>
+            </div>
+            <div class="small-contain" v-else>
+                <button class="changeButton" @click="changeType">登录</button>
+            </div>
+        </div>
     </div>
+    <!--    </div>-->
 </template>
 
 <script>
-    import { mapGetters, mapActions, mapMutations } from 'vuex'
+    import { message } from 'ant-design-vue'
+    import Identify from '../components/SIdentify.vue'
+    import {mapActions, mapGetters} from "vuex";
+    function getBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+    }
 
-    export default {
-        name: 'login',
-        components: {
+    export default{
+        name:'login-register',
 
-        },
-        data () {
+        data(){
             return {
-                customActiveKey: 'tab1',
+                previewVisible: false,
+                previewImage: '',
+                fileList: [],
+
+
+                //验证码
+                code: '',
+                // 随机抽取四位数
+                identifyCodes: '1234567890abcdef',
+                identifyCode: '',
+                checked: false,
+                //验证码
+
+                customActiveKey : 'tab1',
                 loginLoading: false,
                 registerLoading: false,
                 form: this.$form.createForm(this),
+                isLogin:true,
+                emailError: false,
+                passwordError: false,
+                existed: false,
             }
         },
         computed: {
@@ -166,9 +336,14 @@
                 'token',
             ])
         },
-        mounted() {
-
+        components:{
+            Identify
         },
+        mounted() {
+            this.identifyCode = ''
+            this.makeCode(this.identifyCodes, 4)
+        },
+
         watch: {
             $route: {
                 handler: function(route) {
@@ -177,32 +352,26 @@
                 immediate: true
             },
         },
-        methods: {
+
+        methods:{
+
             ...mapActions([
                 'login',
                 'register'
             ]),
 
-            // handler
-            handleUsernameOrEmail (rule, value, callback) {
-                const { state } = this
-                const regex = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/
-                if (regex.test(value)) {
-                    callback()
-                } else {
-                    callback(new Error('请输入有效用户名或邮箱'))
-                }
-                callback()
+
+            changeType() {
+                this.isLogin = !this.isLogin
+                this.form.username = ''
+                this.form.useremail = ''
+                this.form.userpwd = ''
             },
-            checkEmail(rule, value, callback) {
-                const re = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+((\.[a-zA-Z0-9_-]{2,3}){1,2})$/
-                if (re.test(value)) {
-                    callback();
-                } else {
-                    callback(new Error('请输入有效邮箱'));
-                }
-                callback()
+            handleTabClick (key) {
+                this.customActiveKey = key
             },
+
+
             handlePassword(rule, value, callback) {
                 if (value.length < 6) {
                     callback(new Error('密码长度至少6位'))
@@ -220,10 +389,18 @@
                 }
                 callback()
             },
-            handleTabClick (key) {
-                this.customActiveKey = key
-            },
+
+
+
             handlelogin() {
+                if(this.code === this.identifyCode){
+                    console.log("验证码正确")
+                    message.success("验证码正确")
+                }else {
+                    console.log("验证码错误")
+                    message.error("验证码错误")
+                    return 0
+                }
                 const validateFieldsKey = this.customActiveKey === 'tab1' ? ['username', 'password'] : ['registerUsername', 'registerUserMail','registerPassword','registerPasswordconfirm']
                 this.form.validateFields(validateFieldsKey, { force: true }, async (err, values) => {
                     if(!err){
@@ -263,101 +440,195 @@
                         this.registerLoading = false
                     }
                 });
+            },
+
+
+            handleCancel() {
+                this.previewVisible = false;
+            },
+            async handlePreview(file) {
+                if (!file.url && !file.preview) {
+                    file.preview = await getBase64(file.originFileObj);
+                }
+                this.previewImage = file.url || file.preview;
+                this.previewVisible = true;
+            },
+            handleChange({ fileList }) {
+                this.fileList = fileList;
+                console.log(this.fileList)
+            },
+
+
+            // 验证码处理
+            randomNum(min, max) {
+                return Math.floor(Math.random() * (max - min) + min)
+            },
+
+            // 刷新验证码
+            refreshCode() {
+                this.identifyCode = ''
+                this.makeCode(this.identifyCodes, 4)
+            },
+            makeCode(o, l) {
+                for (let i = 0; i < l; i++) {
+                    this.identifyCode += this.identifyCodes[
+                        this.randomNum(0, this.identifyCodes.length)
+                        ]
+                }
+                console.log(this.identifyCode)
             }
+
         }
     }
 </script>
 
-<style lang="less" scoped>
-
-    .main{
-        min-width: 260px;
-        width: 368px;
-        margin: 100px auto;
-        .top {
-            text-align: center;
-
-            .header {
-                height: 44px;
-                line-height: 44px;
-
-                .badge {
-                    position: absolute;
-                    display: inline-block;
-                    line-height: 1;
-                    vertical-align: middle;
-                    margin-left: -12px;
-                    margin-top: -10px;
-                    opacity: 0.8;
-                }
-
-                .logo {
-                    height: 100px;
-                    vertical-align: top;
-                    margin-right: 16px;
-                    border-style: none;
-                }
-
-                .title {
-                    font-size: 33px;
-                    color: rgba(0, 0, 0, .85);
-                    font-family: Avenir, 'Helvetica Neue', Arial, Helvetica, sans-serif;
-                    font-weight: 600;
-                    position: relative;
-                    top: 2px;
-                }
-            }
-            .desc {
-                font-size: 14px;
-                color: rgba(0, 0, 0, 0.45);
-                margin-top: 12px;
-                margin-bottom: 40px;
-            }
-        }
+<style scoped="scoped">
+    .login-register{
+        width: 100vw;
+        height: 100%;
+        box-sizing: border-box;
     }
-    .user-layout-login {
-        label {
-            font-size: 14px;
-        }
-
-        .getCaptcha {
-            display: block;
-            width: 100%;
-            height: 40px;
-        }
-
-        .forge-password {
-            font-size: 14px;
-        }
-
-        button.login-button {
-            padding: 0 15px;
-            font-size: 16px;
-            height: 40px;
-            width: 100%;
-        }
-
-        .user-login-other {
-            text-align: left;
-            margin-top: 24px;
-            line-height: 22px;
-
-            .item-icon {
-                font-size: 24px;
-                color: rgba(0, 0, 0, 0.2);
-                margin-left: 16px;
-                vertical-align: middle;
-                cursor: pointer;
-                transition: color 0.3s;
-
-                &:hover {
-                    color: #1890ff;
-                }
-            }
-
-            .register {
-                float: right;
-            }
-        }
+    .contain{
+        width: 60%;
+        height: 90%;
+        position: relative;
+        top: 50%;
+        left: 45%;
+        transform: translate(-50%,-50%);
+        background-color: #fff;
+        border-radius: 20px;
+        box-shadow: 0 0 3px #f0f0f0,
+        0 0 6px #f0f0f0;
     }
+    .big-box{
+        width: 70%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 30%;
+        transform: translateX(0%);
+        transition: all 1s;
+    }
+    .big-contain{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .btitle{
+        text-align: center;
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: rgb(57,167,176);
+    }
+    .bform{
+        width: 100%;
+        height: 60%;
+        padding: 2em 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .bform .errTips{
+        display: block;
+        width: 50%;
+        text-align: left;
+        color: red;
+        font-size: 0.7em;
+        margin-left: 1em;
+    }
+    .bform input{
+        width: 50%;
+        height: 30px;
+        border: none;
+        outline: none;
+        border-radius: 10px;
+        padding-left: 2em;
+        background-color: #f0f0f0;
+    }
+    .bbutton{
+        width: 30%;
+        height: 40px;
+        border-radius: 24px;
+        border: none;
+        outline: none;
+        background-color: rgb(57,167,176);
+        color: #fff;
+        font-size: 0.9em;
+        cursor: pointer;
+        text-align: center;
+        margin: auto;
+        float: left;
+        left: 35%;
+
+    }
+    .small-box{
+        width: 30%;
+        height: 100%;
+        background: linear-gradient(135deg,rgb(57,167,176),rgb(56,183,145));
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translateX(0%);
+        transition: all 1s;
+        border-top-left-radius: inherit;
+        border-bottom-left-radius: inherit;
+    }
+    .small-contain{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .sbutton{
+        width: 10%;
+        height: 40px;
+        border-radius: 24px;
+        border: none;
+        outline: none;
+        background-color: rgb(57,167,176);
+        color: #fff;
+        font-size: 0.9em;
+        cursor: pointer;
+        text-align: center;
+        margin: auto;
+        float: left;
+        left: 45%;
+
+    }
+
+    .changeButton{
+        width: 60%;
+        height: 40px;
+        border-radius: 24px;
+        border: 1px solid #fff;
+        outline: none;
+        background-color: transparent;
+        color: #fff;
+        font-size: 0.9em;
+        cursor: pointer;
+    }
+    .big-box.active{
+        left: 0;
+        transition: all 0.5s;
+    }
+    .small-box.active{
+        left: 100%;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-top-right-radius: inherit;
+        border-bottom-right-radius: inherit;
+        transform: translateX(-100%);
+        transition: all 1s;
+    }
+
+
+
 </style>
