@@ -2,7 +2,6 @@ package com.example.common.config.handler;
 
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.common.constant.ApiMsg;
 import com.example.common.vo.ResponseVO;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpHeaders;
@@ -46,7 +45,7 @@ public class CustomGlobalExceptionHandler {
                 .stream()
                 .map(DefaultMessageSourceResolvable::getDefaultMessage)
                 .collect(Collectors.toList());
-        ResponseVO<List<String>> responseVO = new ResponseVO<>(errors, ApiMsg.KEY_SERVICE, ApiMsg.ERROR);
+        ResponseVO responseVO = ResponseVO.buildFailure(errors);
         return new ResponseEntity<>(responseVO, headers, status);
     }
 
@@ -57,8 +56,8 @@ public class CustomGlobalExceptionHandler {
      * @return 错误信息 
      */
     @ExceptionHandler(HttpMessageConversionException.class)
-    public ResponseEntity<ResponseVO<String>> parameterTypeException(HttpMessageConversionException exception) {
-        ResponseVO<String> responseVO = new ResponseVO<>(exception.getMessage(), ApiMsg.KEY_PARAM_VALIDATE, ApiMsg.ERROR);
+    public ResponseEntity<ResponseVO> parameterTypeException(HttpMessageConversionException exception) {
+        ResponseVO responseVO = ResponseVO.buildFailure(exception.getMessage());
         return new ResponseEntity<>(responseVO, HttpStatus.OK);
     }
 
@@ -69,8 +68,8 @@ public class CustomGlobalExceptionHandler {
      * @return ResponseEntity
      */
     @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<ResponseVO<String>> handleCommonException(Exception e) {
-        ResponseVO<String> responseVO = new ResponseVO<>(e.getMessage(), ApiMsg.KEY_SERVICE, ApiMsg.ERROR);
+    public ResponseEntity<ResponseVO> handleCommonException(Exception e) {
+        ResponseVO responseVO = ResponseVO.buildFailure(e.getMessage());
         return new ResponseEntity<>(responseVO, HttpStatus.OK);
     }
 
@@ -83,13 +82,13 @@ public class CustomGlobalExceptionHandler {
     @ExceptionHandler(BindException.class)
     public ResponseEntity<Object> validExceptionHandler(BindException e) {
         Exception ex = parseBindingResult(e.getBindingResult());
-        ResponseVO<String> responseVO = new ResponseVO<>(ex.getMessage(), ApiMsg.KEY_PARAM_VALIDATE, ApiMsg.ERROR);
+        ResponseVO responseVO = ResponseVO.buildFailure(ex.getMessage());
         return new ResponseEntity<>(responseVO, HttpStatus.OK);
     }
 
     @ExceptionHandler(Exception.class)
-    public ResponseEntity<ResponseVO<String>> handleException(Exception e) {
-        ResponseVO<String> responseVO = new ResponseVO<>(e.getMessage(), ApiMsg.KEY_ERROR, ApiMsg.ERROR);
+    public ResponseEntity<ResponseVO> handleException(Exception e) {
+        ResponseVO responseVO = ResponseVO.buildFailure(e.getMessage());
         return new ResponseEntity<>(responseVO, HttpStatus.OK);
     }
 
@@ -105,7 +104,7 @@ public class CustomGlobalExceptionHandler {
             errorMsgs.put(error.getField(), error.getDefaultMessage());
         }
         if (errorMsgs.isEmpty()) {
-            return new RuntimeException(ApiMsg.KEY_PARAM_VALIDATE + "");
+            return new RuntimeException(406 + "");
         } else {
             return new RuntimeException(JSONObject.toJSONString(errorMsgs));
         }

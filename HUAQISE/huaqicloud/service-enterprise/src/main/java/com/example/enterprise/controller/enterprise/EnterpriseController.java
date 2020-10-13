@@ -25,21 +25,27 @@ public class EnterpriseController {
     @PostMapping("/login")
     @ApiOperation(value = "企业用户登录")
     @ApiImplicitParam(name = "enterpriseForm", value = "企业用户登录信息", required = true ,dataType = "EnterpriseForm")
-    ResponseVO<EnterpriseVO> login(EnterpriseForm enterpriseForm){
+    ResponseVO login(EnterpriseForm enterpriseForm){
 
         EnterpriseVO enterpriseVO = enterpriseService.login(enterpriseForm);
         if(enterpriseVO == null){
-            return new ResponseVO<EnterpriseVO>(null,"用户名未注册或密码错误");
+            return ResponseVO.buildFailure("用户名未注册或密码错误");
         }else{
-            return new ResponseVO<>(enterpriseVO);
+            return ResponseVO.buildSuccess(enterpriseVO);
         }
     }
 
     @PostMapping("/{id}/getEpById")
     @ApiOperation(value = "检索用户信息")
     @ApiImplicitParam(name = "id", value = "企业用户Id", required = true ,dataType = "Integer")
-    ResponseVO<EnterpriseVO> getEnterpriseById(@PathVariable Integer id){
-        return new ResponseVO<EnterpriseVO>(enterpriseService.getEnterpriseById(id));
+    ResponseVO getEnterpriseById(@PathVariable Integer id){
+
+        EnterpriseVO  enterpriseVO = enterpriseService.getEnterpriseById(id);
+        if(null == enterpriseVO){
+            return ResponseVO.buildFailure("用户信息为空");
+        }else{
+            return ResponseVO.buildSuccess(enterpriseVO);
+        }
     }
 
     @PostMapping("/register")
@@ -48,9 +54,9 @@ public class EnterpriseController {
     ResponseVO register(@RequestBody  EnterpriseVO enterpriseVO){
         int effect = enterpriseService.createNewEnterPrise(enterpriseVO);
         if(effect>0){
-            return new ResponseVO<>(true);
+            return ResponseVO.buildSuccess("注册成功");
         }else{
-            return new ResponseVO<Boolean>(null,"注册失败");
+            return ResponseVO.buildFailure("注册失败");
         }
     }
 
@@ -60,9 +66,9 @@ public class EnterpriseController {
     ResponseVO updateEnterprise(@RequestBody EnterpriseVO enterpriseVO){
         int effect  = enterpriseService.updateEnterprise(enterpriseVO);
         if(effect>0){
-            return new ResponseVO<>(true);
+            return ResponseVO.buildSuccess("更新成功");
         }else{
-            return new ResponseVO<>(null,"更新失败");
+            return ResponseVO.buildFailure("更新失败");
         }
     }
 
@@ -72,9 +78,9 @@ public class EnterpriseController {
     ResponseVO deleteEnterprise(@PathVariable Integer id){
         int effect = enterpriseService.deleteEnterPrise(id);
         if(effect>0){
-            return new ResponseVO<>(true);
+            return ResponseVO.buildSuccess("更新成功");
         }else{
-            return new ResponseVO<>(null,"更新失败");
+            return ResponseVO.buildSuccess("更新失败");
         }
     }
 }

@@ -41,9 +41,9 @@ public class UserController {
     public ResponseVO updateUser(@RequestBody UserVO userVO){
         int effect = userService.updateUser(userVO);
         if(effect>0){
-            return new ResponseVO(true);
+            return ResponseVO.buildSuccess("更新成功");
         }else{
-            return new ResponseVO(null,"更新用户信息失败");
+            return ResponseVO.buildFailure("更新用户信息失败");
         }
     }
 
@@ -53,9 +53,9 @@ public class UserController {
     public ResponseVO deleteUser(@PathVariable Integer userId){
         int effect = userService.deleteUserById(userId);
         if(effect>0){
-            return new ResponseVO(true);
+            return ResponseVO.buildSuccess("删除成功");
         }else{
-            return new ResponseVO(null,"注销用户失败");
+            return ResponseVO.buildFailure("删除用户信息失败");
         }
     }
 
@@ -65,9 +65,9 @@ public class UserController {
     public ResponseVO getUserInfo(@PathVariable Integer userId) {
         UserVO user = userService.getUserInfo(userId);
         if(user==null){
-            return new ResponseVO(null,ACCOUNT_INFO_ERROR);
+            return ResponseVO.buildFailure(ACCOUNT_INFO_ERROR);
         }else{
-            return new ResponseVO(user);
+            return ResponseVO.buildSuccess(user);
         }
 
     }

@@ -35,14 +35,14 @@ public class UserServiceImpl implements UserService {
         String email=userForm.getEmail();
         User user=userMapper.getUserByEmail(email);
         if(user==null){
-            return new ResponseVO<>(null,ACCOUNT_NOT_EXIST);
+            return ResponseVO.buildFailure(ACCOUNT_NOT_EXIST);
         }else if(!userForm.getPassword().equals(user.getPassword())){
-            return new ResponseVO<>(null,PASSWORD_INCORRECT);
+            return ResponseVO.buildFailure(PASSWORD_INCORRECT);
         }else{
             log.info(user.getUsername()+" login successfully with password " +user.getPassword());
             UserVO userVO=new UserVO();
             BeanUtils.copyProperties(user,userVO);
-            return new ResponseVO<>(userVO);
+            return ResponseVO.buildSuccess(userVO);
         }
     }
 
@@ -53,9 +53,9 @@ public class UserServiceImpl implements UserService {
         user.setAvatarUrl("https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c");
         int effect = userMapper.createNewUser(user);
         if(effect>0){
-            return new ResponseVO<>(true);
+            return ResponseVO.buildSuccess("注册成功");
         }else{
-            return new ResponseVO(null,"注册失败");
+            return ResponseVO.buildFailure("注册失败");
         }
     }
 
@@ -73,10 +73,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserVO getUserInfo(Integer id) {
-
-//        UserVO userVO = (UserVO) redisTemplate.opsForValue().get("user_"+id);
         UserVO userVO = (UserVO) redisCacheClient.get("user_"+id);
-        //如果拿不到，就去数据库中查询
         if (userVO==null){
             User user=userMapper.getUserById(id);
             if (user == null) {
@@ -84,12 +81,7 @@ public class UserServiceImpl implements UserService {
             }
             userVO=new UserVO();
             BeanUtils.copyProperties(user,userVO);
-            //放入缓存中
-            System.out.println("redis缓存");
-//            redisTemplate.opsForValue().set("user_"+id, userVO, 3000, TimeUnit.SECONDS);
             redisCacheClient.set("user_"+id, userVO, 3000);
-        }else {
-            System.out.println("redis not 缓存");
         }
         return userVO;
     }

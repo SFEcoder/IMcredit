@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/huaqicloud/common/common.iml" filepath="$PROJECT_DIR$/huaqicloud/common/common.iml" />
       <module fileurl="file://$PROJECT_DIR$/huaqicloud/eurake-server/eurake-server.iml" filepath="$PROJECT_DIR$/huaqicloud/eurake-server/eurake-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/huaqicloud/huaqicloud.iml" filepath="$PROJECT_DIR$/huaqicloud/huaqicloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/huaqicloud/service-enterprise/service-enterprise.iml" filepath="$PROJECT_DIR$/huaqicloud/service-enterprise/service-enterprise.iml" />
       <module fileurl="file://$PROJECT_DIR$/huaqicloud/service-user/service-user.iml" filepath="$PROJECT_DIR$/huaqicloud/service-user/service-user.iml" />
       <module fileurl="file://$PROJECT_DIR$/huaqicloud/zuul-gateway/zuul-gateway.iml" filepath="$PROJECT_DIR$/huaqicloud/zuul-gateway/zuul-gateway.iml" />
     </modules>

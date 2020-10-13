@@ -4,10 +4,10 @@ server:
 spring:
   application:
     name: microservice-gateway-zuul
-
 zuul:
   routes:
     service-user: /userservice/**
+    service-enterprise: /epservice/**
 
 eureka:
   client:

@@ -60,7 +60,7 @@ CREATE TABLE `Enterprise` (
   `contact_number` varchar(255) DEFAULT NULL,
   `contact_name` varchar(255) DEFAULT NULL,
   `register_number` varchar(255) not NULL unique,
-  `valid` boolean Default false
+  `valid` boolean Default false,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -74,6 +74,15 @@ BEGIN;
 INSERT INTO `Enterprise` VALUES (1,'123@qq.com','123456','企业一号','https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c','12345678','assd','1234553223',false);
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 COMMIT;
+
+DROP TABLE IF EXISTS `Browse`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Browse` (
+  `user_id` int(11) NOT NULL,
+  `ep_id` int(11) NOT NULL,
+  `create_time` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 

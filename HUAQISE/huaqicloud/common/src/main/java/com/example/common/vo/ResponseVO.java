@@ -2,7 +2,7 @@ package com.example.common.vo;
 
 
 import lombok.Data;
-import com.example.common.constant.ApiMsg;
+
 import java.io.Serializable;
 
 /**
@@ -12,35 +12,48 @@ import java.io.Serializable;
  * @date 2019/3/17 12:08
  */
 @Data
-public class ResponseVO<T> implements Serializable {
+public class ResponseVO implements Serializable{
 
-	public static final long serialVersionUID = 42L;
+	/**
+	 * 调用是否成功
+	 */
+	private Boolean success;
 
-	private String msg = ApiMsg.msg(ApiMsg.KEY_SUCCESS);
+	/**
+	 * 返回的提示信息
+	 */
+	private String message;
 
-	private int code = ApiMsg.KEY_SUCCESS;
+	/**
+	 * 返回所携带的对象信息
+	 */
+	private Object content;
 
-	private T data;
-
-	public ResponseVO() {
-		super();
+	public static ResponseVO buildSuccess(){
+		ResponseVO response=new ResponseVO();
+		response.setSuccess(true);
+		return response;
 	}
 
-	public ResponseVO(T data) {
-		super();
-		this.data = data;
+
+	public static ResponseVO buildSuccess(Object content){
+		ResponseVO response=new ResponseVO();
+		response.setContent(content);
+		response.setSuccess(true);
+		return response;
 	}
 
-	public ResponseVO(T data, int keyCode, int msgCode) {
-		super();
-		this.data = data;
-		this.code = Integer.parseInt(keyCode + "" + msgCode);
-		this.msg = ApiMsg.code2Msg(keyCode, msgCode);
+	public static ResponseVO buildFailure(String message){
+		ResponseVO response=new ResponseVO();
+		response.setSuccess(false);
+		response.setMessage(message);
+		return response;
 	}
 
-	public ResponseVO(T data, String msg) {
-		super();
-		this.data = data;
-		this.msg = msg;
+	public static ResponseVO buildFailure(Object content){
+		ResponseVO response=new ResponseVO();
+		response.setContent(content);
+		response.setSuccess(false);
+		return response;
 	}
 }

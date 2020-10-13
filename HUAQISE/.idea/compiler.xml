@@ -9,6 +9,7 @@
         <module name="eurake-server" />
         <module name="common" />
         <module name="zuul-gateway" />
+        <module name="service-enterprise" />
         <module name="service-user" />
       </profile>
     </annotationProcessing>
@@ -16,6 +17,7 @@
       <module name="common" target="1.8" />
       <module name="eurake-server" target="1.8" />
       <module name="huaqicloud" target="1.8" />
+      <module name="service-enterprise" target="1.8" />
       <module name="service-user" target="1.8" />
       <module name="zuul-gateway" target="1.8" />
     </bytecodeTargetLevel>
@@ -24,6 +26,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="common" options="-parameters" />
       <module name="eurake-server" options="-parameters" />
+      <module name="service-enterprise" options="-parameters" />
       <module name="service-user" options="-parameters" />
       <module name="zuul-gateway" options="-parameters" />
     </option>

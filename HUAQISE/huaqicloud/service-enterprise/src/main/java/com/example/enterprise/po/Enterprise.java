@@ -5,9 +5,10 @@ import lombok.Data;
 /**
  * @Author:
  * @Date: 2020/10/11 19:33
+ *
  */
 @Data
-public class Enterprise {
+public class Enterprise{
 
     /**
      * 数据库主键

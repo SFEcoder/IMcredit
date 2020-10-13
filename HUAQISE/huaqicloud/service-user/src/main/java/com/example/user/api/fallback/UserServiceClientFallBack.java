@@ -12,6 +12,6 @@ import org.springframework.stereotype.Component;
 public class UserServiceClientFallBack implements UserServiceClient {
     @Override
     public ResponseVO getUserInfoById(Integer id) {
-        return new ResponseVO<>(null,"触发熔断");
+        return ResponseVO.buildFailure("触发熔断");
     }
 }
