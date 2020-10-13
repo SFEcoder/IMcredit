@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean配置无论是name还是id,都不允许重名 -->
+    <!-- 同一个bean的name可以起多个别名,但id不行 -->
+
+    <bean name="userController" class="com.example.user.controller.user.UserController">
+<!--        <property name="userService" value="s001"/>-->
+<!--        <property name="name" value="茜茜"/>-->
+    </bean>
+<!--    <bean name="stu2" class="com.entity.Students">-->
+<!--        <property name="sid" value="s002"/>-->
+<!--        <property name="name" value="梦茜"/>-->
+<!--    </bean>-->
+
+
+</beans>

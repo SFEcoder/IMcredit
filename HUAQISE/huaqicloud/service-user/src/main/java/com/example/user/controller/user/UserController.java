@@ -5,6 +5,8 @@ import com.example.user.bl.user.UserService;
 import com.example.user.vo.UserForm;
 import com.example.user.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 /**

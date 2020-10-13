@@ -43,7 +43,7 @@ CREATE TABLE `User` (
 
 BEGIN;
 /*!40000 ALTER TABLE `User` DISABLE KEYS */;
-INSERT INTO `User` VALUES (1,'C1@qq.com','123456','客户一号',123456789,'Client','https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c');
+INSERT INTO `User` VALUES (1,'C1@qq.com','123456','客户一号','123456789','Client','https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c');
 /*!40000 ALTER TABLE `User` ENABLE KEYS */;
 COMMIT;
 

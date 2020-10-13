@@ -2,9 +2,12 @@ package com.example.user.data.user;
 
 
 import com.example.user.po.User;
+import com.mysql.cj.jdbc.exceptions.MysqlDataTruncation;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * @Author: zzx
@@ -32,6 +35,7 @@ public interface UserMapper {
 
     /**
      * description: 创建新的用户，当用户邮箱重复时无法插入成功
+     * rules: id : Primary Key; email: Unique
      *
      * @param user
      * @return int

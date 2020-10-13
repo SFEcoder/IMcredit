@@ -2,25 +2,66 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e4229e71-5ad3-4d18-bd90-b202f45cdf02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../../.idea/IMcredit.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../.idea/HUAQISE.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/huaqicloud.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/junitgenerator-prj-settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-user/src/applicationContext.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-user/src/beans.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/ApplicationContextHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/bl/user/EncryptionService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/blImpl/user/EncryptionServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-user/src/test/com/example/user/controller/user/UserControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/api/user.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/utils/request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/credit-demo/vue.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/vue.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/META-INF/common.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eurake-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eurake-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eurake-server/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/eurake-server/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huaqicloud.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/ProviderUserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/ProviderUserApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/blImpl/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/blImpl/user/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/controller/user/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/data/user/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/data/user/UserMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/blImpl/user/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/target/classes/com/example/user/blImpl/user/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/controller/user/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/target/classes/com/example/user/controller/user/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../sql/hauqi.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../sql/hauqi.sql" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="FxmlFile" />
+        <option value="spring-beans.schema" />
         <option value="Interface" />
         <option value="Class" />
       </list>
@@ -29,13 +70,24 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
   <component name="ProjectId" id="1iRjbyUzoLc23Ty2DjfzWlNkG0N" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -45,19 +97,28 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/service-user/test" />
+    <property name="last_opened_file_path" value="C:/Java/jdk1.8.0_221" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.14" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="plugins.junitgenerator.application" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Owen Liu\Desktop\HUAQI\IMcredit\HUAQISE\huaqicloud\service-user\src\test\com\example\user\controller\user" />
+      <recent name="E:\springcloudtrash\huaqicloud\service-user\src\main\resources\dataImpl.user" />
       <recent name="E:\springcloudtrash\huaqicloud\service-user\src\main\resources" />
-      <recent name="E:\springcloudtrash\huaqicloud\service-user\src\main\java" />
-      <recent name="E:\springcloudtrash\huaqicloud" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.example.zuul.config" />
@@ -65,12 +126,77 @@
       <recent name="vo" />
       <recent name="cache" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\springcloudtrash\huaqicloud\service-user\src\main\resources\dataImpl.user" />
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\springcloudtrash\huaqicloud\service-user\src\main\resources" />
+      <recent name="E:\springcloudtrash\huaqicloud\service-user\src\main\java" />
+      <recent name="E:\springcloudtrash\huaqicloud" />
     </key>
   </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
   <component name="RunManager" selected="Spring Boot.ProviderUserApplication">
+    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service-user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.user.controller.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.user.controller.user" />
+      <option name="MAIN_CLASS_NAME" value="com.example.user.controller.user.UserControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.testLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service-user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.user.controller.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.user.controller.user" />
+      <option name="MAIN_CLASS_NAME" value="com.example.user.controller.user.UserControllerTest" />
+      <option name="METHOD_NAME" value="testLogin" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.testRegister" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="service-user" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.user.controller.user.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.user.controller.user" />
+      <option name="MAIN_CLASS_NAME" value="com.example.user.controller.user.UserControllerTest" />
+      <option name="METHOD_NAME" value="testRegister" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="EurakeApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="eurake-server" />
       <extension name="coverage">
@@ -108,11 +234,44 @@
       <list>
         <item itemvalue="Spring Boot.ZuulApplication" />
         <item itemvalue="Spring Boot.EurakeApplication" />
+        <item itemvalue="JUnit.UserControllerTest.testLogin" />
+        <item itemvalue="JUnit.UserControllerTest.testRegister" />
+        <item itemvalue="JUnit.UserControllerTest" />
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <option name="contentProportion" value="0.19398907" />
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@95108991" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@95108991" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@18b9af86" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2fc2db9a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@2fc2db9a" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@35947427" type="9fbbdea:ServiceModel$ServiceNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>C:\Users\Owen Liu\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -124,11 +283,47 @@
       <workItem from="1601877376333" duration="8970000" />
       <workItem from="1602139149811" duration="5026000" />
       <workItem from="1602161008940" duration="1177000" />
+      <workItem from="1602200210554" duration="1968000" />
+      <workItem from="1602226032290" duration="229000" />
+      <workItem from="1602226308982" duration="1186000" />
+      <workItem from="1602465610829" duration="140000" />
+      <workItem from="1602466033485" duration="79000" />
+      <workItem from="1602466131450" duration="584000" />
+      <workItem from="1602466738593" duration="287000" />
+      <workItem from="1602467340043" duration="2255000" />
+      <workItem from="1602482125863" duration="2457000" />
+      <workItem from="1602484632179" duration="183000" />
+      <workItem from="1602484831239" duration="115000" />
+      <workItem from="1602485151186" duration="313000" />
+      <workItem from="1602485480180" duration="38000" />
+      <workItem from="1602485532420" duration="222000" />
+      <workItem from="1602485770147" duration="728000" />
+      <workItem from="1602487515480" duration="1385000" />
+      <workItem from="1602491439576" duration="8620000" />
+      <workItem from="1602502425929" duration="1957000" />
+      <workItem from="1602551651270" duration="5788000" />
+      <workItem from="1602594484301" duration="2243000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="94" key="#Project_Structure" timestamp="1602143275749">
@@ -199,5 +394,27 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1601886355625" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/service-user/src/test/com/example/user/controller/user/UserControllerTest.java</url>
+          <line>77</line>
+          <properties class="com.example.user.controller.user.UserControllerTest" method="testLogin">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/service-user/src/test/com/example/user/controller/user/UserControllerTest.java</url>
+          <line>107</line>
+          <properties class="com.example.user.controller.user.UserControllerTest" method="testRegister">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

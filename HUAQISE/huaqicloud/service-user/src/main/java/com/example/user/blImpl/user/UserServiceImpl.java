@@ -9,6 +9,7 @@ import com.example.user.vo.UserVO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
 import com.example.common.vo.ResponseVO;
 
@@ -23,10 +24,10 @@ public class UserServiceImpl implements UserService {
     private final static String ACCOUNT_EXIST="该账户已存在";
     private final static String ACCOUNT_NOT_EXIST="该账户不存在，请先创建账户";
     private final static String PASSWORD_INCORRECT="账户密码不正确";
+    private final static String DATA_OVERSIZE = "数据过大导致无法存储";
 
     @Autowired
     private RedisCacheClient redisCacheClient;
-
 
     @Autowired
     private UserMapper userMapper;
@@ -34,7 +35,8 @@ public class UserServiceImpl implements UserService {
     @Override
     public ResponseVO login(UserForm userForm) {
         String email=userForm.getEmail();
-        User user=userMapper.getUserByEmail(email);
+        User user = userMapper.getUserByEmail(email);  // email is not unique
+
         if(user==null){
             return ResponseVO.buildFailure(ACCOUNT_NOT_EXIST);
         }else if(!userForm.getPassword().equals(user.getPassword())){
@@ -51,9 +53,11 @@ public class UserServiceImpl implements UserService {
     public ResponseVO createUser(UserVO userVO) {
         User user=new User();
         BeanUtils.copyProperties(userVO,user);
-        user.setAvatarUrl("https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c");
         try {
             userMapper.createNewUser(user);
+        } catch(DataIntegrityViolationException dive) {
+            System.out.println(dive.getMessage());
+            return ResponseVO.buildFailure(DATA_OVERSIZE);
         } catch (Exception e) {
             System.out.println(e.getMessage());
             return ResponseVO.buildFailure(ACCOUNT_EXIST);
