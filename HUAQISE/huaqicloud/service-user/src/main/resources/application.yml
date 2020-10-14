@@ -10,6 +10,8 @@ eureka:
 spring:
   application:
     name: service-user
+  main:
+    allow-bean-definition-overriding: true
   datasource:
     url: jdbc:mysql://localhost:3306/huaqi?serverTimezone=CTT&characterEncoding=UTF-8
     username: root

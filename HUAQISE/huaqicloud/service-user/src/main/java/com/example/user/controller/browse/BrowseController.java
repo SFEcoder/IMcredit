@@ -1,18 +1,25 @@
 package com.example.user.controller.browse;
 
+import com.alibaba.fastjson.JSON;
 import com.example.common.vo.ResponseVO;
 import com.example.enterprise.api.EpServiceClient;
+import com.example.enterprise.vo.EnterpriseVO;
 import com.example.user.bl.browse.BrowseService;
 import com.example.user.dto.browse.BrowseDto;
 import com.example.user.po.Browse;
+import com.example.user.vo.BrowseVO;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @Author:
@@ -26,8 +33,8 @@ public class BrowseController {
     @Autowired
     private BrowseService browseService;
 
-//    @Autowired
-//    private EpServiceClient epServiceClient;
+    @Resource
+    private EpServiceClient epServiceClient;
 
     @PostMapping("/insert")
     @ApiOperation(value = "插入浏览记录")
@@ -56,8 +63,21 @@ public class BrowseController {
         }
     }
 
-    public ResponseVO getBrowses(@RequestParam Integer userId){
-        List<BrowseDto> browseDtos=browseService.getBrowseByUid(userId);
-            return null;
+
+    @PostMapping("/getAllBrowse")
+    @ApiOperation(value = "获取用户浏览记录")
+    @ApiImplicitParam(name = "userId", value = "用户Id", required = true ,dataType = "Integer")
+    public ResponseVO getBrowsesByUid(@RequestParam Integer userId){
+        List<BrowseDto> browseDtos = browseService.getBrowseByUid(userId);
+        List<BrowseVO> browseVOS = browseDtos.stream().filter(browseDto -> browseDto!=null).map(browseDto -> {
+            BrowseVO browseVO=new BrowseVO();
+            BeanUtils.copyProperties(browseDto,browseVO);
+            ResponseVO responseVO=epServiceClient.getEnterpriseById(browseDto.getEpId());
+            if (responseVO.getContent()!=null){
+                browseVO.setEnterpriseVO(JSON.parseObject(JSON.toJSONString(responseVO.getContent()),EnterpriseVO.class));
+            }
+            return browseVO;
+        }).collect(Collectors.toList());
+        return ResponseVO.buildSuccess(browseVOS);
     }
 }

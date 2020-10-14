@@ -1,78 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="09babd80-e31b-4fc1-a09c-67f52bc66a8d" name="Default Changelist" comment="feat:">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_62.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_findbugs_jsr305_3_0_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_core_2_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_schema_2_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spi_2_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_spring_web_2_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger2_2_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_common_2_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_springfox_springfox_swagger_ui_2_7_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_swagger_swagger_models_1_5_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_javassist_javassist_3_21_0_GA.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mapstruct_mapstruct_1_1_0_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_reflections_reflections_0_9_11.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_core_1_2_0_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_plugin_spring_plugin_metadata_1_2_0_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/front/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/common/common.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/eurake-server/eurake-server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/service-enterprise.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/src/main/java/com/example/enterprise/api/EpServiceClient.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/src/main/java/com/example/enterprise/api/fallback/EpServiceClientFallBack.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/api/EpServiceClient.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/api/fallback/EpServiceClientFallBack.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/service-user.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/bl/browse/BrowseService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/blImpl/browse/BrowseServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/controller/browse/BrowseController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/data/browse/BrowseMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/dto/browse/BrowseDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/po/Browse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/vo/BrowseVO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/resources/dataImpl/browse/BrowseMapper.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/com/example/user/bl/browse/BrowseService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/com/example/user/blImpl/browse/BrowseServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/com/example/user/data/browse/BrowseMapper.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/com/example/user/dto/browse/BrowseDto.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/com/example/user/po/Browse.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/com/example/user/vo/BrowseVO.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/zuul-gateway/zuul-gateway.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="09babd80-e31b-4fc1-a09c-67f52bc66a8d" name="Default Changelist" comment="fix: 解决服务间调用出现的bean重名情况">
+      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/com/example/user/controller/browse/BrowseController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/dataImpl/browse/BrowseMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/front/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/common/src/main/java/com/example/common/config/handler/CustomGlobalExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/common/src/main/java/com/example/common/config/handler/CustomGlobalExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/common/src/main/java/com/example/common/constant/ApiMsg.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/common/src/main/java/com/example/common/vo/ResponseVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/common/src/main/java/com/example/common/vo/ResponseVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/common/target/classes/com/example/common/config/handler/CustomGlobalExceptionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/common/target/classes/com/example/common/config/handler/CustomGlobalExceptionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/common/target/classes/com/example/common/constant/ApiMsg.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/common/target/classes/com/example/common/vo/ResponseVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/common/target/classes/com/example/common/vo/ResponseVO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-enterprise/src/main/java/com/example/enterprise/controller/enterprise/EnterpriseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/src/main/java/com/example/enterprise/controller/enterprise/EnterpriseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-enterprise/src/main/java/com/example/enterprise/po/Enterprise.java" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/src/main/java/com/example/enterprise/po/Enterprise.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/credit-demo/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/credit-demo/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huaqicloud/service-enterprise/src/main/java/com/example/enterprise/EnterpriseApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/src/main/java/com/example/enterprise/EnterpriseApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huaqicloud/service-enterprise/src/main/java/com/example/enterprise/api/EpServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/src/main/java/com/example/enterprise/api/EpServiceClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/EnterpriseApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/EnterpriseApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/bl/enterprise/EnterpriseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/bl/enterprise/EnterpriseService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/controller/enterprise/EnterpriseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/controller/enterprise/EnterpriseController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/api/fallback/UserServiceClientFallBack.java" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/api/fallback/UserServiceClientFallBack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/blImpl/user/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/blImpl/user/UserServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/controller/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/com/example/user/api/fallback/UserServiceClientFallBack.class" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/com/example/user/api/fallback/UserServiceClientFallBack.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/com/example/user/blImpl/user/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/com/example/user/blImpl/user/UserServiceImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/com/example/user/controller/user/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/com/example/user/controller/user/UserController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/zuul-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/zuul-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/zuul-gateway/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/zuul-gateway/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/hauqi.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/hauqi.sql" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/api/EpServiceClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/api/EpServiceClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/po/Enterprise.class" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/po/Enterprise.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/controller/browse/BrowseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/controller/browse/BrowseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,6 +29,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="dev" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1hiS1Xn5Q8QKj85SECXaF2C7QzJ" />
@@ -118,6 +64,9 @@
     <property name="project.structure.proportion" value="0.14" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
   </component>
   <component name="RunManager" selected="Spring Boot.ProviderUserApplication">
     <configuration name="hauqi.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
@@ -189,7 +138,9 @@
       <workItem from="1602255721377" duration="69000" />
       <workItem from="1602490956638" duration="5326000" />
       <workItem from="1602585905563" duration="5690000" />
-      <workItem from="1602594470177" duration="2563000" />
+      <workItem from="1602594470177" duration="4890000" />
+      <workItem from="1602603523978" duration="4959000" />
+      <workItem from="1602641488473" duration="341000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 前端rsa，aseutils">
       <created>1602492219668</created>
@@ -198,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602492219668</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: 添加浏览记录业务及异常处理">
+      <created>1602597256507</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602597256507</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,13 +164,15 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: 前端rsa，aseutils" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 前端rsa，aseutils" />
+    <MESSAGE value="feat: 添加浏览记录业务及异常处理" />
+    <MESSAGE value="fix: 解决服务间调用出现的bean重名情况" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix: 解决服务间调用出现的bean重名情况" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="440" y="94" key="#Project_Structure" timestamp="1602254640632">
+    <state x="440" y="94" key="#Project_Structure" timestamp="1602597430049">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1602254640632" />
+    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1602597430049" />
     <state x="337" y="361" key="#SQL_Dialects" timestamp="1602586531028">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -229,61 +189,88 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="254" key="#hauqi.sql/0.0.1920.1040@0.0.1920.1040" timestamp="1602588255655" />
-    <state x="516" y="81" key="CommitChangelistDialog2" timestamp="1602597036976">
+    <state x="516" y="81" key="CommitChangelistDialog2" timestamp="1602641605533">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="516" y="81" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1602597036976" />
+    <state x="516" y="81" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1602641605533" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1602254959929">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602254959929" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1602596773164">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1602641802453">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602596773164" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1602596773164">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602641802453" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1602641802453">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602596773164" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1602596773164">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602641802453" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1602641802453">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602596773164" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1602596773164">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602641802453" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1602641802453">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602596773164" />
-    <state width="1877" height="282" key="GridCell.Tab.1.bottom" timestamp="1602596773164">
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602641802453" />
+    <state width="1877" height="281" key="GridCell.Tab.1.bottom" timestamp="1602641802455">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602596773164" />
-    <state width="1877" height="282" key="GridCell.Tab.1.center" timestamp="1602596773164">
+    <state width="1877" height="281" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602641802455" />
+    <state width="1877" height="281" key="GridCell.Tab.1.center" timestamp="1602641802454">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602596773164" />
-    <state width="1877" height="282" key="GridCell.Tab.1.left" timestamp="1602596773164">
+    <state width="1877" height="281" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602641802454" />
+    <state width="1877" height="281" key="GridCell.Tab.1.left" timestamp="1602641802454">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602596773164" />
-    <state width="1877" height="282" key="GridCell.Tab.1.right" timestamp="1602596773164">
+    <state width="1877" height="281" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602641802454" />
+    <state width="1877" height="281" key="GridCell.Tab.1.right" timestamp="1602641802454">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602596773164" />
+    <state width="1877" height="281" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602641802454" />
+    <state width="1877" height="350" key="GridCell.Tab.2.bottom" timestamp="1602608576191">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="350" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602608576191" />
+    <state width="1877" height="350" key="GridCell.Tab.2.center" timestamp="1602608576191">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="350" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602608576191" />
+    <state width="1877" height="350" key="GridCell.Tab.2.left" timestamp="1602608576191">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="350" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602608576191" />
+    <state width="1877" height="350" key="GridCell.Tab.2.right" timestamp="1602608576191">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="350" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602608576191" />
     <state x="369" y="328" key="SettingsEditor" timestamp="1602596001337">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="369" y="328" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602596001337" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602492226002">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602604826679">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602492226002" />
-    <state x="669" y="306" key="git4idea.merge.GitPullDialog" timestamp="1602596880557">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602604826679" />
+    <state x="669" y="306" key="git4idea.merge.GitPullDialog" timestamp="1602604815505">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="669" y="306" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602596880557" />
+    <state x="669" y="306" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602604815505" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602590760621">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602590760621" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/huaqicloud/service-enterprise/src/main/java/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImpl.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
