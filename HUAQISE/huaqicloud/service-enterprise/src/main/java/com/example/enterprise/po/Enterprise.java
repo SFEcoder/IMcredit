@@ -55,4 +55,10 @@ public class Enterprise{
      * 企业密码
      */
     private String password;
+
+    /**
+     * 企业所处行业类型，共有5种，分别是离散大批量行业
+     */
+    private Integer type;
+
 }
