@@ -50,7 +50,7 @@ public class UserServiceImpl implements UserService {
     public ResponseVO createUser(UserVO userVO) {
         User user=new User();
         BeanUtils.copyProperties(userVO,user);
-        user.setAvatarUrl("https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c");
+//        user.setAvatarUrl("https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c");
         int effect = userMapper.createNewUser(user);
         if(effect>0){
             return ResponseVO.buildSuccess("注册成功");

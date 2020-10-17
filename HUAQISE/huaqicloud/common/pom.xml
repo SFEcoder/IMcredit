@@ -7,9 +7,17 @@
         <groupId>com.example</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
+
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>common</artifactId>
+
+    <properties>
+        <!-- maven-compiler-plugin 将会使用指定的 JDK 版本将 java 文件编译为 class 文件（针对编译运行环境） -->
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <!-- maven-compiler-plugin 将会使用指定的 JDK 版本对源代码进行编译（针对编译运行环境） -->
+        <maven.compiler.source>1.8</maven.compiler.source>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -45,6 +53,16 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.62</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>5.1.5.RELEASE</version>
+        </dependency>
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+            <version>3.8.0</version>
         </dependency>
     </dependencies>
 
