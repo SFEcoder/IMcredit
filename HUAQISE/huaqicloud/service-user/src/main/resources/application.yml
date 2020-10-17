@@ -13,9 +13,9 @@ spring:
   main:
     allow-bean-definition-overriding: true
   datasource:
-    url: jdbc:mysql://localhost:3306/huaqi?serverTimezone=CTT&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/huaqi?serverTimezone=Hongkong&characterEncoding=UTF-8
     username: root
-    password: root
+    password: owen890628
     driver-class-name: com.mysql.cj.jdbc.Driver
     max-active: 200
     max-idle: 20
