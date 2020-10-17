@@ -1,19 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/dev" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="09babd80-e31b-4fc1-a09c-67f52bc66a8d" name="Default Changelist" comment="fix: 解决服务间调用出现的bean重名情况">
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/com/example/user/controller/browse/BrowseController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/dataImpl/browse/BrowseMapper.xml" afterDir="false" />
+    <list default="true" id="09babd80-e31b-4fc1-a09c-67f52bc66a8d" name="Default Changelist" comment="feat: 完整浏览记录功能；">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_oss_aliyun_sdk_oss_2_8_3.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jdom_jdom_1_1.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/credit-demo/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/credit-demo/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-enterprise/src/main/java/com/example/enterprise/EnterpriseApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/src/main/java/com/example/enterprise/EnterpriseApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-enterprise/src/main/java/com/example/enterprise/api/EpServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/src/main/java/com/example/enterprise/api/EpServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/EnterpriseApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/EnterpriseApplication.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/api/EpServiceClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/api/EpServiceClient.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/po/Enterprise.class" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/target/classes/com/example/enterprise/po/Enterprise.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/controller/browse/BrowseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/controller/browse/BrowseController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huaqicloud/common/common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/common/common.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huaqicloud/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huaqicloud/service-enterprise/service-enterprise.iml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/service-enterprise.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/service-user.iml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/service-user.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huaqicloud/zuul-gateway/zuul-gateway.iml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/zuul-gateway/zuul-gateway.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +89,7 @@
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
-  <component name="RunManager" selected="Spring Boot.ProviderUserApplication">
+  <component name="RunManager" selected="Spring Boot.ZuulApplication">
     <configuration name="hauqi.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/sql/hauqi.sql" />
       <script-mode>FILE</script-mode>
@@ -141,6 +162,12 @@
       <workItem from="1602594470177" duration="4890000" />
       <workItem from="1602603523978" duration="4959000" />
       <workItem from="1602641488473" duration="341000" />
+      <workItem from="1602658457227" duration="45000" />
+      <workItem from="1602681037814" duration="345000" />
+      <workItem from="1602724758175" duration="4000" />
+      <workItem from="1602732894686" duration="1103000" />
+      <workItem from="1602778716343" duration="15000" />
+      <workItem from="1602922795795" duration="350000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 前端rsa，aseutils">
       <created>1602492219668</created>
@@ -156,17 +183,49 @@
       <option name="project" value="LOCAL" />
       <updated>1602597256507</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="feat: 完整浏览记录功能；">
+      <created>1602922861479</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1602922861479</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/dev" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: 前端rsa，aseutils" />
     <MESSAGE value="feat: 添加浏览记录业务及异常处理" />
     <MESSAGE value="fix: 解决服务间调用出现的bean重名情况" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix: 解决服务间调用出现的bean重名情况" />
+    <MESSAGE value="feat: 完整浏览记录功能；" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 完整浏览记录功能；" />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="94" key="#Project_Structure" timestamp="1602597430049">
@@ -189,46 +248,50 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="254" key="#hauqi.sql/0.0.1920.1040@0.0.1920.1040" timestamp="1602588255655" />
-    <state x="516" y="81" key="CommitChangelistDialog2" timestamp="1602641605533">
+    <state x="516" y="81" key="CommitChangelistDialog2" timestamp="1602922858288">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="516" y="81" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1602641605533" />
+    <state x="516" y="81" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1602922858288" />
+    <state x="140" y="67" key="DiffContextDialog" timestamp="1602642218592">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="140" y="67" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602642218592" />
     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1602254959929">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602254959929" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1602641802453">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1602642615999">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602641802453" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1602641802453">
+    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615999" />
+    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1602642615998">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602641802453" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1602641802453">
+    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615998" />
+    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1602642615996">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602641802453" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1602641802453">
+    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615996" />
+    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1602642615999">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602641802453" />
-    <state width="1877" height="281" key="GridCell.Tab.1.bottom" timestamp="1602641802455">
+    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615999" />
+    <state width="1877" height="281" key="GridCell.Tab.1.bottom" timestamp="1602642615999">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602641802455" />
-    <state width="1877" height="281" key="GridCell.Tab.1.center" timestamp="1602641802454">
+    <state width="1877" height="281" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615999" />
+    <state width="1877" height="281" key="GridCell.Tab.1.center" timestamp="1602642615999">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602641802454" />
-    <state width="1877" height="281" key="GridCell.Tab.1.left" timestamp="1602641802454">
+    <state width="1877" height="281" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615999" />
+    <state width="1877" height="281" key="GridCell.Tab.1.left" timestamp="1602642615999">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602641802454" />
-    <state width="1877" height="281" key="GridCell.Tab.1.right" timestamp="1602641802454">
+    <state width="1877" height="281" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615999" />
+    <state width="1877" height="281" key="GridCell.Tab.1.right" timestamp="1602642615999">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602641802454" />
+    <state width="1877" height="281" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615999" />
     <state width="1877" height="350" key="GridCell.Tab.2.bottom" timestamp="1602608576191">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -249,28 +312,17 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="369" y="328" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602596001337" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602604826679">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602642269346">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602604826679" />
-    <state x="669" y="306" key="git4idea.merge.GitPullDialog" timestamp="1602604815505">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602642269346" />
+    <state x="669" y="306" key="git4idea.merge.GitPullDialog" timestamp="1602922863776">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="669" y="306" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602604815505" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602590760621">
+    <state x="669" y="306" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602922863776" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602733213927">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602590760621" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/huaqicloud/service-enterprise/src/main/java/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImpl.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602733213927" />
   </component>
 </project>
