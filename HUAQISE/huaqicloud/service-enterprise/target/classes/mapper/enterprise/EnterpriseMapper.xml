@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.enterprise.dao.enterprise.EnterpriseMapper">
     <insert id="insertEnterprise" parameterType="com.example.enterprise.po.Enterprise" useGeneratedKeys="true" keyProperty="id">
-        insert into Enterprise(email,password,name,register_number,contact_number,license,valid,contact_name)
-        values(#{email},#{password},#{name},#{registerNumber},#{contactNumber},#{License},#{valid},#{contactName})
+        insert into Enterprise(email,password,name,register_number,contact_number,license,valid,contact_name,e_photo,e_grade)
+        values(#{email},#{password},#{name},#{registerNumber},#{contactNumber},#{License},#{valid},#{contactName},#{ePhoto},#{eGrade})
     </insert>
 
     <select id="getEnterpriseById" resultMap="Enterprise">
@@ -12,17 +12,19 @@
 
 
     <select id="getEnterpriseByEmail" resultMap="Enterprise">
-        select * from Enterprise where email=#{email}
+        select * from Enterprise order by rand() limit 20
     </select>
 
-
+    <select id="getTwentyEnterprises" resultMap="Enterprise">
+        select * from Enterprise where email=#{email}
+    </select>
 
     <delete id="deleteEnterprise">
         delete from Enterprise where id = #{id}
     </delete>
 
     <update id="updateEnterprise" parameterType="com.example.enterprise.po.Enterprise">
-        update Enterprise set password = #{password},contact_name=#{contactName},valid=#{valid},contact_number=#{contactNumber} where id=#{id}
+        update Enterprise set password = ifnull(#{password},password),contact_name=ifnull(#{contactName},contact_name),valid=ifnull(#{valid},valid),contact_number=ifnull(#{contactNumber},contact_number) where id=#{id}
     </update>
 
     <resultMap id="Enterprise" type="com.example.enterprise.po.Enterprise">
@@ -35,5 +37,8 @@
         <result column="license" property="license"></result>
         <result column="valid" property="valid"></result>
         <result column="contact_name" property="contactName"></result>
+        <result column="e_photo" property="ePhoto"></result>
+        <result column="user_type" property="userType"></result>
+        <result column="e_grade" property="eGrade"></result>
     </resultMap>
 </mapper>

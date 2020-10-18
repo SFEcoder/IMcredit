@@ -50,4 +50,10 @@ public interface UserService {
      */
     UserVO getUserInfo(Integer id);
 
+    /**
+     * 获取用户数目
+     * @return
+     */
+    Integer getUserNum();
+
 }

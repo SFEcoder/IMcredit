@@ -63,11 +63,14 @@ public class UserServiceImpl implements UserService {
     public Integer updateUser(UserVO userVO) {
         User user=new User();
         BeanUtils.copyProperties(userVO,user);
+        //更新用户信息会导致redis缓存失效，故直接删除该key
+        redisCacheClient.delete("user_id"+userVO.getId());
         return  userMapper.updateUser(user);
     }
 
     @Override
     public Integer deleteUserById(Integer id) {
+        redisCacheClient.delete("user_id"+id);
         return userMapper.deleteUserById(id);
     }
 
@@ -84,5 +87,10 @@ public class UserServiceImpl implements UserService {
             redisCacheClient.set("user_"+id, userVO, 3000);
         }
         return userVO;
+    }
+
+    @Override
+    public Integer getUserNum() {
+        return userMapper.getUserNum();
     }
 }

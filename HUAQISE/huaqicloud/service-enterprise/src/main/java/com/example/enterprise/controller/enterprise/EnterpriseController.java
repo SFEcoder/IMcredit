@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/api/enterprise")
-@Api(value="/",tags ="用户接口")
+@Api(value="/",tags ="企业接口")
 public class EnterpriseController {
 
     @Autowired
@@ -82,5 +82,11 @@ public class EnterpriseController {
         }else{
             return ResponseVO.buildSuccess("更新失败");
         }
+    }
+
+    @GetMapping("/getEnterpriseImgList")
+    @ApiOperation(value = "获取企业图片url，至多20个")
+    ResponseVO getEnterpriseImgList(){
+        return ResponseVO.buildSuccess(enterpriseService.getEnterpriseImgList());
     }
 }

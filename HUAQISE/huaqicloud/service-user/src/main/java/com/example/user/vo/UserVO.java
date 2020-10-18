@@ -22,9 +22,9 @@ public class UserVO implements Serializable {
     private String phoneNumber;
 
     /**
-     * 用户类型， 后期可用 枚举类 代替
+     * 用户类型,0代表用户，1代表企业
      */
-    private String userType;
+    private Integer userType;
 
     /**
      * 用户头像 Url

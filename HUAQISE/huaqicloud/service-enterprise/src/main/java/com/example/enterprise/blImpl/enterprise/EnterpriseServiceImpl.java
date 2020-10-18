@@ -1,5 +1,6 @@
 package com.example.enterprise.blImpl.enterprise;
 
+import com.example.common.cache.RedisCacheClient;
 import com.example.enterprise.bl.enterprise.EnterpriseService;
 import com.example.enterprise.dao.enterprise.EnterpriseMapper;
 import com.example.enterprise.po.Enterprise;
@@ -9,6 +10,9 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 /**
  * @Author:
  * @Date: 2020/10/11 20:21
@@ -16,11 +20,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class EnterpriseServiceImpl implements EnterpriseService {
 
+
     private static final String SIGN_UP_FAIL = "注册企业失败";
 
     private static final String SIGN_UP_SUCCESS = "注册企业成功";
 
     private static final String UPDATE_FAILURE = "更新企业信息失败！";
+
+    @Autowired
+    private RedisCacheClient redisCacheClient;
 
     @Autowired
     private EnterpriseMapper enterpriseMapper;
@@ -51,19 +59,23 @@ public class EnterpriseServiceImpl implements EnterpriseService {
 
     @Override
     public Integer deleteEnterPrise(Integer id) {
+        redisCacheClient.delete("enterprise_"+id);
         return enterpriseMapper.deleteEnterprise(id);
     }
 
     @Override
     public EnterpriseVO getEnterpriseById(Integer id) {
-        Enterprise enterprise = enterpriseMapper.getEnterpriseById(id);
-        if (null == enterprise){
-            return null;
-        } else {
-           EnterpriseVO enterpriseVO = new EnterpriseVO();
-           BeanUtils.copyProperties(enterprise,enterpriseVO);
-           return enterpriseVO;
+        EnterpriseVO enterpriseVO = (EnterpriseVO) redisCacheClient.get("enterprise_"+id);
+        if (enterpriseVO==null){
+            Enterprise enterprise = enterpriseMapper.getEnterpriseById(id);
+            if (null == enterprise){
+                return null;
+            }
+            enterpriseVO = new EnterpriseVO();
+            BeanUtils.copyProperties(enterprise,enterpriseVO);
+            redisCacheClient.set("enterprise_"+id, enterpriseVO, 3000);
         }
+        return enterpriseVO;
     }
 
     @Override
@@ -71,10 +83,16 @@ public class EnterpriseServiceImpl implements EnterpriseService {
         if (null == enterpriseVO){
             return 0;
         }else {
+            redisCacheClient.delete("enterprise_"+enterpriseVO.getId());
             Enterprise enterprise = new Enterprise();
             BeanUtils.copyProperties(enterpriseVO,enterprise);
             return enterpriseMapper.updateEnterprise(enterprise);
         }
+    }
+
+    @Override
+    public List<String> getEnterpriseImgList() {
+       return enterpriseMapper.getTwentyEnterprises().stream().map(a -> a.getEPhoto()).collect(Collectors.toList());
     }
 
 

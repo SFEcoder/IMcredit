@@ -3,6 +3,8 @@ package com.example.enterprise.bl.enterprise;
 import com.example.enterprise.vo.EnterpriseForm;
 import com.example.enterprise.vo.EnterpriseVO;
 
+import java.util.List;
+
 /**
  * @Author:
  * @Date: 2020/10/11 19:55
@@ -44,4 +46,10 @@ public interface EnterpriseService {
      * @return
      */
      Integer updateEnterprise(EnterpriseVO enterpriseVO);
+
+    /**
+     * 随机获取20条企业的图像List
+     * @return
+     */
+     List<String> getEnterpriseImgList();
 }

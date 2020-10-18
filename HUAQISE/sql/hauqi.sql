@@ -31,7 +31,7 @@ CREATE TABLE `User` (
   `password` varchar(16) NOT NULL,
   `username` varchar(255) DEFAULT NULL,
   `phonenumber` varchar(255) DEFAULT NULL,
-  `usertype` varchar(255) DEFAULT NULL,
+  `usertype` int(2) DEFAULT 0,
   `avatarurl` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
@@ -60,7 +60,10 @@ CREATE TABLE `Enterprise` (
   `contact_number` varchar(255) DEFAULT NULL,
   `contact_name` varchar(255) DEFAULT NULL,
   `register_number` varchar(255) not NULL unique,
+  `user_type` int(2) default 1,
   `valid` boolean Default false,
+  `e_photo` varchar(255) default null,
+  `e_grade` int(4) default null,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -70,9 +73,9 @@ CREATE TABLE `Enterprise` (
 --
 
 BEGIN;
-/*!40000 ALTER TABLE `User` DISABLE KEYS */;
-INSERT INTO `Enterprise` VALUES (1,'123@qq.com','123456','企业一号','https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c','12345678','assd','1234553223',false);
-/*!40000 ALTER TABLE `User` ENABLE KEYS */;
+/*!40000 ALTER TABLE `Enterprise` DISABLE KEYS */;
+INSERT INTO `Enterprise` VALUES (1,'123@qq.com','123456','企业一号','https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c','12345678','assd','1234553223',1,false,'https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c','https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c');
+/*!40000 ALTER TABLE `Enterprise` ENABLE KEYS */;
 COMMIT;
 
 DROP TABLE IF EXISTS `Browse`;

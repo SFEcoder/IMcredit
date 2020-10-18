@@ -73,4 +73,11 @@ public class UserController {
     }
 
 
+    @GetMapping("/countUserNum")
+    @ApiOperation(value = "获取用户数目")
+    public ResponseVO countUserNum() {
+        return ResponseVO.buildSuccess(userService.getUserNum());
+    }
+
+
 }
