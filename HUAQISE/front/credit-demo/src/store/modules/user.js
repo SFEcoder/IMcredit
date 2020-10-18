@@ -8,6 +8,7 @@ import {
     registerAPI,
     getUserInfoAPI,
     updateUserInfoAPI,
+    ChangePasswordAPI
 } from '@/api/user'
 
 const getDefaultState = () => {
@@ -47,13 +48,14 @@ const user = {//定义对象user
 
     actions: {
         login: async ({dispatch , commit} , userData) => {
-            const res = await loginAPI(userData)
-            if (res) {
+            router.push('/credit/main')//mutations的方法用commit，actions的方法用dispatch
+           // const res = await loginAPI(userData)
+            /*if (res) {
                 setToken(res.id)//从'@/utils/auth'中导入的方法
                 commit('set_userId' , res.id)
                 dispatch('getUserInfo')
-                router.push('/credit/main')//mutations的方法用commit，actions的方法用dispatch
-            }
+            }*/
+
         } ,
 
         register: async ({commit},data) => {
@@ -79,6 +81,17 @@ const user = {//定义对象user
             })
         } ,
         updateUserInfo: async ({state , dispatch} , data) => {
+            const params = {
+                id: state.userId ,
+                ...data ,
+            }
+            const res = await updateUserInfoAPI(params)
+            if (res) {
+                message.success('修改成功')
+                dispatch('getUserInfo')
+            }
+        } ,
+        Changepassword:async({state , dispatch} , data) => {
             const params = {
                 id: state.userId ,
                 ...data ,

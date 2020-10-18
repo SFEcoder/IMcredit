@@ -6,13 +6,20 @@ const api = {
 export function loginAPI(data){
     return axios({
         url:`${api.userPre}/login`,
-        method: 'POST',
+        method: 'POST',    //传很多参数
         data
     })
 }
 export function registerAPI(data){
     return axios({
         url: `${api.userPre}/register`,
+        method: 'POST',
+        data
+    })
+}
+export function  ChangePasswordAPI(data){
+    return axios({
+        url:`${api.userPre}/ChangePassword`,
         method: 'POST',
         data
     })

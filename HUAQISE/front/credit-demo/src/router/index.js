@@ -2,13 +2,25 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/login.vue'
 import Home from '../views/home.vue'
-
+import PersonalCenter from '../views/personalCenter.vue'
+import ChangePassword from "@/views/ChangePassword";
 Vue.use(VueRouter)
 const routes = [
     {
         path: '/login',
         name: 'login',
         component: Login
+    },
+    {
+        path: '/personalCenter',
+        name: 'personalCenter',
+        component: PersonalCenter
+    },
+    {
+        path: '/ChangePassword',
+        name: 'ChangePassword',
+        component: ChangePassword
+
     },
     {
         path: '/home',
