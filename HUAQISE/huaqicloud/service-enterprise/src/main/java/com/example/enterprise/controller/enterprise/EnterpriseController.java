@@ -25,7 +25,7 @@ public class EnterpriseController {
     @PostMapping("/login")
     @ApiOperation(value = "企业用户登录")
     @ApiImplicitParam(name = "enterpriseForm", value = "企业用户登录信息", required = true ,dataType = "EnterpriseForm")
-    ResponseVO login(EnterpriseForm enterpriseForm){
+    ResponseVO login(EnterpriseForm enterpriseForm) {
 
         EnterpriseVO enterpriseVO = enterpriseService.login(enterpriseForm);
         if(enterpriseVO == null){

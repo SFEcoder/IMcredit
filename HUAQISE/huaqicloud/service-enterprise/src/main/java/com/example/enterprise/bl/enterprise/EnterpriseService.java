@@ -37,7 +37,7 @@ public interface EnterpriseService {
      * @param id
      * @return
      */
-     EnterpriseVO getEnterpriseById(Integer id);
+     EnterpriseVO getEnterpriseById(Integer id) ;
 
 
     /**

@@ -24,7 +24,7 @@
     </delete>
 
     <update id="updateEnterprise" parameterType="com.example.enterprise.po.Enterprise">
-        update Enterprise set password = ifnull(#{password},password),contact_name=ifnull(#{contactName},contact_name),valid=ifnull(#{valid},valid),contact_number=ifnull(#{contactNumber},contact_number) where id=#{id}
+        update Enterprise set password = ifnull(#{password},password),contact_name=ifnull(#{contactName},contact_name),valid=ifnull(#{valid},valid),contact_number=ifnull(#{contactNumber},contact_number),e_photo=ifnull(#{ePhoto},e_photo), e_grade = ifnull(#{eGrade},e_grade) where id=#{id}
     </update>
 
     <resultMap id="Enterprise" type="com.example.enterprise.po.Enterprise">

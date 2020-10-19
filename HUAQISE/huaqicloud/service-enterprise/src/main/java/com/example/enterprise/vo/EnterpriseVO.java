@@ -23,7 +23,10 @@ public class EnterpriseVO implements Serializable {
      */
     private Integer userType;
 
-
+    /**
+     * 企业密码
+     */
+    private String password;
 
     /**
      *  企业名字

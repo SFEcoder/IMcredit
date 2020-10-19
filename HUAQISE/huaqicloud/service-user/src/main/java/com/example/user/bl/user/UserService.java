@@ -16,7 +16,7 @@ public interface UserService {
      * @param userForm
      * @return com.example.credit.com.example.common.vo.ResponseVO
      */
-    ResponseVO login(UserForm userForm);
+    ResponseVO login(UserForm userForm) ;
 
     /**
      * description: 注册创建新用户
@@ -24,7 +24,7 @@ public interface UserService {
      * @param userVO
      * @return com.example.credit.com.example.common.vo.UserVO
      */
-    ResponseVO createUser(UserVO userVO);
+    ResponseVO createUser(UserVO userVO) ;
 
     /**
      * description: 更新用户信息
@@ -32,7 +32,7 @@ public interface UserService {
      * @param userVO
      * @return com.example.credit.com.example.common.vo.UserVO
      */
-    Integer updateUser(UserVO userVO);
+    Integer updateUser(UserVO userVO)  ;
 
     /**
      * description: 根据用户id删除用户

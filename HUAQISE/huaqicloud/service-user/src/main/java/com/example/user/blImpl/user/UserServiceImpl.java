@@ -1,6 +1,8 @@
 package com.example.user.blImpl.user;
 
 import com.example.common.cache.RedisCacheClient;
+import com.example.common.constant.AesKey;
+import com.example.common.utils.AesUtil;
 import com.example.common.vo.ResponseVO;
 import com.example.user.bl.user.UserService;
 import com.example.user.data.user.UserMapper;
@@ -31,24 +33,26 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public ResponseVO login(UserForm userForm) {
+    public ResponseVO login(UserForm userForm){
         String email=userForm.getEmail();
         User user=userMapper.getUserByEmail(email);
         if(user==null){
             return ResponseVO.buildFailure(ACCOUNT_NOT_EXIST);
-        }else if(!userForm.getPassword().equals(user.getPassword())){
+        }else if(!user.getPassword().equals(AesUtil.decrypt(userForm.getPassword(), AesKey.getAesKey()))){
             return ResponseVO.buildFailure(PASSWORD_INCORRECT);
         }else{
             log.info(user.getUsername()+" login successfully with password " +user.getPassword());
             UserVO userVO=new UserVO();
             BeanUtils.copyProperties(user,userVO);
+            userVO.setPassword(AesUtil.encrypt(userVO.getPassword(),AesKey.getAesKey()));
             return ResponseVO.buildSuccess(userVO);
         }
     }
 
     @Override
-    public ResponseVO createUser(UserVO userVO) {
+    public ResponseVO createUser(UserVO userVO){
         User user=new User();
+        userVO.setPassword(AesUtil.decrypt(userVO.getPassword(),AesKey.getAesKey()));
         BeanUtils.copyProperties(userVO,user);
 //        user.setAvatarUrl("https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c");
         int effect = userMapper.createNewUser(user);
@@ -60,8 +64,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Integer updateUser(UserVO userVO) {
+    public Integer updateUser(UserVO userVO)  {
         User user=new User();
+        if(userVO.getPassword()!=null){
+            userVO.setPassword(AesUtil.decrypt(userVO.getPassword(),AesKey.getAesKey()));
+        }
         BeanUtils.copyProperties(userVO,user);
         //更新用户信息会导致redis缓存失效，故直接删除该key
         redisCacheClient.delete("user_id"+userVO.getId());
@@ -75,7 +82,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserVO getUserInfo(Integer id) {
+    public UserVO getUserInfo(Integer id)  {
         UserVO userVO = (UserVO) redisCacheClient.get("user_"+id);
         if (userVO==null){
             User user=userMapper.getUserById(id);
@@ -84,11 +91,11 @@ public class UserServiceImpl implements UserService {
             }
             userVO=new UserVO();
             BeanUtils.copyProperties(user,userVO);
+            userVO.setPassword(AesUtil.encrypt(userVO.getPassword(),AesKey.getAesKey()));
             redisCacheClient.set("user_"+id, userVO, 3000);
         }
         return userVO;
     }
-
     @Override
     public Integer getUserNum() {
         return userMapper.getUserNum();

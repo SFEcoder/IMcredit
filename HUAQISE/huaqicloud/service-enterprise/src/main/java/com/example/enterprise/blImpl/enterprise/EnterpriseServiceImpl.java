@@ -1,6 +1,8 @@
 package com.example.enterprise.blImpl.enterprise;
 
 import com.example.common.cache.RedisCacheClient;
+import com.example.common.constant.AesKey;
+import com.example.common.utils.AesUtil;
 import com.example.enterprise.bl.enterprise.EnterpriseService;
 import com.example.enterprise.dao.enterprise.EnterpriseMapper;
 import com.example.enterprise.po.Enterprise;
@@ -36,7 +38,7 @@ public class EnterpriseServiceImpl implements EnterpriseService {
     @Override
     public EnterpriseVO login(EnterpriseForm enterpriseForm) {
         String email=enterpriseForm.getEmail();
-        String password = enterpriseForm.getPassword();
+        String password = AesUtil.decrypt(enterpriseForm.getPassword(), AesKey.getAesKey());
         Enterprise enterprise=enterpriseMapper.getEnterpriseByEmail(email);
         if(enterprise == null){
             return null;
@@ -45,14 +47,16 @@ public class EnterpriseServiceImpl implements EnterpriseService {
         }else{
             EnterpriseVO enterpriseVO=new EnterpriseVO();
             BeanUtils.copyProperties(enterprise,enterpriseVO);
+            enterpriseVO.setPassword(AesUtil.encrypt(enterprise.getPassword(),AesKey.getAesKey()));
             return enterpriseVO;
         }
 
     }
 
     @Override
-    public Integer createNewEnterPrise(EnterpriseVO enterpriseVO) {
+    public Integer createNewEnterPrise(EnterpriseVO enterpriseVO){
         Enterprise enterprise=new Enterprise();
+        enterpriseVO.setPassword(AesUtil.decrypt(enterpriseVO.getPassword(), AesKey.getAesKey()));
         BeanUtils.copyProperties(enterpriseVO,enterprise);
         return enterpriseMapper.insertEnterprise(enterprise);
     }
@@ -73,6 +77,7 @@ public class EnterpriseServiceImpl implements EnterpriseService {
             }
             enterpriseVO = new EnterpriseVO();
             BeanUtils.copyProperties(enterprise,enterpriseVO);
+            enterpriseVO.setPassword(AesUtil.encrypt(enterpriseVO.getPassword(), AesKey.getAesKey()));
             redisCacheClient.set("enterprise_"+id, enterpriseVO, 3000);
         }
         return enterpriseVO;
@@ -85,6 +90,9 @@ public class EnterpriseServiceImpl implements EnterpriseService {
         }else {
             redisCacheClient.delete("enterprise_"+enterpriseVO.getId());
             Enterprise enterprise = new Enterprise();
+            if(enterpriseVO.getPassword()!=null){
+                enterpriseVO.setPassword(AesUtil.decrypt(enterpriseVO.getPassword(), AesKey.getAesKey()));
+            }
             BeanUtils.copyProperties(enterpriseVO,enterprise);
             return enterpriseMapper.updateEnterprise(enterprise);
         }
