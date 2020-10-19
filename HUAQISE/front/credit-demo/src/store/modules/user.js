@@ -9,7 +9,7 @@ import {
     getUserInfoAPI,
     updateUserInfoAPI,
 } from '@/api/user'
-import { rsa_decrypt , rsa_encrypt,rsa_generate } from "../../utils/rsa";
+import { getKey , encrypt,decrypt } from "../../utils/aes";
 
 const getDefaultState = () => {
     return {
@@ -47,14 +47,20 @@ const user = {//定义对象user
     },
 
     actions: {
+        /**
+         * aes演示
+         * @param dispatch
+         * @param commit
+         * @returns {Promise<void>}
+         */
         test: async ({dispatch , commit})=>{
             let str = 'wyx'
-            let keypair=rsa_generate()
-            let str_en = rsa_encrypt(str,keypair.publicKey)
-            let str_de = rsa_decrypt(str_en,keypair.privateKey)
+            let key=getKey()
+            let str_encrypt = encrypt(str,key)
+            let str_decrypt = decrypt(str_encrypt,key)
             console.log('加密前'+str)
-            console.log('加密后'+str_en)
-            console.log('解密后'+str_de)
+            console.log('加密后'+str_encrypt)
+            console.log('解密后'+str_decrypt)
         },
         login: async ({dispatch , commit} , userData) => {
             // const res = await loginAPI(userData)

@@ -2,12 +2,7 @@ import CryptoJS from "crypto-js";
 
 
 export function getKey(length = 16) {
-    let random = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    let str = "";
-    for (let i = 0; i < length; i++) {
-        str  = str + random.charAt(Math.random() * random.length)
-    }
-    return str;
+    return "MIGfMA0GCSqGSIb3";
 }
 
 export function encrypt (plaintText,key){
