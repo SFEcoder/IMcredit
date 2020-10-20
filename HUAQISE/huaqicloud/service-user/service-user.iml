@@ -25,6 +25,24 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: com.aliyun.oss:aliyun-sdk-oss:2.8.3" level="project" />
+    <orderEntry type="library" name="Maven: org.jdom:jdom:1.1" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-swagger-ui:2.7.0" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-spring-web:2.7.0" level="project" />
+    <orderEntry type="library" name="Maven: org.reflections:reflections:0.9.11" level="project" />
+    <orderEntry type="library" name="Maven: org.javassist:javassist:3.21.0-GA" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-swagger2:2.7.0" level="project" />
+    <orderEntry type="library" name="Maven: io.swagger:swagger-annotations:1.5.13" level="project" />
+    <orderEntry type="library" name="Maven: io.swagger:swagger-models:1.5.13" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-spi:2.7.0" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-core:2.7.0" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-schema:2.7.0" level="project" />
+    <orderEntry type="library" name="Maven: io.springfox:springfox-swagger-common:2.7.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:3.0.2" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.plugin:spring-plugin-core:1.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.plugin:spring-plugin-metadata:1.2.0.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.mapstruct:mapstruct:1.1.0.Final" level="project" />
+    <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.62" level="project" />
     <orderEntry type="module" module-name="common" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.2.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-netflix-hystrix:2.2.5.RELEASE" level="project" />

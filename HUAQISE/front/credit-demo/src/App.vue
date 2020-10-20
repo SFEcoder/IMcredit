@@ -1,5 +1,5 @@
 <template>
-  <div id="app" v-title data-title="NJUSE酒店管理系统">
+  <div id="app" v-title data-title="IM Credit">
     <transition name="fade-transform" mode="out-in">
       <router-view v-if="isRouterAlive"></router-view>
     </transition>
@@ -38,7 +38,7 @@
     color: #2c3e50;
     width: 100%;
     padding: 20px 100px 144px;
-    background: #f8f7f7 url('assets/background.svg') repeat 100%;
+    /*background: #f8f7f7 url('assets/background.svg') repeat 100%;*/
     min-height: 800px;
   }
 
