@@ -7,6 +7,8 @@ import com.example.user.po.User;
 import com.example.user.vo.UserForm;
 import com.example.user.vo.UserVO;
 import org.junit.Assert;
+import com.example.common.constant.AesKey;
+import com.example.common.utils.AesUtil;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.runner.RunWith;
@@ -49,7 +51,7 @@ public class UserControllerTest {
         user = new User();
         user.setEmail("C1@qq.com");
         user.setPassword("123456");
-        user.setUserType("Client");
+        user.setUserType(1);
         user.setAvatarUrl("https://pic4");
         user.setPhoneNumber("123456789");
         user.setUsername("客户一号");
@@ -118,7 +120,7 @@ public class UserControllerTest {
         BeanUtils.copyProperties(user, userVO);
         assert userController.register(userVO).getSuccess();
 
-        userVO.setUserType("Business");
+        userVO.setUserType(0);
         Assert.assertEquals(userController.updateUser(userVO).getSuccess(), true);
 
     }
