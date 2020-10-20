@@ -9,10 +9,14 @@ import {
     getUserInfoAPI,
     updateUserInfoAPI,
 } from '@/api/user'
-import { getKey , encrypt,decrypt } from "../../utils/aes";
+import {
+    uploadImgAPI
+}from '@/api/oss'
+import { rsa_decrypt , rsa_encrypt,rsa_generate } from "../../utils/rsa";
 
 const getDefaultState = () => {
     return {
+        Url:[],
         userId: '',
         userInfo: {
 
@@ -28,6 +32,7 @@ const user = {//定义对象user
             state.infoCredit = '',
                 state.token = '',
                 state.userId = '',
+                state.Url='',
                 state.userInfo = {}
         } ,
 
@@ -47,20 +52,14 @@ const user = {//定义对象user
     },
 
     actions: {
-        /**
-         * aes演示
-         * @param dispatch
-         * @param commit
-         * @returns {Promise<void>}
-         */
         test: async ({dispatch , commit})=>{
             let str = 'wyx'
-            let key=getKey()
-            let str_encrypt = encrypt(str,key)
-            let str_decrypt = decrypt(str_encrypt,key)
+            let keypair=rsa_generate()
+            let str_en = rsa_encrypt(str,keypair.publicKey)
+            let str_de = rsa_decrypt(str_en,keypair.privateKey)
             console.log('加密前'+str)
-            console.log('加密后'+str_encrypt)
-            console.log('解密后'+str_decrypt)
+            console.log('加密后'+str_en)
+            console.log('解密后'+str_de)
         },
         login: async ({dispatch , commit} , userData) => {
             // const res = await loginAPI(userData)
@@ -78,10 +77,25 @@ const user = {//定义对象user
             router.push('/credit/main')
         } ,
 
+        uploadADImg: async ({state , dispatch} , data) => {
+            const res = await uploadImgAPI(data) //res就是图片字符串
+            if (res) {
+                console.log(res)
+                this.Url.push(res)
+
+            }
+        } ,
+
         register: async ({commit},data) => {
+            const url='sdcfvc'
+
+            console.log(data)
             const res = await registerAPI(data)
             if (res) {
-                message.success('注册成功')
+                if(data.userType === '2')
+                    message.success("请等待确认")
+                else
+                    message.success('注册成功')
             }
         } ,
         getUserInfo({state , commit}) {
