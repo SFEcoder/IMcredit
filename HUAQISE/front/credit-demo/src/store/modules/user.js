@@ -9,10 +9,14 @@ import {
     getUserInfoAPI,
     updateUserInfoAPI,
 } from '@/api/user'
+import {
+    uploadImgAPI
+}from '@/api/oss'
 import { rsa_decrypt , rsa_encrypt,rsa_generate } from "../../utils/rsa";
 
 const getDefaultState = () => {
     return {
+        Url:[],
         userId: '',
         userInfo: {
 
@@ -28,6 +32,7 @@ const user = {//定义对象user
             state.infoCredit = '',
                 state.token = '',
                 state.userId = '',
+                state.Url='',
                 state.userInfo = {}
         } ,
 
@@ -72,10 +77,25 @@ const user = {//定义对象user
             router.push('/credit/main')
         } ,
 
+        uploadADImg: async ({state , dispatch} , data) => {
+            const res = await uploadImgAPI(data) //res就是图片字符串
+            if (res) {
+                console.log(res)
+                this.Url.push(res)
+
+            }
+        } ,
+
         register: async ({commit},data) => {
+            const url='sdcfvc'
+
+            console.log(data)
             const res = await registerAPI(data)
             if (res) {
-                message.success('注册成功')
+                if(data.userType === '2')
+                    message.success("请等待确认")
+                else
+                    message.success('注册成功')
             }
         } ,
         getUserInfo({state , commit}) {

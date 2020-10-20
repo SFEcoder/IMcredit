@@ -3,6 +3,7 @@ const getters = {
     token: state => state.user.token,
     userId: state => state.user.userId,
     userInfo: state => state.user.userInfo,
+    Url:state => state.user.Url
 }
 
 export default getters

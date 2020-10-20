@@ -38,7 +38,7 @@
     color: #2c3e50;
     width: 100%;
     padding: 20px 100px 144px;
-    background: #f8f7f7 url('assets/background.svg') repeat 100%;
+    /*background: #f8f7f7 url('assets/background.svg') repeat 100%;*/
     min-height: 800px;
   }
 
