@@ -26,15 +26,23 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09babd80-e31b-4fc1-a09c-67f52bc66a8d" name="Default Changelist" comment="feat: 完整浏览记录功能；">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_oss_aliyun_sdk_oss_2_8_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jdom_jdom_1_1.xml" afterDir="false" />
+    <list default="true" id="09babd80-e31b-4fc1-a09c-67f52bc66a8d" name="Default Changelist" comment="feat: ；">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_core_3_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_ecs_4_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_ram_3_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_sts_3_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jettison_jettison_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_1_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/data/index/Lsdpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_oss_aliyun_sdk_oss_2_8_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_oss_aliyun_sdk_oss_3_8_0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/common/common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/common/common.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-enterprise/service-enterprise.iml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/service-enterprise.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/service-user.iml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/service-user.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/ProviderUserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/ProviderUserApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/huaqicloud/zuul-gateway/zuul-gateway.iml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/zuul-gateway/zuul-gateway.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sql/hauqi.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/hauqi.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +97,7 @@
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
-  <component name="RunManager" selected="Spring Boot.ZuulApplication">
+  <component name="RunManager" selected="Spring Boot.ProviderUserApplication">
     <configuration name="hauqi.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/sql/hauqi.sql" />
       <script-mode>FILE</script-mode>
@@ -136,8 +144,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.serve" />
         <item itemvalue="Database Script.hauqi.sql" />
+        <item itemvalue="npm.serve" />
       </list>
     </recent_temporary>
   </component>
@@ -167,7 +175,13 @@
       <workItem from="1602724758175" duration="4000" />
       <workItem from="1602732894686" duration="1103000" />
       <workItem from="1602778716343" duration="15000" />
-      <workItem from="1602922795795" duration="350000" />
+      <workItem from="1602922795795" duration="2750000" />
+      <workItem from="1602944832793" duration="136000" />
+      <workItem from="1603018109060" duration="10195000" />
+      <workItem from="1603074751717" duration="13000" />
+      <workItem from="1603122386892" duration="3744000" />
+      <workItem from="1603162074020" duration="1035000" />
+      <workItem from="1603163618522" duration="889000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 前端rsa，aseutils">
       <created>1602492219668</created>
@@ -190,7 +204,35 @@
       <option name="project" value="LOCAL" />
       <updated>1602922861479</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="feat: 完整浏览记录功能；">
+      <created>1602923168219</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1602923168220</updated>
+    </task>
+    <task id="LOCAL-00005" summary="feat: 第一阶段接口功能完成，阿里云OSS图片上传接口整合">
+      <created>1603033153451</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1603033153451</updated>
+    </task>
+    <task id="LOCAL-00006" summary="feat: Aes算法加密，前后端涉及到传输密码均需要做加密；">
+      <created>1603124930994</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1603124930995</updated>
+    </task>
+    <task id="LOCAL-00007" summary="feat: 前端aes加密算法使用示例（user.js中的test方法）；">
+      <created>1603126030314</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1603126030314</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -225,7 +267,10 @@
     <MESSAGE value="feat: 添加浏览记录业务及异常处理" />
     <MESSAGE value="fix: 解决服务间调用出现的bean重名情况" />
     <MESSAGE value="feat: 完整浏览记录功能；" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 完整浏览记录功能；" />
+    <MESSAGE value="feat: 第一阶段接口功能完成，阿里云OSS图片上传接口整合" />
+    <MESSAGE value="feat: Aes算法加密，前后端涉及到传输密码均需要做加密；" />
+    <MESSAGE value="feat: 前端aes加密算法使用示例（user.js中的test方法）；" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: 前端aes加密算法使用示例（user.js中的test方法）；" />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="94" key="#Project_Structure" timestamp="1602597430049">
@@ -240,58 +285,62 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="178" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602588161104" />
-    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1602589696246">
+    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1603022579787">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1602589696246" />
-    <state x="656" y="254" key="#hauqi.sql" timestamp="1602588255655">
+    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1603022579787" />
+    <state x="548" y="442" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1603122621052">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="254" key="#hauqi.sql/0.0.1920.1040@0.0.1920.1040" timestamp="1602588255655" />
-    <state x="516" y="81" key="CommitChangelistDialog2" timestamp="1602922858288">
+    <state x="548" y="442" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603122621052" />
+    <state x="656" y="254" key="#hauqi.sql" timestamp="1603029068581">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="516" y="81" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1602922858288" />
-    <state x="140" y="67" key="DiffContextDialog" timestamp="1602642218592">
+    <state x="656" y="254" key="#hauqi.sql/0.0.1920.1040@0.0.1920.1040" timestamp="1603029068581" />
+    <state x="516" y="81" key="CommitChangelistDialog2" timestamp="1603162310177">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="140" y="67" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602642218592" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1602254959929">
+    <state x="516" y="81" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603162310177" />
+    <state x="140" y="67" key="DiffContextDialog" timestamp="1603162265467">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602254959929" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1602642615999">
+    <state x="140" y="67" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603162265467" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1603027441754">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615999" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1602642615998">
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1603027441754" />
+    <state width="1877" height="271" key="GridCell.Tab.0.bottom" timestamp="1603163560512">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615998" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1602642615996">
+    <state width="1877" height="271" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603163560512" />
+    <state width="1877" height="271" key="GridCell.Tab.0.center" timestamp="1603163560511">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615996" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1602642615999">
+    <state width="1877" height="271" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603163560511" />
+    <state width="1877" height="271" key="GridCell.Tab.0.left" timestamp="1603163560511">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615999" />
-    <state width="1877" height="281" key="GridCell.Tab.1.bottom" timestamp="1602642615999">
+    <state width="1877" height="271" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603163560511" />
+    <state width="1877" height="271" key="GridCell.Tab.0.right" timestamp="1603163560512">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615999" />
-    <state width="1877" height="281" key="GridCell.Tab.1.center" timestamp="1602642615999">
+    <state width="1877" height="271" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603163560512" />
+    <state width="1877" height="271" key="GridCell.Tab.1.bottom" timestamp="1603163560513">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615999" />
-    <state width="1877" height="281" key="GridCell.Tab.1.left" timestamp="1602642615999">
+    <state width="1877" height="271" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1603163560513" />
+    <state width="1877" height="271" key="GridCell.Tab.1.center" timestamp="1603163560513">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615999" />
-    <state width="1877" height="281" key="GridCell.Tab.1.right" timestamp="1602642615999">
+    <state width="1877" height="271" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1603163560513" />
+    <state width="1877" height="271" key="GridCell.Tab.1.left" timestamp="1603163560513">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="281" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615999" />
+    <state width="1877" height="271" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1603163560513" />
+    <state width="1877" height="271" key="GridCell.Tab.1.right" timestamp="1603163560513">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="271" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1603163560513" />
     <state width="1877" height="350" key="GridCell.Tab.2.bottom" timestamp="1602608576191">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -312,14 +361,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="369" y="328" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1602596001337" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1602642269346">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1603126046148">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602642269346" />
-    <state x="669" y="306" key="git4idea.merge.GitPullDialog" timestamp="1602922863776">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1603126046148" />
+    <state x="669" y="306" key="git4idea.merge.GitPullDialog" timestamp="1603126035308">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="669" y="306" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602922863776" />
+    <state x="669" y="306" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1603126035308" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602733213927">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
