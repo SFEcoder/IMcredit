@@ -638,6 +638,7 @@
     }
 
     .changeButton{
+        font-size: 18px;
         width: 60%;
         height: 40px;
         border-radius: 24px;

@@ -1,5 +1,5 @@
 <template>
-  <div id="app" v-title data-title="NJUSE酒店管理系统">
+  <div id="app" v-title data-title="IM Credit">
     <transition name="fade-transform" mode="out-in">
       <router-view v-if="isRouterAlive"></router-view>
     </transition>

@@ -26,13 +26,28 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09babd80-e31b-4fc1-a09c-67f52bc66a8d" name="Default Changelist" comment="feat: 完整浏览记录功能；">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_oss_aliyun_sdk_oss_2_8_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jdom_jdom_1_1.xml" afterDir="false" />
+    <list default="true" id="09babd80-e31b-4fc1-a09c-67f52bc66a8d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_core_3_4_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_ecs_4_2_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_ram_3_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_sts_3_0_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jettison_jettison_1_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_1_5_RELEASE.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/credit-demo/jest.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/credit-demo/tests/unit/example.spec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/front/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_oss_aliyun_sdk_oss_2_8_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_oss_aliyun_sdk_oss_3_8_0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/common/common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/common/common.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/credit-demo/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/credit-demo/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/credit-demo/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/credit-demo/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/credit-demo/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/credit-demo/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/credit-demo/src/views/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/front/credit-demo/src/views/login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/huaqicloud/service-enterprise/service-enterprise.iml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-enterprise/service-enterprise.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/service-user.iml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/service-user.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/huaqicloud/zuul-gateway/zuul-gateway.iml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/zuul-gateway/zuul-gateway.iml" afterDir="false" />
     </list>
@@ -40,6 +55,25 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="ExecutionTargetDialog">
+    <checked>
+      <node key="8e296cda-aa39-4dd0-b907-473bce642b30" />
+    </checked>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -52,18 +86,21 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="dev" />
+        <entry key="$PROJECT_DIR$/.." value="master" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1hiS1Xn5Q8QKj85SECXaF2C7QzJ" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
@@ -78,6 +115,7 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/front/credit-demo/node_modules/@vue/cli-service" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -89,11 +127,47 @@
   <component name="ReactorSettings">
     <option name="notificationShown" value="true" />
   </component>
-  <component name="RunManager" selected="Spring Boot.ZuulApplication">
+  <component name="RunManager" selected="Jest.HelloWorld">
     <configuration name="hauqi.sql" type="DatabaseScript" editBeforeRun="true" temporary="true" nameIsGenerated="true">
       <script-file value="$PROJECT_DIR$/sql/hauqi.sql" />
       <script-mode>FILE</script-mode>
       <data-source id="cf3fd5e8-d7aa-4ea2-8383-681dde249327" />
+      <method v="2" />
+    </configuration>
+    <configuration name="HelloWorld" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/front/credit-demo/node_modules/@vue/cli-service" />
+      <working-dir value="$PROJECT_DIR$/front/credit-demo" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/front/credit-demo/tests/unit/example.spec.js" />
+      <test-names>
+        <test-name value="HelloWorld" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="HelloWorld.vue" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/front/credit-demo/node_modules/@vue/cli-service" />
+      <working-dir value="$PROJECT_DIR$/front/credit-demo" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/front/credit-demo/tests/unit/example.spec.js" />
+      <test-names>
+        <test-name value="HelloWorld.vue" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="example.spec.js" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/front/credit-demo/node_modules/@vue/cli-service" />
+      <working-dir value="$PROJECT_DIR$/front/credit-demo" />
+      <envs />
+      <scope-kind value="TEST_FILE" />
+      <test-file value="$PROJECT_DIR$/front/credit-demo/tests/unit/example.spec.js" />
       <method v="2" />
     </configuration>
     <configuration name="EnterpriseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
@@ -134,10 +208,22 @@
       <envs />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="npm.serve" />
+      <item itemvalue="Spring Boot.EnterpriseApplication" />
+      <item itemvalue="Spring Boot.ProviderUserApplication" />
+      <item itemvalue="Spring Boot.EurakeApplication" />
+      <item itemvalue="Spring Boot.ZuulApplication" />
+      <item itemvalue="Jest.example.spec.js" />
+      <item itemvalue="Jest.HelloWorld.vue" />
+      <item itemvalue="Jest.HelloWorld" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.HelloWorld" />
+        <item itemvalue="Jest.HelloWorld.vue" />
+        <item itemvalue="Jest.example.spec.js" />
         <item itemvalue="npm.serve" />
-        <item itemvalue="Database Script.hauqi.sql" />
       </list>
     </recent_temporary>
   </component>
@@ -213,14 +299,15 @@
                   </entry>
                 </map>
               </option>
+              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="feat: 前端rsa，aseutils" />
     <MESSAGE value="feat: 添加浏览记录业务及异常处理" />
     <MESSAGE value="fix: 解决服务间调用出现的bean重名情况" />
@@ -248,9 +335,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="254" key="#hauqi.sql/0.0.1920.1040@0.0.1920.1040" timestamp="1602588255655" />
-    <state x="516" y="81" key="CommitChangelistDialog2" timestamp="1602922858288">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="361" y="5" key="CommitChangelistDialog2" timestamp="1603184314519">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state x="361" y="5" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1603184314519" />
     <state x="516" y="81" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1602922858288" />
     <state x="140" y="67" key="DiffContextDialog" timestamp="1602642218592">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -260,21 +348,25 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602254959929" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1602642615999">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="301" key="GridCell.Tab.0.bottom" timestamp="1603184316141">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="301" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603184316141" />
     <state width="1877" height="281" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615999" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1602642615998">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="301" key="GridCell.Tab.0.center" timestamp="1603184316141">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="301" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603184316141" />
     <state width="1877" height="281" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615998" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1602642615996">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="301" key="GridCell.Tab.0.left" timestamp="1603184316141">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="301" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603184316141" />
     <state width="1877" height="281" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615996" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1602642615999">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1493" height="301" key="GridCell.Tab.0.right" timestamp="1603184316141">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
+    <state width="1493" height="301" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603184316141" />
     <state width="1877" height="281" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602642615999" />
     <state width="1877" height="281" key="GridCell.Tab.1.bottom" timestamp="1602642615999">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -316,6 +408,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602642269346" />
+    <state x="377" y="112" width="782" height="600" key="find.popup" timestamp="1603181884891">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="377" y="112" width="782" height="600" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1603181884891" />
     <state x="669" y="306" key="git4idea.merge.GitPullDialog" timestamp="1602922863776">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
