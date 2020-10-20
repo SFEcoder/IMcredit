@@ -26,23 +26,8 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="09babd80-e31b-4fc1-a09c-67f52bc66a8d" name="Default Changelist" comment="feat: ；">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_core_3_4_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_ecs_4_2_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_ram_3_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_aliyun_java_sdk_sts_3_0_0.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_13.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jettison_jettison_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_2_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_1_5_RELEASE.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/data/index/Lsdpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_oss_aliyun_sdk_oss_2_8_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_aliyun_oss_aliyun_sdk_oss_3_8_0.xml" afterDir="false" />
+    <list default="true" id="09babd80-e31b-4fc1-a09c-67f52bc66a8d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/service-user.iml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/service-user.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/ProviderUserApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/java/com/example/user/ProviderUserApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/service-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/service-user/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud/zuul-gateway/zuul-gateway.iml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud/zuul-gateway/zuul-gateway.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sql/hauqi.sql" beforeDir="false" afterPath="$PROJECT_DIR$/sql/hauqi.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,7 +166,8 @@
       <workItem from="1603074751717" duration="13000" />
       <workItem from="1603122386892" duration="3744000" />
       <workItem from="1603162074020" duration="1035000" />
-      <workItem from="1603163618522" duration="889000" />
+      <workItem from="1603163618522" duration="1716000" />
+      <workItem from="1603179312960" duration="163000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 前端rsa，aseutils">
       <created>1602492219668</created>
@@ -232,7 +218,14 @@
       <option name="project" value="LOCAL" />
       <updated>1603126030314</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="feat: sql修改；">
+      <created>1603164932972</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1603164932972</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,7 +263,8 @@
     <MESSAGE value="feat: 第一阶段接口功能完成，阿里云OSS图片上传接口整合" />
     <MESSAGE value="feat: Aes算法加密，前后端涉及到传输密码均需要做加密；" />
     <MESSAGE value="feat: 前端aes加密算法使用示例（user.js中的test方法）；" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 前端aes加密算法使用示例（user.js中的test方法）；" />
+    <MESSAGE value="feat: sql修改；" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: sql修改；" />
   </component>
   <component name="WindowStateProjectService">
     <state x="440" y="94" key="#Project_Structure" timestamp="1602597430049">
@@ -297,10 +291,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="254" key="#hauqi.sql/0.0.1920.1040@0.0.1920.1040" timestamp="1603029068581" />
-    <state x="516" y="81" key="CommitChangelistDialog2" timestamp="1603162310177">
+    <state x="516" y="81" key="CommitChangelistDialog2" timestamp="1603164924935">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="516" y="81" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603162310177" />
+    <state x="516" y="81" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1603164924935" />
     <state x="140" y="67" key="DiffContextDialog" timestamp="1603162265467">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
