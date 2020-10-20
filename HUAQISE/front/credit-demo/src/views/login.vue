@@ -522,7 +522,7 @@
         font-size: 1.5em;
         font-weight: bold;
         margin-bottom: 20px;
-        color: rgb(57,167,176);
+        color: rgba(105, 0 , 75, 0.8);
     }
     .bform{
         width: 100%;
@@ -556,7 +556,7 @@
         border-radius: 24px;
         border: none;
         outline: none;
-        background-color: rgb(57,167,176);
+        background-color: rgba(105, 0 , 75, 0.8);
         color: #fff;
         font-size: 0.9em;
         cursor: pointer;
@@ -569,7 +569,7 @@
     .small-box{
         width: 30%;
         height: 100%;
-        background: linear-gradient(135deg,rgb(57,167,176),rgb(56,183,145));
+        background: linear-gradient(135deg,rgb(106, 0, 106),rgb(105,0,75));
         position: absolute;
         top: 0;
         left: 0;
@@ -593,7 +593,7 @@
         border-radius: 24px;
         border: none;
         outline: none;
-        background-color: rgb(57,167,176);
+        background-color: rgba(105, 0 , 75, 0.8);
         color: #fff;
         font-size: 0.9em;
         cursor: pointer;
@@ -605,6 +605,7 @@
     }
 
     .changeButton{
+        font-size: 18px;
         width: 60%;
         height: 40px;
         border-radius: 24px;
