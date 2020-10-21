@@ -2,6 +2,7 @@ package com.example.common.calculation;
 
 import java.util.ArrayList;
 import java.util.List;
+import com.example.common.calculation.enumType.finType;
 
 /**
  * @Author: Owen
@@ -10,46 +11,115 @@ import java.util.List;
  */
 public class FinRank {
 
+    public static List<Double> getFinanceScore(List<List<Double>> list){
 
-    public static List<Double> main(List<List<Double>> list){
+        // 中间结果
+        List<Double> afterMMList = new ArrayList<>();        // 公司的各项指标（做过min_max）
+        List<List<Double>> firstList = new ArrayList<>();    // 中间结果 1 （全部公司）
+        List<Double> afterSUMList = new ArrayList<>();      // 公司二级指标和
+        List<List<Double>> secondList = new ArrayList<>();  // 中间结果 2 (全部公司 ) aka 一级指标
+        List<Double> afterMM2List = new ArrayList<>();      // 公司一级级指标和
+        List<List<Double>> thirdList = new ArrayList<>();  // 中间结果 2 (全部公司 )
 
-        List<List<Double>> doubleList = new ArrayList<>();
-        List<List<Double>> starList = new ArrayList<>();
+        List<Double> financeScore = new ArrayList<>();      // 最终财务评分
+
         List<Double> tmpList = new ArrayList<>();
 
-        List<Double> initial = new ArrayList<>();
-        List<Double> finalList = new ArrayList<>();
-
-        for (int j=0; j<list.get(0).size(); j++){
-            for (int i=0; i<list.size(); i++){
-                tmpList.add(list.get(i).get(j));
+        for (int i=0; i<list.size(); i++){      // 3
+            for (int j=0; j<list.get(i).size(); j++){   // 17
+                for (int k=0; k<list.size(); k++){
+                    tmpList.add(list.get(k).get(j));
+                }
+                afterMMList.add(Calculation.minMaxScoreForFin(list.get(i).get(j), tmpList, j));
+                tmpList = new ArrayList<>();
             }
-            doubleList.add(tmpList);
+            firstList.add(afterMMList);
+            afterMMList = new ArrayList<>();
+        }
+
+
+        for (int a=0; a<firstList.size(); a++){
+            int counter = 0;
+            for (int i=0; i<finType.A.getTwoToOne().length; i++){
+                double sum = 0;
+                for (int j=0; j<finType.A.getTwoToOne()[i]; j++){
+                    sum += firstList.get(a).get(counter);
+                    counter++;
+                }
+                afterSUMList.add(sum);
+            }
+            secondList.add(afterSUMList);
+            afterSUMList = new ArrayList<>();
+        }
+
+        for (int i=0; i<secondList.size(); i++){
+            for (int j=0; j<secondList.get(i).size(); j++){
+                for (int k=0; k<secondList.size(); k++){
+                    tmpList.add(secondList.get(k).get(j));
+                }
+                afterMM2List.add(Calculation.minMaxScore(secondList.get(i).get(j), tmpList));
+                tmpList = new ArrayList<>();
+            }
+            thirdList.add(afterMM2List);
+            afterMM2List = new ArrayList<>();
+        }
+
+        for (int i=0; i<thirdList.size(); i++){
+            double sum = 0;
+            for (int j=0; j<thirdList.get(i).size(); j++){
+                sum += thirdList.get(i).get(j);
+            }
+            financeScore.add(sum);
+        }
+
+        return financeScore;
+    }
+
+    public static List<List<Double>> getFinanceTopTarget(List<List<Double>> list){
+        // 中间结果
+        List<Double> afterMMList = new ArrayList<>();        // 公司的各项指标（做过min_max）
+        List<List<Double>> firstList = new ArrayList<>();    // 中间结果 1 （全部公司）
+        List<Double> afterSUMList = new ArrayList<>();      // 公司二级指标和
+        List<List<Double>> secondList = new ArrayList<>();  // 中间结果 2 (全部公司 ) aka 一级指标
+        List<List<Double>> finTopList = new ArrayList<>();
+
+        List<Double> tmpList = new ArrayList<>();
+
+        for (int i=0; i<list.size(); i++){      // 3
+            for (int j=0; j<list.get(i).size(); j++){   // 17
+                for (int k=0; k<list.size(); k++){
+                    tmpList.add(list.get(k).get(j));
+                }
+                afterMMList.add(Calculation.minMaxScoreForFin(list.get(i).get(j), tmpList, j));
+                tmpList = new ArrayList<>();
+            }
+            firstList.add(afterMMList);
+            afterMMList = new ArrayList<>();
+        }
+
+
+        for (int a=0; a<firstList.size(); a++){
+            int counter = 0;
+            for (int i=0; i<finType.A.getTwoToOne().length; i++){
+                double sum = 0;
+                for (int j=0; j<finType.A.getTwoToOne()[i]; j++){
+                    sum += firstList.get(a).get(counter);
+                    counter++;
+                }
+                afterSUMList.add(sum);
+            }
+            secondList.add(afterSUMList);
+            afterSUMList = new ArrayList<>();
+        }
+
+        // 存中间结果 一级指标
+        for (int i=0; i<secondList.size(); i++){
+            for (int j=0; j<secondList.get(i).size(); j++){
+                tmpList.add(secondList.get(i).get(j));
+            }
+            finTopList.add(tmpList);
             tmpList = new ArrayList<>();
         }
-
-        for (int i=0; i<doubleList.size(); i++){
-            for (int j=0; j<doubleList.get(i).size(); j++){
-                double xi = 0;
-                xi = Calculation.minMaxScore(doubleList.get(i).get(j), doubleList.get(i), i);
-                tmpList.add(xi);
-            }
-            starList.add(tmpList);
-            tmpList = new ArrayList<>();
-        }
-
-        for (int i=0; i<starList.get(0).size(); i++){
-            double tmp = 0;
-            for (int j=0; j<starList.size(); j++){
-                tmp += starList.get(j).get(i);
-            }
-            initial.add(tmp);
-        }
-
-        for (int i=0; i<initial.size(); i++){
-            finalList.add(100 * Calculation.minMaxScore(initial.get(i), initial,0));  // 将enums[0]充当index，因为这边使用正向指标
-        }
-
-        return finalList;
+        return finTopList;
     }
 }

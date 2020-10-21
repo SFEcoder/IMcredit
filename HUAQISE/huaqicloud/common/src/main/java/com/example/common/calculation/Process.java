@@ -12,24 +12,42 @@ import java.util.List;
  */
 public class Process {
 
-    public static void main (String[] args){
+    public static void main(String[] args){
 
-        List<Double> tmp1 = Arrays.asList(4.0,0.5,2.0,1.0,0.4,1.0,0.1,0.2,1.0,0.2,0.2,0.1,0.5,300.0,1.0,2.0,30.0);
-        List<Double> tmp2 = Arrays.asList(0.0,0.55,2.5,1.2,0.3,0.7,0.05,0.4,1.5,0.5,0.1,0.15,0.4,200.0,1.5,5.0,60.0);
-        List<Double> tmp3 = Arrays.asList(3.0,0.45,1.5,0.8,0.5,1.5,0.08,0.45,0.5,0.7,0.15,0.15,0.2,150.0,2.2,3.0,15.0);
-        List<List<Double>> list = Arrays.asList(tmp1,tmp2,tmp3);
+        List<Double> d1 = Arrays.asList(95.0,3.0,1.0,-2.0,1.0,0.0,1.0,30.92,2.0,1.0,1.0,8.0,2.0,1.0,2.0,3.0,2.0);
+        List<Double> d2 = Arrays.asList(100.0,4.0,2.0,-5.0,5.0,3.0,3.0,39.43,9.0,1.0,5.0,65.0,3.0,1.0,4.0,4.0,4.0);
+        List<Double> d3 = Arrays.asList(100.0,0.0,1.0,0.0,-1.0,0.0,0.0,20.0,0.0,1.0,1.0,40.0,0.0,1.0,1.0,0.0,1.0);
+        List<Double> d4 = Arrays.asList(99.0,4.0,2.0,-3.0,-5.0,0.0,0.0,43.0,2.0,0.0,2.0,42.0,0.0,1.0,0.0,2.0,3.0);
+        List<List<Double>> diverList = Arrays.asList(d1,d2,d3,d4);
+
+        System.out.println(DivRank.getDivergenceScore(diverList));
+
+//        List<Double> f1 = Arrays.asList();
+//        List<Double> f2 = Arrays.asList();
+//        List<Double> f3 = Arrays.asList();
+//        List<Double> f4 = Arrays.asList();
+//        List<List<Double>> finanList = Arrays.asList(f1,f2,f3,f4);
+
+//        System.out.println(getFinalScore(finanList, diverList));
+
+    }
+
+    public static List<Double> getFinalScore(List<List<Double>> finanList, List<List<Double>> diverList){
 
         // financial ranking
-        List<Double> finList = FinRank.main(list);
+        List<Double> finList =FinRank.getFinanceScore(finanList);
+        List<List<Double>> financeTopTarget = FinRank.getFinanceTopTarget(finanList);
 
         // divergence ranking
-        List<Double> divList = DivRank.main(list);
+        List<Double> divList = DivRank.getDivergenceScore(diverList);
+        List<List<Double>> divergenceTopTarget = DivRank.getDivergenceTopTarget(diverList);
 
         // final ranking
         List<List<Double>> rankList = Arrays.asList(divList,finList);
         List<Double> finalList = Calculation.entropyWeightForFinal(rankList);
 
         System.out.println(finalList);
-    }
 
+        return finalList;
+    }
 }

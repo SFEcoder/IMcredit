@@ -1,11 +1,9 @@
 package com.example.common.calculation;
 
-import com.example.common.calculation.enumType.EnumType;
-
+import com.example.common.calculation.enumType.divType;
+import com.example.common.calculation.enumType.finType;
 import java.lang.Math;
-
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -18,7 +16,8 @@ import java.util.List;
 public class Calculation {
 
     // 指标的正负向数组
-    private static final EnumType[] enums = {EnumType.A,EnumType.B,EnumType.C,EnumType.D,EnumType.E,EnumType.F,EnumType.G,EnumType.H,EnumType.I,EnumType.J,EnumType.K,EnumType.L,EnumType.M,EnumType.N,EnumType.O,EnumType.P,EnumType.Q};
+    private static final finType[] finenums = {finType.A,finType.B,finType.C,finType.D,finType.E,finType.F,finType.G,finType.H,finType.I,finType.J,finType.K,finType.L,finType.M,finType.N,finType.O,finType.P,finType.Q};
+    private static final divType[] divenums = {divType.A,divType.B,divType.C,divType.D,divType.E,divType.F,divType.G,divType.H,divType.I,divType.J,divType.K,divType.L,divType.M,divType.N,divType.O,divType.P,divType.Q};
 
     /**
      * @param xList
@@ -50,12 +49,35 @@ public class Calculation {
     }
 
     /**
+     * @function 标准min_max
+     * @param xList 相同指标集合
+     * */
+    public static double minMaxScore (double xi, List<Double> xList){
+
+
+        double xmin = 1000000, xmax = -1000000, revalue = 0;
+
+        for (int i=0; i<xList.size(); i++){
+            if (xList.get(i) >= xmax) xmax = xList.get(i);
+            if (xList.get(i) <= xmin) xmin = xList.get(i);
+        }
+
+        try{
+            revalue = (xi - xmin) / (xmax - xmin);
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return revalue;
+    }
+
+    /**
+     * @function 财务指标min_max
      * @param xList 相同指标集合
      * @param index 0代表正向指标；1代表负向指标
      * */
-    public static double minMaxScore (double xi, List<Double> xList, int index){
+    public static double minMaxScoreForFin (double xi, List<Double> xList, int index){
 
-        EnumType et = enums[index];
+        finType et = finenums[index];
 
         if (et.getControl() != -1 && et.getControl() != 0 && et.getControl() != 1) return 0;
 
@@ -94,162 +116,191 @@ public class Calculation {
         return revalue;
     }
 
+    /**
+     * @function 两化指标min_max
+     * @param xList 相同指标集合
+     * @param index 0代表正向指标；1代表负向指标
+     * */
+    public static double minMaxScoreForDiv (double xi, List<Double> xList, int index){
+
+        divType et = divenums[index];
+
+        if (et.getControl() != -1 && et.getControl() != 0 && et.getControl() != 1) return 0;
+
+        // 指标为满意值另外判断
+        if (et.getControl() == -1){
+            if (xi < et.getBelow()) return 0;
+            if (xi > et.getAbove()) return 1;
+            return (xi - et.getBelow()) / (et.getAbove() - et.getBelow());
+        }
+
+        double xmin = 1000000, xmax = -1000000, revalue = 0;
+        double reBelow = et.getBelow(), reAbove = et.getAbove();
+
+        if (et.getBelow() > et.getAbove()) {
+            reBelow = et.getAbove();
+            reAbove = et.getBelow();
+        }
+
+        // 奇异值返回0
+        if (xi < reBelow && xi > reAbove) return 0;
+
+        for (int i=0; i<xList.size(); i++){
+            if (xList.get(i) >= xmax) xmax = xList.get(i);
+            if (xList.get(i) <= xmin) xmin = xList.get(i);
+        }
+
+        try{
+            if (et.getControl() == 0){
+                revalue = (xi - xmin) / (xmax - xmin);
+            }else{
+                revalue = (xmax - xi) / (xmax - xmin);
+            }
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+        }
+        return revalue;
+    }
 
     /**
      * 熵权法
-     * @param doubleArray: 二维矩阵
-     * List<Double>: 一个公司
-     * List<List>: 公司集合
-     *
-     * 传进的二维矩阵指标顺序要固定，利用已存在的数组去判断正向或负向指标
+     * 两化评分 : 二级指标转一级
+     * @param list :二维数组
+     * @param index: 起始下标
      * */
-    public static List<Double> entropyWeight (List<List<Double>> doubleArray) {
+    public static List<Double> entropyWeightForDiv (List<List<Double>> list, int index) {
 
-        List<Double> tmpList = new ArrayList<>();           // 相同指标的集合
-        List<List<Double>> doubleList = new ArrayList<>();
+        // 中间结果
+        List<Double> afetrMMList = new ArrayList<>();
+        List<List<Double>> firstList = new ArrayList<>();     // 第二步结果
+        List<Double> after3List = new ArrayList<>();          // 第三步的中间结果
+        List<List<Double>> pList = new ArrayList<>();         // 第三步结果
+        List<Double> dList = new ArrayList<>();         // 第四步结果
+        List<Double> wList = new ArrayList<>();         // 第五步结果
+        List<Double> sList = new ArrayList<>();         // 第六步结果
 
-        List<List<Double>> starList = new ArrayList<>();
+        List<Double> tmpList = new ArrayList<>();
 
-        List<List<Double>> pList = new ArrayList<>();
-        List<Double> dList = new ArrayList<>();
-        List<Double> wList = new ArrayList<>();
-        List<Double> sList = new ArrayList<>();          // 每个公司综合指标
-
-        // step 1
-        for (int j=0; j<doubleArray.get(0).size(); j++){
-            for (int i=0; i<doubleArray.size(); i++){
-                tmpList.add(doubleArray.get(i).get(j));
+        for (int i=0; i<list.size(); i++){
+            for (int j=0; j<list.get(i).size(); j++){
+                for (int k=0; k<list.size(); k++){
+                    tmpList.add(list.get(k).get(j));
+                }
+                afetrMMList.add(Calculation.minMaxScoreForDiv(list.get(i).get(j),tmpList,index+j));
+                tmpList = new ArrayList<>();
             }
-            doubleList.add(tmpList);
-            tmpList = new ArrayList<>();
+            firstList.add(afetrMMList);
+            afetrMMList = new ArrayList<>();
         }
 
-        // step 2
-        for (int i=0; i<doubleList.size(); i++){
-            for (int j=0; j<doubleList.get(i).size(); j++){
-                double xi = 0;
-                xi = minMaxScore(doubleList.get(i).get(j), doubleList.get(i), i);
-                tmpList.add(xi);
+        for (int i=0; i<firstList.size(); i++){
+            for (int j=0; j<firstList.get(i).size(); j++){
+                double sum = 0;
+                for (int k=0; k<firstList.size(); k++){
+                    sum += firstList.get(k).get(j);
+                }
+                after3List.add(firstList.get(i).get(j) / sum);
             }
-            starList.add(tmpList);
-            tmpList = new ArrayList<>();
+            pList.add(after3List);
+            after3List = new ArrayList<>();
         }
 
-        // step 3
-        for (int i=0; i<starList.size(); i++){
+        for (int j=0; j<pList.get(0).size(); j++){
             double sum = 0;
-            for (int k=0; k<starList.get(i).size(); k++){
-                sum += starList.get(i).get(k);
+            for (int k=0; k<pList.size(); k++){
+                if (pList.get(k).get(j) == 0) continue;
+                else sum += pList.get(k).get(j) * Math.log(pList.get(k).get(j));
             }
-
-            for (int j=0; j<doubleList.get(i).size(); j++){
-                double p = starList.get(i).get(j) / sum;
-                tmpList.add(p);
-            }
-            pList.add(tmpList);
-            tmpList = new ArrayList<>();
+            dList.add(1 + Math.log(pList.size()) * sum);
         }
 
-        // step 4
-        double k = 1 / (Math.log(starList.size()));
-        for (int i=0; i<starList.size(); i++){
-            double tmp = 0;
-            for (int j=0; j<starList.get(i).size(); j++){
-                if (pList.get(i).get(j) == 0) break;
-                else tmp += pList.get(i).get(j) * Math.log(pList.get(i).get(j));
-            }
-            dList.add(1 + k*tmp);
-        }
-
-        // step 5
-        double sumD = 0;
+        double s = 0;
         for (int i=0; i<dList.size(); i++){
-            sumD += dList.get(i);
+            s += dList.get(i);
         }
         for (int i=0; i<dList.size(); i++){
-            wList.add((dList.get(i) / sumD));
+            wList.add(dList.get(i) / s);
         }
 
-        // step 6
-        for (int i=0; i<pList.get(0).size(); i++){
-            double s = 0;
-            for (int j=0; j<pList.size(); j++){
-                s += wList.get(j) * pList.get(j).get(i);     // start here
+
+        for (int i=0; i<pList.size(); i++){
+            double sum = 0;
+            for (int j=0; j<pList.get(i).size(); j++){
+                sum += wList.get(j) * pList.get(i).get(j);
             }
-            sList.add(s);
+            sList.add(sum);
         }
 
         return sList;
     }
 
-    public static List<Double> entropyWeightForFinal (List<List<Double>> doubleArray) {
-        List<Double> tmpList = new ArrayList<>();           // 相同指标的集合
-        List<List<Double>> doubleList = doubleArray;
+    /**
+     * 熵权法
+     * 两化评分：一级转两化评分
+     * */
+    public static List<Double> entropyWeightForFinal (List<List<Double>> list) {
+        // 中间结果
+        List<Double> afetrMMList = new ArrayList<>();
+        List<List<Double>> firstList = new ArrayList<>();     // 第二步结果
+        List<Double> after3List = new ArrayList<>();          // 第三步的中间结果
+        List<List<Double>> pList = new ArrayList<>();         // 第三步结果
+        List<Double> dList = new ArrayList<>();         // 第四步结果
+        List<Double> wList = new ArrayList<>();         // 第五步结果
+        List<Double> sList = new ArrayList<>();         // 第六步结果
 
-        List<List<Double>> starList = new ArrayList<>();
+        List<Double> tmpList = new ArrayList<>();
 
-        List<List<Double>> pList = new ArrayList<>();
-        List<Double> dList = new ArrayList<>();
-        List<Double> wList = new ArrayList<>();
-        List<Double> sList = new ArrayList<>();          // 每个公司综合指标
 
-        // step 2
-        for (int i=0; i<doubleList.size(); i++){
-            for (int j=0; j<doubleList.get(i).size(); j++){
-                double xi = 0;
-                xi = minMaxScore(doubleList.get(i).get(j), doubleList.get(i), i);
-                tmpList.add(xi);
+        for (int i=0; i<list.size(); i++){
+            for (int j=0; j<list.get(i).size(); j++){
+                for (int k=0; k<list.size(); k++){
+                    tmpList.add(list.get(k).get(j));
+                }
+                afetrMMList.add(Calculation.minMaxScore(list.get(i).get(j),tmpList));
+                tmpList = new ArrayList<>();
             }
-            starList.add(tmpList);
-            tmpList = new ArrayList<>();
+            firstList.add(afetrMMList);
+            afetrMMList = new ArrayList<>();
         }
 
-        // step 3
-        for (int i=0; i<starList.size(); i++){
+        for (int i=0; i<firstList.size(); i++){
+            for (int j=0; j<firstList.get(i).size(); j++){
+                double sum = 0;
+                for (int k=0; k<firstList.size(); k++){
+                    sum += firstList.get(k).get(j);
+                }
+                after3List.add(firstList.get(i).get(j) / sum);
+            }
+            pList.add(after3List);
+            after3List = new ArrayList<>();
+        }
+
+        for (int j=0; j<pList.get(0).size(); j++){
             double sum = 0;
-            for (int k=0; k<starList.get(i).size(); k++){
-                sum += starList.get(i).get(k);
+            for (int k=0; k<pList.size(); k++){
+                if (pList.get(k).get(j) == 0) continue;
+                else sum += pList.get(k).get(j) * Math.log(pList.get(k).get(j));
             }
-
-            for (int j=0; j<doubleList.get(i).size(); j++){
-                double p = starList.get(i).get(j) / sum;
-                tmpList.add(p);
-            }
-            pList.add(tmpList);
-            tmpList = new ArrayList<>();
+            dList.add(1 + Math.log(pList.size()) * sum);
         }
 
-        // step 4
-        double k = 1 / (Math.log(starList.size()));
-        for (int i=0; i<starList.size(); i++){
-            double tmp = 0;
-            for (int j=0; j<starList.get(i).size(); j++){
-                if (pList.get(i).get(j) == 0) break;
-                else tmp += pList.get(i).get(j) * Math.log(pList.get(i).get(j));
-            }
-            dList.add(1 + k*tmp);
-        }
-
-        // step 5
-        double sumD = 0;
+        double s = 0;
         for (int i=0; i<dList.size(); i++){
-            sumD += dList.get(i);
+            s += dList.get(i);
         }
         for (int i=0; i<dList.size(); i++){
-            wList.add((dList.get(i) / sumD));
+            wList.add(dList.get(i) / s);
         }
 
-        // step 6
-        for (int i=0; i<pList.get(0).size(); i++){
-            double s = 0;
-            for (int j=0; j<pList.size(); j++){
-                s += wList.get(j) * pList.get(j).get(i);     // start here
+
+        for (int i=0; i<pList.size(); i++){
+            double sum = 0;
+            for (int j=0; j<pList.get(i).size(); j++){
+                sum += wList.get(j) * pList.get(i).get(j);
             }
-            sList.add(s);
+            sList.add(sum);
         }
 
         return sList;
-
     }
-
 }

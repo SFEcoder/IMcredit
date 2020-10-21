@@ -5,7 +5,7 @@ package com.example.common.calculation.enumType;
  * @Date: 2020/10/20 22:35
  * @Description:
  */
-public enum EnumType {
+public enum finType {
     /**
      * A： 经营活动现金流量净额与经营活动净收益比
      * B： 资产负债率
@@ -37,15 +37,16 @@ public enum EnumType {
     private final Double below;
     private final Double above;
     private final int control;
+    private final Integer[] twoToOne = {1,5,3,3,5};
 
-    private EnumType(double below, double above)
+    private finType(double below, double above)
     {
         this.below = below;
         this.above = above;
         this.control = below > above ? 0 : 1;
     }
 
-    private EnumType(double below, double above, int control)
+    private finType(double below, double above, int control)
     {
         this.below = below;
         this.above = above;
@@ -63,5 +64,7 @@ public enum EnumType {
     public int getControl(){
         return control;
     }
+
+    public Integer[] getTwoToOne(){ return twoToOne; }
 
 }
