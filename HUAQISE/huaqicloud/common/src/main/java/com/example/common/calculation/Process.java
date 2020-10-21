@@ -20,19 +20,27 @@ public class Process {
         List<Double> d4 = Arrays.asList(99.0,4.0,2.0,-3.0,-5.0,0.0,0.0,43.0,2.0,0.0,2.0,42.0,0.0,1.0,0.0,2.0,3.0);
         List<List<Double>> diverList = Arrays.asList(d1,d2,d3,d4);
 
-        System.out.println(DivRank.getDivergenceScore(diverList));
+//        System.out.println(DivRank.getDivergenceScore(diverList));
 
-//        List<Double> f1 = Arrays.asList();
-//        List<Double> f2 = Arrays.asList();
-//        List<Double> f3 = Arrays.asList();
-//        List<Double> f4 = Arrays.asList();
-//        List<List<Double>> finanList = Arrays.asList(f1,f2,f3,f4);
+        List<Double> f1 = Arrays.asList(4.0,0.52,2.0,2.5,0.5,2.0,0.05,0.5,1.0,1.0,0.3,0.1,0.5,166.0,2.0,3.0,55.0);
+        List<Double> f2 = Arrays.asList(3.0,0.51,2.0,2.5,0.5,2.0,0.05,0.5,1.0,1.0,0.3,0.1,0.5,166.0,2.0,3.0,55.0);
+        List<Double> f3 = Arrays.asList(2.0,0.5,2.0,2.5,0.5,2.0,0.05,0.5,1.0,1.0,0.3,0.1,0.6,111.0,2.0,4.0,55.0);
+        List<Double> f4 = Arrays.asList(5.0,0.5,2.0,2.5,0.5,2.0,0.05,0.5,1.0,1.0,0.3,0.1,0.2,222.0,2.0,5.0,5.0);
+        List<List<Double>> finanList = Arrays.asList(f1,f2,f3,f4);
+
+        System.out.println(FinRank.getFinanceTopTarget(finanList));
+        List<Double> list = FinRank.getFinanceScore(finanList);
+        System.out.println(list);
+        System.out.println(FinRank.getFinanceDisplay(list));
 
 //        System.out.println(getFinalScore(finanList, diverList));
 
     }
 
     public static List<Double> getFinalScore(List<List<Double>> finanList, List<List<Double>> diverList){
+
+        List<Double> tmpList = new ArrayList<>();
+        List<List<Double>> rankList = new ArrayList<>();
 
         // financial ranking
         List<Double> finList =FinRank.getFinanceScore(finanList);
@@ -43,10 +51,15 @@ public class Process {
         List<List<Double>> divergenceTopTarget = DivRank.getDivergenceTopTarget(diverList);
 
         // final ranking
-        List<List<Double>> rankList = Arrays.asList(divList,finList);
-        List<Double> finalList = Calculation.entropyWeightForFinal(rankList);
 
-        System.out.println(finalList);
+        for (int i=0; i<finList.size(); i++){
+            tmpList.add(finList.get(i));
+            tmpList.add(divList.get(i));
+            rankList.add(tmpList);
+            tmpList = new ArrayList<>();
+        }
+
+        List<Double> finalList = Calculation.entropyWeightForFinal(rankList);
 
         return finalList;
     }

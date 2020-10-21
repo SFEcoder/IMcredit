@@ -63,7 +63,8 @@ public class Calculation {
         }
 
         try{
-            revalue = (xi - xmin) / (xmax - xmin);
+            if (xi - xmin == xmax - xmin) revalue = 1;
+            else revalue = (xi - xmin) / (xmax - xmin);
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
@@ -106,9 +107,11 @@ public class Calculation {
 
         try{
             if (et.getControl() == 0){
-                revalue = (xi - xmin) / (xmax - xmin);
+                if (xi - xmin == xmax - xmin) revalue = 1;
+                else revalue = (xi - xmin) / (xmax - xmin);
             }else{
-                revalue = (xmax - xi) / (xmax - xmin);
+                if (xmax - xi == xmax - xmin) revalue = 1;
+                else revalue = (xmax - xi) / (xmax - xmin);
             }
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -152,9 +155,11 @@ public class Calculation {
 
         try{
             if (et.getControl() == 0){
-                revalue = (xi - xmin) / (xmax - xmin);
+                if (xi - xmin == xmax - xmin) revalue = 1;
+                else revalue = (xi - xmin) / (xmax - xmin);
             }else{
-                revalue = (xmax - xi) / (xmax - xmin);
+                if (xmax - xi == xmax - xmin) revalue = 1;
+                else revalue = (xmax - xi) / (xmax - xmin);
             }
         }catch (Exception e){
             System.out.println(e.getMessage());
@@ -211,7 +216,7 @@ public class Calculation {
                 if (pList.get(k).get(j) == 0) continue;
                 else sum += pList.get(k).get(j) * Math.log(pList.get(k).get(j));
             }
-            dList.add(1 + Math.log(pList.size()) * sum);
+            dList.add(1 + sum / Math.log(pList.size()));
         }
 
         double s = 0;
@@ -281,7 +286,7 @@ public class Calculation {
                 if (pList.get(k).get(j) == 0) continue;
                 else sum += pList.get(k).get(j) * Math.log(pList.get(k).get(j));
             }
-            dList.add(1 + Math.log(pList.size()) * sum);
+            dList.add(1 + sum / Math.log(pList.size()));
         }
 
         double s = 0;
