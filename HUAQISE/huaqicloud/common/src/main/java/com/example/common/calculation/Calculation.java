@@ -20,23 +20,6 @@ public class Calculation {
     // 指标的正负向数组
     private static final EnumType[] enums = {EnumType.A,EnumType.B,EnumType.C,EnumType.D,EnumType.E,EnumType.F,EnumType.G,EnumType.H,EnumType.I,EnumType.J,EnumType.K,EnumType.L,EnumType.M,EnumType.N,EnumType.O,EnumType.P,EnumType.Q};
 
-    public static void main (String[] args){
-//        List<Double> tmp = Arrays.asList(1.0,2.0,3.0);
-//        System.out.println(zScore(1.0,tmp));
-
-        List<Double> tmp1 = Arrays.asList(1.0,2.0,3.0);
-        List<Double> tmp2 = Arrays.asList(4.0,5.0,6.0);
-        List<Double> tmp3 = Arrays.asList(7.0,8.0,9.0);
-
-        List<List<Double>> tmp4 = new ArrayList<>();
-        tmp4.add(tmp1);
-        tmp4.add(tmp2);
-        tmp4.add(tmp3);
-
-        System.out.println(entropyWeight(tmp4));
-    }
-
-
     /**
      * @param xList
      * */
@@ -76,6 +59,7 @@ public class Calculation {
 
         if (et.getControl() != -1 && et.getControl() != 0 && et.getControl() != 1) return 0;
 
+        // 指标为满意值另外判断
         if (et.getControl() == -1){
             if (xi < et.getBelow()) return 0;
             if (xi > et.getAbove()) return 1;
@@ -83,6 +67,15 @@ public class Calculation {
         }
 
         double xmin = 1000000, xmax = -1000000, revalue = 0;
+        double reBelow = et.getBelow(), reAbove = et.getAbove();
+
+        if (et.getBelow() > et.getAbove()) {
+            reBelow = et.getAbove();
+            reAbove = et.getBelow();
+        }
+
+        // 奇异值返回0
+        if (xi < reBelow && xi > reAbove) return 0;
 
         for (int i=0; i<xList.size(); i++){
             if (xList.get(i) >= xmax) xmax = xList.get(i);
@@ -98,7 +91,6 @@ public class Calculation {
         }catch (Exception e){
             System.out.println(e.getMessage());
         }
-
         return revalue;
     }
 
