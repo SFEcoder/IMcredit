@@ -13,7 +13,7 @@ import {
 import {
     uploadImgAPI
 }from '@/api/oss'
-import { rsa_decrypt , rsa_encrypt,rsa_generate } from "../../utils/rsa";
+import { decrypt , encrypt,getKey } from "../../utils/aes";
 
 const getDefaultState = () => {
     return {
@@ -53,20 +53,19 @@ const user = {//定义对象user
     },
 
     actions: {
-        test: async ({dispatch , commit})=>{
-            let str = 'wyx'
-            let keypair=rsa_generate()
-            let str_en = rsa_encrypt(str,keypair.publicKey)
-            let str_de = rsa_decrypt(str_en,keypair.privateKey)
-            console.log('加密前'+str)
-            console.log('加密后'+str_en)
-            console.log('解密后'+str_de)
-        },
+        // test: async ({dispatch , commit})=>{
+        //     let str = 'wyx'
+        //     let keypair=rsa_generate()
+        //     let str_en = rsa_encrypt(str,keypair.publicKey)
+        //     let str_de = rsa_decrypt(str_en,keypair.privateKey)
+        //     console.log('加密前'+str)
+        //     console.log('加密后'+str_en)
+        //     console.log('解密后'+str_de)
+        // },
         login: async ({dispatch , commit} , userData) => {
-            let keypair=rsa_generate()
-            userData.password = rsa_encrypt(userData.password,keypair.publicKey)
+            userData.password = encrypt(userData.password,getKey())
             console.log(userData.password)
-            console.log(rsa_decrypt(userData.password,keypair.privateKey))
+            console.log(decrypt(userData.password,getKey()))
             const res = await loginAPI(userData)
             if (res) {
                 setToken(res.id)//从'@/utils/auth'中导入的方法
