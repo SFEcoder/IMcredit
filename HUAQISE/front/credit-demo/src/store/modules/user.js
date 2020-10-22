@@ -5,14 +5,15 @@ import { resetRouter } from '@/router'
 import { message } from 'ant-design-vue'
 import {
     loginAPI,
-    registerAPI,
+    CregisterAPI,
+    EregisterAPI,
     getUserInfoAPI,
     updateUserInfoAPI,
 } from '@/api/user'
 import {
     uploadImgAPI
 }from '@/api/oss'
-import { rsa_decrypt , rsa_encrypt,rsa_generate } from "../../utils/rsa";
+import { decrypt , encrypt,getKey } from "../../utils/aes";
 
 const getDefaultState = () => {
     return {
@@ -52,29 +53,32 @@ const user = {//定义对象user
     },
 
     actions: {
-        test: async ({dispatch , commit})=>{
-            let str = 'wyx'
-            let keypair=rsa_generate()
-            let str_en = rsa_encrypt(str,keypair.publicKey)
-            let str_de = rsa_decrypt(str_en,keypair.privateKey)
-            console.log('加密前'+str)
-            console.log('加密后'+str_en)
-            console.log('解密后'+str_de)
-        },
+        // test: async ({dispatch , commit})=>{
+        //     let str = 'wyx'
+        //     let keypair=rsa_generate()
+        //     let str_en = rsa_encrypt(str,keypair.publicKey)
+        //     let str_de = rsa_decrypt(str_en,keypair.privateKey)
+        //     console.log('加密前'+str)
+        //     console.log('加密后'+str_en)
+        //     console.log('解密后'+str_de)
+        // },
         login: async ({dispatch , commit} , userData) => {
-            // const res = await loginAPI(userData)
-            // if (res) {
-            //     setToken(res.id)//从'@/utils/auth'中导入的方法
-            //     commit('set_userId' , res.id)
-            //     dispatch('getUserInfo')
-            //     router.push('/credit/main')//mutations的方法用commit，actions的方法用dispatch
-            // }
+            userData.password = encrypt(userData.password,getKey())
+            console.log(userData.password)
+            console.log(decrypt(userData.password,getKey()))
+            const res = await loginAPI(userData)
+            if (res) {
+                setToken(res.id)//从'@/utils/auth'中导入的方法
+                commit('set_userId' , res.id)
+                dispatch('getUserInfo')
+                router.push('/credit/main')//mutations的方法用commit，actions的方法用dispatch
+            }
 
             //假数据
-            setToken('1')
-            commit('set_userId' , '1')
-            dispatch('getUserInfo')
-            router.push('/credit/main')
+            // setToken('1')
+            // commit('set_userId' , '1')
+            // dispatch('getUserInfo')
+            // router.push('/credit/main')
         } ,
 
         uploadADImg: async ({state , dispatch} , data) => {
@@ -87,44 +91,49 @@ const user = {//定义对象user
         } ,
 
         register: async ({commit},data) => {
-            const url='sdcfvc'
 
             console.log(data)
-            const res = await registerAPI(data)
-            if (res) {
-                if(data.userType === '2')
-                    message.success("请等待确认")
-                else
+
+            if(data.userType === '0'){
+                const res = await CregisterAPI(data)
+                if(res){
+                    message.success('请等待验证')
+                }
+            }else {
+                const res = await EregisterAPI(data)
+                if (res) {
+
                     message.success('注册成功')
+                }
             }
         } ,
         getUserInfo({state , commit}) {
             return new Promise((resolve , reject) => {
-                // getUserInfoAPI(state.userId).then(response => {
-                //     const data = response
-                //     if (!data) {
-                //         reject('登录已过期，请重新登录')
-                //     }
-                //     commit('set_userInfo' , data)
-                //     commit('set_userId' , data.id)
-                //     console.log('getUserInfo')
-                //     resolve(data)
-                // }).catch(error => {
-                //     reject(error)
-                // })
+                getUserInfoAPI(state.userId).then(response => {
+                    const data = response
+                    if (!data) {
+                        reject('登录已过期，请重新登录')
+                    }
+                    commit('set_userInfo' , data)
+                    commit('set_userId' , data.id)
+                    console.log('getUserInfo')
+                    resolve(data)
+                }).catch(error => {
+                    reject(error)
+                })
 
                 //假数据
-                const data = {
-                    id:'1',
-                    email:'C1@qq.com',
-                    password:'123456',
-                    phoneNumber:'123456789',
-                    userType: 'Client',
-                    avatarUrl:'https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c'
-                }
-                commit('set_userInfo' , data)
-                commit('set_userId' , data.id)
-                resolve(data)
+                // const data = {
+                //     id:'1',
+                //     email:'C1@qq.com',
+                //     password:'123456',
+                //     phoneNumber:'123456789',
+                //     userType: 'Client',
+                //     avatarUrl:'https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c'
+                // }
+                // commit('set_userInfo' , data)
+                // commit('set_userId' , data.id)
+                // resolve(data)
             })
         } ,
         updateUserInfo: async ({state , dispatch} , data) => {

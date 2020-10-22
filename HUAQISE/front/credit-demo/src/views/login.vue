@@ -437,7 +437,7 @@
                                 password: this.form.getFieldValue('registerPassword'),
                                 phoneNumber: this.form.getFieldValue('registerPhoneNumber'),
                                 username: this.form.getFieldValue('registerUsername'),
-                                userType: "1"
+                                userType: "0"
                             }
                             console.log(data)
                             await this.register(data).then(() => {
@@ -456,7 +456,7 @@
                                 EPhoneNumber:this.form.getFieldValue('registerEPhoneNumber'),
                                 Password:this.form.getFieldValue('EPassword'),
                                 registerPhotoUrl:this.Url,
-                                userType:'2'
+                                userType:'1'
                             }
                             console.log(data)
                             await this.register(data).then(() => {
