@@ -91,18 +91,17 @@ const user = {//定义对象user
         } ,
 
         register: async ({commit},data) => {
-
+            data.password = encrypt(data.password,getKey())
             console.log(data)
 
-            if(data.userType === '0'){
-                const res = await CregisterAPI(data)
+            if(data.userType === '1'){
+                const res = await EregisterAPI(data)
                 if(res){
                     message.success('请等待验证')
                 }
             }else {
-                const res = await EregisterAPI(data)
+                const res = await CregisterAPI(data)
                 if (res) {
-
                     message.success('注册成功')
                 }
             }

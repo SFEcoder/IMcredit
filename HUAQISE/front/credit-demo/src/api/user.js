@@ -12,7 +12,7 @@ export function loginAPI(data){
 }
 export function CregisterAPI(data){//普通用户注册email,password,phoneNumber,username,userType
     return axios({
-        url: `${api.userPre}/Cregister`,
+        url: `${api.userPre}/register`,
         method: 'POST',
         data
     })
