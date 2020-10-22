@@ -8,6 +8,7 @@ import {
     registerAPI,
     getUserInfoAPI,
     updateUserInfoAPI,
+    ChangePasswordAPI
 } from '@/api/user'
 import { rsa_decrypt , rsa_encrypt,rsa_generate } from "../../utils/rsa";
 
@@ -57,6 +58,7 @@ const user = {//定义对象user
             console.log('解密后'+str_de)
         },
         login: async ({dispatch , commit} , userData) => {
+            router.push('/test')
             // const res = await loginAPI(userData)
             // if (res) {
             //     setToken(res.id)//从'@/utils/auth'中导入的方法
@@ -65,11 +67,20 @@ const user = {//定义对象user
             //     router.push('/credit/main')//mutations的方法用commit，actions的方法用dispatch
             // }
 
-            //假数据
-            setToken('1')
-            commit('set_userId' , '1')
-            dispatch('getUserInfo')
-            router.push('/credit/main')
+            // //假数据
+            // setToken('1')
+            // commit('set_userId' , '1')
+            // dispatch('getUserInfo')
+            // router.push('/credit/main')
+
+
+                //mutations的方法用commit，actions的方法用dispatch
+                // const res = await loginAPI(userData)
+                /*if (res) {
+                    setToken(res.id)//从'@/utils/auth'中导入的方法
+                    commit('set_userId' , res.id)
+                    dispatch('getUserInfo')
+                }*/
         } ,
 
         register: async ({commit},data) => {
@@ -107,6 +118,17 @@ const user = {//定义对象user
                 resolve(data)
             })
         } ,
+        Changepassword:async({state , dispatch} , data) => {
+            const params = {
+                id: state.userId ,
+                ...data ,
+            }
+            const res = await updateUserInfoAPI(params)
+            if (res) {
+                message.success('修改成功')
+                dispatch('getUserInfo')
+            }
+        } ,
         updateUserInfo: async ({state , dispatch} , data) => {
             const params = {
                 id: state.userId ,
@@ -118,6 +140,7 @@ const user = {//定义对象user
                 dispatch('getUserInfo')
             }
         } ,
+
 
         logout: async ({commit}) => {
             removeToken()

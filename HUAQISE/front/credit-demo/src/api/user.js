@@ -17,6 +17,13 @@ export function registerAPI(data){
         data
     })
 }
+export function  ChangePasswordAPI(data){
+    return axios({
+        url:`${api.userPre}/ChangePassword`,
+        method: 'POST',
+        data
+    })
+}
 export function getUserInfoAPI(id){
     return axios({
         url: `${api.userPre}/${id}/getUserInfo`,

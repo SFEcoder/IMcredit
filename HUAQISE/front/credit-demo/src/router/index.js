@@ -2,6 +2,10 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/login.vue'
 import Home from '../views/home.vue'
+import UserInfo from '../views/userinfo'
+import PersonalCenter from '../views/personalCenter.vue'
+import ChangePassword from "@/views/ChangePassword"
+import Test from "@/views/test"
 
 Vue.use(VueRouter)
 const routes = [
@@ -16,8 +20,26 @@ const routes = [
         component: Home
     },
     {
-        path: '/',
-        redirect: '/home'
+        path: '/personalCenter',
+        name: 'personalCenter',
+        component: PersonalCenter
+    },
+    {
+        path: '/ChangePassword',
+        name: 'ChangePassword',
+        component: ChangePassword
+
+    },
+    {
+        path: '/test',
+        name: 'test',
+        component: Test
+    },
+    {
+        path: '/userinfo',
+        name: 'userinfo',
+        component: UserInfo
+
     },
     {
         path: '/NJUSE',
