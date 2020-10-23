@@ -4,12 +4,17 @@ import {  setToken, removeToken } from '@/utils/auth'
 import { resetRouter } from '@/router'
 import { message } from 'ant-design-vue'
 import {
-    loginAPI,
+    CloginAPI,
     CregisterAPI,
-    EregisterAPI,
     getUserInfoAPI,
     updateUserInfoAPI,
 } from '@/api/user'
+import {
+    EloginAPI,
+    EregisterAPI,
+    getEnterpriseAPI,
+    updateEnterpriseAPI,
+} from '@/api/enterprise'
 import {
     uploadImgAPI
 }from '@/api/oss'
@@ -17,6 +22,7 @@ import { decrypt , encrypt,getKey } from "../../utils/aes";
 
 const getDefaultState = () => {
     return {
+        personal:true,
         Url:[],
         userId: '',
         userInfo: {
@@ -44,6 +50,10 @@ const user = {//定义对象user
             state.userId = data
         } ,
 
+        set_personal: function(state , data){
+          state.personal = data
+        },
+
         set_userInfo: (state , data) => {
             state.userInfo = {
                 ...state.userInfo ,
@@ -64,15 +74,34 @@ const user = {//定义对象user
         // },
         login: async ({dispatch , commit} , userData) => {
             userData.password = encrypt(userData.password,getKey())
-            console.log(userData.password)
             console.log(decrypt(userData.password,getKey()))
-            const res = await loginAPI(userData)
-            if (res) {
-                setToken(res.id)//从'@/utils/auth'中导入的方法
-                commit('set_userId' , res.id)
-                dispatch('getUserInfo')
-                router.push('/credit/main')//mutations的方法用commit，actions的方法用dispatch
+            const data={
+                email:userData.email,
+                password:userData.password
             }
+
+            if(userData.ispersonal){
+                const res = await CloginAPI(data)
+                if (res) {
+                    commit('set_personal',userData.ispersonal)
+                    setToken(res.id)//从'@/utils/auth'中导入的方法
+                    commit('set_userId' , res.id)
+                    dispatch('getUserInfo')
+                    router.push('/credit/main')//mutations的方法用commit，actions的方法用dispatch
+                }
+            }else{
+                //console.log(data)
+                const res = await EloginAPI(data)
+                console.log(res)
+                if (res) {
+                    commit('set_personal',userData.ispersonal)
+                    setToken(res.id)//从'@/utils/auth'中导入的方法
+                    commit('set_userId' , res.id)
+                    dispatch('getUserInfo')
+                    router.push('/credit/main')//mutations的方法用commit，actions的方法用dispatch
+                }
+            }
+
 
             //假数据
             // setToken('1')
@@ -93,33 +122,51 @@ const user = {//定义对象user
         register: async ({commit},data) => {
             data.password = encrypt(data.password,getKey())
             console.log(data)
-
-            if(data.userType === '1'){
-                const res = await EregisterAPI(data)
-                if(res){
-                    message.success('请等待验证')
-                }
-            }else {
+            if(data.userType === '0'){
                 const res = await CregisterAPI(data)
                 if (res) {
                     message.success('注册成功')
                 }
+            }else{
+                const res = await EregisterAPI(data)
+                if (res) {
+                    message.success('请等待验证')
+                }
             }
         } ,
+
+
         getUserInfo({state , commit}) {
             return new Promise((resolve , reject) => {
-                getUserInfoAPI(state.userId).then(response => {
-                    const data = response
-                    if (!data) {
-                        reject('登录已过期，请重新登录')
-                    }
-                    commit('set_userInfo' , data)
-                    commit('set_userId' , data.id)
-                    console.log('getUserInfo')
-                    resolve(data)
-                }).catch(error => {
-                    reject(error)
-                })
+                if(state.personal){
+                    getUserInfoAPI(state.userId).then(response => {
+                        const data = response
+                        if (!data) {
+                            reject('登录已过期，请重新登录')
+                        }
+                        commit('set_userInfo' , data)
+                        commit('set_userId' , data.id)
+                        console.log('getUserInfo')
+                        resolve(data)
+                    }).catch(error => {
+                        reject(error)
+                    })
+                }else{
+                    getEnterpriseAPI(state.userId).then(response => {
+                        const data = response
+                        //console.log(data)
+                        if (!data) {
+                            reject('登录已过期，请重新登录')
+                        }
+                        commit('set_userInfo' , data)
+                        commit('set_userId' , data.id)
+                        console.log('getUserInfo')
+                        resolve(data)
+                    }).catch(error => {
+                        reject(error)
+                    })
+                }
+
 
                 //假数据
                 // const data = {
@@ -134,6 +181,17 @@ const user = {//定义对象user
                 // commit('set_userId' , data.id)
                 // resolve(data)
             })
+        } ,
+        updateEnterprise: async ({state , dispatch} , data) => {
+            const params = {
+                id: state.userId ,
+                ...data ,
+            }
+            const res = await updateEnterpriseAPI(params)
+            if (res) {
+                message.success('修改成功')
+                dispatch('getEnterprise')
+            }
         } ,
         updateUserInfo: async ({state , dispatch} , data) => {
             const params = {
