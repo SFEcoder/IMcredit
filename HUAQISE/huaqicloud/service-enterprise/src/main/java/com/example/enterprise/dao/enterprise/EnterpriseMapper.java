@@ -57,4 +57,12 @@ public interface EnterpriseMapper {
      */
     List<Enterprise> getTwentyEnterprises();
 
+
+    /**
+     * 根据key获取企业信息
+     * @param key
+     * @return
+     */
+    List<Enterprise> getEnterpriseByKey(@Param("key") String key);
+
 }

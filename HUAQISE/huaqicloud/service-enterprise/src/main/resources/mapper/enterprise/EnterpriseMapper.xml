@@ -10,6 +10,10 @@
         select * from Enterprise where id=#{id}
     </select>
 
+    <select id="getEnterpriseByKey" resultMap="Enterprise">
+        select * from Enterprise where instr(name,#{key})>0
+    </select>
+
 
     <select id="getEnterpriseByEmail" resultMap="Enterprise">
         select * from Enterprise order by rand() limit 20

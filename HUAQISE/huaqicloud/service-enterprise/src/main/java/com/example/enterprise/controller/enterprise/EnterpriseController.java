@@ -84,6 +84,13 @@ public class EnterpriseController {
         }
     }
 
+    @GetMapping("/search")
+    @ApiOperation(value = "根据企业信息进行搜索")
+    @ApiImplicitParam(name = "key", value = "关键词", required = true ,dataType = "String")
+    ResponseVO searchEpByKey(String key){
+        return ResponseVO.buildSuccess(enterpriseService.searchEpByKey(key));
+    }
+
     @GetMapping("/getEnterpriseImgList")
     @ApiOperation(value = "获取企业图片url，至多20个")
     ResponseVO getEnterpriseImgList(){

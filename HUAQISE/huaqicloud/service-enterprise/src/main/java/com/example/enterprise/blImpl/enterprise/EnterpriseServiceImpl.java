@@ -8,6 +8,7 @@ import com.example.enterprise.dao.enterprise.EnterpriseMapper;
 import com.example.enterprise.po.Enterprise;
 import com.example.enterprise.vo.EnterpriseForm;
 import com.example.enterprise.vo.EnterpriseVO;
+import net.bytebuddy.asm.Advice;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -101,6 +102,16 @@ public class EnterpriseServiceImpl implements EnterpriseService {
     @Override
     public List<String> getEnterpriseImgList() {
        return enterpriseMapper.getTwentyEnterprises().stream().map(a -> a.getEPhoto()).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<EnterpriseVO> searchEpByKey(String key) {
+        return enterpriseMapper.getEnterpriseByKey(key).stream().map(a->{
+            EnterpriseVO enterpriseVO=new EnterpriseVO();
+            a.setPassword(AesUtil.encrypt(a.getPassword(), AesKey.getAesKey()));
+            BeanUtils.copyProperties(a,enterpriseVO);
+            return enterpriseVO;
+        }).collect(Collectors.toList());
     }
 
 
