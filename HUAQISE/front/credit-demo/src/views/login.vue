@@ -484,7 +484,7 @@
                                 contactName:this.form.getFieldValue('registerContacts'),
                                 email:this.form.getFieldValue('registerEmail'),
                                 contactNumber:this.form.getFieldValue('registerEPhoneNumber'),
-                                password:this.form.getFieldValue('EPassword'),
+                                password:this.form.getFieldValue('registerEPassword'),
                                 license:'https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c',
                                 userType:'1'
                             }
