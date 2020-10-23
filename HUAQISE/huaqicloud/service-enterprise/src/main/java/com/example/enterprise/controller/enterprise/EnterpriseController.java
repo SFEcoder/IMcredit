@@ -25,7 +25,7 @@ public class EnterpriseController {
     @PostMapping("/login")
     @ApiOperation(value = "企业用户登录")
     @ApiImplicitParam(name = "enterpriseForm", value = "企业用户登录信息", required = true ,dataType = "EnterpriseForm")
-    ResponseVO login(EnterpriseForm enterpriseForm) {
+    ResponseVO login(@RequestBody EnterpriseForm enterpriseForm) {
 
         EnterpriseVO enterpriseVO = enterpriseService.login(enterpriseForm);
         if(enterpriseVO == null){
@@ -35,7 +35,7 @@ public class EnterpriseController {
         }
     }
 
-    @PostMapping("/{id}/getEpById")
+    @GetMapping("/{id}/getEpById")
     @ApiOperation(value = "检索用户信息")
     @ApiImplicitParam(name = "id", value = "企业用户Id", required = true ,dataType = "Integer")
     ResponseVO getEnterpriseById(@PathVariable Integer id){

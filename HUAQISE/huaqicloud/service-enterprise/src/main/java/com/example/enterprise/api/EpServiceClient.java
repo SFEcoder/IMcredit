@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @FeignClient(name = "service-enterprise",fallback = EpServiceClientFallBack.class)
 public interface EpServiceClient {
 
-    @PostMapping("/api/enterprise/{id}/getEpById")
+    @GetMapping("/api/enterprise/{id}/getEpById")
     ResponseVO getEnterpriseById(@PathVariable Integer id);
 
 }
