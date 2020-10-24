@@ -2,10 +2,11 @@ package com.example.common.calculation.enumType;
 
 /**
  * @Author: Owen
- * @Date: 2020/10/20 22:35
- * @Description:
+ * @Date: 2020/10/24 9:50
+ * @Description: 离散大批量行业
  */
-public enum divType {
+public enum divType1 {
+
     /**
      * A： 按期交货率
      * B： 应用信息系统进行项目管理实现的功能与层级
@@ -39,14 +40,14 @@ public enum divType {
     private final int control;
     private final Integer[] twoToOne = {5,6,1,5};
 
-    private divType(double below, double above)
+    private divType1(double below, double above)
     {
         this.below = below;
         this.above = above;
         this.control = below < above ? 0 : 1;
     }
 
-    private divType(double below, double above, int control)
+    private divType1(double below, double above, int control)
     {
         this.below = below;
         this.above = above;
@@ -66,5 +67,4 @@ public enum divType {
     }
 
     public Integer[] getTwoToOne(){ return twoToOne; }
-
 }
