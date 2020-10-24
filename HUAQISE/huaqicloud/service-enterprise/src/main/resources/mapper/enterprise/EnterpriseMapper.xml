@@ -32,7 +32,8 @@
 
     <update id="updateEpList"  parameterType="java.util.List">
         <foreach collection="list" item="item"  separator=";">
-            update Enterprise set password = ifnull(#{password},password),financial_score = ifnull(#{financialScore},financial_score),diver_score = ifnull(#{diverScore},diver_score),total_score = ifnull(#{totalScore},total_score),contact_name=ifnull(#{contactName},contact_name),valid=ifnull(#{valid},valid),contact_number=ifnull(#{contactNumber},contact_number),e_photo=ifnull(#{ePhoto},e_photo), e_grade = ifnull(#{eGrade},e_grade)
+            update Enterprise set password = ifnull(#{item.password},password),financial_score = ifnull(#{item.financialScore},financial_score),diver_score = ifnull(#{item.diverScore},diver_score),
+            total_score = ifnull(#{item.totalScore},total_score),contact_name=ifnull(#{item.contactName},contact_name),valid=ifnull(#{item.valid},valid),contact_number=ifnull(#{item.contactNumber},contact_number),e_photo=ifnull(#{item.ePhoto},e_photo), e_grade = ifnull(#{item.eGrade},e_grade)
             where id = #{item.id}
         </foreach>
     </update>

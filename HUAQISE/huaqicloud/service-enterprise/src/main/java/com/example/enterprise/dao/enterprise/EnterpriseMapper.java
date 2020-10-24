@@ -70,6 +70,6 @@ public interface EnterpriseMapper {
      * @param list
      * @return
      */
-    int updateEpList(List<Enterprise> list);
+    int updateEpList(@Param("list") List<Enterprise> list);
 
 }

@@ -12,6 +12,7 @@ import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -79,17 +80,8 @@ public class EnterpriseController {
         }
     }
 
-    @PostMapping("/uplist")
-    @ApiOperation(value = "更新企业信息")
-    @ApiImplicitParam(name = "enterpriseVO", value = "企业更新信息", required = true ,dataType = "EnterpriseVO")
-    ResponseVO upList(@RequestBody List<Enterprise> list){
-        int effect  = enterpriseMapper.updateEpList(list);
-        if(effect>0){
-            return ResponseVO.buildSuccess("更新成功");
-        }else{
-            return ResponseVO.buildFailure("更新失败");
-        }
-    }
+
+
 
     @GetMapping("/{id}/delete")
     @ApiOperation(value = "删除企业信息")
