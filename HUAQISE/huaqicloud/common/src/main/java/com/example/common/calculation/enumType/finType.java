@@ -24,9 +24,10 @@ public enum finType {
      * O： 流动资产周转率
      * P： 应收账款周转率
      * Q： 已获利息倍数
+     * R:  行业景气指数
      * */
 
-    A(5,-1), B(0.4,0.6, -1), C(3.5,1),D(2.5,0.5),E(0.6,0.2),F(3,0.5),G(0,0.1),H(0.5,0),I(2,0),J(0,1),K(0.3,0),L(0.2,0),M(0.6,0),N(0,360),O(2.5,0),P(10,0),Q(65,0);
+    A(5,-1), B(0.4,0.6, -1), C(3.5,1),D(2.5,0.5),E(0.6,0.2),F(3,0.5),G(0,0.1),H(0.5,0),I(2,0),J(0,1),K(0.3,0),L(0.2,0),M(0.6,0),N(0,360),O(2.5,0),P(10,0),Q(65,0),R(0,0,0);
 
 
     /**
@@ -37,7 +38,7 @@ public enum finType {
     private final Double below;
     private final Double above;
     private final int control;
-    private final Integer[] twoToOne = {1,5,3,3,5};
+    private final Integer[] twoToOne = {1,5,3,3,5,1};
 
     private finType(double below, double above)
     {
