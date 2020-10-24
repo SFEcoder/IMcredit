@@ -2,6 +2,9 @@ package com.example.enterprise.po.index.integrate;
 
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @Author:
  * @Date: 2020/10/21 10:15
@@ -44,5 +47,28 @@ public class MassDiscrete {
     private double equipment_management;
 
     private double hr_management;
+
+    public List<Double> getList(){
+        List<Double> list = new ArrayList<>();
+        list.add(this.on_time_delivery_rate);
+        list.add(this.system_manage_level);
+        list.add(this.emergency_response);
+        list.add(this.budget_management);
+        list.add(this.auto_instruction_content);
+        list.add(this.environmental_management);
+        list.add(this.energy_management);
+        list.add(this.social_contribution);
+        list.add(this.business_collaboration);
+        list.add(this.value_network_collaboration);
+        list.add(this.tracking_and_feedback);
+        list.add(this.maintenance_investment);
+        list.add(this.organizational_model);
+        list.add(this.plan_implementation);
+        list.add(this.decision_support);
+        list.add(this.equipment_management);
+        list.add(this.hr_management);
+
+        return list;
+    }
 
 }
