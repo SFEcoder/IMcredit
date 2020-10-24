@@ -1,4 +1,4 @@
-package com.example.enterprise.po.index.integrate;
+package com.example.enterprise.po.index.financial;
 
 import lombok.Data;
 
@@ -7,9 +7,9 @@ import lombok.Data;
  * @Date: 2020/10/21 10:10
  */
 @Data
-public class massDiscrete {
+public class FinancialIndex {
 
-    private Integer enterpriseId;
+    private Integer enterprise_id;
 
     private double ttm;
 
@@ -17,9 +17,13 @@ public class massDiscrete {
 
     private double current_ratio;
 
+    private double quick_ratio;
+
     private double cf_cl;
 
     private double ttal;
+
+    private double operating_revenue;
 
     private double total_profit;
 

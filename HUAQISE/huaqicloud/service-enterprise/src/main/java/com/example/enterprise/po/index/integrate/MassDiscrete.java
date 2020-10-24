@@ -1,4 +1,4 @@
-package com.example.enterprise.po.index.finicial;
+package com.example.enterprise.po.index.integrate;
 
 import lombok.Data;
 
@@ -7,9 +7,9 @@ import lombok.Data;
  * @Date: 2020/10/21 10:15
  */
 @Data
-public class finicialIndex {
+public class MassDiscrete {
 
-    private Integer enterpriseId;
+    private Integer enterprise_id;
 
     private double on_time_delivery_rate;
 

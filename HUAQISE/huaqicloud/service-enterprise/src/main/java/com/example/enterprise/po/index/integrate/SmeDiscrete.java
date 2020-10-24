@@ -7,9 +7,9 @@ import lombok.Data;
  * @Date: 2020/10/21 10:27
  */
 @Data
-public class smeDiscrete {
+public class SmeDiscrete {
 
-    private Integer enterpriseId;
+    private Integer enterprise_id;
 
     private double system_manage_level;
 

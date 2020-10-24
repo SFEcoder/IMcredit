@@ -11,7 +11,7 @@ spring:
   application:
     name: service-enterprise
   datasource:
-    url: jdbc:mysql://localhost:3306/huaqi?serverTimezone=CTT&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/huaqi?serverTimezone=Hongkong&characterEncoding=UTF-8
     username: root
     password: root
     driver-class-name: com.mysql.cj.jdbc.Driver

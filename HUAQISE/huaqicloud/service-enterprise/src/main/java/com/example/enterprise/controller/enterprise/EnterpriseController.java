@@ -2,6 +2,8 @@ package com.example.enterprise.controller.enterprise;
 
 import com.example.common.vo.ResponseVO;
 import com.example.enterprise.bl.enterprise.EnterpriseService;
+import com.example.enterprise.dao.enterprise.EnterpriseMapper;
+import com.example.enterprise.po.Enterprise;
 import com.example.enterprise.vo.EnterpriseForm;
 import com.example.enterprise.vo.EnterpriseVO;
 import io.swagger.annotations.Api;
@@ -9,6 +11,8 @@ import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @Author:
@@ -21,6 +25,9 @@ public class EnterpriseController {
 
     @Autowired
     private EnterpriseService enterpriseService;
+
+    @Autowired
+    private EnterpriseMapper enterpriseMapper;
 
     @PostMapping("/login")
     @ApiOperation(value = "企业用户登录")
@@ -72,6 +79,18 @@ public class EnterpriseController {
         }
     }
 
+    @PostMapping("/uplist")
+    @ApiOperation(value = "更新企业信息")
+    @ApiImplicitParam(name = "enterpriseVO", value = "企业更新信息", required = true ,dataType = "EnterpriseVO")
+    ResponseVO upList(@RequestBody List<Enterprise> list){
+        int effect  = enterpriseMapper.updateEpList(list);
+        if(effect>0){
+            return ResponseVO.buildSuccess("更新成功");
+        }else{
+            return ResponseVO.buildFailure("更新失败");
+        }
+    }
+
     @GetMapping("/{id}/delete")
     @ApiOperation(value = "删除企业信息")
     @ApiImplicitParam(name = "id", value = "被删除企业Id", required = true ,dataType = "Integer")
@@ -96,4 +115,6 @@ public class EnterpriseController {
     ResponseVO getEnterpriseImgList(){
         return ResponseVO.buildSuccess(enterpriseService.getEnterpriseImgList());
     }
+
+
 }

@@ -7,13 +7,13 @@ import lombok.Data;
  * @Date: 2020/10/21 10:37
  */
 @Data
-public class mixIndustry {
+public class MixIndustry {
 
-    private Integer enterpriseId;
+    private Integer enterprise_id;
 
     private double system_manage_level;
 
-    private double l2;
+    private double test_data_rate;
 
     private double tracking_oforders;
 
@@ -21,7 +21,7 @@ public class mixIndustry {
 
     private double monitoring_coverage;
 
-    private double l5;
+    private double auto_instruction_content;
 
     private double collection_of_energy_data;
 

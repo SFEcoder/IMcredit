@@ -65,4 +65,11 @@ public interface EnterpriseMapper {
      */
     List<Enterprise> getEnterpriseByKey(@Param("key") String key);
 
+    /**
+     * 批量更新企业信息
+     * @param list
+     * @return
+     */
+    int updateEpList(List<Enterprise> list);
+
 }

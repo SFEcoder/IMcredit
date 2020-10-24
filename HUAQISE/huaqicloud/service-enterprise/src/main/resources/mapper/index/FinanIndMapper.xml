@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.enterprise.dao.index.FinanIndMapper">
+    <insert id="insertFinanInd" parameterType="com.example.enterprise.po.index.financial.FinancialIndex">
+        insert into financialindex(enterprise_id,ttm,debt_ratio,current_ratio,quick_ratio,
+                                   cf_cl,ttal,operating_revenue,total_profit,total_liabilities,roe,profit_rate,
+                                   gross_profit,fe_rev,turnover_days,current_assets,
+                                   accounts_receivable,ebit_rev,industry_prosperity)
+        values(#{enterprise_id},#{ttm},#{debt_ratio},#{current_ratio},#{quick_ratio},#{cf_cl},
+               #{ttal},#{operating_revenue},#{total_profit},#{total_liabilities},#{roe},#{profit_rate},
+               #{gross_profit},#{fe_rev},#{turnover_days},#{current_assets},#{accounts_receivable},
+               #{ebit_rev},#{industry_prosperity})
+    </insert>
+
+    <select id="getFinanByEpId" resultType="com.example.enterprise.po.index.financial.FinancialIndex">
+        select * from financialindex where enterprise_id=#{enterprise_id}
+    </select>
+
+    <select id="getAllFinInd" resultType="com.example.enterprise.po.index.financial.FinancialIndex">
+        select * from financialindex
+    </select>
+</mapper>
