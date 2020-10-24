@@ -52,4 +52,12 @@ public interface EnterpriseService {
      * @return
      */
      List<String> getEnterpriseImgList();
+
+
+    /**
+     * 根据关键词进行搜索
+     * @param key
+     * @return
+     */
+     List<EnterpriseVO> searchEpByKey(String key);
 }

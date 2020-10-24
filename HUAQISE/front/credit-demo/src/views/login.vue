@@ -1,7 +1,8 @@
 <template>
     <div class="login-register">
+
         <!--        <div class="contain">-->
-        <div class="big-box" :class="{active:isLogin}" id="big">
+        <div class="big-box" :class="{active:isLogin}" v-show="showStatus">
 
             <!-- 登录  -->
             <div class="big-contain" v-if="isLogin">
@@ -10,11 +11,10 @@
                         ref="formLogin"
                         :form="form"
                 >
-                    <div class="loginBox">
 
-                    </div>
                     <div class="btitle">
-                        登录
+                        <div v-if="personal">个人登录</div>
+                        <div v-else>企业登录</div>
                     </div>
                     <a-form-item>
                         <a-input
@@ -85,23 +85,18 @@
                         :form="form"
                 >
                     <div class="btitle" >
-                        注册
+                        <div v-if="personal">个人注册</div>
+                        <div v-else>企业注册</div>
                     </div>
-                    <a-tabs
-                            :activeKey="customActiveKey"
-                            :tabBarStyle="{ textAlign: 'center', borderBottom: 'unset' }"
-                            @change="handleTabClick"
-                    >
-                        <a-tab-pane key="tab1" tab="个人">
+                    <div v-if="personal">
                             <a-form-item>
                                 <a-input
                                         size="default"
-                                        type="email"
                                         style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
                                         placeholder="邮箱"
                                         v-decorator="[
               'registerUserMail',
-              {rules: [{ required: true, type: 'email', message: '请输入邮箱' }], validateTrigger: 'blur'}]">
+              {rules: [{ required: true, message: '请输入邮箱' }], validateTrigger: 'blur'}]">
                                     <a-icon slot="prefix" type="mail" :style="{ color: 'rgba(0,0,0,.25)' }"/>
                                 </a-input>
                             </a-form-item>
@@ -160,9 +155,11 @@
                                         @click="handleRegister()"
                                 >确定</a-button>
                             </a-form-item>
-                        </a-tab-pane>
+                    </div>
+<!--                        </a-tab-pane>-->
 
-                        <a-tab-pane key="tab2" tab="企业">
+<!--                        <a-tab-pane key="tab2" tab="企业">-->
+                    <div v-else>
                             <a-form-item>
                                 <a-input
                                         size="default"
@@ -246,12 +243,13 @@
                                     <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
                                 </a-input>
                             </a-form-item>
+                            <a-form-item>
                             <div class="clearfix">
                                 <a-upload
                                         name="file"
                                         action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
                                         list-type="picture-card"
-                                        style="left: 500px"
+
                                         :file-list="fileList"
 
                                         @preview="handlePreview"
@@ -268,6 +266,7 @@
                                     <img alt="example" style="width: 100%" :src="previewImage" />
                                 </a-modal>
                             </div>
+                            </a-form-item>
                             <a-form-item style="margin-top:24px" >
                                 <a-button
                                         size="default"
@@ -277,12 +276,13 @@
                                         @click="handleRegister()"
                                 >确定</a-button>
                             </a-form-item>
-                        </a-tab-pane>
-                    </a-tabs>
+                    </div>
+<!--                        </a-tab-pane>-->
+<!--                    </a-tabs>-->
                 </a-form>
             </div>
         </div>
-        <div class="small-box" :class="{active:isLogin}" id="small">
+        <div class="small-box" :class="{active:isLogin}" v-show="showStatus">
             <div class="small-contain" v-if="isLogin">
                 <button class="changeButton" @click="changeType">注册</button>
             </div>
@@ -290,7 +290,18 @@
                 <button class="changeButton" @click="changeType">登录</button>
             </div>
         </div>
+        <div style="width: 200px;height: 100px;position: absolute; left: 50%;top:90%;margin-top: -50px;margin-left: -100px">
+
+            <button @click="A">
+                个人
+            </button>
+            <button @click="B">
+                企业
+            </button>
+
+        </div>
     </div>
+
     <!--    </div>-->
 </template>
 
@@ -312,6 +323,10 @@
 
         data(){
             return {
+                showButtun:true,
+                showStatus:false,
+                personal:true,
+
                 previewVisible: false,
                 previewImage: '',
                 fileList: [],
@@ -366,9 +381,22 @@
                 'uploadADImg'
             ]),
 
+            A(){
+                this.showButtun=false
+                this.showStatus=true
+                this.personal=true
+
+            },
+            B(){
+                this.showButtun=false
+                this.showStatus=true
+                this.personal=false
+
+            },
             customRequest (data) {
                 const formData = new FormData()
                 formData.append('file', data.file)
+                console.log(formData)
                 this.uploadADImg(formData)
             },
 
@@ -416,8 +444,10 @@
                         this.loginLoading = true
                         const data = {
                             email: this.form.getFieldValue("username"),
-                            password: this.form.getFieldValue("password")
+                            password: this.form.getFieldValue("password"),
+                            ispersonal:this.personal
                         }
+                        console.log(data)
                         await this.login(data)
                         this.loginLoading = false
                     }
@@ -426,12 +456,12 @@
 
             handleRegister() {
                 const { form: { validateFields } } = this
-                const validateFieldsKey = this.customActiveKey === 'tab1' ? ['registerUsername','registerPhoneNumber','registerUserMail','registerPassword','registerPasswordconfirm']:['registerEnterpriseName','registerRegistrationID','registerContacts','registerEmail','registerEPhoneNumber','registerEPassword','registerEPasswordconfirm']
+                const validateFieldsKey = this.personal ? ['registerUsername','registerPhoneNumber','registerUserMail','registerPassword','registerPasswordconfirm']:['registerEnterpriseName','registerRegistrationID','registerContacts','registerEmail','registerEPhoneNumber','registerEPassword','registerEPasswordconfirm']
                 validateFields(validateFieldsKey, { force: true }, async (err, values) => {
                     if (!err) {
                         this.registerLoading = true
 
-                        if(this.customActiveKey === 'tab1'){
+                        if(this.personal){
                             const data = {
                                 email: this.form.getFieldValue('registerUserMail'),
                                 password: this.form.getFieldValue('registerPassword'),
@@ -449,13 +479,13 @@
                             })
                         }else{
                             const data={
-                                EnterpriseName:this.form.getFieldValue('registerEnterpriseName'),
-                                EnterpriseID:this.form.getFieldValue('registerRegistrationID'),
-                                Contacts:this.form.getFieldValue('registerContacts'),
-                                Email:this.form.getFieldValue('registerEmail'),
-                                EPhoneNumber:this.form.getFieldValue('registerEPhoneNumber'),
-                                Password:this.form.getFieldValue('EPassword'),
-                                registerPhotoUrl:this.Url,
+                                name:this.form.getFieldValue('registerEnterpriseName'),
+                                registerNumber:this.form.getFieldValue('registerRegistrationID'),
+                                contactName:this.form.getFieldValue('registerContacts'),
+                                email:this.form.getFieldValue('registerEmail'),
+                                contactNumber:this.form.getFieldValue('registerEPhoneNumber'),
+                                password:this.form.getFieldValue('registerEPassword'),
+                                license:'https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c',
                                 userType:'1'
                             }
                             console.log(data)
@@ -583,6 +613,7 @@
         padding-left: 2em;
         background-color: #f0f0f0;
     }
+
     .bbutton{
         width: 30%;
         height: 40px;
@@ -621,7 +652,7 @@
     }
 
     .sbutton{
-        width: 10%;
+        width: 15%;
         height: 40px;
         border-radius: 24px;
         border: none;

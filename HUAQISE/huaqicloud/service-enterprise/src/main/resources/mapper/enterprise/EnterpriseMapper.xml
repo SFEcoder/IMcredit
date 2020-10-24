@@ -3,19 +3,22 @@
 <mapper namespace="com.example.enterprise.dao.enterprise.EnterpriseMapper">
     <insert id="insertEnterprise" parameterType="com.example.enterprise.po.Enterprise" useGeneratedKeys="true" keyProperty="id">
         insert into Enterprise(email,password,name,register_number,contact_number,license,valid,contact_name,e_photo,e_grade)
-        values(#{email},#{password},#{name},#{registerNumber},#{contactNumber},#{License},#{valid},#{contactName},#{ePhoto},#{eGrade})
+        values(#{email},#{password},#{name},#{registerNumber},#{contactNumber},#{license},#{valid},#{contactName},#{ePhoto},#{eGrade})
     </insert>
 
     <select id="getEnterpriseById" resultMap="Enterprise">
         select * from Enterprise where id=#{id}
     </select>
 
-
-    <select id="getEnterpriseByEmail" resultMap="Enterprise">
-        select * from Enterprise order by rand() limit 20
+    <select id="getEnterpriseByKey" resultMap="Enterprise">
+        select * from Enterprise where instr(name,#{key})>0
     </select>
 
     <select id="getTwentyEnterprises" resultMap="Enterprise">
+        select * from Enterprise order by rand() limit 20
+    </select>
+
+    <select id="getEnterpriseByEmail" resultMap="Enterprise">
         select * from Enterprise where email=#{email}
     </select>
 
