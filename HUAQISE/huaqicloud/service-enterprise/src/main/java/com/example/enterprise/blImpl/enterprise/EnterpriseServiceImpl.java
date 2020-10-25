@@ -166,17 +166,17 @@ public class EnterpriseServiceImpl implements EnterpriseService {
                 }
                 break;
             case 2:
-                List<MixIndustry> mi = mixInduMapper.getAllMixInd();
-                for (int i=0; i<mi.size(); i++){
-                    dIDList.add(mi.get(i).getEnterprise_id());
-                    div.add(mi.get(i).getList());
-                }
-                break;
-            case 3:
                 List<ProcIndustry> pi = procInduMapper.getAllProcInd();
                 for (int i=0; i<pi.size(); i++){
                     dIDList.add(pi.get(i).getEnterprise_id());
                     div.add(pi.get(i).getList());
+                }
+                break;
+            case 3:
+                List<SmeDiscrete> sd = smeDisMapper.getAllSmeDis();
+                for (int i=0; i<sd.size(); i++){
+                    dIDList.add(sd.get(i).getEnterprise_id());
+                    div.add(sd.get(i).getList());
                 }
                 break;
             case 4:
@@ -187,10 +187,10 @@ public class EnterpriseServiceImpl implements EnterpriseService {
                 }
                 break;
             case 5:
-                List<SmeDiscrete> sd = smeDisMapper.getAllSmeDis();
-                for (int i=0; i<sd.size(); i++){
-                    dIDList.add(sd.get(i).getEnterprise_id());
-                    div.add(sd.get(i).getList());
+                List<MixIndustry> mi = mixInduMapper.getAllMixInd();
+                for (int i=0; i<mi.size(); i++){
+                    dIDList.add(mi.get(i).getEnterprise_id());
+                    div.add(mi.get(i).getList());
                 }
                 break;
             default:

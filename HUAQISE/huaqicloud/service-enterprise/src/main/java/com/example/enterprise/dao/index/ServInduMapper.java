@@ -36,4 +36,10 @@ public interface ServInduMapper {
      * @return
      */
     List<ServeIndustry> getAllSerInd();
+
+    /**
+     * 删除表中指定元素
+     * @param id
+     * */
+    int deleteDiverById(@Param("id") Integer id);
 }

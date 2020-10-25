@@ -21,4 +21,8 @@
     <select id="getAllSerInd" resultType="com.example.enterprise.po.index.integrate.ServeIndustry">
         select * from serveindustry
     </select>
+
+    <delete id="deleteDiverById">
+        delete from serveindustry where enterprise_id = #{id}
+    </delete>
 </mapper>

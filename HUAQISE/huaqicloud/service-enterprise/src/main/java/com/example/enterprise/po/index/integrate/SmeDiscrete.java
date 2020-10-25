@@ -12,6 +12,42 @@ import java.util.List;
 @Data
 public class SmeDiscrete {
 
+    public SmeDiscrete(){}
+
+    public SmeDiscrete (Integer id, Double[] args){
+        if (args.length != 26){
+            System.out.println("Initialization failure");
+            return ;
+        }
+        this.enterprise_id = id;
+        this.system_manage_level = args[0];
+        this.financial_system_monitor_sales = args[1];
+        this.auto_instruction_content = args[2];
+        this.upload_info_specification = args[3];
+        this.info_qua_coverage_area = args[4];
+        this.info_qua_function = args[5];
+        this.info_monitor_outsourceing = args[6];
+        this.info_manage_energy = args[7];
+        this.social_contribution_rate = args[8];
+        this.info_cooperate_business = args[9];
+        this.inter_realize_value_network_synergy = args[10];
+        this.online_product_ext_recontrol = args[11];
+        this.info_inputmoney_five = args[12];
+        this.infosys_rate_info = args[13];
+        this.total_assets_proequ = args[14];
+        this.enterprise_organization_model = args[15];
+        this.info_plan_implement = args[16];
+        this.info_matdemand_plan_management = args[17];
+        this.info_app_design = args[18];
+        this.info_analyze_business_scope = args[19];
+        this.info_equ_manage_fun_level = args[20];
+        this.info_humanres_fun_level = args[21];
+        this.industrysoftware_innovation_ability = args[22];
+        this.newproduct_develope_cycle = args[23];
+        this.patent_ownership_hundred = args[24];
+        this.productmodel_define_data = args[25];
+    }
+
     private Integer enterprise_id;
 
     private double system_manage_level;

@@ -6,6 +6,7 @@ import com.example.enterprise.dao.enterprise.EnterpriseMapper;
 import com.example.enterprise.po.Enterprise;
 import com.example.enterprise.vo.EnterpriseForm;
 import com.example.enterprise.vo.EnterpriseVO;
+import feign.Param;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
@@ -80,9 +81,6 @@ public class EnterpriseController {
         }
     }
 
-
-
-
     @GetMapping("/{id}/delete")
     @ApiOperation(value = "删除企业信息")
     @ApiImplicitParam(name = "id", value = "被删除企业Id", required = true ,dataType = "Integer")
@@ -107,7 +105,5 @@ public class EnterpriseController {
     ResponseVO getEnterpriseImgList(){
         return ResponseVO.buildSuccess(enterpriseService.getEnterpriseImgList());
     }
-
-
 
 }

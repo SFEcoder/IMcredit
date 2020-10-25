@@ -23,4 +23,8 @@
     <select id="getAllProcInd" resultType="com.example.enterprise.po.index.integrate.ProcIndustry">
         select * from procindustry
     </select>
+
+    <delete id="deleteDiverById">
+        delete from procindustry where enterprise_id = #{id}
+    </delete>
 </mapper>

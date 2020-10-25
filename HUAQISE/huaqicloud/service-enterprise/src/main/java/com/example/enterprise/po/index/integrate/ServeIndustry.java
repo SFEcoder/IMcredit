@@ -12,6 +12,34 @@ import java.util.List;
 @Data
 public class ServeIndustry {
 
+    public ServeIndustry(){}
+
+    public ServeIndustry (Integer id, Double[] args){
+        if (args.length != 18){
+            System.out.println("Initialization failure");
+            return;
+        }
+        this.enterprise_id = id;
+        this.system_manage_level = args[0];
+        this.call_center = args[1];
+        this.budget_management = args[2];
+        this.service_Integration = args[3];
+        this.online_purchase_rate = args[4];
+        this.application_scope_of_purchasing_ecommerce = args[5];
+        this.labor_productivity = args[6];
+        this.Informatization_energy_management = args[7];
+        this.Industry_chain_cooperation = args[8];
+        this.Information_exchange_and_sharing = args[9];
+        this.maintenance_investment_proportion = args[10];
+        this.enterprise_level_unified_coding = args[11];
+        this.enterprise_organization_mode = args[12];
+        this.informatization_plan_implementation = args[13];
+        this.informatization_decision_support = args[14];
+        this.informatization_equipment_management = args[15];
+        this.informatization_human_resource_management = args[16];
+        this.cloud_platform_usage = args[17];
+    }
+
     private Integer enterprise_id;
 
     private double system_manage_level;
@@ -29,6 +57,8 @@ public class ServeIndustry {
     private double labor_productivity;
 
     private double Informatization_energy_management;
+
+    private double Industry_chain_cooperation;
 
     private double Information_exchange_and_sharing;
 
@@ -58,6 +88,7 @@ public class ServeIndustry {
         list.add(this.application_scope_of_purchasing_ecommerce);
         list.add(this.labor_productivity);
         list.add(this.Informatization_energy_management);
+        list.add(this.Industry_chain_cooperation);
         list.add(this.Information_exchange_and_sharing);
         list.add(this.maintenance_investment_proportion);
         list.add(this.enterprise_level_unified_coding);

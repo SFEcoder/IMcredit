@@ -19,4 +19,8 @@
     <select id="getAllMassDis" resultType="com.example.enterprise.po.index.integrate.MassDiscrete">
         select * from massdiscrete
     </select>
+
+    <delete id="deleteDiverById">
+        delete from massdiscrete where enterprise_id = #{id}
+    </delete>
 </mapper>
