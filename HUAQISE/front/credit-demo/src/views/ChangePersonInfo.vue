@@ -14,45 +14,40 @@
     <div class="mycomponent" id="c1">
       <p class="staticText"><a-icon  type="user" class="myicon1"/> 用户名</p>
       <div class="dynamicText">{{myusername}}</div>
-      <a-button class = "mybutton" type="primary" @click="showModal1">
+      <a-button class = "mybutton" type="primary" @click="showModalName">
         修改
       </a-button>
       <a-modal
           class="mymodal"
           width=600px
           centered="true"
-          :visible="visible1"
+          :visible="visibleName"
           :confirm-loading="confirmLoading"
-          @ok="handleOk1"
-          @cancel="handleCancel1"
+          @ok="handleOkName"
+          @cancel="handleCancelName"
       >
 
         <div class="modaltitle" > <a-icon  type="user" class="myicon" />       修改用户名</div>
             <a-input   v-model="Inputmyusername" class = "myinput" type="text"  placeholder="请输入名字" ></a-input>>
-
-
       </a-modal>
     </div>
 
     <div class="mycomponent" id ="c2">
       <p class="staticText"><a-icon  type="mail" class="myicon1"/> 电子邮箱</p>
       <div class="dynamicText">{{myuseremail}}</div>
-      <a-button class = "mybutton" type="primary" @click="showModal2">
+      <a-button class = "mybutton" type="primary" @click="showModalEmail">
         修改
       </a-button>
       <a-modal
           class="mymodal"
           width=600px
           centered="true"
-          :visible="visible2"
+          :visible="visibleEmail"
           :confirm-loading="confirmLoading"
-          @ok="handleOk2"
-          @cancel="handleCancel2"
+          @ok="handleOkEmail"
+          @cancel="handleCancelEmail"
       >
-
         <div class="modaltitle" > <a-icon  type="mail" class="myicon"/>       修改邮箱</div>
-
-
         <a-input
             class = "myinput"
             type="text"
@@ -60,61 +55,51 @@
             v-model="Inputmyuseremail">
           <!--       //  <a-icon  slot="prefix" type="user" />-->
         </a-input>
-
-
       </a-modal>
     </div>
 
     <div class="mycomponent" id="c3">
       <p class="staticText"><a-icon  type="phone" class="myicon1"/> 联系电话</p>
       <div class="dynamicText">{{myuserphonenum}}</div>
-      <a-button class = "mybutton" type="primary" @click="showModal3">
+      <a-button class = "mybutton" type="primary" @click="showModalPhone">
         修改
       </a-button>
       <a-modal
           class="mymodal"
           width=600px
           centered="true"
-          :visible="visible3"
+          :visible="visiblePhone"
           :confirm-loading="confirmLoading"
-          @ok="handleOk3"
-          @cancel="handleCancel3"
+          @ok="handleOkPhone"
+          @cancel="handleCancelPhone"
       >
-
         <div class="modaltitle" > <a-icon  type="phone" class="myicon"/>       修改联系电话</div>
-
-
         <a-input
             class = "myinput"
             type="text"
             v-model="Inputmyuserphonenum"
             placeholder="请填写新联系电话">
         </a-input>
-
-
       </a-modal>
     </div>
-
 
     <div class="mycomponent" id="c4">
       <p class="staticText"><a-icon  type="lock" class="myicon1"/> 账户密码</p>
       <div class="dynamicText">{{myusemail}}</div>
-      <a-button class = "mybutton" type="primary" @click="showModal4">
+      <a-button class = "mybutton" type="primary" @click="showModalPassword">
         修改
       </a-button>
       <a-modal
           class="mymodal_pass"
           width=600px
           centered="true"
-          :visible="visible4"
+          :visible="visiblePassword"
           :confirm-loading="confirmLoading"
-          @ok="handleOk4"
-          @cancel="handleCancel4"
+          @ok="handleOkPassword"
+          @cancel="handleCancelPassword"
 
       >
-
         <div class="modaltitle_password" > <a-icon  type="lock" class="myicon"/>       修改密码</div>
-
         <div class = "threepassword">
       <a-form
           id="formChangePass"
@@ -123,16 +108,14 @@
           :form="form"
           style="top: 20%;left:10%;width: 80%"
       >
-
         <a-form-item>
           <a-input
-
               size="large"
               type="password"
               placeholder="旧密码"
               class = "myinput_password"
               v-decorator="[
-                'myoldpassword',
+                'myuserpassword',
                 {rules: [{ required: true, message: '请输入旧密码' },{ validator: this.ConfirmOldPassword }], validateTrigger: 'blur'}
               ]"
               style="width:400px;"
@@ -140,7 +123,6 @@
           >
           </a-input>
         </a-form-item>
-
         <a-form-item>
           <a-input
               size="large"
@@ -171,8 +153,6 @@
       </a-form>
         </div>
       </a-modal>
-
-
     </div>
   </div>
 
@@ -183,20 +163,24 @@ export default {
   data() {
     return {
       form: this.$form.createForm(this),
-      ModalText: 'Content of the modal',
-      visible1:false,
-      visible2:false,
-      visible3:false,
-
-      visible4:false,
+      visibleName:false,
+      visibleEmail:false,
+      visiblePhone:false,
+      visiblePassword:false,
       confirmLoading: false,
       con1:false,
       con2:false,
       con3:false,
+      myuseravatarUrl:"",
       myusername:"xujing",
       myuseremail:"2801423111@qq.com",
       myuserphonenum:"15720927772",
-      myoldpassword:"181860118",
+      myuserpassword:"181860118",
+      // myuseremail:this.userInfo.email,
+      // myuseravatarUrl:this.userInfo.avatarUrl,
+      // myusername:this.userInfo.username,
+      // myuserphonenum:this.userInfo.phoneNumber,
+      // myuserpassword:this.userInfo.password,
       Inputmyusername:"xujing",
       Inputmyuseremail:"2801423111@qq.com",
       Inputmyphonenum:"1572092772"
@@ -224,10 +208,10 @@ export default {
       'getUserInfo',
       'updateUserInfo',
     ]),
-    showModal4(e) {
-      this.visible4 = true;
+    showModalPassword(e) {
+      this.visiblePassword = true;
     },
-    handleOk4(e) {
+    handleOkPassword(e) {
       this.ModalText = 'The modal will be closed after two seconds';
       this.confirmLoading = true;
       console.log(this.con1)
@@ -236,15 +220,20 @@ export default {
 
 
       if (this.con1 && this.con2 && this.con3) {
-        this.myoldpassword = this.form.getFieldValue('newPassword')
-        console.log(this.myoldpassword)
+        this.myuserpassword = this.form.getFieldValue('newPassword')
+        console.log(this.myuserpassword)
 
         this.con1 = false
         this.con2 = false
         this.con3 = false
          setTimeout(() => {
-          this.visible4 = false;
+          this.visiblePassword = false;
           this.confirmLoading = false;
+          this.form.setFieldsValue({
+          newPassword:"",
+          newPasswordconfirm:"",
+          myuserpassword:""
+    })
         }, 500);
 
     }
@@ -253,88 +242,77 @@ export default {
         this.con2 = false
         this.con3 = false
         this.confirmLoading = false;
-
-      }
-    },
-    handleCancel4(e) {
-      console.log('Clicked cancel button');
-      this.visible4= false;
-      this.form.setFieldsValue({
-
-
+        this.form.setFieldsValue({
       newPassword:"",
       newPasswordconfirm:"",
-      myoldpassword:""
-
-
+      myuserpassword:""
+    })
+      }
+      //this.saveModify() 
+    },
+    handleCancelPassword(e) {
+      this.visiblePassword= false;
+      this.form.setFieldsValue({
+      newPassword:"",
+      newPasswordconfirm:"",
+      myuserpassword:""
     })
     },
-    showModal3(e) {
-      this.visible3 = true;
+    showModalPhone(e) {
+      this.visiblePhone = true;
     },
-    handleOk3(e) {
-      this.ModalText = 'The modal will be closed after two seconds';
-      this.confirmLoading = true;
+    handleOkPhone(e) {
       setTimeout(() => {
-        this.visible3 = false;
-        this.confirmLoading = false;
+        this.visiblePhone = false;
         this.myuserphonenum = this.Inputmyuserphonenum;
-
       }, 500);
+      //this.saveModify() 
       },
-    handleCancel3(e) {
-      console.log('Clicked cancel button');
-      this.visible3= false;
+    handleCancelPhone(e) {
+      this.visiblePhone= false;
       this.Inputmyuserphonenum = this.myuserphonenum;
-
     },
-    showModal2(e) {
-      this.visible2 = true;
+    
+    showModalEmail(e) {
+      this.visibleEmail = true;
     },
-    handleOk2(e) {
-      this.ModalText = 'The modal will be closed after two seconds';
-      this.confirmLoading = true;
+    handleOkEmail(e) {
       setTimeout(() => {
-        this.visible2 = false;
-        this.confirmLoading = false;
+        this.visibleEmail = false;
         this.myuseremail=this.Inputmyuseremail;
-
       }, 500);
+       //this.saveModify() 
     },
-    handleCancel2(e) {
-      console.log('Clicked cancel button');
-      this.visible2= false;
+    handleCancelEmail(e) {
+      this.visibleEmail= false;
       this.Inputmyuseremail=this.myuseremail;
     },
-    showModal1(e) {
-      this.visible1 = true;
+
+    showModalName(e) {
+      this.visibleName = true;
     },
-    handleOk1(e) {
-      this.ModalText = 'The modal will be closed after two seconds';
-      this.confirmLoading = true;
+    handleOkName(e) {
       setTimeout(() => {
-        this.visible1 = false;
+        this.visibleName = false;
         this.confirmLoading = false;
         this.myusername=this.Inputmyusername;
-
       }, 500);
+        //this.saveModify() 
     },
-    handleCancel1(e) {
-      console.log('Clicked cancel button');
-      this.visible1 = false;
+    handleCancelName(e) {
+      this.visibleName = false;
       this.Inputmyusername= this.myusername;
     },
 
-     ConfirmOldPassword(rule,value,callback)
+    ConfirmOldPassword(rule,value,callback)
     {
-      const oldpassword = this.myoldpassword
+      const oldpassword = this.myuserpassword
       if (value === undefined) {
         callback(new Error('请输入旧密码'))
         this.con1=false
       }
       if (value && oldpassword && value.trim() !== oldpassword.trim()) {
         callback(new Error('旧密码输入错误'))
-        value=""
         this.con1=false
       }
       if (value && oldpassword && value.trim() === oldpassword.trim()) {
@@ -346,7 +324,7 @@ export default {
 
 
     handleNewPassword(rule, value, callback) {
-      const oldpassword = this.myoldpassword
+      const oldpassword = this.myuserpassword
       if (value.length < 6) {
         callback(new Error('密码长度至少6位'))
         this.con2=false
@@ -354,13 +332,13 @@ export default {
       if (value && oldpassword && value.trim() === oldpassword.trim()) {
         callback(new Error('新密码与旧密码相同'))
         this.con2=false
-
       }
       if (value && oldpassword && value.trim() !== oldpassword.trim()) {
         this.con2=true
       }
       callback()
     },
+
     handleNewPasswordCheck (rule, value, callback) {
       const password = this.form.getFieldValue('newPassword')
       console.log(password)
@@ -377,6 +355,16 @@ export default {
       }
       callback()
     },
+    saveModify() {
+          const data = {
+            username:this.myusername,
+            phoneNumber: this.myuserphonenum,
+            email:this.myuseremail,
+            password:this. myuserpassword
+          }
+          this.updateUserInfo(data).then(()=>{
+          })
+    }
   },
 };
 </script>
@@ -506,7 +494,6 @@ export default {
 }
 .modaltitle_password
 {
-  row_align:center;
   font-size: 40px;
   color: black;
   margin-left: 70px;
@@ -520,7 +507,6 @@ export default {
   width: 90%;
   height:100px;
   border-radius: 2px;
-  row-align: middle;
   font-size: 30px;
 }
 .myinput_password{
