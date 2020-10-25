@@ -2,6 +2,9 @@ package com.example.enterprise.po.index.integrate;
 
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @Author:
  * @Date: 2020/10/21 10:27
@@ -62,5 +65,37 @@ public class SmeDiscrete {
     private double patent_ownership_hundred;
 
     private double productmodel_define_data;
+
+    public List<Double> getList(){
+        List<Double> list = new ArrayList<>();
+        list.add(this.system_manage_level);
+        list.add(this.financial_system_monitor_sales);
+        list.add(this.auto_instruction_content);
+        list.add(this.upload_info_specification);
+        list.add(this.info_qua_coverage_area);
+        list.add(this.info_qua_function);
+        list.add(this.info_monitor_outsourceing);
+        list.add(this.info_manage_energy);
+        list.add(this.social_contribution_rate);
+        list.add(this.info_cooperate_business);
+        list.add(this.inter_realize_value_network_synergy);
+        list.add(this.online_product_ext_recontrol);
+        list.add(this.info_inputmoney_five);
+        list.add(this.infosys_rate_info);
+        list.add(this.total_assets_proequ);
+        list.add(this.enterprise_organization_model);
+        list.add(this.info_plan_implement);
+        list.add(this.info_matdemand_plan_management);
+        list.add(this.info_app_design);
+        list.add(this.info_analyze_business_scope);
+        list.add(this.info_equ_manage_fun_level);
+        list.add(this.info_humanres_fun_level);
+        list.add(this.industrysoftware_innovation_ability);
+        list.add(this.newproduct_develope_cycle);
+        list.add(this.patent_ownership_hundred);
+        list.add(this.productmodel_define_data);
+
+        return list;
+    }
 
 }
