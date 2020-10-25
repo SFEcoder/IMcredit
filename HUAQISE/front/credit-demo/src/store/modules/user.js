@@ -23,7 +23,7 @@ import { decrypt , encrypt,getKey } from "../../utils/aes";
 const getDefaultState = () => {
     return {
         personal:true,
-        Url:[],
+        Url:'',
         userId: '',
         userInfo: {
 
@@ -114,8 +114,8 @@ const user = {//定义对象user
             const res = await uploadImgAPI(data) //res就是图片字符串
             if (res) {
                 console.log(res)
-                this.Url.push(res)
-
+                this.Url = res
+                message.success("上传成功")
             }
         } ,
 
@@ -130,7 +130,7 @@ const user = {//定义对象user
             }else{
                 const res = await EregisterAPI(data)
                 if (res) {
-                    message.success('请等待验证')
+                    message.success('注册成功')
                 }
             }
         } ,

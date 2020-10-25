@@ -2,7 +2,7 @@
     <div class="login-register">
 
         <!--        <div class="contain">-->
-        <div class="big-box" :class="{active:isLogin}" v-show="showStatus">
+        <div class="big-box" :class="{active:isLogin}" >
 
             <!-- 登录  -->
             <div class="big-contain" v-if="isLogin">
@@ -160,6 +160,29 @@
 
 <!--                        <a-tab-pane key="tab2" tab="企业">-->
                     <div v-else>
+                        <a-form-item>
+                            <div class="clearfix">
+                                <a-upload
+                                        name="file"
+                                        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                                        list-type="picture-card"
+                                        :customRequest="customRequest"
+                                        :file-list="fileList"
+                                        @preview="handlePreview"
+                                        @change="handleChange"
+                                >
+                                    <div v-if="fileList.length < 8">
+                                        <a-icon type="plus" />
+                                        <div class="ant-upload-text">
+                                            营业执照
+                                        </div>
+                                    </div>
+                                </a-upload>
+                                <a-modal :visible="previewVisible" :footer="null" @cancel="handleCancel">
+                                    <img alt="example" style="width: 100%" :src="previewImage" />
+                                </a-modal>
+                            </div>
+                        </a-form-item>
                             <a-form-item>
                                 <a-input
                                         size="default"
@@ -243,30 +266,6 @@
                                     <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
                                 </a-input>
                             </a-form-item>
-                            <a-form-item>
-                            <div class="clearfix">
-                                <a-upload
-                                        name="file"
-                                        action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
-                                        list-type="picture-card"
-
-                                        :file-list="fileList"
-
-                                        @preview="handlePreview"
-                                        @change="handleChange"
-                                >
-                                    <div v-if="fileList.length < 8">
-                                        <a-icon type="plus" />
-                                        <div class="ant-upload-text">
-                                            营业执照
-                                        </div>
-                                    </div>
-                                </a-upload>
-                                <a-modal :visible="previewVisible" :footer="null" @cancel="handleCancel">
-                                    <img alt="example" style="width: 100%" :src="previewImage" />
-                                </a-modal>
-                            </div>
-                            </a-form-item>
                             <a-form-item style="margin-top:24px" >
                                 <a-button
                                         size="default"
@@ -282,7 +281,7 @@
                 </a-form>
             </div>
         </div>
-        <div class="small-box" :class="{active:isLogin}" v-show="showStatus">
+        <div class="small-box" :class="{active:isLogin}" >
             <div class="small-contain" v-if="isLogin">
                 <button class="changeButton" @click="changeType">注册</button>
             </div>
@@ -292,12 +291,14 @@
         </div>
         <div style="width: 200px;height: 100px;position: absolute; left: 50%;top:90%;margin-top: -50px;margin-left: -100px">
 
-            <button @click="A">
-                个人
-            </button>
-            <button @click="B">
-                企业
-            </button>
+            <a-radio-group name="radioGroup" :default-value="1" @change="changePersonal">
+                <a-radio :value="1" v-show="enterprise">
+                    个人
+                </a-radio>
+                <a-radio :value="2" v-show="personal">
+                    企业
+                </a-radio>
+            </a-radio-group>
 
         </div>
     </div>
@@ -323,9 +324,8 @@
 
         data(){
             return {
-                showButtun:true,
-                showStatus:false,
                 personal:true,
+                enterprise:false,
 
                 previewVisible: false,
                 previewImage: '',
@@ -381,21 +381,15 @@
                 'uploadADImg'
             ]),
 
-            A(){
-                this.showButtun=false
-                this.showStatus=true
-                this.personal=true
-
+            changePersonal(){
+                this.personal=!this.personal
+                this.enterprise=!this.enterprise
             },
-            B(){
-                this.showButtun=false
-                this.showStatus=true
-                this.personal=false
 
-            },
-            customRequest (data) {
+
+            customRequest (file) {
                 const formData = new FormData()
-                formData.append('file', data.file)
+                formData.append('file', file.file)
                 console.log(formData)
                 this.uploadADImg(formData)
             },
@@ -485,11 +479,12 @@
                                 email:this.form.getFieldValue('registerEmail'),
                                 contactNumber:this.form.getFieldValue('registerEPhoneNumber'),
                                 password:this.form.getFieldValue('registerEPassword'),
-                                license:'https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c',
+                                license:this.Url,
                                 userType:'1'
                             }
                             console.log(data)
                             await this.register(data).then(() => {
+                                this.Url=''
                                 this.form.setFieldsValue({
                                     'registerEnterpriseName':'',
                                     'registerRegistrationID':'',
