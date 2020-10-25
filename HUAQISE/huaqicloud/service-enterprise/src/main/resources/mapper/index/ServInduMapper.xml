@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.enterprise.dao.index.ServInduMapper">
+    <insert id="insertServIndu" parameterType="com.example.enterprise.po.index.integrate.ServeIndustry">
+        insert into serveindustry(enterprise_id,system_manage_level,call_center,budget_management,
+                                  service_Integration,online_purchase_rate,application_scope_of_purchasing_ecommerce,labor_productivity,Informatization_energy_management,Information_exchange_and_sharing,
+                                  maintenance_investment_proportion,enterprise_level_unified_coding,enterprise_organization_mode,informatization_plan_implementation,
+                                  informatization_decision_support,informatization_equipment_management,informatization_human_resource_management,
+                                  cloud_platform_usage
+        )
+        values(#{enterprise_id},#{system_manage_level},#{call_center},#{budget_management},#{service_Integration},#{online_purchase_rate},
+               #{application_scope_of_purchasing_ecommerce},#{labor_productivity},#{Informatization_energy_management},#{Information_exchange_and_sharing},#{maintenance_investment_proportion},
+               #{enterprise_level_unified_coding},#{enterprise_organization_mode},#{informatization_plan_implementation},#{informatization_decision_support},#{informatization_equipment_management},
+               #{informatization_human_resource_management},#{cloud_platform_usage})
+    </insert>
+
+    <select id="getSerIndByEpId" resultType="com.example.enterprise.po.index.integrate.ServeIndustry">
+        select * from serveindustry where enterprise_id=#{enterprise_id}
+    </select>
+
+    <select id="getAllSerInd" resultType="com.example.enterprise.po.index.integrate.ServeIndustry">
+        select * from serveindustry
+    </select>
+</mapper>

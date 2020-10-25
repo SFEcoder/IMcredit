@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.enterprise.dao.index.ProcInduMapper">
+    <insert id="insertProcIndu" parameterType="com.example.enterprise.po.index.integrate.ProcIndustry">
+        insert into procindustry(enterprise_id,system_manage_level,budget_management,auto_upload_info_range,
+                                 auto_instruction_content,auto_information_coverage,auto_instruction_situation,integrated_management_cover,online_purchasing_rate,
+                                 min_scheduling_unit,energy_management,social_contribution,business_collaboration,
+                                 info_exchange_and_sharing,value_network_collaboration,green_development,
+                                 maintenance_investment,organizational_model,plan_implementation,material_requirements,research_development,
+                                 business_scope,equipment_management,hr_management,industrial_software_innovation,output_value
+                                 )
+        values(#{enterprise_id},#{system_manage_level},#{budget_management},#{auto_upload_info_range},#{auto_instruction_content},#{auto_information_coverage},
+               #{auto_instruction_situation},#{integrated_management_cover},#{online_purchasing_rate},#{min_scheduling_unit},#{energy_management},
+               #{social_contribution},#{business_collaboration},#{info_exchange_and_sharing},#{value_network_collaboration},#{green_development},
+               #{maintenance_investment},#{organizational_model},#{plan_implementation},#{material_requirements},
+               #{research_development},#{business_scope},#{equipment_management},#{hr_management},#{industrial_software_innovation},#{output_value})
+    </insert>
+
+    <select id="getProcByEpId" resultType="com.example.enterprise.po.index.integrate.ProcIndustry">
+        select * from procindustry where enterprise_id=#{enterprise_id}
+    </select>
+
+    <select id="getAllProcInd" resultType="com.example.enterprise.po.index.integrate.ProcIndustry">
+        select * from procindustry
+    </select>
+</mapper>
