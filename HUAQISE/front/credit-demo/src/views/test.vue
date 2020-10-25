@@ -1,212 +1,145 @@
 <template>
-  <GeminiScrollbar class="my_scroll_bar">
-<div class="container" >
-
-<div id="userinfo" > 企业信息</div>
-<a-tooltip placement="right">
-  <template slot="title">
-    修改企业头标
-  </template>
-  <a-upload>
-    <a-avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" style="margin-left: 350px; margin-top:50px;width: 100px;height: 100px" />
-  </a-upload>
-</a-tooltip>
-
-<div class="company_static" id="a1" style="margin-top: 150px; margin-left: 300px">
-  <TeamOutlined />
-  <p class="staticText"><a-icon  type="team" class="myicon1"/> 企业全称</p>
-  <div class="dynamicText">{{userInfoemail}}</div>
-</div>
-
-<div class="company_static" id="a2" style="margin-top: 150px; margin-left: 850px">
-  <p class="staticText">
-    <a-icon type="idcard" class="myicon1" />
-    企业注册号</p>
-  <div class="dynamicText">{{userInfoemail}}</div>
-</div>
+  <div class ="info-wrapper">
+    <div class="container" style="
+          position: absolute;
+           height: 2000px;
+           width: 1200px;
+           background-color: white;
+           top: 60%;
+           left: 60%;
+           transform: translate(-50%, -30%);
+           border-radius: 10px;
+           font-size: 60px;">
+      <div id="userinfo" style=" position: inherit;font-size: 60px;top:100px;left:100px;" > 企业信息</div>
+      <a-avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" style="margin-left: 450px; margin-top:80px;width: 100px;height: 100px" />
 
 
-<div class="company_static" id="a3" style="margin-top: 450px; margin-left: 300px">
-  <p class="staticText">
-    <a-icon type="audit" class="myicon1"/>   营业执照</p>
-  <div class="dynamicText">{{userInfoemail}}</div>
-</div>
+      <div class="company_dynamic" id="a1" style="margin-top: 80px; margin-left: 80px;  width:800px">
+        <p class="staticText"><a-icon  type="team" class="myicon1"/> 企业全称</p>
+        <div class="dynamicText">{{username}}</div>
+      </div>
+
+      <div class="company_dynamic" id="a2" style="margin-top: 200px; margin-left: 80px; width:800px">
+        <p class="staticText">
+          <a-icon type="idcard" class="myicon1" />     企业注册号</p>
+        <div class="dynamicText">   {{userID}}</div>
+      </div>
 
 
-<div class="company_static" id="a4" style="margin-top: 450px; margin-left:850px">
-  <p class="staticText">
-    <a-icon type="crown" class="myicon1" /> 企业评级</p>
-  <div class="dynamicText">{{userInfoemail}}</div>
-</div>
+      <div class="company_dynamic" id="a3" style="margin-top: 320px; margin-left: 80px; width:800px">
+        <p class="staticText">
+          <a-icon type="audit" class="myicon1"/>   营业执照</p>
+        <div class="dynamicText">{{user}}</div>
+      </div>
 
 
-<div id="companyinfo" style="font-size: 60px;margin-top:700px ;margin-left:60px ">企业资料</div>
+      <div class="company_dynamic" id="a4" style="margin-top: 440px; margin-left:80px; width:800px">
+        <p class="staticText">
+          <a-icon type="crown" class="myicon1" /> 企业评级</p>
+        <div class="dynamicText">{{userInfoemail}}</div>
+      </div>
 
-<div class="mycomponent" id ="b2" style="margin-left: 850px;margin-top: 700px">
-  <p class="staticText"><a-icon  type="mail" class="myicon1"/> 电子邮箱</p>
-  <div class="dynamicText">{{userInfoemail}} </div>
-  <a-button class = "mybutton" type="primary" @click="showModal">
-    修改
-  </a-button>
-  <a-modal
-      class="mymodal"
-      width=600px
-      centered="true"
-      :visible="visible"
-      :confirm-loading="confirmLoading"
-      @ok="handleOk"
-      @cancel="handleCancel"
-  >
+      <div class="mycomponent" id="changeTel" style="margin-top:560px;margin-left:300px;height: 180px">
+        <p class="staticText"><a-icon  type="user" class="myicon1"/>联系人</p>
+        <div class="dynamicText">{{myusername}}</div>
+        <a-button class = "mybutton" type="primary" @click="showModal1">
+          修改
+        </a-button>
+        <a-modal
+            class="mymodal"
+            width=600px
+            centered="true"
+            :visible="visible1"
+            :confirm-loading="confirmLoading"
+            @ok="handleOk1"
+            @cancel="handleCancel1"
+        >
 
-    <div class="modaltitle" > <a-icon  type="mail" class="myicon"/>       修改邮箱</div>
-
-
-    <a-input
-        class = "myinput"
-        type="text"
-        placeholder="请填写企业邮箱号"
-        v-decorator="['userInfoemail', { rules: [{ required: true, message: '请输入企业邮箱号' }] }]">
-      <!--       //  <a-icon  slot="prefix" type="user" />-->
-    </a-input>
+          <div class="modaltitle" > <a-icon  type="user" class="myicon"/>       修改联系人</div>
 
 
-  </a-modal>
-</div>
+          <a-input
+              class = "myinput"
+              type="text"
+              placeholder="请填写新联系人姓名"
+              v-model="Inputmyusername">
+
+          </a-input>
 
 
-<div class="company_static" id="b1" style="margin-top: 150px; margin-left: 300px">
-  <TeamOutlined />
-  <p class="staticText"><a-icon  type="team" class="myicon1"/> 联系人</p>
-  <div class="dynamicText">{{userInfoemail}}</div>
-</div>
+        </a-modal>
+      </div>
+
+      <div class="mycomponent" id="changeTel" style="margin-top:660px;margin-left:320px;height: 180px">
+        <p class="staticText"><a-icon  type="phone" class="myicon1"/> 联系电话</p>
+        <div class="dynamicText">{{myuserphonenum}}</div>
+        <a-button class = "mybutton" type="primary" @click="showModal3">
+          修改
+        </a-button>
+        <a-modal
+            class="mymodal"
+            width=600px
+            centered="true"
+            :visible="visible3"
+            :confirm-loading="confirmLoading"
+            @ok="handleOk3"
+            @cancel="handleCancel3"
+        >
+
+          <div class="modaltitle" > <a-icon  type="phone" class="myicon"/>       修改联系电话</div>
+
+
+          <a-input
+              class = "myinput"
+              type="text"
+              placeholder="请填写新联系电话"
+              v-model="Inputmyuserphonenum">
+
+          </a-input>
+
+
+        </a-modal>
+      </div>
 
 
 
-<!--  <div class="company_static" id="b3" style="margin-top: 450px; margin-left: 300px">-->
-<!--    <p class="staticText">-->
-<!--      <a-icon type="audit" class="myicon1"/>   营业执照</p>-->
-<!--    <div class="dynamicText">{{userInfoemail}}</div>-->
-<!--  </div>-->
+      <div class="mycomponent" id="changemail" style="margin-top: 780px;margin-left:320px;height: 180px">
+        <p class="staticText"><a-icon  type="mail" class="myicon1"/> 企业邮箱</p>
+        <div class="dynamicText">{{myuseremail}}</div>
+        <a-button class = "mybutton" type="primary" @click="showModal2">
+          修改
+        </a-button>
+        <a-modal
+            class="mymodal"
+            width=600px
+            centered="true"
+            :visible="visible2"
+            :confirm-loading="confirmLoading"
+            @ok="handleOk2"
+            @cancel="handleCancel2"
+        >
+
+          <div class="modaltitle" > <a-icon  type="mail" class="myicon"/>       修改企业邮箱</div>
 
 
-<!--  <div class="company_static" id="b4" style="margin-top: 450px; margin-left:850px">-->
-<!--    <p class="staticText">-->
-<!--      <a-icon type="crown" class="myicon1" /> 企业评级</p>-->
-<!--    <div class="dynamicText">{{userInfoemail}}</div>-->
-<!--  </div>-->
-</div>
+          <a-input
+              class = "myinput"
+              type="text"
+              placeholder="请填写新邮箱"
+            v-model="Inputmyuseremail">
+
+            <!--       //  <a-icon  slot="prefix" type="user" />-->
+          </a-input>
 
 
-<!--    <div class="mycomponent" id ="c2">-->
-<!--      <p class="staticText"><a-icon  type="mail" class="myicon1"/> 电子邮箱</p>-->
-<!--      <div class="dynamicText">{{userInfoemail}}</div>-->
-<!--      <a-button class = "mybutton" type="primary" @click="showModal">-->
-<!--        修改-->
-<!--      </a-button>-->
-<!--      <a-modal-->
-<!--          class="mymodal"-->
-<!--          width=600px-->
-<!--          centered="true"-->
-<!--          :visible="visible"-->
-<!--          :confirm-loading="confirmLoading"-->
-<!--          @ok="handleOk"-->
-<!--          @cancel="handleCancel"-->
-<!--      >-->
-
-<!--        <div class="modaltitle" > <a-icon  type="mail" class="myicon"/>       修改邮箱</div>-->
+        </a-modal>
+      </div>
 
 
-<!--        <a-input-->
-<!--            class = "myinput"-->
-<!--            type="text"-->
-<!--            placeholder="请填写企业邮箱号"-->
-<!--            v-decorator="['userInfoemail', { rules: [{ required: true, message: '请输入企业邮箱号' }] }]">-->
-<!--          &lt;!&ndash;       //  <a-icon  slot="prefix" type="user" />&ndash;&gt;-->
-<!--        </a-input>-->
 
 
-<!--      </a-modal>-->
-<!--    </div>-->
-
-<!--    <div class="mycomponent" id="c3">-->
-<!--      <p class="staticText"><a-icon  type="phone" class="myicon1"/> 联系电话</p>-->
-<!--      <div class="dynamicText">{{userInfoemail}}</div>-->
-<!--      <a-button class = "mybutton" type="primary" @click="showModal">-->
-<!--        修改-->
-<!--      </a-button>-->
-<!--      <a-modal-->
-<!--          class="mymodal"-->
-<!--          width=600px-->
-<!--          centered="true"-->
-<!--          :visible="visible"-->
-<!--          :confirm-loading="confirmLoading"-->
-<!--          @ok="handleOk"-->
-<!--          @cancel="handleCancel"-->
-<!--      >-->
-
-<!--        <div class="modaltitle" > <a-icon  type="phone" class="myicon"/>       修改联系电话</div>-->
-
-
-<!--        <a-input-->
-<!--            class = "myinput"-->
-<!--            type="text"-->
-<!--            placeholder="请填写新联系电话"-->
-<!--            v-decorator="['userInfoemail', { rules: [{ required: true, message: '请输入新联系电话' }] }]">-->
-<!--          &lt;!&ndash;       //  <a-icon  slot="prefix" type="user" />&ndash;&gt;-->
-<!--        </a-input>-->
-
-
-<!--      </a-modal>-->
-<!--    </div>-->
-
-<!--    <div class="mycomponent" id="c4">-->
-<!--      <p class="staticText"><a-icon  type="lock" class="myicon1"/> 账户密码</p>-->
-<!--      <div class="dynamicText">{{userInfoemail}}</div>-->
-<!--      <a-button class = "mybutton" type="primary" @click="showModal">-->
-<!--        修改-->
-<!--      </a-button>-->
-<!--      <a-modal-->
-<!--          class="mymodal_pass"-->
-<!--          width=1000px-->
-<!--          centered="true"-->
-<!--          :visible="visible"-->
-<!--          :confirm-loading="confirmLoading"-->
-<!--          @ok="handleOk"-->
-<!--          @cancel="handleCancel"-->
-<!--      >-->
-
-<!--        <div class="modaltitle_password" > <a-icon  type="lock" class="myicon"/>       修改密码</div>-->
-
-
-<!--        <a-input-->
-<!--            class = "myinput_password"-->
-<!--            type="password"-->
-<!--            placeholder="请填写旧密码"-->
-<!--            v-decorator="['userInfoemail', { rules: [{ required: true, message: '请输入旧密码' }] }]">-->
-<!--          &lt;!&ndash;       //  <a-icon  slot="prefix" type="user" />&ndash;&gt;-->
-<!--        </a-input>-->
-
-<!--        <a-input-->
-<!--            class = "myinput_password"-->
-<!--            type="password"-->
-<!--            placeholder="请填写新密码"-->
-<!--            v-decorator="['userInfoemail', { rules: [{ required: true, message: '请输入新密码' }] }]">-->
-<!--          &lt;!&ndash;       //  <a-icon  slot="prefix" type="user" />&ndash;&gt;-->
-<!--        </a-input>-->
-
-<!--        <a-input-->
-<!--            class = "myinput_password"-->
-<!--            type="password"-->
-<!--            placeholder="请再次填写新密码"-->
-<!--            v-decorator="['userInfoemail', { rules: [{ required: true, message: '请输入新密码' }] }]">-->
-<!--          &lt;!&ndash;       //  <a-icon  slot="prefix" type="user" />&ndash;&gt;-->
-<!--        </a-input>-->
-
-
-<!--      </a-modal>-->
-<!--    </div>-->
-<!--    </div>-->
-  </GeminiScrollbar>
+    </div>
+  </div>
 </template>
 
 
@@ -215,9 +148,16 @@ export default {
   data() {
     return {
       ModalText: 'Content of the modal',
-      visible: false,
+      visible1: false,
+      visible2:false,
+      visible3:false,
+
       confirmLoading: false,
-      userInfoemail:"2801423111@qq.com"
+      userID:"MF181860118",
+      username:"泰隆格利国际空调有限公司",
+      myuseremail:"2801423111@qq.com",
+      myuserphonenum:"15720927772",
+      myusername:"李莉莉丝"
     };
   },
   methods: {
@@ -226,81 +166,82 @@ export default {
     },
     handleOk(e) {
       this.ModalText = 'The modal will be closed after two seconds';
-      this.confirmLoading = true;
       setTimeout(() => {
         this.visible = false;
         this.confirmLoading = false;
-      }, 2000);
+      }, 500);
     },
     handleCancel(e) {
       console.log('Clicked cancel button');
       this.visible = false;
     },
-  },
+    showModal3(e) {
+      this.visible3 = true;
+    },
+    handleOk3(e) {
+      this.ModalText = 'The modal will be closed after two seconds';
+      setTimeout(() => {
+        this.visible3 = false;
+        this.myuserphonenum = this.Inputmyuserphonenum;
+
+      }, 500);
+      },
+    handleCancel3(e) {
+      console.log('Clicked cancel button');
+      this.visible3= false;
+      this.Inputmyuserphonenum = this.myuserphonenum;
+
+    },
+    showModal2(e) {
+        this.visible2 = true;
+      },
+    handleOk2(e) {
+      this.ModalText = 'The modal will be closed after two seconds';
+      setTimeout(() => {
+        this.confirmLoading = false;
+        this.myuseremail=this.Inputmyuseremail;
+        this.visible2=false;
+      }, 500);
+    },
+    handleCancel2(e) {
+      console.log('Clicked cancel button');
+      this.visible2= false;
+      this.Inputmyuseremail=this.myuseremail;
+    },
+    showModal1(e) {
+      this.visible1 = true;
+    },
+    handleOk1(e) {
+      this.ModalText = 'The modal will be closed after two seconds';
+      setTimeout(() => {
+        this.visible1 = false;
+        this.myusername=this.Inputmyusername;
+
+      }, 500);
+    },
+    handleCancel1(e) {
+      console.log('Clicked cancel button');
+      this.visible1 = false;
+      this.Inputmyusername= this.myusername;
+    }
+  }
+
 };
 </script>
 
 
 <style scoped lang="less">
 
-.container
-{
-  position: absolute;
-  height: 2000px;
-  width: 1200px;
-  background-color: white;
-  top: 60%;
-  left: 60%;
-  transform: translate(-50%, -30%);
-  border-radius: 10px;
-  font-size: 60px;
-}
-#userinfo{
-  position: inherit;
-  font-size: 60px;
-  top:60px;
-  left:60px;
-}
-#myimage{
-  width: 100px;
-  height: 100px;
-}
-
 .mycomponent
 {
   position: absolute;
-  height:200px;
-  width: 500px;
-  background-color: rgba(255, 255, 255, .9);
+
   transform: translate(-50%, -30%);
-  border-radius: 10px;
-  border-color: gainsboro;
-  border-width: thin;
-  border-style: solid;
-}
-#c1{
-  position:inherit;
-  top:300px;
-  left:300px;
+
 }
 
-#c2{
-  position:inherit;
-  top:300px;
-  left:900px;
-}
-#c3{
-  position:inherit;
-  top:600px;
-  left:300px;
-}
-#c4{
-  position:inherit;
-  top:600px;
-  left:900px;
-}
 .staticText{
-  font-size: 25px;
+  font-size: 30px;
   color: purple;
   font-weight: bold;
   margin-top: 30px;
@@ -309,14 +250,15 @@ export default {
 .dynamicText{
   font-weight: normal;
   color: purple;
-  font-size:25px;
-  margin-left: 20px;
+  font-size:30px;
+  margin-left: 300px;
+  margin-top: -75px;
 }
 .mybutton{
   width:100px;
   height: 60px;
-  top:-100px;
-  left:350px;
+  top:-70px;
+  left:600px;
   border-radius: 5px;
   font-size: 20px;
 }
@@ -337,39 +279,14 @@ export default {
     height: 350px;
   }
 }
-.mymodal_pass
-{
-
-  /deep/ .ant-modal{
-    top:350px;
-    height: 100%;
-    font-size: 16px;
-  }
-  /deep/ .ant-modal-footer{
-    padding: 10px 1px;
-    background-color: darkmagenta;
-    height:80px;
-  }
-  /deep/ .ant-modal-body{
-    height: 500px;
-  }
-}
 
 .modaltitle
 {
   font-size: 50px;
   color: black;
   margin-left: 100px;
-  margin-top: 0px;
 }
-.modaltitle_password
-{
-  row_align:center;
-  font-size: 40px;
-  color: black;
-  margin-left: 70px;
-  margin-top: 0px;
-}
+
 .myinput{
   text-align:left;
   top:10%;
@@ -381,14 +298,7 @@ export default {
   row-align: middle;
   font-size: 30px;
 }
-.myinput_password{
-  position: inherit;
-  margin-top:20px;
-  margin-left:50px;
-  width:90%;
-  font-size: 22px;
-  height: 60px;
-}
+
 .myicon{
   font-size: 50px;
   margin-top: 50px;
@@ -397,19 +307,19 @@ export default {
 .myicon1{
   font-size: 50px;
 }
-.company_static{
+.company_dynamic{
   position: absolute;
   height:200px;
-  width: 500px;
-  background-color: rgba(255, 255, 255, .9);
-  transform: translate(-50%, -30%);
-  border-radius: 10px;
-  border-color: gainsboro;
-  border-width: thin;
-  border-style: solid;
+  width: 400px;
+
 }
-.my_scroll_bar{
-  height:200px;
+.company_static{
+  position: absolute;
+  height:100px;
+  width: 800px;
+
+
 }
+
 
 </style>
