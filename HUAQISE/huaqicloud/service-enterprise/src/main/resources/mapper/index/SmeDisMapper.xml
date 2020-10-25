@@ -23,4 +23,8 @@
     <select id="getAllSmeDis" resultType="com.example.enterprise.po.index.integrate.SmeDiscrete">
         select * from smediscrete
     </select>
+
+    <delete id="deleteDiverById">
+        delete from smediscrete where enterprise_id = #{id}
+    </delete>
 </mapper>

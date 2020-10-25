@@ -36,4 +36,10 @@ public interface MassDisMapper {
      * @return
      */
     List<MassDiscrete> getAllMassDis();
+
+    /**
+     * 删除表中指定元素
+     * @param id
+     * */
+    int deleteDiverById(@Param("id") Integer id);
 }

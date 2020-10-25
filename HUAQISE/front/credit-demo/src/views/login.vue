@@ -1,18 +1,20 @@
 <template>
     <div class="login-register">
+
         <!--        <div class="contain">-->
-        <div class="big-box" :class="{active:isLogin}" id="big">
+        <div class="big-box" :class="{active:isLogin}" >
+
+            <!-- 登录  -->
             <div class="big-contain" v-if="isLogin">
                 <a-form
                         class="user-layout-login"
                         ref="formLogin"
                         :form="form"
                 >
-                    <div class="loginBox">
 
-                    </div>
                     <div class="btitle">
-                        登录
+                        <div v-if="personal">个人登录</div>
+                        <div v-else>企业登录</div>
                     </div>
                     <a-form-item>
                         <a-input
@@ -74,7 +76,7 @@
 
                 </a-form>
             </div>
-
+            <!-- 注册   -->
             <div class="big-contain" v-else>
                 <a-form
                         id="formLogin"
@@ -83,23 +85,18 @@
                         :form="form"
                 >
                     <div class="btitle" >
-                        注册
+                        <div v-if="personal">个人注册</div>
+                        <div v-else>企业注册</div>
                     </div>
-                    <a-tabs
-                            :activeKey="customActiveKey"
-                            :tabBarStyle="{ textAlign: 'center', borderBottom: 'unset' }"
-                            @change="handleTabClick"
-                    >
-                        <a-tab-pane key="tab1" tab="个人">
+                    <div v-if="personal">
                             <a-form-item>
                                 <a-input
                                         size="default"
-                                        type="email"
                                         style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
                                         placeholder="邮箱"
                                         v-decorator="[
               'registerUserMail',
-              {rules: [{ required: true, type: 'email', message: '请输入邮箱' }], validateTrigger: 'blur'}]">
+              {rules: [{ required: true, message: '请输入邮箱' }], validateTrigger: 'blur'}]">
                                     <a-icon slot="prefix" type="mail" :style="{ color: 'rgba(0,0,0,.25)' }"/>
                                 </a-input>
                             </a-form-item>
@@ -158,97 +155,18 @@
                                         @click="handleRegister()"
                                 >确定</a-button>
                             </a-form-item>
-                        </a-tab-pane>
+                    </div>
+<!--                        </a-tab-pane>-->
 
-                        <a-tab-pane key="tab2" tab="企业">
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        type="email"
-                                        placeholder="企业全称"
-                                        v-decorator="[
-              'registerUserMail',
-              {rules: [{ required: true, type: 'email', message: '请输入企业全称' }], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="mail" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        placeholder="企业注册号/信用码"
-                                        v-decorator="[
-              'registerUsername',
-              {rules: [{ required: true, message: '请输入企业注册号/信用码' }], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        placeholder="企业联系人"
-                                        v-decorator="[
-              'registerPhoneNumber',
-              {rules: [{ required: true, message: '请输入企业联系人' }], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="book" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        type="email"
-                                        placeholder="邮箱"
-                                        v-decorator="[
-              'registerPhoneNumber',
-              {rules: [{ required: true, message: '请输入邮箱' }], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="book" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        placeholder="联系方式"
-                                        v-decorator="[
-              'registerPhoneNumber',
-              {rules: [{ required: true, message: '请输入联系方式' }], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="book" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
-
-
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        type="password"
-                                        placeholder="密码"
-                                        v-decorator="[
-                'registerPassword',
-                {rules: [{ required: true, message: '请输入密码' }, { validator: this.handlePassword }], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        type="password"
-                                        placeholder="确认密码"
-                                        v-decorator="[
-                'registerPasswordconfirm',
-                {rules: [{ required: true, message: '请输入密码' }, { validator: this.handlePasswordCheck }], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
+<!--                        <a-tab-pane key="tab2" tab="企业">-->
+                    <div v-else>
+                        <a-form-item>
                             <div class="clearfix">
                                 <a-upload
+                                        name="file"
                                         action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
                                         list-type="picture-card"
-                                        style="left: 500px"
+                                        :customRequest="customRequest"
                                         :file-list="fileList"
                                         @preview="handlePreview"
                                         @change="handleChange"
@@ -264,6 +182,90 @@
                                     <img alt="example" style="width: 100%" :src="previewImage" />
                                 </a-modal>
                             </div>
+                        </a-form-item>
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        type="user"
+                                        placeholder="企业全称"
+                                        v-decorator="[
+              'registerEnterpriseName',
+              {rules: [{ required: true,  message: '请输入企业全称' ,px: 500}], validateTrigger: 'blur'}]">
+                                    <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        placeholder="企业注册号/信用码"
+                                        v-decorator="[
+              'registerRegistrationID',
+              {rules: [{ required: true, message: '请输入企业注册号/信用码' }], validateTrigger: 'blur'}]">
+                                    <a-icon slot="prefix" type="book" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        placeholder="企业联系人"
+                                        v-decorator="[
+              'registerContacts',
+              {rules: [{ required: true, message: '请输入企业联系人' }], validateTrigger: 'blur'}]">
+                                    <a-icon slot="prefix" type="book" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        type="email"
+                                        placeholder="邮箱"
+                                        v-decorator="[
+              'registerEmail',
+              {rules: [{ required: true, message: '请输入邮箱' }], validateTrigger: 'blur'}]">
+                                    <a-icon slot="prefix" type="mail" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        placeholder="联系方式"
+                                        v-decorator="[
+              'registerEPhoneNumber',
+              {rules: [{ required: true, message: '请输入联系方式' }], validateTrigger: 'blur'}]">
+                                    <a-icon slot="prefix" type="book" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
+
+
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        type="password"
+                                        placeholder="密码"
+                                        v-decorator="[
+                'registerEPassword',
+                {rules: [{ required: true, message: '请输入密码' }, { validator: this.handlePassword }], validateTrigger: 'blur'}]">
+                                    <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
+                            <a-form-item>
+                                <a-input
+                                        size="default"
+                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                        type="password"
+                                        placeholder="确认密码"
+                                        v-decorator="[
+                'registerEPasswordconfirm',
+                {rules: [{ required: true, message: '请输入密码' }, { validator: this.handlePasswordCheck }], validateTrigger: 'blur'}]">
+                                    <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                                </a-input>
+                            </a-form-item>
                             <a-form-item style="margin-top:24px" >
                                 <a-button
                                         size="default"
@@ -273,12 +275,13 @@
                                         @click="handleRegister()"
                                 >确定</a-button>
                             </a-form-item>
-                        </a-tab-pane>
-                    </a-tabs>
+                    </div>
+<!--                        </a-tab-pane>-->
+<!--                    </a-tabs>-->
                 </a-form>
             </div>
         </div>
-        <div class="small-box" :class="{active:isLogin}" id="small">
+        <div class="small-box" :class="{active:isLogin}" >
             <div class="small-contain" v-if="isLogin">
                 <button class="changeButton" @click="changeType">注册</button>
             </div>
@@ -286,7 +289,20 @@
                 <button class="changeButton" @click="changeType">登录</button>
             </div>
         </div>
+        <div style="width: 200px;height: 100px;position: absolute; left: 50%;top:90%;margin-top: -50px;margin-left: -100px">
+
+            <a-radio-group name="radioGroup" :default-value="1" @change="changePersonal">
+                <a-radio :value="1" v-show="enterprise">
+                    个人
+                </a-radio>
+                <a-radio :value="2" v-show="personal">
+                    企业
+                </a-radio>
+            </a-radio-group>
+
+        </div>
     </div>
+
     <!--    </div>-->
 </template>
 
@@ -308,6 +324,9 @@
 
         data(){
             return {
+                personal:true,
+                enterprise:false,
+
                 previewVisible: false,
                 previewImage: '',
                 fileList: [],
@@ -334,6 +353,7 @@
         computed: {
             ...mapGetters([
                 'token',
+                'Url'
             ])
         },
         components:{
@@ -357,8 +377,22 @@
 
             ...mapActions([
                 'login',
-                'register'
+                'register',
+                'uploadADImg'
             ]),
+
+            changePersonal(){
+                this.personal=!this.personal
+                this.enterprise=!this.enterprise
+            },
+
+
+            customRequest (file) {
+                const formData = new FormData()
+                formData.append('file', file.file)
+                console.log(formData)
+                this.uploadADImg(formData)
+            },
 
 
             changeType() {
@@ -393,22 +427,21 @@
 
 
             handlelogin() {
-                if(this.code === this.identifyCode){
-                    console.log("验证码正确")
-                    message.success("验证码正确")
-                }else {
+                if(this.code !== this.identifyCode){
                     console.log("验证码错误")
                     message.error("验证码错误")
                     return 0
                 }
-                const validateFieldsKey = this.customActiveKey === 'tab1' ? ['username', 'password'] : ['registerUsername', 'registerUserMail','registerPassword','registerPasswordconfirm']
+                const validateFieldsKey =  ['username', 'password']
                 this.form.validateFields(validateFieldsKey, { force: true }, async (err, values) => {
                     if(!err){
                         this.loginLoading = true
                         const data = {
                             email: this.form.getFieldValue("username"),
-                            password: this.form.getFieldValue("password")
+                            password: this.form.getFieldValue("password"),
+                            ispersonal:this.personal
                         }
+                        console.log(data)
                         await this.login(data)
                         this.loginLoading = false
                     }
@@ -417,26 +450,51 @@
 
             handleRegister() {
                 const { form: { validateFields } } = this
-                const validateFieldsKey = this.customActiveKey === 'tab1' ? ['username', 'password'] : ['registerUsername','registerPhoneNumber','registerUserMail','registerPassword','registerPasswordconfirm']
+                const validateFieldsKey = this.personal ? ['registerUsername','registerPhoneNumber','registerUserMail','registerPassword','registerPasswordconfirm']:['registerEnterpriseName','registerRegistrationID','registerContacts','registerEmail','registerEPhoneNumber','registerEPassword','registerEPasswordconfirm']
                 validateFields(validateFieldsKey, { force: true }, async (err, values) => {
                     if (!err) {
                         this.registerLoading = true
-                        const data = {
-                            email: this.form.getFieldValue('registerUserMail'),
-                            password: this.form.getFieldValue('registerPassword'),
-                            phoneNumber: this.form.getFieldValue('registerPhoneNumber'),
-                            username: this.form.getFieldValue('registerUsername'),
-                            userType: "1"
-                        }
-                        console.log(data)
-                        await this.register(data).then(() => {
-                            this.customActiveKey = 'tab1'
-                            this.form.setFieldsValue({
-                                'registerUserMail': '',
-                                'registerPassword': '',
-                                'registerPasswordconfirm': ''
+
+                        if(this.personal){
+                            const data = {
+                                email: this.form.getFieldValue('registerUserMail'),
+                                password: this.form.getFieldValue('registerPassword'),
+                                phoneNumber: this.form.getFieldValue('registerPhoneNumber'),
+                                username: this.form.getFieldValue('registerUsername'),
+                                userType: "0"
+                            }
+                            console.log(data)
+                            await this.register(data).then(() => {
+                                this.form.setFieldsValue({
+                                    'registerUserMail': '',
+                                    'registerPassword': '',
+                                    'registerPasswordconfirm': ''
+                                })
                             })
-                        })
+                        }else{
+                            const data={
+                                name:this.form.getFieldValue('registerEnterpriseName'),
+                                registerNumber:this.form.getFieldValue('registerRegistrationID'),
+                                contactName:this.form.getFieldValue('registerContacts'),
+                                email:this.form.getFieldValue('registerEmail'),
+                                contactNumber:this.form.getFieldValue('registerEPhoneNumber'),
+                                password:this.form.getFieldValue('registerEPassword'),
+                                license:this.Url,
+                                userType:'1'
+                            }
+                            console.log(data)
+                            await this.register(data).then(() => {
+                                this.Url=''
+                                this.form.setFieldsValue({
+                                    'registerEnterpriseName':'',
+                                    'registerRegistrationID':'',
+                                    'registerContacts':'',
+                                    'registerEmail': '',
+                                    'registerEPassword': '',
+                                    'registerEPasswordconfirm': ''
+                                })
+                            })
+                        }
                         this.registerLoading = false
                     }
                 });
@@ -522,7 +580,7 @@
         font-size: 1.5em;
         font-weight: bold;
         margin-bottom: 20px;
-        color: rgb(57,167,176);
+        color: rgba(105, 0 , 75, 0.8);
     }
     .bform{
         width: 100%;
@@ -550,13 +608,14 @@
         padding-left: 2em;
         background-color: #f0f0f0;
     }
+
     .bbutton{
         width: 30%;
         height: 40px;
         border-radius: 24px;
         border: none;
         outline: none;
-        background-color: rgb(57,167,176);
+        background-color: rgba(105, 0 , 75, 0.8);
         color: #fff;
         font-size: 0.9em;
         cursor: pointer;
@@ -569,7 +628,7 @@
     .small-box{
         width: 30%;
         height: 100%;
-        background: linear-gradient(135deg,rgb(57,167,176),rgb(56,183,145));
+        background: linear-gradient(135deg,rgb(106, 0, 106),rgb(105,0,75));
         position: absolute;
         top: 0;
         left: 0;
@@ -588,12 +647,12 @@
     }
 
     .sbutton{
-        width: 10%;
+        width: 15%;
         height: 40px;
         border-radius: 24px;
         border: none;
         outline: none;
-        background-color: rgb(57,167,176);
+        background-color: rgba(105, 0 , 75, 0.8);
         color: #fff;
         font-size: 0.9em;
         cursor: pointer;
@@ -605,6 +664,7 @@
     }
 
     .changeButton{
+        font-size: 18px;
         width: 60%;
         height: 40px;
         border-radius: 24px;

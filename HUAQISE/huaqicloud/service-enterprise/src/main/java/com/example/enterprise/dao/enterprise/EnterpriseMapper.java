@@ -6,6 +6,8 @@ import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.List;
+
 /**
  * @Author:
  * @Date: 2020/10/11 19:47
@@ -48,5 +50,26 @@ public interface EnterpriseMapper {
      * @return
      */
     int updateEnterprise(Enterprise enterprise);
+
+    /**
+     * 获取至多20个企业
+     * @return
+     */
+    List<Enterprise> getTwentyEnterprises();
+
+
+    /**
+     * 根据key获取企业信息
+     * @param key
+     * @return
+     */
+    List<Enterprise> getEnterpriseByKey(@Param("key") String key);
+
+    /**
+     * 批量更新企业信息
+     * @param list
+     * @return
+     */
+    int updateEpList(@Param("list") List<Enterprise> list);
 
 }

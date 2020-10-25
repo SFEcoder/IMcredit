@@ -19,4 +19,8 @@
     <select id="getAllFinInd" resultType="com.example.enterprise.po.index.financial.FinancialIndex">
         select * from financialindex
     </select>
+
+    <delete id="deleteFinanById">
+        delete from financialindex where enterprise_id = #{id}
+    </delete>
 </mapper>

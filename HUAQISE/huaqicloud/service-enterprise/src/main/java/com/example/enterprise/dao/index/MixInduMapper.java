@@ -36,4 +36,10 @@ public interface MixInduMapper {
      * @return
      */
     List<MixIndustry> getAllMixInd();
+
+    /**
+     * 删除表中指定元素
+     * @param id
+     * */
+    int deleteDiverById(@Param("id") Integer id);
 }

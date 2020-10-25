@@ -1,6 +1,6 @@
 import { axios } from '@/utils/request'
 const api = {
-    ossPre: '/api/oss'
+    ossPre: 'userservice/api/file'
 }
 export function uploadImgAPI(data) {
     return axios({

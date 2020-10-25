@@ -7,6 +7,8 @@ import com.example.user.po.User;
 import com.example.user.vo.UserForm;
 import com.example.user.vo.UserVO;
 import org.junit.Assert;
+import com.example.common.constant.AesKey;
+import com.example.common.utils.AesUtil;
 import org.junit.Test;
 import org.junit.Before;
 import org.junit.runner.RunWith;
@@ -15,6 +17,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.test.annotation.Rollback;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
@@ -47,12 +50,11 @@ public class UserControllerTest {
         MockitoAnnotations.initMocks(this);
 
         user = new User();
-        user.setEmail("C1@qq.com");
-        user.setPassword("123456");
-        user.setUserType("Client");
+        user.setEmail("C2@qq.com");
+        user.setPassword(AesUtil.encrypt("123456", AesKey.getAesKey()));
         user.setAvatarUrl("https://pic4");
         user.setPhoneNumber("123456789");
-        user.setUsername("客户一号");
+        user.setUsername("测试一号");
     }
 
     /**
@@ -91,6 +93,7 @@ public class UserControllerTest {
     @Transactional
     @Rollback
     public void testRegister() throws Exception {
+        Integer a = 0;
 
         UserVO userVO = new UserVO();
         BeanUtils.copyProperties(user, userVO);
@@ -98,10 +101,15 @@ public class UserControllerTest {
 
         User user1 = userMapper.getUserByEmail(user.getEmail());
         user.setId(user1.getId());
-        Assert.assertEquals(user.getUserType(), user1.getUserType());
+        Assert.assertEquals(user1.getUserType(), a);
         Assert.assertEquals(user.getPhoneNumber(), user1.getPhoneNumber());
+        userVO.setPassword(AesUtil.encrypt(userVO.getPassword(), AesKey.getAesKey()));
 
-        Assert.assertEquals(userController.register(userVO).getSuccess(),false);
+        try{
+            Assert.assertEquals(userController.register(userVO).getSuccess(),false);
+        }catch (DuplicateKeyException dke){
+            assert true;
+        }
 
     }
 
@@ -118,7 +126,9 @@ public class UserControllerTest {
         BeanUtils.copyProperties(user, userVO);
         assert userController.register(userVO).getSuccess();
 
-        userVO.setUserType("Business");
+        User user1 = userMapper.getUserByEmail(user.getEmail());
+        userVO.setUsername("测试二号");
+        userVO.setId(user1.getId());
         Assert.assertEquals(userController.updateUser(userVO).getSuccess(), true);
 
     }
@@ -150,6 +160,7 @@ public class UserControllerTest {
     @Transactional
     @Rollback
     public void testGetUserInfo() throws Exception {
+        Integer a = 0;
         UserVO userVO = new UserVO();
         BeanUtils.copyProperties(user, userVO);
         assert userController.register(userVO).getSuccess();
@@ -160,11 +171,11 @@ public class UserControllerTest {
         UserVO userVO1 = (UserVO) result.getContent();
 
         Assert.assertEquals(userVO1.getAvatarUrl(), "https://pic4");
-        Assert.assertEquals(userVO1.getEmail(), "C1@qq.com");
-        Assert.assertEquals(userVO1.getPassword(), "123456");
-        Assert.assertEquals(userVO1.getUserType(), "Client");
+        Assert.assertEquals(userVO1.getEmail(), "C2@qq.com");
+        Assert.assertEquals(AesUtil.decrypt(userVO1.getPassword(), AesKey.getAesKey()), "123456");
+        Assert.assertEquals(userVO1.getUserType(), a);
         Assert.assertEquals(userVO1.getPhoneNumber(), "123456789");
-        Assert.assertEquals(userVO1.getUsername(), "客户一号");
+        Assert.assertEquals(userVO1.getUsername(), "测试一号");
 
     }
 }

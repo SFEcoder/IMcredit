@@ -2,13 +2,19 @@ package com.example.enterprise.controller.enterprise;
 
 import com.example.common.vo.ResponseVO;
 import com.example.enterprise.bl.enterprise.EnterpriseService;
+import com.example.enterprise.dao.enterprise.EnterpriseMapper;
+import com.example.enterprise.po.Enterprise;
 import com.example.enterprise.vo.EnterpriseForm;
 import com.example.enterprise.vo.EnterpriseVO;
+import feign.Param;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @Author:
@@ -16,16 +22,19 @@ import org.springframework.web.bind.annotation.*;
  */
 @RestController
 @RequestMapping("/api/enterprise")
-@Api(value="/",tags ="用户接口")
+@Api(value="/",tags ="企业接口")
 public class EnterpriseController {
 
     @Autowired
     private EnterpriseService enterpriseService;
 
+    @Autowired
+    private EnterpriseMapper enterpriseMapper;
+
     @PostMapping("/login")
     @ApiOperation(value = "企业用户登录")
     @ApiImplicitParam(name = "enterpriseForm", value = "企业用户登录信息", required = true ,dataType = "EnterpriseForm")
-    ResponseVO login(EnterpriseForm enterpriseForm){
+    ResponseVO login(@RequestBody EnterpriseForm enterpriseForm) {
 
         EnterpriseVO enterpriseVO = enterpriseService.login(enterpriseForm);
         if(enterpriseVO == null){
@@ -35,7 +44,7 @@ public class EnterpriseController {
         }
     }
 
-    @PostMapping("/{id}/getEpById")
+    @GetMapping("/{id}/getEpById")
     @ApiOperation(value = "检索用户信息")
     @ApiImplicitParam(name = "id", value = "企业用户Id", required = true ,dataType = "Integer")
     ResponseVO getEnterpriseById(@PathVariable Integer id){
@@ -83,4 +92,18 @@ public class EnterpriseController {
             return ResponseVO.buildSuccess("更新失败");
         }
     }
+
+    @GetMapping("/search")
+    @ApiOperation(value = "根据企业信息进行搜索")
+    @ApiImplicitParam(name = "key", value = "关键词", required = true ,dataType = "String")
+    ResponseVO searchEpByKey(String key){
+        return ResponseVO.buildSuccess(enterpriseService.searchEpByKey(key));
+    }
+
+    @GetMapping("/getEnterpriseImgList")
+    @ApiOperation(value = "获取企业图片url，至多20个")
+    ResponseVO getEnterpriseImgList(){
+        return ResponseVO.buildSuccess(enterpriseService.getEnterpriseImgList());
+    }
+
 }

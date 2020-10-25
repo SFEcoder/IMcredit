@@ -12,6 +12,34 @@ import java.util.List;
 @Data
 public class FinancialIndex {
 
+    public FinancialIndex(){}
+
+    public FinancialIndex(Integer id, Double[] args){
+        if (args.length != 18){
+            System.out.println("Initialization failure");
+            return;
+        }
+        this.enterprise_id = id;
+        this.ttm = args[0];
+        this.debt_ratio = args[1];
+        this.current_ratio = args[2];
+        this.quick_ratio = args[3];
+        this.cf_cl = args[4];
+        this.ttal = args[5];
+        this.operating_revenue = args[6];
+        this.total_profit = args[7];
+        this.total_liabilities = args[8];
+        this.roe = args[9];
+        this.profit_rate = args[10];
+        this.gross_profit = args[11];
+        this.fe_rev = args[12];
+        this.turnover_days = args[13];
+        this.current_assets = args[14];
+        this.accounts_receivable = args[15];
+        this.ebit_rev = args[16];
+        this.industry_prosperity = args[17];
+    }
+
     private Integer enterprise_id;
 
     private double ttm;

@@ -34,4 +34,11 @@ public interface FinanIndMapper {
      * @return
      */
     List<FinancialIndex> getAllFinInd();
+
+
+    /**
+     * 删除表中元素
+     * @param id
+     * */
+    int deleteFinanById(@Param("id")Integer id);
 }

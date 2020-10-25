@@ -53,4 +53,10 @@ public interface UserMapper {
      * @return int
      */
     int updateUser(User user);
+
+    /**
+     * 获取用户数目
+     * @return
+     */
+    int getUserNum();
 }

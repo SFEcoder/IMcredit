@@ -35,4 +35,10 @@ public interface SmeDisMapper {
      * @return
      */
     List<SmeDiscrete> getAllSmeDis();
+
+    /**
+     * 删除表中指定元素
+     * @param id
+     * */
+    int deleteDiverById(@Param("id") Integer id);
 }
