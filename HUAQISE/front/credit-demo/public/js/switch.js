@@ -11,7 +11,7 @@ window.Dom=Dom=
 	mouseX:function(event){return (event.pageX || (event.clientX +l(document)));},//返回鼠标的X座标
 	mouseY:function(event){return (event.pageY || (event.clientY +t(document)));}//返回鼠标的Y座标
 }
-Fun.xcopy(Dom,Element);
+// Fun.xcopy(Dom,Element);
 
 })();
 

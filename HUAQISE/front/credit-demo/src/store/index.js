@@ -1,12 +1,14 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 import user from './modules/user'
+import  evaluate_process from './modules/evaluate_process'
 import getters from './getters'
-Vue.use(Vuex)
 
-export default new Vuex.Store({
+Vue.use(Vuex)
+const store = new Vuex.Store({
     modules: {
         user,
+        evaluate_process
     },
     state: {
     },
@@ -16,3 +18,5 @@ export default new Vuex.Store({
     },
     getters
 })
+
+export default store
