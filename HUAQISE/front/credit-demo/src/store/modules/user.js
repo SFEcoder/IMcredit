@@ -8,7 +8,6 @@ import {
     CregisterAPI,
     getUserInfoAPI,
     updateUserInfoAPI,
-    ChangePasswordAPI
 } from '@/api/user'
 import {
     EloginAPI,
@@ -52,7 +51,7 @@ const user = {//定义对象user
         } ,
 
         set_personal: function(state , data){
-          state.personal = data
+            state.personal = data
         },
 
         set_userInfo: (state , data) => {
@@ -113,9 +112,9 @@ const user = {//定义对象user
 
         uploadADImg: async ({state , dispatch} , data) => {
             const res = await uploadImgAPI(data) //res就是图片字符串
+            console.log(res)
             if (res) {
-                console.log(res)
-                this.Url = res
+                state.Url = res
                 message.success("上传成功")
             }
         } ,
@@ -192,17 +191,6 @@ const user = {//定义对象user
             if (res) {
                 message.success('修改成功')
                 dispatch('getEnterprise')
-            }
-        } ,
-        Changepassword:async({state , dispatch} , data) => {
-            const params = {
-                id: state.userId ,
-                ...data ,
-            }
-            const res = await updateUserInfoAPI(params)
-            if (res) {
-                message.success('修改成功')
-                dispatch('getUserInfo')
             }
         } ,
         updateUserInfo: async ({state , dispatch} , data) => {

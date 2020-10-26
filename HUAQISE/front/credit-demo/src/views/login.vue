@@ -27,7 +27,7 @@
                 {rules: [{ required: true, message: '请输入邮箱地址' }], validateTrigger: 'blur'}
               ]"
                         >
-                            <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                            <a-icon slot="prefix" type="mail" :style="{ color: 'rgba(0,0,0,.25)' }"/>
                         </a-input>
                     </a-form-item>
                     <a-form-item>
@@ -63,6 +63,16 @@
                             </div>
                         </a-col>
                     </a-row>
+                    <a-form-item>
+                        <a-radio-group name="radioGroup" :default-value="1" @change="changePersonal">
+                            <a-radio :value="1" >
+                                个人
+                            </a-radio>
+                            <a-radio :value="2" >
+                                企业
+                            </a-radio>
+                        </a-radio-group>
+                    </a-form-item>
                     <!--确定按钮-->
                     <a-form-item style="margin-top:24px" >
                         <a-button
@@ -89,76 +99,67 @@
                         <div v-else>企业注册</div>
                     </div>
                     <div v-if="personal">
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        placeholder="邮箱"
-                                        v-decorator="[
+                        <a-form-item>
+                            <a-input
+                                    size="default"
+                                    style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                    placeholder="邮箱"
+                                    v-decorator="[
               'registerUserMail',
               {rules: [{ required: true, message: '请输入邮箱' }], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="mail" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        placeholder="用户名"
-                                        v-decorator="[
+                                <a-icon slot="prefix" type="mail" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                            </a-input>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input
+                                    size="default"
+                                    style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                    placeholder="用户名"
+                                    v-decorator="[
               'registerUsername',
               {rules: [{ required: true, message: '请输入用户名' }], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        placeholder="手机号"
-                                        v-decorator="[
+                                <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                            </a-input>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input
+                                    size="default"
+                                    style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                    placeholder="手机号"
+                                    v-decorator="[
               'registerPhoneNumber',
               {rules: [{ required: true, message: '请输入手机号' }], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="book" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        type="password"
-                                        placeholder="密码"
-                                        v-decorator="[
+                                <a-icon slot="prefix" type="phone" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                            </a-input>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input
+                                    size="default"
+                                    style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                    type="password"
+                                    placeholder="密码"
+                                    v-decorator="[
                 'registerPassword',
                 {rules: [{ required: true, message: '请输入密码' }, { validator: this.handlePassword }], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        type="password"
-                                        placeholder="确认密码"
-                                        v-decorator="[
+                                <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                            </a-input>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input
+                                    size="default"
+                                    style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                    type="password"
+                                    placeholder="确认密码"
+                                    v-decorator="[
                 'registerPasswordconfirm',
                 {rules: [{ required: true, message: '请输入密码' }, { validator: this.handlePasswordCheck }], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
-                            <a-form-item style="margin-top:24px" >
-                                <a-button
-                                        size="default"
-                                        type= "primary"
-                                        class="sbutton"
-                                        :loading="loginLoading"
-                                        @click="handleRegister()"
-                                >确定</a-button>
-                            </a-form-item>
+                                <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                            </a-input>
+                        </a-form-item>
                     </div>
-<!--                        </a-tab-pane>-->
+                    <!--                        </a-tab-pane>-->
 
-<!--                        <a-tab-pane key="tab2" tab="企业">-->
+                    <!--                        <a-tab-pane key="tab2" tab="企业">-->
                     <div v-else>
                         <a-form-item>
                             <div class="clearfix">
@@ -183,101 +184,114 @@
                                 </a-modal>
                             </div>
                         </a-form-item>
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        type="user"
-                                        placeholder="企业全称"
-                                        v-decorator="[
+                        <a-form-item>
+                            <a-input
+                                    size="default"
+                                    style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                    type="user"
+                                    placeholder="企业全称"
+                                    v-decorator="[
               'registerEnterpriseName',
               {rules: [{ required: true,  message: '请输入企业全称' ,px: 500}], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="user" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        placeholder="企业注册号/信用码"
-                                        v-decorator="[
+                                <a-icon slot="prefix" type="home" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                            </a-input>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input
+                                    size="default"
+                                    style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                    placeholder="企业注册号/信用码"
+                                    v-decorator="[
               'registerRegistrationID',
               {rules: [{ required: true, message: '请输入企业注册号/信用码' }], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="book" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        placeholder="企业联系人"
-                                        v-decorator="[
+                                <a-icon slot="prefix" type="book" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                            </a-input>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input
+                                    size="default"
+                                    style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                    placeholder="企业联系人"
+                                    v-decorator="[
               'registerContacts',
               {rules: [{ required: true, message: '请输入企业联系人' }], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="book" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        type="email"
-                                        placeholder="邮箱"
-                                        v-decorator="[
+                                <a-icon slot="prefix" type="contacts" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                            </a-input>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input
+                                    size="default"
+                                    style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                    type="email"
+                                    placeholder="邮箱"
+                                    v-decorator="[
               'registerEmail',
               {rules: [{ required: true, message: '请输入邮箱' }], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="mail" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        placeholder="联系方式"
-                                        v-decorator="[
+                                <a-icon slot="prefix" type="mail" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                            </a-input>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input
+                                    size="default"
+                                    style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                    placeholder="联系方式"
+                                    v-decorator="[
               'registerEPhoneNumber',
               {rules: [{ required: true, message: '请输入联系方式' }], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="book" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
+                                <a-icon slot="prefix" type="phone" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                            </a-input>
+                        </a-form-item>
 
 
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        type="password"
-                                        placeholder="密码"
-                                        v-decorator="[
+                        <a-form-item>
+                            <a-input
+                                    size="default"
+                                    style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                    type="password"
+                                    placeholder="密码"
+                                    v-decorator="[
                 'registerEPassword',
                 {rules: [{ required: true, message: '请输入密码' }, { validator: this.handlePassword }], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
-                            <a-form-item>
-                                <a-input
-                                        size="default"
-                                        style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
-                                        type="password"
-                                        placeholder="确认密码"
-                                        v-decorator="[
+                                <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                            </a-input>
+                        </a-form-item>
+                        <a-form-item>
+                            <a-input
+                                    size="default"
+                                    style="width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto"
+                                    type="password"
+                                    placeholder="确认密码"
+                                    v-decorator="[
                 'registerEPasswordconfirm',
                 {rules: [{ required: true, message: '请输入密码' }, { validator: this.handlePasswordCheck }], validateTrigger: 'blur'}]">
-                                    <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
-                                </a-input>
-                            </a-form-item>
-                            <a-form-item style="margin-top:24px" >
-                                <a-button
-                                        size="default"
-                                        type= "primary"
-                                        class="sbutton"
-                                        :loading="loginLoading"
-                                        @click="handleRegister()"
-                                >确定</a-button>
-                            </a-form-item>
+                                <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+                            </a-input>
+                        </a-form-item>
+
                     </div>
-<!--                        </a-tab-pane>-->
-<!--                    </a-tabs>-->
+                    <a-form-item>
+                        <div style="width: 200px;height: 100px;position: absolute; left: 50%;top:90%;margin-top: -50px;margin-left: -100px">
+                            <a-radio-group name="radioGroup"  @change="changePersonal" style="vertical-align: middle ; display: block ; margin: 0 auto">
+                                <a-radio :value="1" >
+                                    个人
+                                </a-radio>
+                                <a-radio :value="2" >
+                                    企业
+                                </a-radio>
+                            </a-radio-group>
+                        </div>
+                    </a-form-item>
+                    <a-form-item style="margin-top:24px" >
+                        <a-button
+                                size="default"
+                                type= "primary"
+                                class="sbutton"
+                                :loading="loginLoading"
+                                @click="handleRegister()"
+                        >确定</a-button>
+                    </a-form-item>
+                    <!--                        </a-tab-pane>-->
+                    <!--                    </a-tabs>-->
                 </a-form>
             </div>
         </div>
@@ -289,18 +303,6 @@
                 <button class="changeButton" @click="changeType">登录</button>
             </div>
         </div>
-        <div style="width: 200px;height: 100px;position: absolute; left: 50%;top:90%;margin-top: -50px;margin-left: -100px">
-
-            <a-radio-group name="radioGroup" :default-value="1" @change="changePersonal">
-                <a-radio :value="1" v-show="enterprise">
-                    个人
-                </a-radio>
-                <a-radio :value="2" v-show="personal">
-                    企业
-                </a-radio>
-            </a-radio-group>
-
-        </div>
     </div>
 
     <!--    </div>-->
@@ -310,6 +312,7 @@
     import { message } from 'ant-design-vue'
     import Identify from '../components/SIdentify.vue'
     import {mapActions, mapGetters} from "vuex";
+
     function getBase64(file) {
         return new Promise((resolve, reject) => {
             const reader = new FileReader();
@@ -388,6 +391,7 @@
 
 
             customRequest (file) {
+                file.preview = getBase64(file.originFileObj)
                 const formData = new FormData()
                 formData.append('file', file.file)
                 console.log(formData)
