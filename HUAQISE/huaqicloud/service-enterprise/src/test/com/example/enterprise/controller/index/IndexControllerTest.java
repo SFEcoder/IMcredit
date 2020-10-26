@@ -85,4 +85,16 @@ public class IndexControllerTest {
         Assert.assertEquals(true, rv.getSuccess());
         Assert.assertEquals(50, md.getOn_time_delivery_rate(), 0.01);
     }
+
+    @Test
+    @Transactional
+    @Rollback
+    public void getEnterpriseTarget() {
+
+        ResponseVO responseVO = indexController.getEnterpriseTarget(1);
+
+        System.out.println(responseVO.getContent());
+
+        Assert.assertEquals(true, responseVO.getSuccess());
+    }
 }

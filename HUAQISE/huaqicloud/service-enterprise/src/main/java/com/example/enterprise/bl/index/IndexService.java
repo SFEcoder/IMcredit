@@ -27,4 +27,9 @@ public interface IndexService {
      * @param div 两化指标数组
      * */
     Integer updateEnterpriseDiverTarget(Integer id, Double[] div);
+
+    /**
+     * 获取企业财务、两化指标
+     * */
+    Double[][] getEnterpriseTarget(Integer id);
 }

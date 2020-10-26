@@ -4,10 +4,15 @@ import com.example.enterprise.bl.enterprise.EnterpriseService;
 import com.example.enterprise.bl.index.IndexService;
 import com.example.enterprise.blImpl.enterprise.EnterpriseServiceImpl;
 import com.example.enterprise.dao.index.*;
+import com.example.enterprise.po.Enterprise;
 import com.example.enterprise.po.index.financial.FinancialIndex;
 import com.example.enterprise.po.index.integrate.*;
+import com.example.enterprise.vo.EnterpriseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author:
@@ -150,6 +155,57 @@ public class IndexServiceImpl implements IndexService {
         return 1;
     }
 
+    public Double[][] getEnterpriseTarget(Integer id){
+        EnterpriseVO enterpriseVO = enterpriseServiceImpl.getEnterpriseById(id);
+        int type = enterpriseVO.getType();
 
+        List<List<Double>> list = new ArrayList<>();
+
+        try{
+            switch (type) {
+                case 1:
+                    MassDiscrete massDiscrete = massDisMapper.getMassDisByEpId(id);
+                    list.add(massDiscrete.getList());
+                    break;
+                case 2:
+                    ProcIndustry procIndustry = procInduMapper.getProcByEpId(id);
+                    list.add(procIndustry.getList());
+                    break;
+                case 3:
+                    SmeDiscrete smeDiscrete = smeDisMapper.getSmeDisByEpId(id);
+                    list.add(smeDiscrete.getList());
+                    break;
+                case 4:
+                    ServeIndustry serveIndustry = servInduMapper.getSerIndByEpId(id);
+                    list.add(serveIndustry.getList());
+                    break;
+                case 5:
+                    MixIndustry mixIndustry = mixInduMapper.getMixIndByEpId(id);
+                    list.add(mixIndustry.getList());
+                    break;
+                default:
+                    System.out.println("Error type");
+                    return null;
+            }
+
+            FinancialIndex financialIndex = finanIndMapper.getFinanByEpId(id);
+            list.add(financialIndex.getList());
+        }catch (Exception e){
+            System.out.println(e.getMessage());
+            return null;
+        }
+        List<Double> dList = list.get(0);
+        List<Double> fList = list.get(1);
+
+        Double[] div = new Double[dList.size()];
+        dList.toArray(div);
+
+        Double[] fin = new Double[fList.size()];
+        fList.toArray(fin);
+
+        Double[][] re = {div, fin};
+
+        return re;
+    }
 
 }

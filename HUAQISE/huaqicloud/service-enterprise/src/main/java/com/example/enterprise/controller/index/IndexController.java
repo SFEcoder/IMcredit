@@ -51,4 +51,13 @@ public class IndexController {
             return ResponseVO.buildFailure("添加指标异常");
         }
     }
+
+    @GetMapping("/{id}/get_target")
+    ResponseVO getEnterpriseTarget(@PathVariable Integer id){
+        Double[][] arrays = indexService.getEnterpriseTarget(id);
+        if (arrays==null){
+            return ResponseVO.buildFailure("该企业还未添加指标");
+        }
+        return ResponseVO.buildSuccess(arrays);
+    }
 }
