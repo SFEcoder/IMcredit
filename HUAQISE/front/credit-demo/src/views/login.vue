@@ -64,14 +64,16 @@
                         </a-col>
                     </a-row>
                     <a-form-item>
-                        <a-radio-group name="radioGroup" :default-value="1" @change="changePersonal">
-                            <a-radio :value="1" >
-                                个人
-                            </a-radio>
-                            <a-radio :value="2" >
-                                企业
-                            </a-radio>
-                        </a-radio-group>
+                        <div style="width: 200px;height: 100px;position: absolute; left: 50%;margin-left: 100px">
+                            <a-radio-group name="radioGroup"  @change="changePersonal" style="vertical-align: middle ; display: block ; margin: 0 auto">
+                                <a-radio :value="1" >
+                                    个人
+                                </a-radio>
+                                <a-radio :value="2" >
+                                    企业
+                                </a-radio>
+                            </a-radio-group>
+                        </div>
                     </a-form-item>
                     <!--确定按钮-->
                     <a-form-item style="margin-top:24px" >
@@ -270,7 +272,7 @@
 
                     </div>
                     <a-form-item>
-                        <div style="width: 200px;height: 100px;position: absolute; left: 50%;top:90%;margin-top: -50px;margin-left: -100px">
+                        <div style="width: 200px;height: 100px;position: absolute; left: 50%;margin-left: 200px">
                             <a-radio-group name="radioGroup"  @change="changePersonal" style="vertical-align: middle ; display: block ; margin: 0 auto">
                                 <a-radio :value="1" >
                                     个人
