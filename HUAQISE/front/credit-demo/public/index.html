@@ -16,6 +16,90 @@
     <script src="js/js.js"></script>
     <!--    导入jquery库-->
 
+<!--    页面加载的动画-->
+    <style>
+        #preloader{
+            position: fixed;
+            top:0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: rgb(105,0,75);
+
+        }
+        .spinner {
+            margin: auto;
+            width: 70px;
+            height: 70px;
+            position: relative;
+            top: 45%;
+            text-align: center;
+            -webkit-animation: sk-rotate 2.0s infinite linear;
+            animation: sk-rotate 2.0s infinite linear;
+        }
+
+        .dot1,
+        .dot2 {
+            width: 60%;
+            height: 60%;
+            display: inline-block;
+            position: absolute;
+            top: 0;
+            background-color: #fff;
+            border-radius: 100%;
+            -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+            animation: sk-bounce 2.0s infinite ease-in-out;
+        }
+
+        .dot2 {
+            top: auto;
+            bottom: 0;
+            -webkit-animation-delay: -1.0s;
+            animation-delay: -1.0s;
+        }
+
+        @-webkit-keyframes sk-rotate {
+            100% {
+                -webkit-transform: rotate(360deg)
+            }
+        }
+
+        @keyframes sk-rotate {
+            100% {
+                transform: rotate(360deg);
+                -webkit-transform: rotate(360deg)
+            }
+        }
+
+        @-webkit-keyframes sk-bounce {
+            0%,
+            100% {
+                -webkit-transform: scale(0.0)
+            }
+            50% {
+                -webkit-transform: scale(1.0)
+            }
+        }
+
+        @keyframes sk-bounce {
+            0%,
+            100% {
+                transform: scale(0.0);
+                -webkit-transform: scale(0.0);
+            }
+            50% {
+                transform: scale(1.0);
+                -webkit-transform: scale(1.0);
+            }
+        }
+    </style>
+    <script>
+        window.onload=function () {
+            document.querySelector('#preloader').remove()
+        }
+    </script>
+
 </head>
 
 <style>
@@ -26,7 +110,7 @@
 
 <body>
 <!--首页顶部标题栏-->
-<div class="head">
+<div class="head toHideHeader">
     <a href="#/home" class="logo_href back_to_index_entrance  back_to_index_entrance_title">
         <img src="./images/logob.png" class="logo"/>
         <script>$(function () {
@@ -126,6 +210,7 @@
                                         $(function () {
                                             $('.entranceBtn').click(function () {
                                                 $('.toHide').fadeOut()
+                                                $('.toHideHeader').fadeOut()
                                                 $('#app').fadeIn()
                                             })
                                         })
@@ -625,12 +710,22 @@
 <input type="hidden" value="0" class="ddw2">
 <script type="text/javascript" src="js/scroll.js"></script>
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
-
-
 <noscript>
     <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled.
         Please enable it to continue.</strong>
 </noscript>
+
+<!--页面加载动画-->
+<div id="preloader">
+    <div class="spinner">
+        <div class="dot1"></div>
+        <div class="dot2"></div>
+    </div>
+</div>
+<!--页面加载动画-->
+
+
+
 <div id="app"></div>
 </body>
 </html>

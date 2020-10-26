@@ -13,7 +13,7 @@
                     <div class="loginBox">
 
                     </div>
-                    <div class="btitle">
+                    <div class="btitle thin_font">
                         登录
                     </div>
                     <a-form-item>
@@ -77,7 +77,7 @@
                 </a-form>
             </div>
             <!-- 注册   -->
-            <div class="big-contain" v-else>
+            <div class="big-contain thin_font" v-else>
                 <a-form
                         id="formLogin"
                         class="user-layout-login"

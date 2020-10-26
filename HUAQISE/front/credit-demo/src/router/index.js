@@ -22,18 +22,41 @@ const routes = [
     {
         path: '/NJUSE',
         name: 'layout',
-        redirect: '/credit/main',
+        redirect: '/credit/display',
         component: ()=> import('@/views/layout'),
         children: [
             {
-                path: '/credit/main',
-                name: 'main',
-                component: () => import('@/views/credit/blank')
+                path: '/credit/display',
+                name: '评级公示',
+                component: () => import('@/views/credit/display')
             },
             {
                 path: '/user/info/:userId',
-                name: 'userInfo',
+                name: '个人信息',
                 component: () => import('@/views/user/info')
+            },
+            {
+                path: '/credit/evaluate',
+                name: '申请评级',
+                component: () => import('@/views/credit/evaluateGuide'),
+                redirect:  '/credit/evaluate/enterpriseType',
+                children:[
+                    {
+                        path: '/credit/evaluate/enterpriseType',
+                        name: '选择企业类型',
+                        component: () => import('@/views/credit/evaluate/enterpriseType')
+                    },
+                    {
+                        path: '/credit/evaluate/integration_indicators',
+                        name: "两化融合指标体系",
+                        component:()=> import("@/views/credit/evaluate/integration_indicators")
+                    },
+                    {
+                        path: '/credit/evaluate/financial_index',
+                        name: "财务指标",
+                        component:()=> import("@/views/credit/evaluate/financial_index")
+                    }
+                ]
             },
             ]
     },
@@ -48,6 +71,11 @@ const router = createRouter()
 export function resetRouter() {
     const newRouter = createRouter()
     router.matcher = newRouter.matcher // reset router
+}
+
+const VueRouterPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push (to) {
+    return VueRouterPush.call(this, to).catch(err => err)
 }
 
 export default router

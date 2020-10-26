@@ -32,12 +32,10 @@
 </script>
 <style>
   #app {
-    font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     color: #2c3e50;
     width: 100%;
-    padding: 20px 100px 144px;
     /*background: #f8f7f7 url('assets/background.svg') repeat 100%;*/
     min-height: 800px;
   }
@@ -72,3 +70,5 @@
   }
 </style>
 
+<style src="font-awesome/css/font-awesome.css"></style>
+<style src="bootstrap-vue/dist/bootstrap-vue.css"></style>
