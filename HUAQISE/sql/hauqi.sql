@@ -64,6 +64,10 @@ CREATE TABLE `Enterprise` (
   `valid` boolean Default false,
   `e_photo` varchar(255) default null,
   `e_grade` int(4) default null,
+  `financial_score` double,
+  `diver_score` double,
+  `total_score` double,
+  `type` int ,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -74,8 +78,31 @@ CREATE TABLE `Enterprise` (
 
 BEGIN;
 /*!40000 ALTER TABLE `Enterprise` DISABLE KEYS */;
-INSERT INTO `Enterprise` VALUES (1,'123@qq.com','123456','企业一号','https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c','12345678','assd','1234553223',1,false,'https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c','https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c');
+INSERT INTO `Enterprise` VALUES (1,'123@qq.com','123456','企业一号','https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c','12345678','assd','1234553223',1,false,'https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c','https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c',null,null,null,1);
+INSERT INTO `Enterprise` VALUES (2,'223@qq.com','123456','企业二号','https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c','12345678','assd','2234553223',1,false,'https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c','https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c',null,null,null,1);
+INSERT INTO `Enterprise` VALUES (3,'323@qq.com','123456','企业三号','https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c','12345678','assd','3234553223',1,false,'https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c','https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c',null,null,null,1);
+INSERT INTO `Enterprise` VALUES (4,'423@qq.com','123456','企业四号','https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c','12345678','assd','4234553223',1,false,'https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c','https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c',null,null,null,1);
 /*!40000 ALTER TABLE `Enterprise` ENABLE KEYS */;
+COMMIT;
+
+BEGIN;
+/*!40000 ALTER TABLE `financialindex` DISABLE KEYS */;
+TRUNCATE TABLE financialindex;
+# INSERT INTO `financialindex` VALUES (1,4.0,0.52,2.0,2.5,0.5,2.0,0.05,0.5,1.0,1.0,0.3,0.1,0.5,166.0,2.0,3.0,55.0,1.0);
+INSERT INTO `financialindex` VALUES (2,3.0,0.51,2.0,2.5,0.5,2.0,0.05,0.5,1.0,1.0,0.3,0.1,0.5,166.0,2.0,3.0,55.0,1.0);
+INSERT INTO `financialindex` VALUES (3,2.0,0.5,2.0,2.5,0.5,2.0,0.05,0.5,1.0,1.0,0.3,0.1,0.6,111.0,2.0,4.0,55.0,1.0);
+INSERT INTO `financialindex` VALUES (4,5.0,0.5,2.0,2.5,0.5,2.0,0.05,0.5,1.0,1.0,0.3,0.1,0.2,222.0,2.0,5.0,5.0,1.0);
+/*!40000 ALTER TABLE `financialindex` ENABLE KEYS */;
+COMMIT;
+
+BEGIN;
+/*!40000 ALTER TABLE `massdiscrete` DISABLE KEYS */;
+TRUNCATE TABLE massdiscrete;
+# INSERT INTO `massdiscrete` VALUES (1,95.0,3.0,1.0,-2.0,1.0,0.0,1.0,30.92,2.0,1.0,1.0,8.0,2.0,1.0,2.0,3.0,2.0);
+INSERT INTO `massdiscrete` VALUES (2,100.0,4.0,2.0,-5.0,5.0,3.0,3.0,39.43,9.0,1.0,5.0,65.0,3.0,1.0,4.0,4.0,4.0);
+INSERT INTO `massdiscrete` VALUES (3,100.0,0.0,1.0,0.0,-1.0,0.0,0.0,20.0,0.0,1.0,1.0,40.0,0.0,1.0,1.0,0.0,1.0);
+INSERT INTO `massdiscrete` VALUES (4,99.0,4.0,2.0,-3.0,-5.0,0.0,0.0,43.0,2.0,0.0,2.0,42.0,0.0,1.0,0.0,2.0,3.0);
+/*!40000 ALTER TABLE `massdiscrete` ENABLE KEYS */;
 COMMIT;
 
 DROP TABLE IF EXISTS `Browse`;

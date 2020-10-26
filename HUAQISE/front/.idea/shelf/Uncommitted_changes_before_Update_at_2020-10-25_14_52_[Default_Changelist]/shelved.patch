@@ -1,0 +1,500 @@
+Index: credit-demo/src/router/index.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import Vue from 'vue'\r\nimport VueRouter from 'vue-router'\r\nimport Login from '../views/login.vue'\r\nimport Home from '../views/home.vue'\r\nimport UserInfo from '../views/userinfo'\r\nimport PersonalCenter from '../views/personalCenter.vue'\r\nimport ChangePassword from \"@/views/ChangePassword\"\r\nimport Test from \"@/views/test\"\r\n\r\nVue.use(VueRouter)\r\nconst routes = [\r\n    {\r\n        path: '/login',\r\n        name: 'login',\r\n        component: Login\r\n    },\r\n    {\r\n        path: '/home',\r\n        name: 'home',\r\n        component: Home\r\n    },\r\n    {\r\n        path: '/personalCenter',\r\n        name: 'personalCenter',\r\n        component: PersonalCenter\r\n    },\r\n    {\r\n        path: '/ChangePassword',\r\n        name: 'ChangePassword',\r\n        component: ChangePassword\r\n\r\n    },\r\n    {\r\n        path: '/test',\r\n        name: 'test',\r\n        component: Test\r\n    },\r\n    {\r\n        path: '/userinfo',\r\n        name: 'userinfo',\r\n        component: UserInfo\r\n\r\n    },\r\n    {\r\n        path: '/NJUSE',\r\n        name: 'layout',\r\n        redirect: '/credit/main',\r\n        component: ()=> import('@/views/layout'),\r\n        children: [\r\n            {\r\n                path: '/credit/main',\r\n                name: 'main',\r\n                component: () => import('@/views/credit/blank')\r\n            },\r\n            {\r\n                path: '/user/info/:userId',\r\n                name: 'userInfo',\r\n                component: () => import('@/views/user/info')\r\n            },\r\n            ]\r\n    },\r\n]\r\nconst createRouter = () => new VueRouter({\r\n    // mode: 'history', // require service support\r\n    scrollBehavior: () => ({ y: 0 }),\r\n    routes\r\n})\r\nconst router = createRouter()\r\n\r\nexport function resetRouter() {\r\n    const newRouter = createRouter()\r\n    router.matcher = newRouter.matcher // reset router\r\n}\r\n\r\nexport default router\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- credit-demo/src/router/index.js	(revision 22dd5d1f63742ab168db7b4eb50517da188efc49)
++++ credit-demo/src/router/index.js	(date 1603561305194)
+@@ -6,6 +6,7 @@
+ import PersonalCenter from '../views/personalCenter.vue'
+ import ChangePassword from "@/views/ChangePassword"
+ import Test from "@/views/test"
++import Test2 from "@/views/test2"
+ 
+ Vue.use(VueRouter)
+ const routes = [
+@@ -36,6 +37,11 @@
+         component: Test
+     },
+     {
++        path: '/test2',
++        name: 'test2',
++        component: Test2
++    },
++    {
+         path: '/userinfo',
+         name: 'userinfo',
+         component: UserInfo
+Index: credit-demo/src/views/test2.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><template>\r\n  <div class=\"main\" >\r\n\r\n    <div id=\"userinfo\" > 用户资料</div>\r\n    <a-tooltip placement=\"right\">\r\n      <template slot=\"title\">\r\n        修改头像\r\n      </template>\r\n      <a-upload>\r\n        <a-avatar src=\"myuseravatarUrl\" style=\"margin-left: 350px; margin-top:50px;width: 100px;height: 100px\" />\r\n      </a-upload>\r\n    </a-tooltip>\r\n\r\n    <div class=\"mycomponent\" id=\"c1\">\r\n      <p class=\"staticText\"><a-icon  type=\"user\" class=\"myicon1\"/> 用户名</p>\r\n      <div class=\"dynamicText\">{{myusername}}</div>\r\n      <a-button class = \"mybutton\" type=\"primary\" @click=\"showModal1\">\r\n        修改\r\n      </a-button>\r\n      <a-modal\r\n          class=\"mymodal\"\r\n          width=600px\r\n          centered=\"true\"\r\n          :visible=\"visible1\"\r\n          :confirm-loading=\"confirmLoading\"\r\n          @ok=\"handleOk1\"\r\n          @cancel=\"handleCancel1\"\r\n      >\r\n\r\n        <div class=\"modaltitle\" > <a-icon  type=\"user\" class=\"myicon\" />       修改用户名</div>\r\n            <a-input   v-model=\"Inputmyusername\" class = \"myinput\" type=\"text\"  placeholder=\"请输入名字\" ></a-input>>\r\n\r\n\r\n      </a-modal>\r\n    </div>\r\n\r\n    <div class=\"mycomponent\" id =\"c2\">\r\n      <p class=\"staticText\"><a-icon  type=\"mail\" class=\"myicon1\"/> 电子邮箱</p>\r\n      <div class=\"dynamicText\">{{myuseremail}}</div>\r\n      <a-button class = \"mybutton\" type=\"primary\" @click=\"showModal2\">\r\n        修改\r\n      </a-button>\r\n      <a-modal\r\n          class=\"mymodal\"\r\n          width=600px\r\n          centered=\"true\"\r\n          :visible=\"visible2\"\r\n          :confirm-loading=\"confirmLoading\"\r\n          @ok=\"handleOk2\"\r\n          @cancel=\"handleCancel2\"\r\n      >\r\n\r\n        <div class=\"modaltitle\" > <a-icon  type=\"mail\" class=\"myicon\"/>       修改邮箱</div>\r\n\r\n\r\n        <a-input\r\n            class = \"myinput\"\r\n            type=\"text\"\r\n            placeholder=\"请填写企业邮箱号\"\r\n            v-model=\"Inputmyuseremail\">\r\n          <!--       //  <a-icon  slot=\"prefix\" type=\"user\" />-->\r\n        </a-input>\r\n\r\n\r\n      </a-modal>\r\n    </div>\r\n\r\n    <div class=\"mycomponent\" id=\"c3\">\r\n      <p class=\"staticText\"><a-icon  type=\"phone\" class=\"myicon1\"/> 联系电话</p>\r\n      <div class=\"dynamicText\">{{myuserphonenum}}</div>\r\n      <a-button class = \"mybutton\" type=\"primary\" @click=\"showModal3\">\r\n        修改\r\n      </a-button>\r\n      <a-modal\r\n          class=\"mymodal\"\r\n          width=600px\r\n          centered=\"true\"\r\n          :visible=\"visible3\"\r\n          :confirm-loading=\"confirmLoading\"\r\n          @ok=\"handleOk3\"\r\n          @cancel=\"handleCancel3\"\r\n      >\r\n\r\n        <div class=\"modaltitle\" > <a-icon  type=\"phone\" class=\"myicon\"/>       修改联系电话</div>\r\n\r\n\r\n        <a-input\r\n            class = \"myinput\"\r\n            type=\"text\"\r\n            v-model=\"Inputmyuserphonenum\"\r\n            placeholder=\"请填写新联系电话\">\r\n        </a-input>\r\n\r\n\r\n      </a-modal>\r\n    </div>\r\n\r\n\r\n    <div class=\"mycomponent\" id=\"c4\">\r\n      <p class=\"staticText\"><a-icon  type=\"lock\" class=\"myicon1\"/> 账户密码</p>\r\n      <div class=\"dynamicText\">{{myusemail}}</div>\r\n      <a-button class = \"mybutton\" type=\"primary\" @click=\"showModal4\">\r\n        修改\r\n      </a-button>\r\n      <a-modal\r\n          class=\"mymodal_pass\"\r\n          width=600px\r\n          centered=\"true\"\r\n          :visible=\"visible4\"\r\n          :confirm-loading=\"confirmLoading\"\r\n          @ok=\"handleOk4\"\r\n          @cancel=\"handleCancel4\"\r\n\r\n      >\r\n\r\n        <div class=\"modaltitle_password\" > <a-icon  type=\"lock\" class=\"myicon\"/>       修改密码</div>\r\n\r\n        <div class = \"threepassword\">\r\n      <a-form\r\n          id=\"formChangePass\"\r\n          class=\"ChangePass\"\r\n          ref=\"formChangePass\"\r\n          :form=\"form\"\r\n          style=\"top: 20%;left:10%;width: 80%\"\r\n      >\r\n\r\n        <a-form-item>\r\n          <a-input\r\n\r\n              size=\"large\"\r\n              type=\"password\"\r\n              placeholder=\"旧密码\"\r\n              class = \"myinput_password\"\r\n              v-decorator=\"[\r\n                'myoldpassword',\r\n                {rules: [{ required: true, message: '请输入旧密码' },{ validator: this.ConfirmOldPassword }], validateTrigger: 'blur'}\r\n              ]\"\r\n              style=\"width:400px;\"\r\n              id = \"oldpasswordInput\"\r\n          >\r\n          </a-input>\r\n        </a-form-item>\r\n\r\n        <a-form-item>\r\n          <a-input\r\n              size=\"large\"\r\n              type=\"password\"\r\n              class = \"myinput_password\"\r\n              placeholder=\"新密码\"\r\n              v-decorator=\"[\r\n                'newPassword',\r\n                {rules: [{ required: true, message: '请输入新密码' }, { validator: this.handleNewPassword }], validateTrigger: 'blur'}]\"\r\n              style=\"width:400px\"\r\n          >\r\n          </a-input>\r\n        </a-form-item>\r\n\r\n        <a-form-item>\r\n          <a-input\r\n              size=\"large\"\r\n              type=\"password\"\r\n              class = \"myinput_password\"\r\n              placeholder=\"确认新密码\"\r\n              v-decorator=\"[\r\n                'newPasswordconfirm',\r\n                {rules: [{ required: true, message: '请再次输入密码' }, { validator: this.handleNewPasswordCheck }], validateTrigger: 'blur'}]\"\r\n              style=\"width:400px\"\r\n          >\r\n          </a-input>\r\n        </a-form-item>\r\n      </a-form>\r\n        </div>\r\n      </a-modal>\r\n\r\n\r\n    </div>\r\n  </div>\r\n\r\n</template>\r\n<script>\r\nimport { mapGetters, mapActions, mapMutations } from 'vuex'\r\nexport default {\r\n  data() {\r\n    return {\r\n      form: this.$form.createForm(this),\r\n      ModalText: 'Content of the modal',\r\n      visible1:false,\r\n      visible2:false,\r\n      visible3:false,\r\n\r\n      visible4:false,\r\n      confirmLoading: false,\r\n      con1:false,\r\n      con2:false,\r\n      con3:false,\r\n      myusername:\"xujing\",\r\n      myuseremail:\"2801423111@qq.com\",\r\n      myuserphonenum:\"15720927772\",\r\n      myoldpassword:\"181860118\",\r\n      Inputmyusername:\"xujing\",\r\n      Inputmyuseremail:\"2801423111@qq.com\",\r\n      Inputmyphonenum:\"1572092772\"\r\n    };\r\n  },\r\n  computed: {\r\n    ...mapGetters([\r\n      'userID',\r\n      'userInfo'\r\n    ])\r\n  },\r\n  async mounted() {\r\n    await  this.getUserInfo()\r\n  },\r\n  watch: {\r\n    $route: {\r\n      handler: function(route) {\r\n        this.redirect = route.query && route.query.redirect\r\n      },\r\n      immediate: true\r\n    },\r\n  },\r\n  methods: {\r\n    ...mapActions([\r\n      'getUserInfo',\r\n      'updateUserInfo',\r\n    ]),\r\n    showModal4(e) {\r\n      this.visible4 = true;\r\n    },\r\n    handleOk4(e) {\r\n      this.ModalText = 'The modal will be closed after two seconds';\r\n      this.confirmLoading = true;\r\n      console.log(this.con1)\r\n      console.log(this.con2)\r\n      console.log(this.con3)\r\n\r\n\r\n      if (this.con1 && this.con2 && this.con3) {\r\n        this.myoldpassword = this.form.getFieldValue('newPassword')\r\n        console.log(this.myoldpassword)\r\n\r\n        this.con1 = false\r\n        this.con2 = false\r\n        this.con3 = false\r\n         setTimeout(() => {\r\n          this.visible4 = false;\r\n          this.confirmLoading = false;\r\n        }, 500);\r\n\r\n    }\r\n      else{\r\n        this.con1 = false\r\n        this.con2 = false\r\n        this.con3 = false\r\n        this.confirmLoading = false;\r\n\r\n      }\r\n    },\r\n    handleCancel4(e) {\r\n      console.log('Clicked cancel button');\r\n      this.visible4= false;\r\n      this.form.setFieldsValue({\r\n\r\n\r\n      newPassword:\"\",\r\n      newPasswordconfirm:\"\",\r\n      myoldpassword:\"\"\r\n\r\n\r\n    })\r\n    },\r\n    showModal3(e) {\r\n      this.visible3 = true;\r\n    },\r\n    handleOk3(e) {\r\n      this.ModalText = 'The modal will be closed after two seconds';\r\n      this.confirmLoading = true;\r\n      setTimeout(() => {\r\n        this.visible3 = false;\r\n        this.confirmLoading = false;\r\n        this.myuserphonenum = this.Inputmyuserphonenum;\r\n\r\n      }, 500);\r\n      },\r\n    handleCancel3(e) {\r\n      console.log('Clicked cancel button');\r\n      this.visible3= false;\r\n      this.Inputmyuserphonenum = this.myuserphonenum;\r\n\r\n    },\r\n    showModal2(e) {\r\n      this.visible2 = true;\r\n    },\r\n    handleOk2(e) {\r\n      this.ModalText = 'The modal will be closed after two seconds';\r\n      this.confirmLoading = true;\r\n      setTimeout(() => {\r\n        this.visible2 = false;\r\n        this.confirmLoading = false;\r\n        this.myuseremail=this.Inputmyuseremail;\r\n\r\n      }, 500);\r\n    },\r\n    handleCancel2(e) {\r\n      console.log('Clicked cancel button');\r\n      this.visible2= false;\r\n      this.Inputmyuseremail=this.myuseremail;\r\n    },\r\n    showModal1(e) {\r\n      this.visible1 = true;\r\n    },\r\n    handleOk1(e) {\r\n      this.ModalText = 'The modal will be closed after two seconds';\r\n      this.confirmLoading = true;\r\n      setTimeout(() => {\r\n        this.visible1 = false;\r\n        this.confirmLoading = false;\r\n        this.myusername=this.Inputmyusername;\r\n\r\n      }, 500);\r\n    },\r\n    handleCancel1(e) {\r\n      console.log('Clicked cancel button');\r\n      this.visible1 = false;\r\n      this.Inputmyusername= this.myusername;\r\n    },\r\n\r\n     ConfirmOldPassword(rule,value,callback)\r\n    {\r\n      const oldpassword = this.myoldpassword\r\n      if (value === undefined) {\r\n        callback(new Error('请输入旧密码'))\r\n        this.con1=false\r\n      }\r\n      if (value && oldpassword && value.trim() !== oldpassword.trim()) {\r\n        callback(new Error('旧密码输入错误'))\r\n        value=\"\"\r\n        this.con1=false\r\n      }\r\n      if (value && oldpassword && value.trim() === oldpassword.trim()) {\r\n        this.con1=true\r\n      }\r\n      callback()\r\n\r\n    },\r\n\r\n\r\n    handleNewPassword(rule, value, callback) {\r\n      const oldpassword = this.myoldpassword\r\n      if (value.length < 6) {\r\n        callback(new Error('密码长度至少6位'))\r\n        this.con2=false\r\n      }\r\n      if (value && oldpassword && value.trim() === oldpassword.trim()) {\r\n        callback(new Error('新密码与旧密码相同'))\r\n        this.con2=false\r\n\r\n      }\r\n      if (value && oldpassword && value.trim() !== oldpassword.trim()) {\r\n        this.con2=true\r\n      }\r\n      callback()\r\n    },\r\n    handleNewPasswordCheck (rule, value, callback) {\r\n      const password = this.form.getFieldValue('newPassword')\r\n      console.log(password)\r\n      if (value === undefined) {\r\n        callback(new Error('请输入密码'))\r\n        this.con3=false\r\n      }\r\n      if (value && password && value.trim() !== password.trim()) {\r\n        callback(new Error('两次密码不一致'))\r\n        this.con3=false\r\n      }\r\n      if (value && password && value.trim() === password.trim()) {\r\n        this.con3=true\r\n      }\r\n      callback()\r\n    },\r\n  },\r\n};\r\n</script>\r\n\r\n\r\n<style scoped lang=\"less\">\r\n\r\n\r\n.main\r\n{\r\n  position: absolute;\r\n  height: 2000px;\r\n  width: 1200px;\r\n  background-color: white;\r\n  top: 60%;\r\n  left: 60%;\r\n  transform: translate(-50%, -30%);\r\n  border-radius: 10px;\r\n  font-size: 60px;\r\n}\r\n#userinfo{\r\n  position: inherit;\r\n  font-size: 60px;\r\n  top:60px;\r\n  left:60px;\r\n}\r\n#myimage{\r\n  width: 100px;\r\n  height: ;\r\n}\r\n\r\n.mycomponent\r\n{\r\n  position: absolute;\r\n  height:200px;\r\n  width: 500px;\r\n  background-color: rgba(255, 255, 255, .9);\r\n  transform: translate(-50%, -30%);\r\n  border-radius: 10px;\r\n  border-color: gainsboro;\r\n  border-width: thin;\r\n  border-style: solid;\r\n}\r\n#c1{\r\n  position:inherit;\r\n  top:300px;\r\n  left:300px;\r\n}\r\n\r\n#c2{\r\n  position:inherit;\r\n  top:300px;\r\n  left:900px;\r\n}\r\n#c3{\r\n  position:inherit;\r\n  top:600px;\r\n  left:300px;\r\n}\r\n#c4{\r\n  position:inherit;\r\n  top:600px;\r\n  left:900px;\r\n}\r\n.staticText{\r\n  font-size: 25px;\r\n  color: purple;\r\n  font-weight: bold;\r\n  margin-top: 30px;\r\n  margin-left: 20px;\r\n}\r\n.dynamicText{\r\n  font-weight: normal;\r\n  color: purple;\r\n  font-size:25px;\r\n  margin-left: 20px;\r\n}\r\n.mybutton{\r\n  width:100px;\r\n  height: 60px;\r\n  top:-100px;\r\n  left:350px;\r\n  border-radius: 5px;\r\n  font-size: 20px;\r\n}\r\n.mymodal\r\n{\r\n\r\n  /deep/ .ant-modal{\r\n    top:350px;\r\n    height: 100%;\r\n    font-size: 16px;\r\n  }\r\n  /deep/ .ant-modal-footer{\r\n    padding: 10px 1px;\r\n    background-color: darkmagenta;\r\n    height:80px;\r\n  }\r\n  /deep/ .ant-modal-body{\r\n    height: 350px;\r\n  }\r\n}\r\n.mymodal_pass\r\n{\r\n\r\n  /deep/ .ant-modal{\r\n    top:350px;\r\n    height: 100%;\r\n    font-size: 16px;\r\n  }\r\n  /deep/ .ant-modal-footer{\r\n    padding: 10px 1px;\r\n    background-color: darkmagenta;\r\n    height:80px;\r\n  }\r\n  /deep/ .ant-modal-body{\r\n    height: 500px;\r\n  }\r\n}\r\n\r\n.modaltitle\r\n{\r\n  font-size: 50px;\r\n  color: black;\r\n  margin-left: 100px;\r\n  margin-top: 0px;\r\n}\r\n.modaltitle_password\r\n{\r\n  row_align:center;\r\n  font-size: 40px;\r\n  color: black;\r\n  margin-left: 70px;\r\n  margin-top: 0px;\r\n}\r\n.myinput{\r\n  text-align:left;\r\n  top:10%;\r\n  left:6%;\r\n  border-color: purple;\r\n  width: 90%;\r\n  height:100px;\r\n  border-radius: 2px;\r\n  row-align: middle;\r\n  font-size: 30px;\r\n}\r\n.myinput_password{\r\n  position: inherit;\r\n  margin-top:20px;\r\n  margin-left:50px;\r\n  width:80%;\r\n  font-size: 22px;\r\n  height: 60px;\r\n}\r\n.myicon{\r\n  font-size: 50px;\r\n  margin-top: 50px;\r\n}\r\n\r\n.myicon1{\r\n  font-size: 50px;\r\n}\r\n\r\n</style>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- credit-demo/src/views/test2.vue	(revision 22dd5d1f63742ab168db7b4eb50517da188efc49)
++++ credit-demo/src/views/test2.vue	(date 1603608643923)
+@@ -405,7 +405,7 @@
+ }
+ #myimage{
+   width: 100px;
+-  height: ;
++  height:100px;
+ }
+ 
+ .mycomponent
+Index: credit-demo/src/views/login.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><template>\r\n    <div class=\"login-register\">\r\n        <!--        <div class=\"contain\">-->\r\n        <div class=\"big-box\" :class=\"{active:isLogin}\" id=\"big\">\r\n            <div class=\"big-contain\" v-if=\"isLogin\">\r\n                <a-form\r\n                        class=\"user-layout-login\"\r\n                        ref=\"formLogin\"\r\n                        :form=\"form\"\r\n                >\r\n                    <div class=\"loginBox\">\r\n\r\n                    </div>\r\n                    <div class=\"btitle\">\r\n                        登录\r\n                    </div>\r\n                    <a-form-item>\r\n                        <a-input\r\n                                size=\"default\"\r\n                                type=\"text\"\r\n                                style=\"width: 300px\"\r\n                                placeholder=\"邮箱\"\r\n                                v-decorator=\"[\r\n                'username',\r\n                {rules: [{ required: true, message: '请输入邮箱地址' }], validateTrigger: 'blur'}\r\n              ]\"\r\n                        >\r\n                            <a-icon slot=\"prefix\" type=\"user\" :style=\"{ color: 'rgba(0,0,0,.25)' }\"/>\r\n                        </a-input>\r\n                    </a-form-item>\r\n                    <a-form-item>\r\n                        <a-input\r\n                                size=\"default\"\r\n                                type=\"password\"\r\n                                style=\"width: 300px\"\r\n                                autocomplete=\"false\"\r\n                                placeholder=\"密码\"\r\n                                v-decorator=\"[\r\n                'password',\r\n                {rules: [{ required: true, message: '请输入密码' }], validateTrigger: 'blur'}\r\n              ]\"\r\n                        >\r\n                            <a-icon slot=\"prefix\" type=\"lock\" :style=\"{ color: 'rgba(0,0,0,.25)' }\"/>\r\n                        </a-input>\r\n                    </a-form-item>\r\n                    <!--验证码-->\r\n                    <a-row>\r\n                        <a-col :span=\"13\"\r\n                        >\r\n                            <a-input\r\n                                    placeholder=\"验证码\"\r\n                                    v-model=\"code\"\r\n                                    clearable\r\n                                    prop=\"Identify\"\r\n                            >\r\n                            </a-input>\r\n                        </a-col>\r\n                        <a-col :span=\"10\" style=\"margin-left: 12px\">\r\n                            <div class=\"code\" @click=\"refreshCode\">\r\n                                <Identify :identifyCode=\"identifyCode\"></Identify>\r\n                            </div>\r\n                        </a-col>\r\n                    </a-row>\r\n                    <!--确定按钮-->\r\n                    <a-form-item style=\"margin-top:24px\" >\r\n                        <a-button\r\n                                size=\"default\"\r\n                                type= \"primary\"\r\n                                class=\"bbutton\"\r\n                                :loading=\"loginLoading\"\r\n                                @click=\"handlelogin()\"\r\n                        >确定</a-button>\r\n                    </a-form-item>\r\n\r\n                </a-form>\r\n            </div>\r\n\r\n            <div class=\"big-contain\" v-else>\r\n                <a-form\r\n                        id=\"formLogin\"\r\n                        class=\"user-layout-login\"\r\n                        ref=\"formLogin\"\r\n                        :form=\"form\"\r\n                >\r\n                    <div class=\"btitle\" >\r\n                        注册\r\n                    </div>\r\n                    <a-tabs\r\n                            :activeKey=\"customActiveKey\"\r\n                            :tabBarStyle=\"{ textAlign: 'center', borderBottom: 'unset' }\"\r\n                            @change=\"handleTabClick\"\r\n                    >\r\n                        <a-tab-pane key=\"tab1\" tab=\"个人\">\r\n                            <a-form-item>\r\n                                <a-input\r\n                                        size=\"default\"\r\n                                        type=\"email\"\r\n                                        style=\"width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto\"\r\n                                        placeholder=\"邮箱\"\r\n                                        v-decorator=\"[\r\n              'registerUserMail',\r\n              {rules: [{ required: true, type: 'email', message: '请输入邮箱' }], validateTrigger: 'blur'}]\">\r\n                                    <a-icon slot=\"prefix\" type=\"mail\" :style=\"{ color: 'rgba(0,0,0,.25)' }\"/>\r\n                                </a-input>\r\n                            </a-form-item>\r\n                            <a-form-item>\r\n                                <a-input\r\n                                        size=\"default\"\r\n                                        style=\"width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto\"\r\n                                        placeholder=\"用户名\"\r\n                                        v-decorator=\"[\r\n              'registerUsername',\r\n              {rules: [{ required: true, message: '请输入用户名' }], validateTrigger: 'blur'}]\">\r\n                                    <a-icon slot=\"prefix\" type=\"user\" :style=\"{ color: 'rgba(0,0,0,.25)' }\"/>\r\n                                </a-input>\r\n                            </a-form-item>\r\n                            <a-form-item>\r\n                                <a-input\r\n                                        size=\"default\"\r\n                                        style=\"width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto\"\r\n                                        placeholder=\"手机号\"\r\n                                        v-decorator=\"[\r\n              'registerPhoneNumber',\r\n              {rules: [{ required: true, message: '请输入手机号' }], validateTrigger: 'blur'}]\">\r\n                                    <a-icon slot=\"prefix\" type=\"book\" :style=\"{ color: 'rgba(0,0,0,.25)' }\"/>\r\n                                </a-input>\r\n                            </a-form-item>\r\n                            <a-form-item>\r\n                                <a-input\r\n                                        size=\"default\"\r\n                                        style=\"width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto\"\r\n                                        type=\"password\"\r\n                                        placeholder=\"密码\"\r\n                                        v-decorator=\"[\r\n                'registerPassword',\r\n                {rules: [{ required: true, message: '请输入密码' }, { validator: this.handlePassword }], validateTrigger: 'blur'}]\">\r\n                                    <a-icon slot=\"prefix\" type=\"lock\" :style=\"{ color: 'rgba(0,0,0,.25)' }\"/>\r\n                                </a-input>\r\n                            </a-form-item>\r\n                            <a-form-item>\r\n                                <a-input\r\n                                        size=\"default\"\r\n                                        style=\"width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto\"\r\n                                        type=\"password\"\r\n                                        placeholder=\"确认密码\"\r\n                                        v-decorator=\"[\r\n                'registerPasswordconfirm',\r\n                {rules: [{ required: true, message: '请输入密码' }, { validator: this.handlePasswordCheck }], validateTrigger: 'blur'}]\">\r\n                                    <a-icon slot=\"prefix\" type=\"lock\" :style=\"{ color: 'rgba(0,0,0,.25)' }\"/>\r\n                                </a-input>\r\n                            </a-form-item>\r\n                            <a-form-item style=\"margin-top:24px\" >\r\n                                <a-button\r\n                                        size=\"default\"\r\n                                        type= \"primary\"\r\n                                        class=\"sbutton\"\r\n                                        :loading=\"loginLoading\"\r\n                                        @click=\"handleRegister()\"\r\n                                >确定</a-button>\r\n                            </a-form-item>\r\n                        </a-tab-pane>\r\n\r\n                        <a-tab-pane key=\"tab2\" tab=\"企业\">\r\n                            <a-form-item>\r\n                                <a-input\r\n                                        size=\"default\"\r\n                                        style=\"width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto\"\r\n                                        type=\"email\"\r\n                                        placeholder=\"企业全称\"\r\n                                        v-decorator=\"[\r\n              'registerUserMail',\r\n              {rules: [{ required: true, type: 'email', message: '请输入企业全称' }], validateTrigger: 'blur'}]\">\r\n                                    <a-icon slot=\"prefix\" type=\"mail\" :style=\"{ color: 'rgba(0,0,0,.25)' }\"/>\r\n                                </a-input>\r\n                            </a-form-item>\r\n                            <a-form-item>\r\n                                <a-input\r\n                                        size=\"default\"\r\n                                        style=\"width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto\"\r\n                                        placeholder=\"企业注册号/信用码\"\r\n                                        v-decorator=\"[\r\n              'registerUsername',\r\n              {rules: [{ required: true, message: '请输入企业注册号/信用码' }], validateTrigger: 'blur'}]\">\r\n                                    <a-icon slot=\"prefix\" type=\"user\" :style=\"{ color: 'rgba(0,0,0,.25)' }\"/>\r\n                                </a-input>\r\n                            </a-form-item>\r\n                            <a-form-item>\r\n                                <a-input\r\n                                        size=\"default\"\r\n                                        style=\"width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto\"\r\n                                        placeholder=\"企业联系人\"\r\n                                        v-decorator=\"[\r\n              'registerPhoneNumber',\r\n              {rules: [{ required: true, message: '请输入企业联系人' }], validateTrigger: 'blur'}]\">\r\n                                    <a-icon slot=\"prefix\" type=\"book\" :style=\"{ color: 'rgba(0,0,0,.25)' }\"/>\r\n                                </a-input>\r\n                            </a-form-item>\r\n                            <a-form-item>\r\n                                <a-input\r\n                                        size=\"default\"\r\n                                        style=\"width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto\"\r\n                                        type=\"email\"\r\n                                        placeholder=\"邮箱\"\r\n                                        v-decorator=\"[\r\n              'registerPhoneNumber',\r\n              {rules: [{ required: true, message: '请输入邮箱' }], validateTrigger: 'blur'}]\">\r\n                                    <a-icon slot=\"prefix\" type=\"book\" :style=\"{ color: 'rgba(0,0,0,.25)' }\"/>\r\n                                </a-input>\r\n                            </a-form-item>\r\n                            <a-form-item>\r\n                                <a-input\r\n                                        size=\"default\"\r\n                                        style=\"width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto\"\r\n                                        placeholder=\"联系方式\"\r\n                                        v-decorator=\"[\r\n              'registerPhoneNumber',\r\n              {rules: [{ required: true, message: '请输入联系方式' }], validateTrigger: 'blur'}]\">\r\n                                    <a-icon slot=\"prefix\" type=\"book\" :style=\"{ color: 'rgba(0,0,0,.25)' }\"/>\r\n                                </a-input>\r\n                            </a-form-item>\r\n\r\n\r\n                            <a-form-item>\r\n                                <a-input\r\n                                        size=\"default\"\r\n                                        style=\"width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto\"\r\n                                        type=\"password\"\r\n                                        placeholder=\"密码\"\r\n                                        v-decorator=\"[\r\n                'registerPassword',\r\n                {rules: [{ required: true, message: '请输入密码' }, { validator: this.handlePassword }], validateTrigger: 'blur'}]\">\r\n                                    <a-icon slot=\"prefix\" type=\"lock\" :style=\"{ color: 'rgba(0,0,0,.25)' }\"/>\r\n                                </a-input>\r\n                            </a-form-item>\r\n                            <a-form-item>\r\n                                <a-input\r\n                                        size=\"default\"\r\n                                        style=\"width: 500px ; vertical-align: middle ; display: block ; margin: 0 auto\"\r\n                                        type=\"password\"\r\n                                        placeholder=\"确认密码\"\r\n                                        v-decorator=\"[\r\n                'registerPasswordconfirm',\r\n                {rules: [{ required: true, message: '请输入密码' }, { validator: this.handlePasswordCheck }], validateTrigger: 'blur'}]\">\r\n                                    <a-icon slot=\"prefix\" type=\"lock\" :style=\"{ color: 'rgba(0,0,0,.25)' }\"/>\r\n                                </a-input>\r\n                            </a-form-item>\r\n                            <div class=\"clearfix\">\r\n                                <a-upload\r\n                                        action=\"https://www.mocky.io/v2/5cc8019d300000980a055e76\"\r\n                                        list-type=\"picture-card\"\r\n                                        style=\"left: 500px\"\r\n                                        :file-list=\"fileList\"\r\n                                        @preview=\"handlePreview\"\r\n                                        @change=\"handleChange\"\r\n                                >\r\n                                    <div v-if=\"fileList.length < 8\">\r\n                                        <a-icon type=\"plus\" />\r\n                                        <div class=\"ant-upload-text\">\r\n                                            营业执照\r\n                                        </div>\r\n                                    </div>\r\n                                </a-upload>\r\n                                <a-modal :visible=\"previewVisible\" :footer=\"null\" @cancel=\"handleCancel\">\r\n                                    <img alt=\"example\" style=\"width: 100%\" :src=\"previewImage\" />\r\n                                </a-modal>\r\n                            </div>\r\n                            <a-form-item style=\"margin-top:24px\" >\r\n                                <a-button\r\n                                        size=\"default\"\r\n                                        type= \"primary\"\r\n                                        class=\"sbutton\"\r\n                                        :loading=\"loginLoading\"\r\n                                        @click=\"handleRegister()\"\r\n                                >确定</a-button>\r\n                            </a-form-item>\r\n                        </a-tab-pane>\r\n                    </a-tabs>\r\n                </a-form>\r\n            </div>\r\n        </div>\r\n        <div class=\"small-box\" :class=\"{active:isLogin}\" id=\"small\">\r\n            <div class=\"small-contain\" v-if=\"isLogin\">\r\n                <button class=\"changeButton\" @click=\"changeType\">注册</button>\r\n            </div>\r\n            <div class=\"small-contain\" v-else>\r\n                <button class=\"changeButton\" @click=\"changeType\">登录</button>\r\n            </div>\r\n        </div>\r\n    </div>\r\n    <!--    </div>-->\r\n</template>\r\n\r\n<script>\r\n    import { message } from 'ant-design-vue'\r\n    import Identify from '../components/SIdentify.vue'\r\n    import {mapActions, mapGetters} from \"vuex\";\r\n    function getBase64(file) {\r\n        return new Promise((resolve, reject) => {\r\n            const reader = new FileReader();\r\n            reader.readAsDataURL(file);\r\n            reader.onload = () => resolve(reader.result);\r\n            reader.onerror = error => reject(error);\r\n        });\r\n    }\r\n\r\n    export default{\r\n        name:'login-register',\r\n\r\n        data(){\r\n            return {\r\n                previewVisible: false,\r\n                previewImage: '',\r\n                fileList: [],\r\n\r\n\r\n                //验证码\r\n                code: '',\r\n                // 随机抽取四位数\r\n                identifyCodes: '1234567890abcdef',\r\n                identifyCode: '',\r\n                checked: false,\r\n                //验证码\r\n\r\n                customActiveKey : 'tab1',\r\n                loginLoading: false,\r\n                registerLoading: false,\r\n                form: this.$form.createForm(this),\r\n                isLogin:true,\r\n                emailError: false,\r\n                passwordError: false,\r\n                existed: false,\r\n            }\r\n        },\r\n        computed: {\r\n            ...mapGetters([\r\n                'token',\r\n            ])\r\n        },\r\n        components:{\r\n            Identify\r\n        },\r\n        mounted() {\r\n            this.identifyCode = ''\r\n            this.makeCode(this.identifyCodes, 4)\r\n        },\r\n\r\n        watch: {\r\n            $route: {\r\n                handler: function(route) {\r\n                    this.redirect = route.query && route.query.redirect\r\n                },\r\n                immediate: true\r\n            },\r\n        },\r\n\r\n        methods:{\r\n\r\n            ...mapActions([\r\n                'login',\r\n                'register'\r\n            ]),\r\n\r\n\r\n            changeType() {\r\n                this.isLogin = !this.isLogin\r\n                this.form.username = ''\r\n                this.form.useremail = ''\r\n                this.form.userpwd = ''\r\n            },\r\n            handleTabClick (key) {\r\n                this.customActiveKey = key\r\n            },\r\n\r\n\r\n            handlePassword(rule, value, callback) {\r\n                if (value.length < 6) {\r\n                    callback(new Error('密码长度至少6位'))\r\n                }\r\n                callback()\r\n            },\r\n            handlePasswordCheck (rule, value, callback) {\r\n                const password = this.form.getFieldValue('registerPassword')\r\n                console.log(password)\r\n                if (value === undefined) {\r\n                    callback(new Error('请输入密码'))\r\n                }\r\n                if (value && password && value.trim() !== password.trim()) {\r\n                    callback(new Error('两次密码不一致'))\r\n                }\r\n                callback()\r\n            },\r\n\r\n\r\n\r\n            handlelogin() {\r\n                if(this.code === this.identifyCode){\r\n                    console.log(\"验证码正确\")\r\n                    message.success(\"验证码正确\")\r\n                }else {\r\n                    console.log(\"验证码错误\")\r\n                    message.error(\"验证码错误\")\r\n                    return 0\r\n                }\r\n                const validateFieldsKey = this.customActiveKey === 'tab1' ? ['username', 'password'] : ['registerUsername', 'registerUserMail','registerPassword','registerPasswordconfirm']\r\n                this.form.validateFields(validateFieldsKey, { force: true }, async (err, values) => {\r\n                    if(!err){\r\n                        this.loginLoading = true\r\n                        const data = {\r\n                            email: this.form.getFieldValue(\"username\"),\r\n                            password: this.form.getFieldValue(\"password\")\r\n                        }\r\n                        await this.login(data)\r\n                        this.loginLoading = false\r\n                    }\r\n                })\r\n            },\r\n\r\n            handleRegister() {\r\n                const { form: { validateFields } } = this\r\n                const validateFieldsKey = this.customActiveKey === 'tab1' ? ['username', 'password'] : ['registerUsername','registerPhoneNumber','registerUserMail','registerPassword','registerPasswordconfirm']\r\n                validateFields(validateFieldsKey, { force: true }, async (err, values) => {\r\n                    if (!err) {\r\n                        this.registerLoading = true\r\n                        const data = {\r\n                            email: this.form.getFieldValue('registerUserMail'),\r\n                            password: this.form.getFieldValue('registerPassword'),\r\n                            phoneNumber: this.form.getFieldValue('registerPhoneNumber'),\r\n                            username: this.form.getFieldValue('registerUsername'),\r\n                            userType: \"1\"\r\n                        }\r\n                        console.log(data)\r\n                        await this.register(data).then(() => {\r\n                            this.customActiveKey = 'tab1'\r\n                            this.form.setFieldsValue({\r\n                                'registerUserMail': '',\r\n                                'registerPassword': '',\r\n                                'registerPasswordconfirm': ''\r\n                            })\r\n                        })\r\n                        this.registerLoading = false\r\n                    }\r\n                });\r\n            },\r\n\r\n\r\n            handleCancel() {\r\n                this.previewVisible = false;\r\n            },\r\n            async handlePreview(file) {\r\n                if (!file.url && !file.preview) {\r\n                    file.preview = await getBase64(file.originFileObj);\r\n                }\r\n                this.previewImage = file.url || file.preview;\r\n                this.previewVisible = true;\r\n            },\r\n            handleChange({ fileList }) {\r\n                this.fileList = fileList;\r\n                console.log(this.fileList)\r\n            },\r\n\r\n\r\n            // 验证码处理\r\n            randomNum(min, max) {\r\n                return Math.floor(Math.random() * (max - min) + min)\r\n            },\r\n\r\n            // 刷新验证码\r\n            refreshCode() {\r\n                this.identifyCode = ''\r\n                this.makeCode(this.identifyCodes, 4)\r\n            },\r\n            makeCode(o, l) {\r\n                for (let i = 0; i < l; i++) {\r\n                    this.identifyCode += this.identifyCodes[\r\n                        this.randomNum(0, this.identifyCodes.length)\r\n                        ]\r\n                }\r\n                console.log(this.identifyCode)\r\n            }\r\n\r\n        }\r\n    }\r\n</script>\r\n\r\n<style scoped=\"scoped\">\r\n    .login-register{\r\n        width: 100vw;\r\n        height: 100%;\r\n        box-sizing: border-box;\r\n    }\r\n    .contain{\r\n        width: 60%;\r\n        height: 90%;\r\n        position: relative;\r\n        top: 50%;\r\n        left: 45%;\r\n        transform: translate(-50%,-50%);\r\n        background-color: #fff;\r\n        border-radius: 20px;\r\n        box-shadow: 0 0 3px #f0f0f0,\r\n        0 0 6px #f0f0f0;\r\n    }\r\n    .big-box{\r\n        width: 70%;\r\n        height: 100%;\r\n        position: absolute;\r\n        top: 0;\r\n        left: 30%;\r\n        transform: translateX(0%);\r\n        transition: all 1s;\r\n    }\r\n    .big-contain{\r\n        width: 100%;\r\n        height: 100%;\r\n        display: flex;\r\n        flex-direction: column;\r\n        justify-content: center;\r\n        align-items: center;\r\n    }\r\n    .btitle{\r\n        text-align: center;\r\n        font-size: 1.5em;\r\n        font-weight: bold;\r\n        margin-bottom: 20px;\r\n        color: rgb(57,167,176);\r\n    }\r\n    .bform{\r\n        width: 100%;\r\n        height: 60%;\r\n        padding: 2em 0;\r\n        display: flex;\r\n        flex-direction: column;\r\n        justify-content: space-around;\r\n        align-items: center;\r\n    }\r\n    .bform .errTips{\r\n        display: block;\r\n        width: 50%;\r\n        text-align: left;\r\n        color: red;\r\n        font-size: 0.7em;\r\n        margin-left: 1em;\r\n    }\r\n    .bform input{\r\n        width: 50%;\r\n        height: 30px;\r\n        border: none;\r\n        outline: none;\r\n        border-radius: 10px;\r\n        padding-left: 2em;\r\n        background-color: #f0f0f0;\r\n    }\r\n    .bbutton{\r\n        width: 30%;\r\n        height: 40px;\r\n        border-radius: 24px;\r\n        border: none;\r\n        outline: none;\r\n        background-color: rgb(57,167,176);\r\n        color: #fff;\r\n        font-size: 0.9em;\r\n        cursor: pointer;\r\n        text-align: center;\r\n        margin: auto;\r\n        float: left;\r\n        left: 35%;\r\n\r\n    }\r\n    .small-box{\r\n        width: 30%;\r\n        height: 100%;\r\n        background: linear-gradient(135deg,rgb(57,167,176),rgb(56,183,145));\r\n        position: absolute;\r\n        top: 0;\r\n        left: 0;\r\n        transform: translateX(0%);\r\n        transition: all 1s;\r\n        border-top-left-radius: inherit;\r\n        border-bottom-left-radius: inherit;\r\n    }\r\n    .small-contain{\r\n        width: 100%;\r\n        height: 100%;\r\n        display: flex;\r\n        flex-direction: column;\r\n        justify-content: center;\r\n        align-items: center;\r\n    }\r\n\r\n    .sbutton{\r\n        width: 10%;\r\n        height: 40px;\r\n        border-radius: 24px;\r\n        border: none;\r\n        outline: none;\r\n        background-color: rgb(57,167,176);\r\n        color: #fff;\r\n        font-size: 0.9em;\r\n        cursor: pointer;\r\n        text-align: center;\r\n        margin: auto;\r\n        float: left;\r\n        left: 45%;\r\n\r\n    }\r\n\r\n    .changeButton{\r\n        width: 60%;\r\n        height: 40px;\r\n        border-radius: 24px;\r\n        border: 1px solid #fff;\r\n        outline: none;\r\n        background-color: transparent;\r\n        color: #fff;\r\n        font-size: 0.9em;\r\n        cursor: pointer;\r\n    }\r\n    .big-box.active{\r\n        left: 0;\r\n        transition: all 0.5s;\r\n    }\r\n    .small-box.active{\r\n        left: 100%;\r\n        border-top-left-radius: 0;\r\n        border-bottom-left-radius: 0;\r\n        border-top-right-radius: inherit;\r\n        border-bottom-right-radius: inherit;\r\n        transform: translateX(-100%);\r\n        transition: all 1s;\r\n    }\r\n\r\n\r\n\r\n</style>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- credit-demo/src/views/login.vue	(revision 22dd5d1f63742ab168db7b4eb50517da188efc49)
++++ credit-demo/src/views/login.vue	(date 1603566214839)
+@@ -76,14 +76,14 @@
+             </div>
+ 
+             <div class="big-contain" v-else>
+-                <a-form
++
++                    <div class="btitle" >
++                        注册<a-form
+                         id="formLogin"
+                         class="user-layout-login"
+                         ref="formLogin"
+                         :form="form"
+-                >
+-                    <div class="btitle" >
+-                        注册
++                    >
+                     </div>
+                     <a-tabs
+                             :activeKey="customActiveKey"
+@@ -631,4 +631,4 @@
+ 
+ 
+ 
+-</style>
+\ No newline at end of file
++</style>
+Index: credit-demo/src/views/ChangePassword.vue
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><template>\r\n  <div class=\"main\">\r\n    <Header></Header>\r\n\r\n    <a-tabs default-active-key=\"1\" size='large' >\r\n      <a-tab-pane id=\"title\" key=\"1\"  size='large' class=\"top\" > <a-icon type=\"lock\" size='large'/>  修改密码\r\n      </a-tab-pane>\r\n    </a-tabs>\r\n    <div class = \"threepassword\">\r\n      <a-form\r\n          id=\"formChangePass\"\r\n          class=\"ChangePass\"\r\n          ref=\"formChangePass\"\r\n          :form=\"form\"\r\n      >\r\n\r\n        <a-form-item>\r\n          <a-input\r\n\r\n              size=\"large\"\r\n              type=\"password\"\r\n              placeholder=\"旧密码\"\r\n              v-decorator=\"[\r\n                'password',\r\n                {rules: [{ required: true, message: '请输入旧密码' },{ validator: this.ConfirmOldPassword }], validateTrigger: 'blur'}\r\n              ]\"\r\n              style=\"width:400px\"\r\n              v-if=\"modify\"\r\n          >\r\n            <a-icon slot=\"prefix\" type=\"lock\" :style=\"{ color: 'rgba(0,0,0,.25)' }\"/>\r\n          </a-input>\r\n        </a-form-item>\r\n\r\n        <a-form-item>\r\n          <a-input\r\n              size=\"large\"\r\n              type=\"password\"\r\n              placeholder=\"新密码\"\r\n              v-decorator=\"[\r\n                'newPassword',\r\n                {rules: [{ required: true, message: '请输入新密码' }, { validator: this.handleNewPassword }], validateTrigger: 'blur'}]\"\r\n              style=\"width:400px\"\r\n              v-if=\"modify\"\r\n          >\r\n            <a-icon slot=\"prefix\" type=\"lock\" :style=\"{ color: 'rgba(0,0,0,.25)' }\"/>\r\n          </a-input>\r\n        </a-form-item>\r\n\r\n        <a-form-item>\r\n          <a-input\r\n              size=\"large\"\r\n              type=\"password\"\r\n              placeholder=\"确认新密码\"\r\n              v-decorator=\"[\r\n                'newPasswordconfirm',\r\n                {rules: [{ required: true, message: '请再次输入密码' }, { validator: this.handleNewPasswordCheck }], validateTrigger: 'blur'}]\"\r\n              style=\"width:400px\"\r\n              v-if=\"modify\"\r\n          >\r\n            <a-icon slot=\"prefix\" type=\"lock\" :style=\"{ color: 'rgba(0,0,0,.25)' }\"/>\r\n          </a-input>\r\n        </a-form-item>\r\n\r\n\r\n        <a-form-item :wrapper-col=\"{ span: 12, offset: 4}\">\r\n          <a-button type=\"primary\" @click=\"savePassModify\" size='large'>\r\n            确定\r\n          </a-button>\r\n\r\n        </a-form-item>\r\n      </a-form>\r\n    </div>\r\n  </div>\r\n\r\n</template>\r\n\r\n\r\n<script>\r\nimport Header from '@/components/header'\r\nimport { mapGetters, mapActions, mapMutations } from 'vuex'\r\n\r\nexport default {\r\n  name: 'ChangePassword',\r\n  components: {\r\n    Header\r\n  },\r\n  data () {\r\n    return {\r\n      modify:true,\r\n      form: this.$form.createForm(this),\r\n    }\r\n  },\r\n  computed: {\r\n    ...mapGetters([\r\n      'userID',\r\n      'userInfo'\r\n    ])\r\n  },\r\n  async mounted() {\r\n    await  this.getUserInfo()\r\n  },\r\n  watch: {\r\n    $route: {\r\n      handler: function(route) {\r\n        this.redirect = route.query && route.query.redirect\r\n      },\r\n      immediate: true\r\n    },\r\n  },\r\n  methods: {\r\n    ...mapActions([\r\n      'getUserInfo',\r\n      'updateUserInfo',\r\n      'ChangePassword'\r\n    ]),\r\n    ConfirmOldPassword(rule,value,callback)\r\n    {\r\n      const oldpassword = this.userInfo.userpassword\r\n      if (value === undefined) {\r\n        callback(new Error('请输入旧密码'))\r\n      }\r\n      if (value && oldpassword && value.trim() !== oldpassword.trim()) {\r\n        callback(new Error('旧密码输入错误'))\r\n      }\r\n      callback()\r\n    },\r\n\r\n\r\n    handleNewPassword(rule, value, callback) {\r\n      if (value.length < 6) {\r\n        callback(new Error('密码长度至少6位'))\r\n      }\r\n      callback()\r\n    },\r\n    handleNewPasswordCheck (rule, value, callback) {\r\n      const password = this.form.getFieldValue('newPassword')\r\n      console.log(password)\r\n      if (value === undefined) {\r\n        callback(new Error('请输入密码'))\r\n      }\r\n      if (value && password && value.trim() !== password.trim()) {\r\n        callback(new Error('两次密码不一致'))\r\n      }\r\n      callback()\r\n    },\r\n    savePassModify() {\r\n      this.form.validateFields((err, values) => {\r\n        if (!err) {\r\n          const data = {\r\n            username: this.userInfo.username,\r\n            phoneNumber: this.userInfo.phoneNumber,\r\n            password: this.form.getFieldValue('newPassword')\r\n          }\r\n          this.updateUserInfo(data).then(()=>{\r\n            this.modify = true\r\n          })\r\n        }\r\n        else\r\n        {\r\n          this.modify = true\r\n        }\r\n\r\n      });\r\n    },\r\n\r\n  }\r\n}\r\n</script>\r\n<style scoped>\r\n.main {\r\n  margin-top: 50px;\r\n}\r\n.threepassword {\r\n  margin-top: 20px;\r\n}\r\n\r\n#title{\r\n  font-size: 20px;\r\n}\r\n\r\n\r\n</style>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- credit-demo/src/views/ChangePassword.vue	(revision 22dd5d1f63742ab168db7b4eb50517da188efc49)
++++ credit-demo/src/views/ChangePassword.vue	(date 1603567574490)
+@@ -1,182 +1,0 @@
+-<template>
+-  <div class="main">
+-    <Header></Header>
+-
+-    <a-tabs default-active-key="1" size='large' >
+-      <a-tab-pane id="title" key="1"  size='large' class="top" > <a-icon type="lock" size='large'/>  修改密码
+-      </a-tab-pane>
+-    </a-tabs>
+-    <div class = "threepassword">
+-      <a-form
+-          id="formChangePass"
+-          class="ChangePass"
+-          ref="formChangePass"
+-          :form="form"
+-      >
+-
+-        <a-form-item>
+-          <a-input
+-
+-              size="large"
+-              type="password"
+-              placeholder="旧密码"
+-              v-decorator="[
+-                'password',
+-                {rules: [{ required: true, message: '请输入旧密码' },{ validator: this.ConfirmOldPassword }], validateTrigger: 'blur'}
+-              ]"
+-              style="width:400px"
+-              v-if="modify"
+-          >
+-            <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+-          </a-input>
+-        </a-form-item>
+-
+-        <a-form-item>
+-          <a-input
+-              size="large"
+-              type="password"
+-              placeholder="新密码"
+-              v-decorator="[
+-                'newPassword',
+-                {rules: [{ required: true, message: '请输入新密码' }, { validator: this.handleNewPassword }], validateTrigger: 'blur'}]"
+-              style="width:400px"
+-              v-if="modify"
+-          >
+-            <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+-          </a-input>
+-        </a-form-item>
+-
+-        <a-form-item>
+-          <a-input
+-              size="large"
+-              type="password"
+-              placeholder="确认新密码"
+-              v-decorator="[
+-                'newPasswordconfirm',
+-                {rules: [{ required: true, message: '请再次输入密码' }, { validator: this.handleNewPasswordCheck }], validateTrigger: 'blur'}]"
+-              style="width:400px"
+-              v-if="modify"
+-          >
+-            <a-icon slot="prefix" type="lock" :style="{ color: 'rgba(0,0,0,.25)' }"/>
+-          </a-input>
+-        </a-form-item>
+-
+-
+-        <a-form-item :wrapper-col="{ span: 12, offset: 4}">
+-          <a-button type="primary" @click="savePassModify" size='large'>
+-            确定
+-          </a-button>
+-
+-        </a-form-item>
+-      </a-form>
+-    </div>
+-  </div>
+-
+-</template>
+-
+-
+-<script>
+-import Header from '@/components/header'
+-import { mapGetters, mapActions, mapMutations } from 'vuex'
+-
+-export default {
+-  name: 'ChangePassword',
+-  components: {
+-    Header
+-  },
+-  data () {
+-    return {
+-      modify:true,
+-      form: this.$form.createForm(this),
+-    }
+-  },
+-  computed: {
+-    ...mapGetters([
+-      'userID',
+-      'userInfo'
+-    ])
+-  },
+-  async mounted() {
+-    await  this.getUserInfo()
+-  },
+-  watch: {
+-    $route: {
+-      handler: function(route) {
+-        this.redirect = route.query && route.query.redirect
+-      },
+-      immediate: true
+-    },
+-  },
+-  methods: {
+-    ...mapActions([
+-      'getUserInfo',
+-      'updateUserInfo',
+-      'ChangePassword'
+-    ]),
+-    ConfirmOldPassword(rule,value,callback)
+-    {
+-      const oldpassword = this.userInfo.userpassword
+-      if (value === undefined) {
+-        callback(new Error('请输入旧密码'))
+-      }
+-      if (value && oldpassword && value.trim() !== oldpassword.trim()) {
+-        callback(new Error('旧密码输入错误'))
+-      }
+-      callback()
+-    },
+-
+-
+-    handleNewPassword(rule, value, callback) {
+-      if (value.length < 6) {
+-        callback(new Error('密码长度至少6位'))
+-      }
+-      callback()
+-    },
+-    handleNewPasswordCheck (rule, value, callback) {
+-      const password = this.form.getFieldValue('newPassword')
+-      console.log(password)
+-      if (value === undefined) {
+-        callback(new Error('请输入密码'))
+-      }
+-      if (value && password && value.trim() !== password.trim()) {
+-        callback(new Error('两次密码不一致'))
+-      }
+-      callback()
+-    },
+-    savePassModify() {
+-      this.form.validateFields((err, values) => {
+-        if (!err) {
+-          const data = {
+-            username: this.userInfo.username,
+-            phoneNumber: this.userInfo.phoneNumber,
+-            password: this.form.getFieldValue('newPassword')
+-          }
+-          this.updateUserInfo(data).then(()=>{
+-            this.modify = true
+-          })
+-        }
+-        else
+-        {
+-          this.modify = true
+-        }
+-
+-      });
+-    },
+-
+-  }
+-}
+-</script>
+-<style scoped>
+-.main {
+-  margin-top: 50px;
+-}
+-.threepassword {
+-  margin-top: 20px;
+-}
+-
+-#title{
+-  font-size: 20px;
+-}
+-
+-
+-</style>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"af3699a6-c946-409f-a82d-e00585c602e7\" name=\"Default Changelist\" comment=\"\">\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__io_github_classgraph_classgraph_4_8_83.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_bean_validators_3_0_0.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_boot_starter_3_0_0.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_core_3_0_0.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_data_rest_3_0_0.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_oas_3_0_0.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_schema_3_0_0.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_spi_3_0_0.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_spring_web_3_0_0.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_spring_webflux_3_0_0.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_spring_webmvc_3_0_0.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_swagger2_3_0_0.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_swagger_common_3_0_0.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_swagger_ui_3_0_0.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__io_swagger_core_v3_swagger_annotations_2_1_2.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__io_swagger_core_v3_swagger_models_2_1_2.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_20.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__io_swagger_swagger_models_1_5_20.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__org_mapstruct_mapstruct_1_3_1_Final.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_plugin_spring_plugin_core_2_0_0_RELEASE.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_plugin_spring_plugin_metadata_2_0_0_RELEASE.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../huaqicloud/common/common.iml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../huaqicloud/eurake-server/eurake-server.iml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../huaqicloud/service-enterprise/service-enterprise.iml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../huaqicloud/service-user/service-user.iml\" afterDir=\"false\" />\r\n      <change afterPath=\"$PROJECT_DIR$/../huaqicloud/zuul-gateway/zuul-gateway.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/../.idea/compiler.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../.idea/compiler.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/../.idea/encodings.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../.idea/encodings.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/../.idea/modules.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../.idea/modules.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/../.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/../huaqicloud/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../huaqicloud/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/../huaqicloud/zuul-gateway/src/main/resources/application.yml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/../huaqicloud/zuul-gateway/src/main/resources/application.yml\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$/../..\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"1h8YnQDdSUNzCbSfJfDuDCb4nGz\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\">\r\n    <property name=\"RunOnceActivity.OpenProjectViewOnStart\" value=\"true\" />\r\n    <property name=\"RunOnceActivity.ShowReadmeOnStart\" value=\"true\" />\r\n    <property name=\"SHARE_PROJECT_CONFIGURATION_FILES\" value=\"true\" />\r\n    <property name=\"WebServerToolWindowFactoryState\" value=\"false\" />\r\n    <property name=\"aspect.path.notification.shown\" value=\"true\" />\r\n    <property name=\"last_opened_file_path\" value=\"$PROJECT_DIR$\" />\r\n    <property name=\"nodejs_interpreter_path.stuck_in_default_project\" value=\"undefined stuck path\" />\r\n    <property name=\"nodejs_npm_path_reset_for_default_project\" value=\"true\" />\r\n    <property name=\"nodejs_package_manager_path\" value=\"npm\" />\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"serve\" type=\"js.build_tools.npm\" temporary=\"true\" nameIsGenerated=\"true\">\r\n      <package-json value=\"$PROJECT_DIR$/credit-demo/package.json\" />\r\n      <command value=\"run\" />\r\n      <scripts>\r\n        <script value=\"serve\" />\r\n      </scripts>\r\n      <node-interpreter value=\"project\" />\r\n      <envs />\r\n      <method v=\"2\" />\r\n    </configuration>\r\n    <recent_temporary>\r\n      <list>\r\n        <item itemvalue=\"npm.serve\" />\r\n      </list>\r\n    </recent_temporary>\r\n  </component>\r\n  <component name=\"SvnConfiguration\">\r\n    <configuration />\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"af3699a6-c946-409f-a82d-e00585c602e7\" name=\"Default Changelist\" comment=\"\" />\r\n      <created>1599394352662</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1599394352662</updated>\r\n      <workItem from=\"1599394353949\" duration=\"8000\" />\r\n      <workItem from=\"1602579453206\" duration=\"1723000\" />\r\n      <workItem from=\"1602584321363\" duration=\"21000\" />\r\n    </task>\r\n    <servers />\r\n  </component>\r\n  <component name=\"TypeScriptGeneratedFilesManager\">\r\n    <option name=\"version\" value=\"2\" />\r\n  </component>\r\n  <component name=\"WindowStateProjectService\">\r\n    <state x=\"414\" y=\"174\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog\" timestamp=\"1602580700433\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"414\" y=\"174\" key=\"#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1602580700433\" />\r\n    <state x=\"740\" y=\"275\" key=\"FileChooserDialogImpl\" timestamp=\"1602579496169\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state x=\"740\" y=\"275\" key=\"FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1602579496169\" />\r\n    <state width=\"1877\" height=\"282\" key=\"GridCell.Tab.0.bottom\" timestamp=\"1602581180720\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"282\" key=\"GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1602581180720\" />\r\n    <state width=\"1877\" height=\"282\" key=\"GridCell.Tab.0.center\" timestamp=\"1602581180720\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"282\" key=\"GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1602581180720\" />\r\n    <state width=\"1877\" height=\"282\" key=\"GridCell.Tab.0.left\" timestamp=\"1602581180719\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"282\" key=\"GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1602581180719\" />\r\n    <state width=\"1877\" height=\"282\" key=\"GridCell.Tab.0.right\" timestamp=\"1602581180720\">\r\n      <screen x=\"0\" y=\"0\" width=\"1920\" height=\"1040\" />\r\n    </state>\r\n    <state width=\"1877\" height=\"282\" key=\"GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040\" timestamp=\"1602581180720\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/workspace.xml	(revision 22dd5d1f63742ab168db7b4eb50517da188efc49)
++++ .idea/workspace.xml	(date 1603608644187)
+@@ -1,41 +1,36 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="BranchesTreeState">
++    <expand>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++    </expand>
++    <select>
++      <path>
++        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
++        <item name="BRANCH:dev" type="e8cecc67:BranchNodeDescriptor" />
++      </path>
++    </select>
++  </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="af3699a6-c946-409f-a82d-e00585c602e7" name="Default Changelist" comment="">
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_github_classgraph_classgraph_4_8_83.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_bean_validators_3_0_0.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_boot_starter_3_0_0.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_core_3_0_0.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_data_rest_3_0_0.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_oas_3_0_0.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_schema_3_0_0.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_spi_3_0_0.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_spring_web_3_0_0.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_spring_webflux_3_0_0.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_spring_webmvc_3_0_0.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_swagger2_3_0_0.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_swagger_common_3_0_0.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_springfox_springfox_swagger_ui_3_0_0.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_swagger_core_v3_swagger_annotations_2_1_2.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_swagger_core_v3_swagger_models_2_1_2.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_swagger_swagger_annotations_1_5_20.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__io_swagger_swagger_models_1_5_20.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_mapstruct_mapstruct_1_3_1_Final.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_plugin_spring_plugin_core_2_0_0_RELEASE.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../.idea/libraries/Maven__org_springframework_plugin_spring_plugin_metadata_2_0_0_RELEASE.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../huaqicloud/common/common.iml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../huaqicloud/eurake-server/eurake-server.iml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/service-enterprise.iml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../huaqicloud/service-user/service-user.iml" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/../huaqicloud/zuul-gateway/zuul-gateway.iml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/encodings.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
++    <list default="true" id="af3699a6-c946-409f-a82d-e00585c602e7" name="Default Changelist" comment="界面功能">
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../huaqicloud/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/../huaqicloud/zuul-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/zuul-gateway/src/main/resources/application.yml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/credit-demo/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/credit-demo/src/router/index.js" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/credit-demo/src/views/ChangePassword.vue" beforeDir="false" afterPath="$PROJECT_DIR$/credit-demo/src/views/ChangePassword.vue" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/credit-demo/src/views/login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/credit-demo/src/views/login.vue" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/credit-demo/src/views/test2.vue" beforeDir="false" afterPath="$PROJECT_DIR$/credit-demo/src/views/test2.vue" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -58,11 +53,46 @@
+     <property name="WebServerToolWindowFactoryState" value="false" />
+     <property name="aspect.path.notification.shown" value="true" />
+     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
++    <property name="node.js.path.for.package.tslint" value="project" />
++    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+     <property name="nodejs_package_manager_path" value="npm" />
+   </component>
+-  <component name="RunManager">
++  <component name="RunManager" selected="npm.serve">
++    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
++      <option name="arquillianRunConfiguration">
++        <value>
++          <option name="containerStateName" value="" />
++        </value>
++      </option>
++      <option name="TEST_OBJECT" value="CLASS" />
++      <properties />
++      <listeners />
++      <method v="2">
++        <option name="Make" enabled="true" />
++      </method>
++    </configuration>
++    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
++      <package-json value="$PROJECT_DIR$/credit-demo/package.json" />
++      <command value="run" />
++      <scripts>
++        <script value="build" />
++      </scripts>
++      <node-interpreter value="project" />
++      <envs />
++      <method v="2" />
++    </configuration>
++    <configuration name="lint" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
++      <package-json value="$PROJECT_DIR$/credit-demo/package.json" />
++      <command value="run" />
++      <scripts>
++        <script value="lint" />
++      </scripts>
++      <node-interpreter value="project" />
++      <envs />
++      <method v="2" />
++    </configuration>
+     <configuration name="serve" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+       <package-json value="$PROJECT_DIR$/credit-demo/package.json" />
+       <command value="run" />
+@@ -76,6 +106,8 @@
+     <recent_temporary>
+       <list>
+         <item itemvalue="npm.serve" />
++        <item itemvalue="npm.lint" />
++        <item itemvalue="npm.build" />
+       </list>
+     </recent_temporary>
+   </component>
+@@ -93,35 +125,79 @@
+       <workItem from="1602579453206" duration="1723000" />
+       <workItem from="1602584321363" duration="21000" />
+     </task>
++    <task id="LOCAL-00001" summary="界面功能">
++      <created>1603608505726</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1603608505726</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
+   <component name="TypeScriptGeneratedFilesManager">
+     <option name="version" value="2" />
+   </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++    <option name="oldMeFiltersMigrated" value="true" />
++  </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="界面功能" />
++    <option name="LAST_COMMIT_MESSAGE" value="界面功能" />
++  </component>
+   <component name="WindowStateProjectService">
+     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602580700433">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602580700433" />
++    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1603560030625">
++      <screen x="0" y="0" width="1536" height="824" />
++    </state>
++    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1603560030625" />
+     <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1602579496169">
+       <screen x="0" y="0" width="1920" height="1040" />
+     </state>
+     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602579496169" />
+-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1602581180720">
+-      <screen x="0" y="0" width="1920" height="1040" />
++    <state width="1493" height="233" key="GridCell.Tab.0.bottom" timestamp="1603608316551">
++      <screen x="0" y="0" width="1536" height="824" />
+     </state>
++    <state width="1493" height="233" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603608316551" />
+     <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602581180720" />
+-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1602581180720">
+-      <screen x="0" y="0" width="1920" height="1040" />
++    <state width="1493" height="233" key="GridCell.Tab.0.center" timestamp="1603608316546">
++      <screen x="0" y="0" width="1536" height="824" />
+     </state>
++    <state width="1493" height="233" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603608316546" />
+     <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602581180720" />
+-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1602581180719">
+-      <screen x="0" y="0" width="1920" height="1040" />
++    <state width="1493" height="233" key="GridCell.Tab.0.left" timestamp="1603608316546">
++      <screen x="0" y="0" width="1536" height="824" />
+     </state>
++    <state width="1493" height="233" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603608316546" />
+     <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602581180719" />
+-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1602581180720">
+-      <screen x="0" y="0" width="1920" height="1040" />
++    <state width="1493" height="233" key="GridCell.Tab.0.right" timestamp="1603608316546">
++      <screen x="0" y="0" width="1536" height="824" />
+     </state>
++    <state width="1493" height="233" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603608316546" />
+     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602581180720" />
++    <state x="573" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1603608590337">
++      <screen x="0" y="0" width="1536" height="824" />
++    </state>
++    <state x="573" y="325" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1603608590337" />
++    <state x="425" y="187" key="run.anything.popup" timestamp="1603566014676">
++      <screen x="0" y="0" width="1536" height="824" />
++    </state>
++    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1603566014676" />
++    <state x="0" y="0" key="search.everywhere.popup" timestamp="1603562694072">
++      <screen x="0" y="0" width="1536" height="824" />
++    </state>
++    <state x="0" y="0" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1603562694072" />
+   </component>
+ </project>
+\ No newline at end of file

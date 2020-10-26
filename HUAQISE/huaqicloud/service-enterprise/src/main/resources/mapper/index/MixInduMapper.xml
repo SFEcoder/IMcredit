@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.enterprise.dao.index.MixInduMapper">
+    <insert id="insertMixIndu" parameterType="com.example.enterprise.po.index.integrate.MixIndustry">
+        insert into mixindustry(enterprise_id,system_manage_level,test_data_rate,tracking_oforders,
+                                online_purchasing_rate,monitoring_coverage,auto_instruction_content,collection_of_energy_data,environmental_management,info_exchange_and_sharing,
+                                value_network_collaboration,green_development,social_contribution,information_investment,
+                                equipment_assets,organizational_model,informatization_plan_implementation,
+                                material_requirements,business_scope,equipment_management,hr_management,industrial_software_innovation
+        )
+        values(#{enterprise_id},#{system_manage_level},#{test_data_rate},#{tracking_oforders},#{online_purchasing_rate},#{monitoring_coverage},
+               #{auto_instruction_content},#{collection_of_energy_data},#{environmental_management},#{info_exchange_and_sharing},#{value_network_collaboration},
+               #{green_development},#{social_contribution},#{information_investment},#{equipment_assets},#{organizational_model},
+               #{informatization_plan_implementation},#{material_requirements},#{business_scope},#{equipment_management},
+               #{hr_management},#{industrial_software_innovation})
+    </insert>
+
+    <select id="getMixIndByEpId" resultType="com.example.enterprise.po.index.integrate.MixIndustry">
+        select * from mixindustry where enterprise_id=#{enterprise_id}
+    </select>
+
+    <select id="getAllMixInd" resultType="com.example.enterprise.po.index.integrate.MixIndustry">
+        select * from mixindustry
+    </select>
+
+    <delete id="deleteDiverById">
+        delete from mixindustry where enterprise_id = #{id}
+    </delete>
+</mapper>

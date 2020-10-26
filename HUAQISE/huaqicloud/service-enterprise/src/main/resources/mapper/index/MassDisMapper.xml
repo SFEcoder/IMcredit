@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.enterprise.dao.index.MassDisMapper">
+    <insert id="insertMassDis" parameterType="com.example.enterprise.po.index.integrate.MassDiscrete">
+        insert into massdiscrete(enterprise_id,on_time_delivery_rate,system_manage_level,emergency_response,
+                                 budget_management,auto_instruction_content,environmental_management,energy_management,social_contribution,business_collaboration,
+                                 value_network_collaboration,tracking_and_feedback,organizational_model,maintenance_investment,
+                                 plan_implementation,decision_support,equipment_management,hr_management)
+        values(#{enterprise_id},#{on_time_delivery_rate},#{system_manage_level},#{emergency_response},#{budget_management},
+               #{auto_instruction_content},#{environmental_management},#{energy_management},#{social_contribution},#{business_collaboration},
+               #{value_network_collaboration},#{tracking_and_feedback},#{organizational_model},#{maintenance_investment},#{plan_implementation},
+               #{decision_support},#{equipment_management},#{hr_management})
+    </insert>
+
+    <select id="getMassDisByEpId" resultType="com.example.enterprise.po.index.integrate.MassDiscrete">
+        select * from massdiscrete where enterprise_id=#{enterprise_id}
+    </select>
+
+    <select id="getAllMassDis" resultType="com.example.enterprise.po.index.integrate.MassDiscrete">
+        select * from massdiscrete
+    </select>
+
+    <delete id="deleteDiverById">
+        delete from massdiscrete where enterprise_id = #{id}
+    </delete>
+</mapper>

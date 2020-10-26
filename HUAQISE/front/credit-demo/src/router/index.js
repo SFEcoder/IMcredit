@@ -2,7 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Login from '../views/login.vue'
 import Home from '../views/home.vue'
-
+import UserInfo from '../views/userinfo'
+import ChangePersonInfo from "@/views/ChangePersonInfo"
+import ChangeCompanyInfo from  "@/views/ChangeCompanyInfo"
 Vue.use(VueRouter)
 const routes = [
     {
@@ -16,8 +18,15 @@ const routes = [
         component: Home
     },
     {
-        path: '/',
-        redirect: '/home'
+        path: '/ChangeCompanyInfo',
+        name: 'ChangeCompanyInfo',
+        component: ChangeCompanyInfo
+
+    },
+    {
+        path: '/ChangePersonInfo',
+        name: 'ChangePersonInfo',
+        component: ChangePersonInfo
     },
     {
         path: '/NJUSE',

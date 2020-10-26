@@ -140,7 +140,7 @@ public class FinRank {
     public static List<Double> getFinanceDisplay(List<Double> list){
         List<Double> relist = new ArrayList<>();
         for (int i=0; i<list.size(); i++){
-            relist.add(Calculation.minMaxScore(list.get(i), list));
+            relist.add(100 * Calculation.minMaxScore(list.get(i), list));
         }
         return relist;
     }

@@ -77,4 +77,19 @@ public class Enterprise implements Serializable {
      */
     private String ePhoto;
 
+    /**
+     * 财务指标评分
+     */
+    private Double financialScore;
+
+    /**
+     * 两化指标评分
+     */
+    private Double diverScore;
+
+    /**
+     * 总信用得分
+     */
+    private  Double totalScore;
+
 }
