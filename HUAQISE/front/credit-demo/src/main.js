@@ -19,6 +19,7 @@ miniToastr.init()
 miniToastr.setIcon('error', 'i', {
     'class': 'fa fa-times'
 });
+miniToastr.setIcon('info', 'i', { 'class' : 'fa fa-file'})
 miniToastr.setIcon('success', 'i', {
     'class': 'fa fa-check'
 });
