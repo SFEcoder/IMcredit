@@ -41,7 +41,7 @@
 
                         <!--                        企业评级公式的图片-->
                         <a :href="element.ePhoto" class="text_color">
-                            <img style="height:250px; width: 250px" :src="element.ePhoto"
+                            <img style="height:250px; width: 250px" :src="element.license"
                                  class="img-fluid rounded-circle" alt="image missing">
                         </a>
                         <!--                        企业评级公式的图片-->
@@ -178,6 +178,7 @@
             }
         },
         mounted() {
+
           this.get_display_list()
           baguetteBox.run('#isotope'); //点击查看大图
 

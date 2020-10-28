@@ -1117,8 +1117,8 @@
 <script>
 import {mapGetters, mapMutations, mapActions} from 'vuex'
 import miniToastr from 'mini-toastr'
-import slide_marks from "./slider_mark";
-import items_to_check from "@/views/credit/evaluate/integration_indicators_items_to_check";
+import slide_marks from "./static_values_used/slider_mark";
+import items_to_check from "@/views/credit/evaluate/static_values_used/integration_indicators_items_to_check";
 
 export default {
   name: "integration_indicators_vue",

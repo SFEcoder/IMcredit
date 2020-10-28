@@ -7,6 +7,7 @@ import com.example.enterprise.dao.index.*;
 import com.example.enterprise.po.Enterprise;
 import com.example.enterprise.po.index.financial.FinancialIndex;
 import com.example.enterprise.po.index.integrate.*;
+import com.example.enterprise.vo.EnterpriseTarget;
 import com.example.enterprise.vo.EnterpriseVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,8 +38,10 @@ public class IndexServiceImpl implements IndexService {
     @Autowired
     FinanIndMapper finanIndMapper;
 
-    public Integer addEnterpriseTarget(Integer id, Double[] div, Double[] fin){
+    public Integer addEnterpriseTarget(Integer id, EnterpriseTarget enterpriseTarget){
 
+        Double[] div = enterpriseTarget.getDiv();
+        Double[] fin = enterpriseTarget.getFin();
         int effect = 0;
         switch (div.length) {
             case 17:
@@ -85,7 +88,8 @@ public class IndexServiceImpl implements IndexService {
 
         // 自动刷新Enterprise表中的三项分数
         enterpriseServiceImpl.updateTable(id);
-
+        //计算&刷新指标百分比
+        enterpriseServiceImpl.updatePercent(id);
         return 1;
     }
 
@@ -106,7 +110,8 @@ public class IndexServiceImpl implements IndexService {
 
         // 自动刷新Enterprise表中的三项分数
         enterpriseServiceImpl.updateTable(id);
-
+        //计算&刷新指标百分比
+        enterpriseServiceImpl.updatePercent(id);
         return 1;
     }
 
@@ -151,6 +156,8 @@ public class IndexServiceImpl implements IndexService {
 
         // 自动刷新Enterprise表中的三项分数
         enterpriseServiceImpl.updateTable(id);
+        //计算&刷新指标百分比
+        enterpriseServiceImpl.updatePercent(id);
 
         return 1;
     }
@@ -206,6 +213,12 @@ public class IndexServiceImpl implements IndexService {
         Double[][] re = {div, fin};
 
         return re;
+    }
+
+    public String[] getAnaly(Integer id){
+
+
+        return null;
     }
 
 }

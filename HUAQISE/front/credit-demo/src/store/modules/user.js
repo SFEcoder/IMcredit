@@ -99,7 +99,7 @@ const user = {//定义对象user
                     setToken(res.id)//从'@/utils/auth'中导入的方法
                     commit('set_userId' , res.id)
                     dispatch('getUserInfo')
-                    router.push('/credit/main')//mutations的方法用commit，actions的方法用dispatch
+                    router.push('/NJUSE')//mutations的方法用commit，actions的方法用dispatch
                 }
             }
 

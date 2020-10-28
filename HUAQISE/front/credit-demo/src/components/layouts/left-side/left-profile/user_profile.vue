@@ -27,7 +27,6 @@
             ])
         },
         mounted() {
-            console.log("用户肖像")
         }
     }
 </script>

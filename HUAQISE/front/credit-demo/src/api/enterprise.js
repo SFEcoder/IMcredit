@@ -192,10 +192,12 @@ export function get_enterprise_display_listAPI(){
 }
 
 export function search_enterprise_display_listAPI(key){
-    console.log(key)
     return axios({
-        url : `${api.enterprisePre}/search/${key}`,
-        method : "GET"
+        url : `${api.enterprisePre}/search`,
+        method : "GET",
+        params:{
+            key
+        }
     })
 }
 

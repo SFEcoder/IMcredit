@@ -12,13 +12,14 @@ export function upload_indexAPI(id, div, fin) {//上传指标
     console.log('div' , div)
     console.log('fin' , fin)
     return axios({
-        url: `${api.evaluatePre}/${id}/add_target`,
-        method: 'POST',
-        params: {
-            div : [1.1,1],
-            fin : [2,2.4]
+        url: `${api.evaluatePre}/11/add_target`,
+        method: 'post',
+        data: {
+            "div": [1.0, 2.0, 3.0],
+            "fin": [1.1]
         }
     })
+
 }
 
 export function get_enterprise_indexAPI(id){

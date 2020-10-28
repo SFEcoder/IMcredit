@@ -34,6 +34,11 @@ const routes = [
                 component: () => import('@/views/credit/display')
             },
             {
+                path : '/credit/report',
+                name:"评级报告",
+                component: () => import('@/views/credit/report')
+            },
+            {
                 path: '/user/info/:userId',
                 name: '个人信息',
                 component: () => import('@/views/user/info')

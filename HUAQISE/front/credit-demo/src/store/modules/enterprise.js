@@ -28,7 +28,7 @@ const enterprise = {
     actions: {
 
         get_display_list: async ({commit, state}) => {
-            const res = await get_enterprise_display_listAPI()
+            const res = await search_enterprise_display_listAPI("")
             if (res) {
                 commit('set_display_list', res)
             }
@@ -42,6 +42,7 @@ const enterprise = {
                 miniToastr.success("搜索成功")
             }
         }
+
 
     }
 

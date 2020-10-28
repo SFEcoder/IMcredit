@@ -349,7 +349,7 @@
 <script>
 import {mapGetters, mapMutations, mapActions} from 'vuex'
 import miniToastr from 'mini-toastr'
-import items_to_check from "@/views/credit/evaluate/financial_index_items_to_check";
+import items_to_check from "@/views/credit/evaluate/static_values_used/financial_index_items_to_check";
 
 export default {
   name: "integration_indicators_vue",

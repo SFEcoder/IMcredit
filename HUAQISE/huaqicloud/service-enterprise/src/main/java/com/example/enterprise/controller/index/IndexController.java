@@ -2,10 +2,13 @@ package com.example.enterprise.controller.index;
 
 import com.example.common.vo.ResponseVO;
 import com.example.enterprise.bl.index.IndexService;
+import com.example.enterprise.vo.EnterpriseTarget;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @Author: Owen
@@ -21,8 +24,8 @@ public class IndexController {
     IndexService indexService;
 
     @PostMapping("/{id}/add_target")
-    ResponseVO addEnterpriseTarget(@PathVariable Integer id, @RequestParam("div")Double[] div, @RequestParam("fin")Double[] fin) {
-        int effect = indexService.addEnterpriseTarget(id, div, fin);
+    ResponseVO addEnterpriseTarget(@PathVariable Integer id, @RequestBody EnterpriseTarget enterpriseTarget) {
+        int effect = indexService.addEnterpriseTarget(id, enterpriseTarget);
         if (effect > 0){
             return ResponseVO.buildSuccess("成功添加指标");
         }else{
