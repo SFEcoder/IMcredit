@@ -8,6 +8,10 @@ import ChangeCompanyInfo from  "@/views/ChangeCompanyInfo"
 Vue.use(VueRouter)
 const routes = [
     {
+        path: '/',
+        redirect : '/home'
+    },
+    {
         path: '/login',
         name: 'login',
         component: Login
@@ -39,6 +43,7 @@ const routes = [
                 name: 'ChangeCompanyInfo',
                 component: ChangeCompanyInfo
             },
+
             {
                 path: '/4',
                 name: 'ChangePersonInfo',

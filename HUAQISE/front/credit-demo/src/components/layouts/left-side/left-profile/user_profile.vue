@@ -3,8 +3,8 @@
         <div class="user_section">
             <div class="row">
                 <div class="col-12">
-                    <div class="img-wrapper"><img src="https://pic4.zhimg.com/80/v2-00196e71224b2e48ea7a2223a50f2bdd_1440w.jpg?source=1940ef5c" alt="user not found" class="rounded-circle"></div>
-                    <p class="mt-2 mb-1 user_name_max text-center">Chow yunthin</p>
+                    <div class="img-wrapper"><img :src="this.userInfo.avatarUrl" alt="user not found" class="rounded-circle"></div>
+                    <p class="mt-2 mb-1 user_name_max text-center">{{this.userInfo.username}}</p>
                 </div>
                 <div class="leftuser_icons col-12 compact_data">
                     <div class="row user_profile_btn_box">
@@ -16,6 +16,24 @@
         </div>
     </div>
 </template>
+
+<script>
+    import {mapGetters} from "vuex"
+    export default {
+        name : "user_profile_vue",
+        computed:{
+            ...mapGetters([
+                "userInfo"
+            ])
+        },
+        mounted() {
+            console.log("用户肖像")
+        }
+    }
+</script>
+
+
+
 <style scoped lang="scss">
 /*user section*/
 @import "../../css/customvariables";
@@ -44,7 +62,6 @@
     }
 }
 .user_name_max {
-    text-transform:uppercase;
     font-weight:700;
     max-width: 210px;
     white-space: nowrap;

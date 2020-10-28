@@ -1,8 +1,9 @@
 import { axios } from '@/utils/request'
 
 const api = {
-    evaluatePre:'/api/index'
+    evaluatePre:'/epservice/api/index'
 }
+
 
 
 
@@ -14,8 +15,8 @@ export function upload_indexAPI(id, div, fin) {//上传指标
         url: `${api.evaluatePre}/${id}/add_target`,
         method: 'POST',
         params: {
-            div : div,
-            fin : fin
+            div : [1.1,1],
+            fin : [2,2.4]
         }
     })
 }

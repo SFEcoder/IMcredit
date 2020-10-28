@@ -312,6 +312,7 @@
 
 <script>
     import { message } from 'ant-design-vue'
+    import router from '@/router'
     import Identify from '../components/SIdentify.vue'
     import {mapActions, mapGetters} from "vuex";
 
@@ -367,6 +368,12 @@
         mounted() {
             this.identifyCode = ''
             this.makeCode(this.identifyCodes, 4)
+
+            $(function () {
+                $('.toHide').hide()
+                $('.toHideHeader').hide()
+            })
+
         },
 
         watch: {
@@ -396,7 +403,7 @@
                 file.preview = getBase64(file.originFileObj)
                 const formData = new FormData()
                 formData.append('file', file.file)
-                console.log(formData)
+                // console.log(formData)
                 this.uploadADImg(formData)
             },
 
@@ -420,7 +427,7 @@
             },
             handlePasswordCheck (rule, value, callback) {
                 const password = this.form.getFieldValue('registerPassword')
-                console.log(password)
+                // console.log(password)
                 if (value === undefined) {
                     callback(new Error('请输入密码'))
                 }
@@ -447,7 +454,7 @@
                             password: this.form.getFieldValue("password"),
                             ispersonal:this.personal
                         }
-                        console.log(data)
+                        // console.log(data)
                         await this.login(data)
                         this.loginLoading = false
                     }
@@ -469,7 +476,7 @@
                                 username: this.form.getFieldValue('registerUsername'),
                                 userType: "0"
                             }
-                            console.log(data)
+                            // console.log(data)
                             await this.register(data).then(() => {
                                 this.form.setFieldsValue({
                                     'registerUserMail': '',
@@ -488,7 +495,7 @@
                                 license:this.Url,
                                 userType:'1'
                             }
-                            console.log(data)
+                            // console.log(data)
                             await this.register(data).then(() => {
                                 this.Url=''
                                 this.form.setFieldsValue({
@@ -539,7 +546,7 @@
                         this.randomNum(0, this.identifyCodes.length)
                         ]
                 }
-                console.log(this.identifyCode)
+                // console.log(this.identifyCode)
             }
 
         }
