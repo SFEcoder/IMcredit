@@ -9,6 +9,7 @@ const getters = {
     enterprise_evaluate_type : state => state.evaluate_process.enterprise_evaluate_type,
     integration_indicators : state => state.evaluate_process.integration_indicators,
     financial_index : state => state.evaluate_process.financial_index,
+    report_list : state => state.evaluate_process.report_list,
     // 企业信息 enterprise
     display_list : state => state.enterprise.display_list,
 

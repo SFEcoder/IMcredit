@@ -1,7 +1,8 @@
 import router from '@/router'
 import {message} from "ant-design-vue";
 import {
-    upload_indexAPI
+    upload_indexAPI,
+    get_enterprise_reportAPI
 }from '@/api/evaluate'
 const getDefaultState = () => {
     return {
@@ -85,6 +86,7 @@ const getDefaultState = () => {
             ebit_rev : 0,
             industry_prosperity : 0
         },
+        report_list:[]
     }
 }
 import user from "@/store/modules/user";
@@ -104,6 +106,9 @@ const evaluate_process = {
         },
         set_financial_index : function(state, new_financial_index){
             state.financial_index = {...new_financial_index}
+        },
+        set_report_list : function (state, report_list) {
+            state.report_list = report_list
         }
     },
 
@@ -261,7 +266,12 @@ const evaluate_process = {
                 console.log('上传完毕')
             }
         } ,
-
+        get_enterprise_report_text : async ({state, commit}) =>{
+            const res = await get_enterprise_reportAPI()
+            if (res){
+                commit("set_report_list", res)
+            }
+        }
     }
 }
 
