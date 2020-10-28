@@ -2,6 +2,7 @@ package com.example.enterprise.dao.index;
 
 import com.example.enterprise.po.index.integrate.ServeIndustry;
 import com.example.enterprise.po.index.integrate.SmeDiscrete;
+import com.example.enterprise.po.index.integrate.SmePercent;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -37,8 +38,24 @@ public interface SmeDisMapper {
     List<SmeDiscrete> getAllSmeDis();
 
     /**
+     * @param enterprise_id
+     * @return
+     */
+    SmePercent getPercentByEpId(@Param("enterprise_id")Integer enterprise_id);
+
+    /**
+     * @return
+     */
+    List<SmePercent> getAllPercent();
+
+    /**
      * 删除表中指定元素
      * @param id
      * */
     int deleteDiverById(@Param("id") Integer id);
+
+    /**
+     * 插入指标百分比
+     * */
+    int updateSmePercent(SmePercent smePercent);
 }

@@ -3,10 +3,13 @@ package com.example.enterprise.controller.index;
 import com.example.common.constant.AesKey;
 import com.example.common.utils.AesUtil;
 import com.example.common.vo.ResponseVO;
+import com.example.enterprise.vo.EnterpriseTarget;
 import com.example.enterprise.dao.index.FinanIndMapper;
 import com.example.enterprise.dao.index.MassDisMapper;
 import com.example.enterprise.po.index.financial.FinancialIndex;
 import com.example.enterprise.po.index.integrate.MassDiscrete;
+import com.example.enterprise.vo.EnterpriseTarget;
+import com.example.enterprise.vo.TargetObject;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -47,13 +50,14 @@ public class IndexControllerTest {
     }
 
     @Test
-    @Transactional
-    @Rollback
+//    @Transactional
+//    @Rollback
     public void addEnterpriseTarget() {
         Double[] fin = {4.0,0.52,2.0,2.5,0.5,2.0,0.05,0.5,1.0,1.0,0.3,0.1,0.5,166.0,2.0,3.0,55.0,1.0};
         Double[] div = {95.0,3.0,1.0,-2.0,1.0,0.0,1.0,30.92,2.0,1.0,1.0,8.0,2.0,1.0,2.0,3.0,2.0};
 
-        ResponseVO rv = indexController.addEnterpriseTarget(1, div, fin);
+        EnterpriseTarget enterpriseTarget = new EnterpriseTarget(div, fin);
+        ResponseVO rv = indexController.addEnterpriseTarget(1, enterpriseTarget);
         Assert.assertEquals(true, rv.getSuccess());
     }
 
@@ -64,7 +68,8 @@ public class IndexControllerTest {
 //      Double[] fin = {3.0,0.51,2.0,2.5,0.5,2.0,0.05,0.5,1.0,1.0,0.3,0.1,0.5,166.0,2.0,3.0,55.0,1.0};
         Double[] fin = {0.0,0.51,2.0,2.5,0.5,2.0,0.05,0.5,1.0,1.0,0.3,0.1,0.5,166.0,2.0,3.0,55.0,1.0};
 
-        ResponseVO rv = indexController.updateEnterpriseFinanTarget(2, fin);
+        TargetObject targetObject = new TargetObject(fin);
+        ResponseVO rv = indexController.updateEnterpriseFinanTarget(2, targetObject);
         FinancialIndex fi = finanIndMapper.getFinanByEpId(2);
 
         Assert.assertEquals(true, rv.getSuccess());
@@ -79,7 +84,8 @@ public class IndexControllerTest {
 //      Double[] div = {100.0,4.0,2.0,-5.0,5.0,3.0,3.0,39.43,9.0,1.0,5.0,65.0,3.0,1.0,4.0,4.0,4.0};
         Double[] div = {50.0,4.0,2.0,-5.0,5.0,3.0,3.0,39.43,9.0,1.0,5.0,65.0,3.0,1.0,4.0,4.0,4.0};
 
-        ResponseVO rv = indexController.updateEnterpriseDiverTarget(2, div);
+        TargetObject targetObject = new TargetObject(div);
+        ResponseVO rv = indexController.updateEnterpriseDiverTarget(2, targetObject);
         MassDiscrete md = massDisMapper.getMassDisByEpId(2);
 
         Assert.assertEquals(true, rv.getSuccess());
@@ -91,7 +97,7 @@ public class IndexControllerTest {
     @Rollback
     public void getEnterpriseTarget() {
 
-        ResponseVO responseVO = indexController.getEnterpriseTarget(1);
+        ResponseVO responseVO = indexController.getEnterpriseTarget(2);
 
         System.out.println(responseVO.getContent());
 

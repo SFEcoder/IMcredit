@@ -1,6 +1,7 @@
 package com.example.enterprise.dao.index;
 
 import com.example.enterprise.po.index.financial.FinancialIndex;
+import com.example.enterprise.po.index.financial.FinancialPercent;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -41,4 +42,23 @@ public interface FinanIndMapper {
      * @param id
      * */
     int deleteFinanById(@Param("id")Integer id);
+
+    /**
+     * 添加指标百分比
+     * @param financialPercent
+     * */
+    int updateFinanPercent(FinancialPercent financialPercent);
+
+    /**
+     * 根据企业id获得百分比
+     * @param enterprise_id
+     * @return
+     */
+    FinancialPercent getPercentByEpId(@Param("enterprise_id")Integer enterprise_id);
+
+    /**
+     * 获取所有的经济百分比
+     * @return
+     */
+    List<FinancialPercent> getAllPercent();
 }

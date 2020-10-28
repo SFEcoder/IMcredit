@@ -16,11 +16,32 @@
                #{research_development},#{business_scope},#{equipment_management},#{hr_management},#{industrial_software_innovation},#{output_value})
     </insert>
 
+    <update id="updateProcPercent" parameterType="com.example.enterprise.po.index.integrate.ProcPercent">
+        update procindustry set system_manage_level_p=#{system_manage_level},budget_management_p=#{budget_management},auto_upload_info_range_p=#{auto_upload_info_range},
+                                auto_instruction_content_p=#{auto_instruction_content},auto_information_coverage_p=#{auto_information_coverage},
+                                auto_instruction_situation_p=#{auto_instruction_situation},integrated_management_cover_p=#{integrated_management_cover},
+                                online_purchasing_rate_p=#{online_purchasing_rate},min_scheduling_unit_p=#{min_scheduling_unit},energy_management_p=#{energy_management},
+                                social_contribution_p=#{social_contribution},business_collaboration_p=#{business_collaboration},info_exchange_and_sharing_p=#{info_exchange_and_sharing},
+                                value_network_collaboration_p=#{value_network_collaboration},green_development_p=#{green_development},maintenance_investment_p=#{maintenance_investment},
+                                organizational_model_p=#{organizational_model},plan_implementation_p=#{plan_implementation},material_requirements_p=#{material_requirements},research_development_p=#{research_development},
+                                business_scope_p=#{business_scope},equipment_management_p=#{equipment_management},hr_management_p=#{hr_management},
+                                industrial_software_innovation_p=#{industrial_software_innovation},output_value_p=#{output_value}
+        where enterprise_id = #{enterprise_id}
+    </update>
+
     <select id="getProcByEpId" resultType="com.example.enterprise.po.index.integrate.ProcIndustry">
         select * from procindustry where enterprise_id=#{enterprise_id}
     </select>
 
     <select id="getAllProcInd" resultType="com.example.enterprise.po.index.integrate.ProcIndustry">
+        select * from procindustry
+    </select>
+
+    <select id="getPercentByEpId" resultType="com.example.enterprise.po.index.integrate.ProcPercent">
+        select * from procindustry where enterprise_id=#{enterprise_id}
+    </select>
+
+    <select id="getAllPercent" resultType="com.example.enterprise.po.index.integrate.ProcPercent">
         select * from procindustry
     </select>
 

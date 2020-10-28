@@ -18,7 +18,7 @@ public class DivRank {
     public static final Integer[] index1 = {0,5,11,12};
     public static final Integer[] index2 = {0,9,15,16,24};
     public static final Integer[] index3 = {0,7,13,16,24};
-    public static final Integer[] index4 = {0,7,12};
+    public static final Integer[] index4 = {0,7,10,12};
     public static final Integer[] index5 = {0,6,12,14};
 
     public static List<Double> getDivergenceScore(List<List<Double>> list, int type){

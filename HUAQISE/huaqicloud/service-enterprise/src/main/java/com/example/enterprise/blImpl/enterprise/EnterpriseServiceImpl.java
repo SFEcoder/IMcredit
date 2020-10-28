@@ -9,6 +9,7 @@ import com.example.enterprise.dao.enterprise.EnterpriseMapper;
 import com.example.enterprise.dao.index.*;
 import com.example.enterprise.po.Enterprise;
 import com.example.enterprise.po.index.financial.FinancialIndex;
+import com.example.enterprise.po.index.financial.FinancialPercent;
 import com.example.enterprise.po.index.integrate.*;
 import com.example.enterprise.vo.EnterpriseForm;
 import com.example.enterprise.vo.EnterpriseVO;
@@ -18,6 +19,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -138,7 +141,7 @@ public class EnterpriseServiceImpl implements EnterpriseService {
     }
 
     /**
-     * @Description 更新同类型企业表中所有评分
+     * @Description 更新同类型企业表中所有评分，百分比
      * */
     public void updateTable(Integer id){
         Enterprise e = enterpriseMapper.getEnterpriseById(id);
@@ -157,6 +160,7 @@ public class EnterpriseServiceImpl implements EnterpriseService {
         List<Double> finList = new ArrayList<>();
         List<Double> finalList = new ArrayList<>();
 
+        // get data
         switch (type){
             case 1:
                 List<MassDiscrete> md = massDisMapper.getAllMassDis();
@@ -202,6 +206,7 @@ public class EnterpriseServiceImpl implements EnterpriseService {
             fin.add(tmpFin.get(i).getList());
         }
 
+        // Calculation
         Process p = new Process();
         divList = p.getDiverScore(div, type);
         finList = p.getFinanScore(fin);
@@ -219,5 +224,186 @@ public class EnterpriseServiceImpl implements EnterpriseService {
             ep.setTotalScore(finalList.get(i));
             enterpriseMapper.updateEnterprise(ep);
         }
+    }
+
+    /**
+     * @param id
+     * @Description 计算指标百分比
+     * @return 返回百分比List
+     * */
+    public void updatePercent(Integer id){
+
+        Enterprise e = enterpriseMapper.getEnterpriseById(id);
+        int type = e.getType();
+
+        Double percent;
+        List<Double> percentList = new ArrayList<>();
+        List<Double> tmpList = new ArrayList<>();
+
+        List<List<Double>> fin = new ArrayList<>();
+        List<Integer> fid = new ArrayList<>();
+        List<List<Double>> div = new ArrayList<>();
+        List<Integer> did = new ArrayList<>();
+
+        // 指标都存在
+        // 每一行处理百分比，存进去
+
+        List<FinancialIndex> financialIndexList = finanIndMapper.getAllFinInd();
+
+        for (int i=0; i<financialIndexList.size(); i++){
+            fin.add(financialIndexList.get(i).getList());
+            fid.add(financialIndexList.get(i).getEnterprise_id());
+        }
+
+        for (int i=0; i<fin.size(); i++){
+            for (int j=0; j<fin.get(i).size(); j++){
+
+                for (int k=0; k<fin.size(); k++){
+                    tmpList.add(fin.get(k).get(j));
+                }
+                percent = getPercent(tmpList, i);
+                percentList.add(percent);
+                tmpList = new ArrayList<>();
+            }
+            Double[] tmp = new Double[percentList.size()];
+            percentList.toArray(tmp);
+            finanIndMapper.updateFinanPercent(new FinancialPercent(fid.get(i), tmp));
+            percentList = new ArrayList<>();
+        }
+
+        switch (type){
+            case 1:
+                List<MassDiscrete> md = massDisMapper.getAllMassDis();
+                for (int i=0; i<md.size(); i++){
+                    did.add(md.get(i).getEnterprise_id());
+                    div.add(md.get(i).getList());
+                }
+                for (int i=0; i<div.size(); i++){
+                    for (int j=0; j<div.get(i).size(); j++){
+
+                        for (int k=0; k<div.size(); k++){
+                            tmpList.add(div.get(k).get(j));
+                        }
+                        percent = getPercent(tmpList, i);
+                        percentList.add(percent);
+                        tmpList = new ArrayList<>();
+                    }
+                    Double[] tmp = new Double[percentList.size()];
+                    percentList.toArray(tmp);
+                    massDisMapper.updateMassPercent(new MassPercent(did.get(i), tmp));
+                    percentList = new ArrayList<>();
+                }
+                break;
+            case 2:
+                List<ProcIndustry> pi = procInduMapper.getAllProcInd();
+                for (int i=0; i<pi.size(); i++){
+                    did.add(pi.get(i).getEnterprise_id());
+                    div.add(pi.get(i).getList());
+                }
+                for (int i=0; i<div.size(); i++){
+                    for (int j=0; j<div.get(i).size(); j++){
+
+                        for (int k=0; k<div.size(); k++){
+                            tmpList.add(div.get(k).get(j));
+                        }
+                        percent = getPercent(tmpList, i);
+                        percentList.add(percent);
+                        tmpList = new ArrayList<>();
+                    }
+                    Double[] tmp = new Double[percentList.size()];
+                    percentList.toArray(tmp);
+                    procInduMapper.updateProcPercent(new ProcPercent(did.get(i), tmp));
+                    percentList = new ArrayList<>();
+                }
+                break;
+            case 3:
+                List<SmeDiscrete> sd = smeDisMapper.getAllSmeDis();
+                for (int i=0; i<sd.size(); i++){
+                    did.add(sd.get(i).getEnterprise_id());
+                    div.add(sd.get(i).getList());
+                }
+                for (int i=0; i<div.size(); i++){
+                    for (int j=0; j<div.get(i).size(); j++){
+
+                        for (int k=0; k<div.size(); k++){
+                            tmpList.add(div.get(k).get(j));
+                        }
+                        percent = getPercent(tmpList, i);
+                        percentList.add(percent);
+                        tmpList = new ArrayList<>();
+                    }
+                    Double[] tmp = new Double[percentList.size()];
+                    percentList.toArray(tmp);
+                    smeDisMapper.updateSmePercent(new SmePercent(did.get(i), tmp));
+                    percentList = new ArrayList<>();
+                }
+                break;
+            case 4:
+                List<ServeIndustry> si = servInduMapper.getAllSerInd();
+                for (int i=0; i<si.size(); i++){
+                    did.add(si.get(i).getEnterprise_id());
+                    div.add(si.get(i).getList());
+                }
+                for (int i=0; i<div.size(); i++){
+                    for (int j=0; j<div.get(i).size(); j++){
+
+                        for (int k=0; k<div.size(); k++){
+                            tmpList.add(div.get(k).get(j));
+                        }
+                        percent = getPercent(tmpList, i);
+                        percentList.add(percent);
+                        tmpList = new ArrayList<>();
+                    }
+                    Double[] tmp = new Double[percentList.size()];
+                    percentList.toArray(tmp);
+                    servInduMapper.updateServPercent(new ServePercent(did.get(i), tmp));
+                    percentList = new ArrayList<>();
+                }
+                break;
+            case 5:
+                List<MixIndustry> mi = mixInduMapper.getAllMixInd();
+                for (int i=0; i<mi.size(); i++){
+                    did.add(mi.get(i).getEnterprise_id());
+                    div.add(mi.get(i).getList());
+                }
+                for (int i=0; i<div.size(); i++){
+                    for (int j=0; j<div.get(i).size(); j++){
+
+                        for (int k=0; k<div.size(); k++){
+                            tmpList.add(div.get(k).get(j));
+                        }
+                        percent = getPercent(tmpList, i);
+                        percentList.add(percent);
+                        tmpList = new ArrayList<>();
+                    }
+                    Double[] tmp = new Double[percentList.size()];
+                    percentList.toArray(tmp);
+                    mixInduMapper.updateMixPercent(new MixPercent(did.get(i), tmp));
+                    percentList = new ArrayList<>();
+                }
+                break;
+            default:
+                System.out.println("Error Type!");
+                return;
+        }
+    }
+
+    /**
+     * @param list, id
+     * @return 百分比
+     * */
+    public Double getPercent(List<Double> list, Integer index){
+
+        double tmp, percent;
+        tmp = list.get(index);
+
+        // 降序排序
+        Comparator<Double> reverseComparator = Collections.reverseOrder();
+        Collections.sort(list, reverseComparator);
+
+        Double d = (double)list.indexOf(tmp) + 1;  //加1方便计算
+        percent = (d / (double)list.size()) * 100;  // 返回的是xx%中的xx
+
+        return percent;
     }
 }
