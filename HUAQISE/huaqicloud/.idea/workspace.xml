@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -23,19 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e4229e71-5ad3-4d18-bd90-b202f45cdf02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../front/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/credit-demo/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/common/common.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eurake-server/eurake-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/eurake-server/eurake-server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/service-enterprise.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/target/classes/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/service-user.iml" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/service-user.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-gateway/zuul-gateway.iml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-gateway/zuul-gateway.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-gateway/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +143,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -205,7 +190,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="fix" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -217,102 +214,17 @@
     <option name="LAST_COMMIT_MESSAGE" value="feat: 后端企业用户业务，rsa&amp;aes加密utils，sql文件添加企业表" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="440" y="94" key="#Project_Structure" timestamp="1602585185293">
+    <state x="704" y="239" key="RollbackChangesDialog" timestamp="1614254909395">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1602585185293" />
-    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1602432081329">
+    <state x="704" y="239" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614254909395" />
+    <state x="669" y="306" key="git4idea.merge.GitPullDialog" timestamp="1614254827182">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1602432081329" />
-    <state x="1096" y="446" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1601880027125">
+    <state x="669" y="306" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614254827182" />
+    <state x="769" y="413" key="git4idea.ui.GitResetDialog" timestamp="1614254951103">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1096" y="446" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601880027125" />
-    <state x="143" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1602555621511">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="143" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602555621511" />
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602585099180">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602585099180" />
-    <state x="416" y="81" key="CommitChangelistDialog2" timestamp="1602491148526">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="416" y="81" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1602491148526" />
-    <state x="184" y="85" key="DiffContextDialog" timestamp="1602490994618">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="184" y="85" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602490994618" />
-    <state x="592" y="218" key="FileChooserDialogImpl" timestamp="1603206479197">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="592" y="218" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603206479197" />
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602585899950" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1603205166812">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603205166812" />
-    <state width="1877" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602585903121" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1603205166811">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603205166811" />
-    <state width="1877" height="275" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602585903121" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1603205166810">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603205166810" />
-    <state width="1877" height="275" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602585903121" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1603205166812">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603205166812" />
-    <state width="1877" height="275" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602585903121" />
-    <state width="1493" height="210" key="GridCell.Tab.1.bottom" timestamp="1603205166813">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603205166813" />
-    <state width="1877" height="275" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602585903121" />
-    <state width="1493" height="210" key="GridCell.Tab.1.center" timestamp="1603205166812">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1603205166812" />
-    <state width="1877" height="275" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602585903121" />
-    <state width="1493" height="210" key="GridCell.Tab.1.left" timestamp="1603205166812">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1603205166812" />
-    <state width="1877" height="275" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602585903121" />
-    <state width="1493" height="210" key="GridCell.Tab.1.right" timestamp="1603205166813">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1603205166813" />
-    <state width="1877" height="275" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602585903121" />
-    <state x="652" y="207" key="Maven.ArtifactSearchDialog" timestamp="1601885268549">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="652" y="207" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601885268549" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1601877837092">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1601877837092" />
-    <state x="753" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602491135012">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="753" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602491135012" />
-    <state x="669" y="306" key="git4idea.merge.GitPullDialog" timestamp="1602491157317">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="669" y="306" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602491157317" />
-    <state x="334" y="180" key="new project wizard" timestamp="1602415548709">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="334" y="180" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1602415548709" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602485505053">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602485505053" />
+    <state x="769" y="413" key="git4idea.ui.GitResetDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1614254951103" />
   </component>
 </project>

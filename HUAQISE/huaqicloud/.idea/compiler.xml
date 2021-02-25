@@ -13,6 +13,9 @@
         <module name="service-user" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="service-auth" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">

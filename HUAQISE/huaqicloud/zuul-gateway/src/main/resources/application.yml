@@ -6,10 +6,27 @@ spring:
     name: microservice-gateway-zuul
 zuul:
   routes:
-    service-user: /userservice/**
-    service-enterprise: /epservice/**
-
+    service-user:
+      path: /userservice/**
+      sensitiveHeaders:
+    service-enterprise:
+      path: /epservice/**
+      sensitiveHeaders:
+    service-auth:
+      path: /uaa/**
+      stripPrefix: false
+      sensitiveHeaders:
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:8761/eureka/
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://localhost:8002/users/current
+    client:
+      id: client_2
+      client-secret: 123456
+      access-token-uri: http://localhost:8002/oauth/token
+      grant-type: client_credentials,password
+      scope: server
