@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.user.data.user.UserMapper">
     <insert id="createNewUser" parameterType="com.example.user.po.User" useGeneratedKeys="true" keyProperty="id">
-        insert into User(email,password,username,phonenumber,usertype,avatarurl)
-        values(#{email},#{password},#{username},#{phoneNumber},#{userType},#{avatarUrl})
+        insert into User(email,password,username,phonenumber,avatarurl)
+        values(#{email},#{password},#{username},#{phoneNumber},#{avatarUrl})
     </insert>
 
     <select id="getUserByEmail" resultMap="User">
@@ -14,12 +14,16 @@
         select * from User where id=#{id}
     </select>
 
+    <select id="getUserNum" resultType="int">
+        select count(*)from User
+    </select>
+
     <delete id="deleteUserById">
         delete from User where id = #{id}
     </delete>
 
     <update id="updateUser" parameterType="com.example.user.po.User">
-        update USER set password = #{password},phonenumber=#{phoneNumber},username=#{username} where id=#{id}
+        update USER set avatarurl = ifnull(#{avatarUrl},avatarurl),password = ifnull(#{password},password),phonenumber=ifnull(#{phoneNumber},phonenumber),username=ifnull(#{username},username) where id=#{id}
     </update>
 
     <resultMap id="User" type="com.example.user.po.User">

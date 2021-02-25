@@ -1,17 +1,20 @@
 package com.example.common.calculation;
 
+import com.example.common.calculation.Target.FinTarget.FinanceTarget;
+
 import java.util.ArrayList;
 import java.util.List;
-import com.example.common.calculation.enumType.finType;
 
 /**
  * @Author: Owen
- * @Date: 2020/10/20 22:59
- * @Description: 财务评分
+ * @Date: 2021/2/15 20:44
+ * @Description:
  */
 public class FinRank {
 
     public static List<Double> getFinanceScore(List<List<Double>> list){
+
+        FinanceTarget financeTarget = new FinanceTarget();
 
         // 中间结果
         List<Double> afterMMList = new ArrayList<>();        // 公司的各项指标（做过min_max）
@@ -40,9 +43,10 @@ public class FinRank {
 
         for (int a=0; a<firstList.size(); a++){
             int counter = 0;
-            for (int i=0; i<finType.A.getTwoToOne().length; i++){
+
+            for (int i=0; i<financeTarget.getRowsCols().length; i++){
                 double sum = 0;
-                for (int j=0; j<finType.A.getTwoToOne()[i]; j++){
+                for (int j=0; j<financeTarget.getRowsCols()[i]; j++){
                     sum += firstList.get(a).get(counter);
                     counter++;
                 }
@@ -86,6 +90,8 @@ public class FinRank {
     }
 
     public static List<List<Double>> getFinanceTopTarget(List<List<Double>> list){
+
+        FinanceTarget financeTarget = new FinanceTarget();
         // 中间结果
         List<Double> afterMMList = new ArrayList<>();        // 公司的各项指标（做过min_max）
         List<List<Double>> firstList = new ArrayList<>();    // 中间结果 1 （全部公司）
@@ -110,9 +116,9 @@ public class FinRank {
 
         for (int a=0; a<firstList.size(); a++){
             int counter = 0;
-            for (int i=0; i<finType.A.getTwoToOne().length; i++){
+            for (int i=0; i<financeTarget.getRowsCols().length; i++){
                 double sum = 0;
-                for (int j=0; j<finType.A.getTwoToOne()[i]; j++){
+                for (int j=0; j<financeTarget.getRowsCols()[i]; j++){
                     sum += firstList.get(a).get(counter);
                     counter++;
                 }

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.enterprise.dao.index.SmeDisMapper">
+    <insert id="insertSmeDis" parameterType="com.example.enterprise.po.index.integrate.SmeDiscrete">
+        insert into smediscrete(enterprise_id,system_manage_level,financial_system_monitor_sales,auto_instruction_content,
+                                upload_info_specification,info_qua_coverage_area,info_qua_function,info_monitor_outsourceing,info_manage_energy,social_contribution_rate,
+                                info_cooperate_business,inter_realize_value_network_synergy,online_product_ext_recontrol,info_inputmoney_five,
+                                infosys_rate_info,total_assets_proequ,enterprise_organization_model,
+                                info_plan_implement,info_matdemand_plan_management,info_app_design,info_analyze_business_scope,info_equ_manage_fun_level,
+                                info_humanres_fun_level,industrysoftware_innovation_ability,newproduct_develope_cycle,patent_ownership_hundred,productmodel_define_data
+        )
+        values(#{enterprise_id},#{system_manage_level},#{financial_system_monitor_sales},#{auto_instruction_content},#{upload_info_specification},#{info_qua_coverage_area},
+               #{info_qua_function},#{info_monitor_outsourceing},#{info_manage_energy},#{social_contribution_rate},#{info_cooperate_business},
+               #{inter_realize_value_network_synergy},#{online_product_ext_recontrol},#{info_inputmoney_five},#{infosys_rate_info},#{total_assets_proequ},
+               #{enterprise_organization_model},#{info_plan_implement},#{info_matdemand_plan_management},#{info_app_design},
+               #{info_analyze_business_scope},#{info_equ_manage_fun_level},#{info_humanres_fun_level},#{industrysoftware_innovation_ability},#{newproduct_develope_cycle},#{patent_ownership_hundred},#{productmodel_define_data})
+    </insert>
+
+    <update id="updateSmePercent" parameterType="com.example.enterprise.po.index.integrate.SmePercent">
+        update smediscrete set system_manage_level_p=#{system_manage_level},financial_system_monitor_sales_p=#{financial_system_monitor_sales},
+                               auto_instruction_content_p=#{auto_instruction_content},upload_info_specification_p=#{upload_info_specification},
+                               info_qua_coverage_area_p=#{info_qua_coverage_area},info_qua_function_p=#{info_qua_function},info_monitor_outsourceing_p=#{info_monitor_outsourceing},
+                               info_manage_energy_p=#{info_manage_energy},social_contribution_rate_p=#{social_contribution_rate},info_cooperate_business_p=#{info_cooperate_business},
+                               inter_realize_value_network_synergy_p=#{inter_realize_value_network_synergy},online_product_ext_recontrol_p=#{online_product_ext_recontrol},
+                               info_inputmoney_five_p=#{info_inputmoney_five},infosys_rate_info_p=#{infosys_rate_info},total_assets_proequ_p=#{total_assets_proequ},enterprise_organization_model_p=#{enterprise_organization_model},
+                               info_plan_implement_p=#{info_plan_implement},info_matdemand_plan_management_p=#{info_matdemand_plan_management},info_app_design_p=#{info_app_design},
+                               info_analyze_business_scope_p=#{info_analyze_business_scope},info_equ_manage_fun_level_p=#{info_equ_manage_fun_level},info_humanres_fun_level_p=#{info_humanres_fun_level},
+                               industrysoftware_innovation_ability_p=#{industrysoftware_innovation_ability},newproduct_develope_cycle_p=#{newproduct_develope_cycle},
+                               patent_ownership_hundred_p=#{patent_ownership_hundred},productmodel_define_data_p=#{productmodel_define_data_p}
+        where enterprise_id = #{enterprise_id}
+    </update>
+
+    <select id="getSmeDisByEpId" resultType="com.example.enterprise.po.index.integrate.SmeDiscrete">
+        select * from smediscrete where enterprise_id=#{enterprise_id}
+    </select>
+
+    <select id="getAllSmeDis" resultType="com.example.enterprise.po.index.integrate.SmeDiscrete">
+        select * from smediscrete
+    </select>
+
+    <select id="getPercentByEpId" resultType="com.example.enterprise.po.index.integrate.SmePercent">
+        select * from smediscrete where enterprise_id=#{enterprise_id}
+    </select>
+
+    <select id="getAllPercent" resultType="com.example.enterprise.po.index.integrate.SmePercent">
+        select * from smediscrete
+    </select>
+
+    <delete id="deleteDiverById">
+        delete from smediscrete where enterprise_id = #{id}
+    </delete>
+</mapper>

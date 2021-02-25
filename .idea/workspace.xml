@@ -2,18 +2,123 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1debca9b-4ab0-49bb-bc67-b3a8bd71b987" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/HUAQISE/.idea/junitgenerator-prj-settings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/target/classes/com/example/common/calculation/enumType/divType1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/target/classes/com/example/common/calculation/enumType/divType2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/target/classes/com/example/common/calculation/enumType/divType3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/target/classes/com/example/common/calculation/enumType/divType4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/target/classes/com/example/common/calculation/enumType/divType5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/target/classes/com/example/common/calculation/enumType/finType.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/service-enterprise.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/bl/index/IndexService.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/blImpl/index/IndexServiceImpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/controller/index/AnalyController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/controller/index/IndexController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/dao/index/FinanIndMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/dao/index/MassDisMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/dao/index/MixInduMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/dao/index/ProcInduMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/dao/index/ServInduMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/dao/index/SmeDisMapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/po/index/financial/FinancialIndex.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/po/index/financial/FinancialPercent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/MassDiscrete.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/MassPercent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/MixIndustry.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/MixPercent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/ProcIndustry.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/ProcPercent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/ServeIndustry.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/ServePercent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/SmeDiscrete.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/SmePercent.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/vo/EnterpriseTarget.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/mapper/index/FinanIndMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/mapper/index/MassDisMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/mapper/index/MixInduMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/mapper/index/ProcInduMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/mapper/index/ServInduMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/mapper/index/SmeDisMapper.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/test-classes/META-INF/service-enterprise.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/test-classes/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImplTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/test-classes/com/example/enterprise/blImpl/index/IndexServiceImplTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/test-classes/com/example/enterprise/controller/enterprise/EnterpriseControllerTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/test-classes/com/example/enterprise/controller/index/IndexControllerTest.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/META-INF/service-user.kotlin_module" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/com/example/user/controller/File/FilesController.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/com/example/user/data/index/Lsdpl.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/test-classes/com/example/user/controller/user/UserControllerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HUAQISE/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/zuul-gateway/src/main/java/com/example/zuul/ZuulApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/zuul-gateway/src/main/java/com/example/zuul/ZuulApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/zuul-gateway/target/classes/com/example/zuul/ZuulApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/zuul-gateway/target/classes/com/example/zuul/ZuulApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/front/credit-demo/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/front/credit-demo/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/common.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/target/classes/META-INF/common.kotlin_module" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/target/classes/META-INF/common.kotlin_module" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/target/classes/com/example/common/calculation/Calculation.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/target/classes/com/example/common/calculation/Calculation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/target/classes/com/example/common/calculation/DivRank.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/target/classes/com/example/common/calculation/DivRank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/target/classes/com/example/common/calculation/FinRank.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/target/classes/com/example/common/calculation/FinRank.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/target/classes/com/example/common/calculation/Process.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/target/classes/com/example/common/calculation/Process.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/common/target/classes/com/example/common/calculation/enumType/EnumType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/huaqicloud.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/huaqicloud.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/api/EpServiceClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/api/EpServiceClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/bl/enterprise/EnterpriseService.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/bl/enterprise/EnterpriseService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/controller/enterprise/EnterpriseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/controller/enterprise/EnterpriseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/dao/enterprise/EnterpriseMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/dao/enterprise/EnterpriseMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/po/Enterprise.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/po/Enterprise.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/vo/EnterpriseVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/com/example/enterprise/vo/EnterpriseVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/mapper/enterprise/EnterpriseMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-enterprise/target/classes/mapper/enterprise/EnterpriseMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/service-user.iml" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/service-user.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/com/example/user/ProviderUserApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/com/example/user/ProviderUserApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/com/example/user/bl/user/UserService.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/com/example/user/bl/user/UserService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/com/example/user/blImpl/user/UserServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/com/example/user/blImpl/user/UserServiceImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/com/example/user/controller/user/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/com/example/user/controller/user/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/com/example/user/data/user/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/com/example/user/data/user/UserMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/com/example/user/po/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/com/example/user/po/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/com/example/user/vo/UserVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/com/example/user/vo/UserVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/dataImpl/user/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/HUAQISE/huaqicloud/service-user/target/classes/dataImpl/user/UserMapper.xml" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1iaWSuuHvAIarUhte76uyKFoLat" />
   <component name="ProjectViewState">
@@ -25,17 +130,30 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/HUAQISE" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\IMcredit\HUAQISE" />
     </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -50,16 +168,31 @@
       <workItem from="1602146186792" duration="555000" />
       <workItem from="1602160883954" duration="22000" />
       <workItem from="1602254421477" duration="18000" />
+      <workItem from="1603163510404" duration="95000" />
+      <workItem from="1603163618285" duration="70000" />
+      <workItem from="1603163712973" duration="124000" />
+      <workItem from="1607166236297" duration="29000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1602254437692">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602254437692" />
+    <state x="740" y="275" key="FileChooserDialogImpl" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" />
   </component>
 </project>
