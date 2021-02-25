@@ -12,6 +12,8 @@ import org.springframework.stereotype.Component;
 public class EpServiceClientFallBack implements EpServiceClient {
     @Override
     public ResponseVO getEnterpriseById(Integer id) {
+
         return ResponseVO.buildFailure("获取失败");
+
     }
 }

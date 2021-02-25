@@ -15,29 +15,11 @@
                #{hr_management},#{industrial_software_innovation})
     </insert>
 
-    <insert id="updateMixPercent" parameterType="com.example.enterprise.po.index.integrate.MixPercent">
-        update mixindustry set system_manage_level_p=#{system_manage_level},test_data_rate_p=#{test_data_rate},tracking_oforders_p=#{tracking_oforders},
-                               online_purchasing_rate_p=#{online_purchasing_rate},monitoring_coverage_p=#{monitoring_coverage},auto_instruction_content_p=#{auto_instruction_content},collection_of_energy_data_p=#{collection_of_energy_data},environmental_management_p=#{environmental_management},info_exchange_and_sharing_p=#{info_exchange_and_sharing},
-                               value_network_collaboration_p=#{value_network_collaboration},green_development_p=#{green_development},
-                               social_contribution_p=#{social_contribution},information_investment_p=#{information_investment},equipment_assets_p=#{equipment_assets},organizational_model_p=#{organizational_model},
-                               informatization_plan_implementation_p=#{informatization_plan_implementation},material_requirements_p=#{material_requirements},business_scope_p=#{business_scope_p},equipment_management_p=#{equipment_management},
-                               hr_management_p=#{hr_management},industrial_software_innovation_p=#{industrial_software_innovation}
-        where enterprise_id = #{enterprise_id}
-    </insert>
-
     <select id="getMixIndByEpId" resultType="com.example.enterprise.po.index.integrate.MixIndustry">
         select * from mixindustry where enterprise_id=#{enterprise_id}
     </select>
 
     <select id="getAllMixInd" resultType="com.example.enterprise.po.index.integrate.MixIndustry">
-        select * from mixindustry
-    </select>
-
-    <select id="getPercentByEpId" resultType="com.example.enterprise.po.index.integrate.MixPercent">
-        select * from mixindustry where enterprise_id=#{enterprise_id}
-    </select>
-
-    <select id="getAllPercent" resultType="com.example.enterprise.po.index.integrate.MixPercent">
         select * from mixindustry
     </select>
 

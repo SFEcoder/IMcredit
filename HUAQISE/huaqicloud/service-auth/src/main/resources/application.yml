@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: service-auth
+redis:
+  host: localhost
+  port: 6379
+server:
+  context-path: /uaa
+  port: 8002
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    # 是否注册IP到eureka server，如不指定或设为false，那就会注册主机名到eureka server
+    prefer-ip-address: true

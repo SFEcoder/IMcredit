@@ -2,7 +2,6 @@ package com.example.enterprise.dao.index;
 
 import com.example.enterprise.po.index.financial.FinancialIndex;
 import com.example.enterprise.po.index.integrate.MassDiscrete;
-import com.example.enterprise.po.index.integrate.MassPercent;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -39,27 +38,8 @@ public interface MassDisMapper {
     List<MassDiscrete> getAllMassDis();
 
     /**
-     * 根据企业id获得百分比
-     * @param enterprise_id
-     * @return
-     */
-    MassPercent getPercentByEpId(@Param("enterprise_id")Integer enterprise_id);
-
-    /**
-     * 获取所有的百分比
-     * @return
-     */
-    List<MassPercent> getAllPercent();
-
-    /**
      * 删除表中指定元素
      * @param id
      * */
     int deleteDiverById(@Param("id") Integer id);
-
-    /**
-     * 插入离散大批量指标百分比
-     * @param massPercent
-     * */
-    int updateMassPercent(MassPercent massPercent);
 }

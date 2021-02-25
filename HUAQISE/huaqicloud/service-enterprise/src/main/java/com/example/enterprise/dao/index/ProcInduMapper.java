@@ -3,7 +3,6 @@ package com.example.enterprise.dao.index;
 import com.example.enterprise.po.index.integrate.MassDiscrete;
 import com.example.enterprise.po.index.integrate.MixIndustry;
 import com.example.enterprise.po.index.integrate.ProcIndustry;
-import com.example.enterprise.po.index.integrate.ProcPercent;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -39,24 +38,8 @@ public interface ProcInduMapper {
     List<ProcIndustry> getAllProcInd();
 
     /**
-     * @param enterprise_id
-     * @return
-     */
-    ProcPercent getPercentByEpId(@Param("enterprise_id")Integer enterprise_id);
-
-    /**
-     * @return
-     */
-    List<ProcPercent> getAllPercent();
-
-    /**
      * 删除表中指定元素
      * @param id
      * */
     int deleteDiverById(@Param("id") Integer id);
-
-    /**
-     * 插入指标百分比
-     * */
-    int updateProcPercent(ProcPercent procPercent);
 }

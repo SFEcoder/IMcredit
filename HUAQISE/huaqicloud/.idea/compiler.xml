@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="eurake-server" />
-        <module name="common" />
+        <module name="service-user" />
         <module name="zuul-gateway" />
         <module name="service-enterprise" />
-        <module name="service-user" />
+        <module name="common" />
+        <module name="service-auth" />
+        <module name="eurake-server" />
       </profile>
     </annotationProcessing>
   </component>
@@ -19,6 +20,7 @@
       <module name="common" options="-parameters" />
       <module name="eurake-server" options="-parameters" />
       <module name="huaqicloud" options="-parameters" />
+      <module name="service-auth" options="-parameters" />
       <module name="service-enterprise" options="-parameters" />
       <module name="service-user" options="-parameters" />
       <module name="zuul-gateway" options="-parameters" />

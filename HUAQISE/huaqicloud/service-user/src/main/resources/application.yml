@@ -30,7 +30,7 @@ feign:
     enabled: true
 
 redis:
-  host: 127.0.0.1
+  host: localhost
   port: 6379
 
 mybatis:
@@ -40,3 +40,15 @@ server:
 
 swagger:
   enable: true
+
+security:
+  oauth2:
+    resource:
+      id: user
+      user-info-uri: http://localhost:8002/users/current
+    client:
+      id: client_2
+      client-secret: 123456
+      access-token-uri: http://localhost:8002/oauth/token
+      grant-type: client_credentials,password
+      scope: server

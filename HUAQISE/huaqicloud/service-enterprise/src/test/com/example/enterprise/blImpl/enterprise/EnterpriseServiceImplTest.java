@@ -108,7 +108,7 @@ public void testSearchEpByKey() throws Exception {
 public void testUpdateTable() throws Exception { 
 //TODO: Test goes here...
 
-    enterpriseService.updateTable(2);
+    enterpriseService.updateTable(1);
     System.out.println("Over");
 }
 } 

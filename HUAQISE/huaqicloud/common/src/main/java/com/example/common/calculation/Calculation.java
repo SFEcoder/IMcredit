@@ -1,13 +1,6 @@
 package com.example.common.calculation;
 
-/**
- * @Author: Owen
- * @Date: 2021/2/15 20:05
- * @Description:
- */
-import com.example.common.calculation.Target.DivTarget.*;
-import com.example.common.calculation.Target.FinTarget.FinanceTarget;
-import com.example.common.calculation.Target.Target;
+import com.example.common.calculation.enumType.*;
 
 import java.lang.Math;
 import java.util.ArrayList;
@@ -22,8 +15,15 @@ import java.util.List;
  */
 public class Calculation {
 
+    // 指标的正负向数组
+    private static final finType[] finenums = {finType.A,finType.B,finType.C,finType.D,finType.E,finType.F,finType.G,finType.H,finType.I,finType.J,finType.K,finType.L,finType.M,finType.N,finType.O,finType.P,finType.Q,finType.R};
+    public static final divType1[] div1 = {divType1.A,divType1.B,divType1.C,divType1.D,divType1.E,divType1.F,divType1.G,divType1.H,divType1.I,divType1.J,divType1.K,divType1.L,divType1.M,divType1.N,divType1.O,divType1.P,divType1.Q};
+    public static final divType2[] div2 = {divType2.A,divType2.B,divType2.C,divType2.D,divType2.E,divType2.F,divType2.G,divType2.H,divType2.I,divType2.J,divType2.K,divType2.L,divType2.M,divType2.N,divType2.O,divType2.P,divType2.Q,divType2.R,divType2.S,divType2.T,divType2.U,divType2.V,divType2.W,divType2.X,divType2.Y};
+    public static final divType3[] div3 = {divType3.A,divType3.B,divType3.C,divType3.D,divType3.E,divType3.F,divType3.G,divType3.H,divType3.I,divType3.J,divType3.K,divType3.L,divType3.M,divType3.N,divType3.O,divType3.P,divType3.Q,divType3.R,divType3.S,divType3.T,divType3.U,divType3.V,divType3.W,divType3.X,divType3.Y,divType3.Z,divType3.A1};
+    public static final divType4[] div4 = {divType4.A,divType4.B,divType4.C,divType4.D,divType4.E,divType4.F,divType4.G,divType4.H,divType4.I,divType4.J,divType4.K,divType4.L,divType4.M,divType4.N,divType4.O,divType4.P,divType4.Q,divType4.R};
+    public static final divType5[] div5 = {divType5.A,divType5.B,divType5.C,divType5.D,divType5.E,divType5.F,divType5.G,divType5.H,divType5.I,divType5.J,divType5.K,divType5.L,divType5.M,divType5.N,divType5.O,divType5.P,divType5.Q,divType5.R,divType5.S,divType5.T,divType5.U};
+
     /**
-     * @function 标准化
      * @param xList
      * */
     public static double zScore (double xi, List<Double> xList){
@@ -78,29 +78,27 @@ public class Calculation {
     /**
      * @function 财务指标min_max
      * @param xList 相同指标集合
-     * @param index
+     * @param index 0代表正向指标；1代表负向指标
      * */
     public static double minMaxScoreForFin (double xi, List<Double> xList, int index){
 
-        FinanceTarget financeTarget = new FinanceTarget();
-        Target et = financeTarget.getTargets().get(index);
+        finType et = finenums[index];
 
-        if (et.getType() != 0 && et.getType() != 1 && et.getType() != 2) return 0;
+        if (et.getControl() != -1 && et.getControl() != 0 && et.getControl() != 1) return 0;
 
         // 指标为满意值另外判断
-        if (et.getType() == 2){
-            if (xi < et.getLeft()) return 0;
-            if (xi > et.getRight()) return 1;
-            return (xi - et.getLeft()) / (et.getRight() - et.getLeft());
+        if (et.getControl() == -1){
+            if (xi < et.getBelow()) return 0;
+            if (xi > et.getAbove()) return 1;
+            return (xi - et.getBelow()) / (et.getAbove() - et.getBelow());
         }
 
         double xmin = 1000000, xmax = -1000000, revalue = 0;
-        double reBelow = et.getLeft(), reAbove = et.getRight();
+        double reBelow = et.getBelow(), reAbove = et.getAbove();
 
-        // 调整成正确的阈值
-        if (et.getLeft() > et.getRight()) {
-            reBelow = et.getRight();
-            reAbove = et.getLeft();
+        if (et.getBelow() > et.getAbove()) {
+            reBelow = et.getAbove();
+            reAbove = et.getBelow();
         }
 
         // 奇异值返回0
@@ -112,7 +110,7 @@ public class Calculation {
         }
 
         try{
-            if (et.getType() == 0){
+            if (et.getControl() == 0){
                 if (xi - xmin == xmax - xmin) revalue = 1;
                 else revalue = (xi - xmin) / (xmax - xmin);
             }else{
@@ -131,72 +129,211 @@ public class Calculation {
      * @param index 0代表正向指标；1代表负向指标
      * */
     public static double minMaxScoreForDiv (double xi, List<Double> xList, int index, int type){
-        Target et = new Target(0,0);
         if (type == 0){
-            MassDiscrete massDiscrete = new MassDiscrete();
-            et = massDiscrete.getTargets().get(index);
-        }else if (type == 1){
-            ProcIndustry procIndustry = new ProcIndustry();
-            et = procIndustry.getTargets().get(index);
-        }else if (type == 2){
-            SmeDiscrete smeDiscrete = new SmeDiscrete();
-            et = smeDiscrete.getTargets().get(index);
-        }else if (type == 3){
-            ServeIndustry serveIndustry = new ServeIndustry();
-            et = serveIndustry.getTargets().get(index);
-        }else if (type == 4){
-            MixIndustry mixIndustry = new MixIndustry();
-            et = mixIndustry.getTargets().get(index);
-        }else{
-            return Double.MAX_VALUE;
-        }
-        return specifyByTypes(et, xi, xList);
-    }
+            divType1 et = div1[index];
 
-    /**
-     * @function minMaxScoreForDiv方法细化
-     */
-    public static double specifyByTypes(Target et, double xi, List<Double> xList){
+            if (et.getControl() != -1 && et.getControl() != 0 && et.getControl() != 1) return 0;
 
-        if (et.getType() != 0 && et.getType() != 1 && et.getType() != 2) return 0;
-
-        // 指标为满意值另外判断
-        if (et.getType() == -1){
-            if (xi < et.getLeft()) return 0;
-            if (xi > et.getRight()) return 1;
-            return (xi - et.getLeft()) / (et.getRight() - et.getLeft());
-        }
-
-        double xmin = 1000000, xmax = -1000000, revalue = 0;
-        double reBelow = et.getLeft(), reAbove = et.getRight();
-
-        if (et.getLeft() > et.getRight()) {
-            reBelow = et.getRight();
-            reAbove = et.getLeft();
-        }
-
-        // 奇异值返回0
-        if (xi < reBelow && xi > reAbove) return 0;
-
-        for (int i=0; i<xList.size(); i++){
-            if (xList.get(i) >= xmax) xmax = xList.get(i);
-            if (xList.get(i) <= xmin) xmin = xList.get(i);
-        }
-
-        try{
-            if (et.getType() == 0){
-                if (xi - xmin == xmax - xmin) revalue = 1;
-                else revalue = (xi - xmin) / (xmax - xmin);
-            }else{
-                if (xmax - xi == xmax - xmin) revalue = 1;
-                else revalue = (xmax - xi) / (xmax - xmin);
+            // 指标为满意值另外判断
+            if (et.getControl() == -1){
+                if (xi < et.getBelow()) return 0;
+                if (xi > et.getAbove()) return 1;
+                return (xi - et.getBelow()) / (et.getAbove() - et.getBelow());
             }
-        }catch (Exception e){
-            System.out.println(e.getMessage());
-        }
-        return revalue;
-    }
 
+            double xmin = 1000000, xmax = -1000000, revalue = 0;
+            double reBelow = et.getBelow(), reAbove = et.getAbove();
+
+            if (et.getBelow() > et.getAbove()) {
+                reBelow = et.getAbove();
+                reAbove = et.getBelow();
+            }
+
+            // 奇异值返回0
+            if (xi < reBelow && xi > reAbove) return 0;
+
+            for (int i=0; i<xList.size(); i++){
+                if (xList.get(i) >= xmax) xmax = xList.get(i);
+                if (xList.get(i) <= xmin) xmin = xList.get(i);
+            }
+
+            try{
+                if (et.getControl() == 0){
+                    if (xi - xmin == xmax - xmin) revalue = 1;
+                    else revalue = (xi - xmin) / (xmax - xmin);
+                }else{
+                    if (xmax - xi == xmax - xmin) revalue = 1;
+                    else revalue = (xmax - xi) / (xmax - xmin);
+                }
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+            return revalue;
+        }else if (type == 1){
+            divType2 et = div2[index];
+
+            if (et.getControl() != -1 && et.getControl() != 0 && et.getControl() != 1) return 0;
+
+            // 指标为满意值另外判断
+            if (et.getControl() == -1){
+                if (xi < et.getBelow()) return 0;
+                if (xi > et.getAbove()) return 1;
+                return (xi - et.getBelow()) / (et.getAbove() - et.getBelow());
+            }
+
+            double xmin = 1000000, xmax = -1000000, revalue = 0;
+            double reBelow = et.getBelow(), reAbove = et.getAbove();
+
+            if (et.getBelow() > et.getAbove()) {
+                reBelow = et.getAbove();
+                reAbove = et.getBelow();
+            }
+
+            // 奇异值返回0
+            if (xi < reBelow && xi > reAbove) return 0;
+
+            for (int i=0; i<xList.size(); i++){
+                if (xList.get(i) >= xmax) xmax = xList.get(i);
+                if (xList.get(i) <= xmin) xmin = xList.get(i);
+            }
+
+            try{
+                if (et.getControl() == 0){
+                    if (xi - xmin == xmax - xmin) revalue = 1;
+                    else revalue = (xi - xmin) / (xmax - xmin);
+                }else{
+                    if (xmax - xi == xmax - xmin) revalue = 1;
+                    else revalue = (xmax - xi) / (xmax - xmin);
+                }
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+            return revalue;
+        }else if (type == 2){
+            divType3 et = div3[index];
+
+            if (et.getControl() != -1 && et.getControl() != 0 && et.getControl() != 1) return 0;
+
+            // 指标为满意值另外判断
+            if (et.getControl() == -1){
+                if (xi < et.getBelow()) return 0;
+                if (xi > et.getAbove()) return 1;
+                return (xi - et.getBelow()) / (et.getAbove() - et.getBelow());
+            }
+
+            double xmin = 1000000, xmax = -1000000, revalue = 0;
+            double reBelow = et.getBelow(), reAbove = et.getAbove();
+
+            if (et.getBelow() > et.getAbove()) {
+                reBelow = et.getAbove();
+                reAbove = et.getBelow();
+            }
+
+            // 奇异值返回0
+            if (xi < reBelow && xi > reAbove) return 0;
+
+            for (int i=0; i<xList.size(); i++){
+                if (xList.get(i) >= xmax) xmax = xList.get(i);
+                if (xList.get(i) <= xmin) xmin = xList.get(i);
+            }
+
+            try{
+                if (et.getControl() == 0){
+                    if (xi - xmin == xmax - xmin) revalue = 1;
+                    else revalue = (xi - xmin) / (xmax - xmin);
+                }else{
+                    if (xmax - xi == xmax - xmin) revalue = 1;
+                    else revalue = (xmax - xi) / (xmax - xmin);
+                }
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+            return revalue;
+        }else if (type == 3){
+            divType4 et = div4[index];
+
+            if (et.getControl() != -1 && et.getControl() != 0 && et.getControl() != 1) return 0;
+
+            // 指标为满意值另外判断
+            if (et.getControl() == -1){
+                if (xi < et.getBelow()) return 0;
+                if (xi > et.getAbove()) return 1;
+                return (xi - et.getBelow()) / (et.getAbove() - et.getBelow());
+            }
+
+            double xmin = 1000000, xmax = -1000000, revalue = 0;
+            double reBelow = et.getBelow(), reAbove = et.getAbove();
+
+            if (et.getBelow() > et.getAbove()) {
+                reBelow = et.getAbove();
+                reAbove = et.getBelow();
+            }
+
+            // 奇异值返回0
+            if (xi < reBelow && xi > reAbove) return 0;
+
+            for (int i=0; i<xList.size(); i++){
+                if (xList.get(i) >= xmax) xmax = xList.get(i);
+                if (xList.get(i) <= xmin) xmin = xList.get(i);
+            }
+
+            try{
+                if (et.getControl() == 0){
+                    if (xi - xmin == xmax - xmin) revalue = 1;
+                    else revalue = (xi - xmin) / (xmax - xmin);
+                }else{
+                    if (xmax - xi == xmax - xmin) revalue = 1;
+                    else revalue = (xmax - xi) / (xmax - xmin);
+                }
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+            return revalue;
+        }else if (type == 4){
+            divType5 et = div5[index];
+
+            if (et.getControl() != -1 && et.getControl() != 0 && et.getControl() != 1) return 0;
+
+            // 指标为满意值另外判断
+            if (et.getControl() == -1){
+                if (xi < et.getBelow()) return 0;
+                if (xi > et.getAbove()) return 1;
+                return (xi - et.getBelow()) / (et.getAbove() - et.getBelow());
+            }
+
+            double xmin = 1000000, xmax = -1000000, revalue = 0;
+            double reBelow = et.getBelow(), reAbove = et.getAbove();
+
+            if (et.getBelow() > et.getAbove()) {
+                reBelow = et.getAbove();
+                reAbove = et.getBelow();
+            }
+
+            // 奇异值返回0
+            if (xi < reBelow && xi > reAbove) return 0;
+
+            for (int i=0; i<xList.size(); i++){
+                if (xList.get(i) >= xmax) xmax = xList.get(i);
+                if (xList.get(i) <= xmin) xmin = xList.get(i);
+            }
+
+            try{
+                if (et.getControl() == 0){
+                    if (xi - xmin == xmax - xmin) revalue = 1;
+                    else revalue = (xi - xmin) / (xmax - xmin);
+                }else{
+                    if (xmax - xi == xmax - xmin) revalue = 1;
+                    else revalue = (xmax - xi) / (xmax - xmin);
+                }
+            }catch (Exception e){
+                System.out.println(e.getMessage());
+            }
+            return revalue;
+        }else{
+            System.out.println("Error type!");
+            return 0;
+        }
+    }
 
     /**
      * 熵权法

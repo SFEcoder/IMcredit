@@ -2,7 +2,6 @@ package com.example.enterprise.dao.index;
 
 import com.example.enterprise.po.index.integrate.MassDiscrete;
 import com.example.enterprise.po.index.integrate.MixIndustry;
-import com.example.enterprise.po.index.integrate.MixPercent;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -39,24 +38,8 @@ public interface MixInduMapper {
     List<MixIndustry> getAllMixInd();
 
     /**
-     * @param enterprise_id
-     * @return
-     */
-    MixPercent getPercentByEpId(@Param("enterprise_id")Integer enterprise_id);
-
-    /**
-     * @return
-     */
-    List<MixPercent> getAllPercent();
-
-    /**
      * 删除表中指定元素
      * @param id
      * */
     int deleteDiverById(@Param("id") Integer id);
-
-    /**
-     * 插入指标百分比
-     * */
-    int updateMixPercent(MixPercent mixPercent);
 }

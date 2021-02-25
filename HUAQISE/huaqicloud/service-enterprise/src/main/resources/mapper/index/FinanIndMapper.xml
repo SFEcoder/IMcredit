@@ -12,27 +12,11 @@
                #{ebit_rev},#{industry_prosperity})
     </insert>
 
-    <update id="updateFinanPercent" parameterType="com.example.enterprise.po.index.financial.FinancialPercent">
-        update financialindex set ttm_p=#{ttm},debt_ratio_p=#{debt_ratio},current_ratio_p=#{current_ratio},quick_ratio_p=#{quick_ratio},
-                                  cf_cl_p=#{cf_cl},ttal_p=#{ttal},operating_revenue_p=#{operating_revenue},total_profit_p=#{total_profit},total_liabilities_p=#{total_liabilities},roe_p=#{roe},profit_rate_p=#{profit_rate},
-                                  gross_profit_p=#{gross_profit},fe_rev_p=#{fe_rev},turnover_days_p=#{turnover_days},current_assets_p=#{current_assets},
-                                  accounts_receivable_p=#{accounts_receivable},ebit_rev_p=#{ebit_rev},industry_prosperity_p=#{industry_prosperity}
-        where enterprise_id = #{enterprise_id}
-    </update>
-
     <select id="getFinanByEpId" resultType="com.example.enterprise.po.index.financial.FinancialIndex">
         select * from financialindex where enterprise_id=#{enterprise_id}
     </select>
 
     <select id="getAllFinInd" resultType="com.example.enterprise.po.index.financial.FinancialIndex">
-        select * from financialindex
-    </select>
-
-    <select id="getPercentByEpId" resultType="com.example.enterprise.po.index.financial.FinancialPercent">
-        select * from financialindex where enterprise_id=#{enterprise_id}
-    </select>
-
-    <select id="getAllPercent" resultType="com.example.enterprise.po.index.financial.FinancialPercent">
         select * from financialindex
     </select>
 

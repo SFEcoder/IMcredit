@@ -1,12 +1,16 @@
 package com.example.user.controller.user;
 
-import com.example.common.vo.ResponseVO;
-import com.example.user.bl.user.UserService;
 import com.example.user.vo.UserForm;
 import com.example.user.vo.UserVO;
+import com.example.common.vo.ResponseVO;
+import com.example.enterprise.api.EpServiceClient;
+import com.example.user.bl.user.UserService;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
+
+import javax.annotation.Resource;
 
 /**
  * @Author:
@@ -20,6 +24,8 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Resource
+    private EpServiceClient epServiceClient;
 
     @PostMapping("/login")
     @ApiOperation(value = "用户登录")
@@ -79,5 +85,9 @@ public class UserController {
         return ResponseVO.buildSuccess(userService.getUserNum());
     }
 
+    @GetMapping("/test")
+    public ResponseVO test(){
+        return epServiceClient.getEnterpriseById(1);
+    }
 
 }

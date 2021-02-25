@@ -2,14 +2,10 @@ package com.example.enterprise.controller.index;
 
 import com.example.common.vo.ResponseVO;
 import com.example.enterprise.bl.index.IndexService;
-import com.example.enterprise.vo.EnterpriseTarget;
-import com.example.enterprise.vo.TargetObject;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 /**
  * @Author: Owen
@@ -25,8 +21,8 @@ public class IndexController {
     IndexService indexService;
 
     @PostMapping("/{id}/add_target")
-    ResponseVO addEnterpriseTarget(@PathVariable Integer id, @RequestBody EnterpriseTarget enterpriseTarget) {
-        int effect = indexService.addEnterpriseTarget(id, enterpriseTarget);
+    ResponseVO addEnterpriseTarget(@PathVariable Integer id, @RequestParam("div")Double[] div, @RequestParam("fin")Double[] fin) {
+        int effect = indexService.addEnterpriseTarget(id, div, fin);
         if (effect > 0){
             return ResponseVO.buildSuccess("成功添加指标");
         }else{
@@ -36,8 +32,8 @@ public class IndexController {
 
     @PostMapping("/{id}/update_fin_target")
     @ApiOperation("更新财务指标")
-    ResponseVO updateEnterpriseFinanTarget(@PathVariable Integer id, @RequestBody TargetObject targetObject){
-        int effect = indexService.updateEnterpriseFinanTarget(id, targetObject);
+    ResponseVO updateEnterpriseFinanTarget(@PathVariable Integer id, @RequestParam("fin")Double[] fin){
+        int effect = indexService.updateEnterpriseFinanTarget(id, fin);
         if (effect > 0){
             return ResponseVO.buildSuccess("成功添加指标");
         }else{
@@ -47,8 +43,8 @@ public class IndexController {
 
     @PostMapping("/{id}/update_div_target")
     @ApiOperation("更新两化指标")
-    ResponseVO updateEnterpriseDiverTarget(@PathVariable Integer id, @RequestBody TargetObject targetObject){
-        int effect = indexService.updateEnterpriseDiverTarget(id, targetObject);
+    ResponseVO updateEnterpriseDiverTarget(@PathVariable Integer id, @RequestParam("div")Double[] div){
+        int effect = indexService.updateEnterpriseDiverTarget(id, div);
         if (effect > 0){
             return ResponseVO.buildSuccess("成功添加指标");
         }else{

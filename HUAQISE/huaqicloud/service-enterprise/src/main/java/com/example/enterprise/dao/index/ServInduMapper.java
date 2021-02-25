@@ -1,6 +1,8 @@
 package com.example.enterprise.dao.index;
 
-import com.example.enterprise.po.index.integrate.*;
+import com.example.enterprise.po.index.integrate.MassDiscrete;
+import com.example.enterprise.po.index.integrate.ProcIndustry;
+import com.example.enterprise.po.index.integrate.ServeIndustry;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -36,24 +38,8 @@ public interface ServInduMapper {
     List<ServeIndustry> getAllSerInd();
 
     /**
-     * @param enterprise_id
-     * @return
-     */
-    ServePercent getPercentByEpId(@Param("enterprise_id")Integer enterprise_id);
-
-    /**
-     * @return
-     */
-    List<ServePercent> getAllPercent();
-
-    /**
      * 删除表中指定元素
      * @param id
      * */
     int deleteDiverById(@Param("id") Integer id);
-
-    /**
-     * 插入指标百分比
-     * */
-    int updateServPercent(ServePercent servePercent);
 }

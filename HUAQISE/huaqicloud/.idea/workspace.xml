@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -22,19 +19,185 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4229e71-5ad3-4d18-bd90-b202f45cdf02" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../front/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../front/credit-demo/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/package-lock.json" afterDir="false" />
+    <list default="true" id="e4229e71-5ad3-4d18-bd90-b202f45cdf02" name="Default Changelist" comment="feat: 后端企业用户业务，rsa&amp;aes加密utils，sql文件添加企业表">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Process.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/example/common/feign/CustomFeignConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/example/common/feign/CustomFeignHystrixConcurrencyStrategy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/example/common/security/CustomAccessDeniedHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/eurake-server/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-auth/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-auth/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-auth/src/main/java/com/example/auth/ServiceAuthApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-auth/src/main/java/com/example/auth/config/AuthorizationServerConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-auth/src/main/java/com/example/auth/config/CORSConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-auth/src/main/java/com/example/auth/config/SecurityConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-auth/src/main/java/com/example/auth/config/Utils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-auth/src/main/java/com/example/auth/controller/UserController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-auth/src/main/java/com/example/auth/customImpl/MyRedisTokenStore.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-auth/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-enterprise/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/config/EpServerConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-user/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/config/OAuth2ClientConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/config/UserServerConfiguration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zuul-gateway/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/zuul-gateway/src/main/java/com/example/zuul/config/ZuulServiceConfiguration.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/common/common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/common/common.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Calculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Calculation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/DivRank.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/DivRank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/FinRank.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/FinRank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Target/DivTarget/EnterTarget.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Target/DivTarget/MassDiscrete.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Target/DivTarget/MixIndustry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Target/DivTarget/ProcIndustry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Target/DivTarget/ServeIndustry.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Target/DivTarget/SmeDiscrete.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Target/FinTarget/FinanceTarget.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Target/Target.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Tools.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/example/common/config/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/META-INF/common.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/aliyunOSS.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/aliyunOSS/AliyunOSSUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/aliyunOSS/PropertiesReader.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/cache/RedisCacheClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/calculation/Calculation.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/calculation/DivRank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/calculation/FinRank.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/calculation/Process.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/calculation/enumType/EnumType.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/config/SwaggerConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/config/handler/CustomGlobalExceptionHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/constant/AesKey.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/utils/AesUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/vo/ResponseVO.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/eurake-server/eurake-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/eurake-server/eurake-server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/service-enterprise.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eurake-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eurake-server/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eurake-server/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/eurake-server/target/classes/com/example/server/EurakeApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/huaqicloud.iml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/service-enterprise.iml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/service-enterprise.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/api/fallback/EpServiceClientFallBack.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/api/fallback/EpServiceClientFallBack.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/bl/index/IndexService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/bl/index/IndexService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/blImpl/index/IndexServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/blImpl/index/IndexServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/controller/index/AnalyController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/controller/index/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/controller/index/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/FinanIndMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/FinanIndMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/MassDisMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/MassDisMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/MixInduMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/MixInduMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/ProcInduMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/ProcInduMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/ServInduMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/ServInduMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/SmeDisMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/SmeDisMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/po/index/financial/FinancialPercent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/po/index/integrate/MassPercent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/po/index/integrate/MixPercent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/po/index/integrate/ProcPercent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/po/index/integrate/ServePercent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/po/index/integrate/SmePercent.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/vo/EnterpriseTarget.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/vo/TargetObject.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/FinanIndMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/FinanIndMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/MassDisMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/MassDisMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/MixInduMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/MixInduMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/ProcInduMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/ProcInduMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/ServInduMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/ServInduMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/SmeDisMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/SmeDisMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/test/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/test/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/test/com/example/enterprise/blImpl/index/IndexServiceImplTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/src/test/com/example/enterprise/controller/index/IndexControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/test/com/example/enterprise/controller/index/IndexControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/EnterpriseApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/api/EpServiceClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/api/fallback/EpServiceClientFallBack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/bl/enterprise/EnterpriseService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/bl/index/IndexService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/blImpl/index/IndexServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/controller/enterprise/EnterpriseController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/controller/index/AnalyController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/controller/index/IndexController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/dao/enterprise/EnterpriseMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/dao/index/FinanIndMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/dao/index/MassDisMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/dao/index/MixInduMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/dao/index/ProcInduMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/dao/index/ServInduMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/dao/index/SmeDisMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/Enterprise.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/financial/FinancialIndex.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/financial/FinancialPercent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/MassDiscrete.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/MassPercent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/MixIndustry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/MixPercent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/ProcIndustry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/ProcPercent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/ServeIndustry.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/ServePercent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/SmeDiscrete.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/SmePercent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/vo/EnterpriseForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/vo/EnterpriseTarget.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/vo/EnterpriseVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/mapper/enterprise/EnterpriseMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/mapper/index/FinanIndMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/mapper/index/MassDisMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/mapper/index/MixInduMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/mapper/index/ProcInduMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/mapper/index/ServInduMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/mapper/index/SmeDisMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/test-classes/META-INF/service-enterprise.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/test-classes/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImplTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/test-classes/com/example/enterprise/blImpl/index/IndexServiceImplTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/test-classes/com/example/enterprise/controller/enterprise/EnterpriseControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-enterprise/target/test-classes/com/example/enterprise/controller/index/IndexControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-user/service-user.iml" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/service-user.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/controller/File/FilesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/controller/File/ImageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/controller/user/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/service-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/META-INF/service-user.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/ProviderUserApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/api/UserServiceClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/api/fallback/UserServiceClientFallBack.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/bl/browse/BrowseService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/bl/user/UserService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/blImpl/browse/BrowseServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/blImpl/user/UserServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/controller/File/FilesController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/controller/FileController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/controller/browse/BrowseController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/controller/user/UserController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/data/browse/BrowseMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/data/index/Lsdpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/data/user/UserMapper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/dto/browse/BrowseDto.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/po/Browse.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/po/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/vo/BrowseVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/vo/UserForm.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/vo/UserVO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/dataImpl/browse/BrowseMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/classes/dataImpl/user/UserMapper.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/service-user/target/test-classes/com/example/user/controller/user/UserControllerTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-gateway/src/main/java/com/example/zuul/ZuulApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-gateway/src/main/java/com/example/zuul/ZuulApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-gateway/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-gateway/target/classes/META-INF/zuul-gateway.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-gateway/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-gateway/target/classes/com/example/zuul/ZuulApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/zuul-gateway/target/classes/com/example/zuul/config/CORSConfig.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/zuul-gateway/zuul-gateway.iml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-gateway/zuul-gateway.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -56,7 +219,8 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="E:\IntelliJ IDEA 2020.2.3\plugins\maven\lib\maven3" />
+        <option name="mavenHome" value="D:/maven/apache-maven-3.6.3-bin/apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\maven\apache-maven-3.6.3-bin\apache-maven-3.6.3\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
@@ -78,7 +242,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../SFECoder/IMcredit/HUAQISE/front" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/zuul-gateway" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -86,31 +250,55 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.14" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.user.controller.user" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\IMcredit\HUAQISE\huaqicloud\zuul-gateway" />
+      <recent name="E:\IMcredit\HUAQISE\huaqicloud\service-user" />
+      <recent name="E:\IMcredit\HUAQISE\huaqicloud\service-enterprise" />
+      <recent name="E:\IMcredit\HUAQISE\huaqicloud\service-auth" />
+      <recent name="E:\IMcredit\HUAQISE\huaqicloud\service-user\src\main\java\com\example\user\config" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.common.security" />
+      <recent name="com.example.auth.config" />
+      <recent name="com.example.common.feign" />
+      <recent name="com.example.zuul.config" />
+      <recent name="com.example.enterprise.config" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\springcloudtrash\huaqicloud\service-user\src\main\resources\dataImpl.user" />
       <recent name="E:\springcloudtrash\huaqicloud\service-user\src\main\resources" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.common.vo" />
-      <recent name="com.example.common.constant" />
-      <recent name="com.example.common.config.handler" />
-      <recent name="com.example.zuul.config" />
-      <recent name="constant" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\springcloudtrash\huaqicloud\service-user\src\main\resources" />
-      <recent name="E:\springcloudtrash\huaqicloud\service-user\src\main\java" />
-      <recent name="E:\springcloudtrash\huaqicloud" />
-    </key>
   </component>
-  <component name="RunManager" selected="Spring Boot.ZuulApplication">
+  <component name="RestClientSettings">
+    <option name="REQUEST_HISTORY">
+      <list>
+        <RestClientRequest>
+          <option name="httpMethod" value="GET" />
+          <option name="urlBase" value="http://localhost:8000/api/user/test" />
+          <option name="urlPath" value="" />
+          <option name="textToSend" value="" />
+          <option name="filesToSend" value="" />
+        </RestClientRequest>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.ServiceAuthApplication">
+    <configuration name="ProviderUserApplication#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/ProviderUserApplication.http" runType="Run single request">
+      <method v="2" />
+    </configuration>
     <configuration name="EnterpriseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="service-enterprise" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.enterprise.EnterpriseApplication" />
@@ -138,6 +326,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ServiceAuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="service-auth" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.auth.ServiceAuthApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ZuulApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="zuul-gateway" />
       <extension name="coverage">
@@ -153,14 +348,15 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.ZuulApplication" />
         <item itemvalue="Spring Boot.EurakeApplication" />
+        <item itemvalue="Spring Boot.ZuulApplication" />
+        <item itemvalue="HTTP Request.ProviderUserApplication#1" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
-    <configuration />
+    <configuration>C:\Users\asus\AppData\Roaming\Subversion</configuration>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -186,6 +382,25 @@
       <workItem from="1602584379252" duration="1523000" />
       <workItem from="1603200604522" duration="3116000" />
       <workItem from="1603207988491" duration="613000" />
+      <workItem from="1603779299089" duration="4582000" />
+      <workItem from="1603786114384" duration="16906000" />
+      <workItem from="1603810494052" duration="8783000" />
+      <workItem from="1603825659355" duration="5266000" />
+      <workItem from="1603850750465" duration="12000" />
+      <workItem from="1603856200318" duration="737000" />
+      <workItem from="1603871719183" duration="254000" />
+      <workItem from="1603873828669" duration="4573000" />
+      <workItem from="1603901446901" duration="1421000" />
+      <workItem from="1604023067271" duration="657000" />
+      <workItem from="1604025176969" duration="210000" />
+      <workItem from="1604287238085" duration="966000" />
+      <workItem from="1604894082070" duration="746000" />
+      <workItem from="1613532467202" duration="3675000" />
+      <workItem from="1613612201464" duration="3837000" />
+      <workItem from="1613653506525" duration="4103000" />
+      <workItem from="1613889433236" duration="10884000" />
+      <workItem from="1613979207215" duration="298000" />
+      <workItem from="1614257209172" duration="273000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 后端企业用户业务，rsa&amp;aes加密utils，sql文件添加企业表">
       <created>1602491158371</created>
@@ -198,7 +413,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -217,102 +432,65 @@
     <option name="LAST_COMMIT_MESSAGE" value="feat: 后端企业用户业务，rsa&amp;aes加密utils，sql文件添加企业表" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="440" y="94" key="#Project_Structure" timestamp="1602585185293">
+    <state x="536" y="442" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1613654497524">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1602585185293" />
-    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1602432081329">
+    <state x="536" y="442" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613654497524" />
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1613532969726">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1602432081329" />
-    <state x="1096" y="446" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1601880027125">
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613532969726" />
+    <state x="463" y="102" key="CommitChangelistDialog2" timestamp="1614257467492">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="1096" y="446" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601880027125" />
-    <state x="143" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1602555621511">
+    <state x="463" y="102" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1614257467492" />
+    <state x="208" y="183" key="FileChooserDialogImpl" timestamp="1613891214600">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="143" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602555621511" />
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602585099180">
+    <state x="208" y="183" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1613891214600" />
+    <state width="1877" height="393" key="GridCell.Tab.0.bottom" timestamp="1613907315724">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602585099180" />
-    <state x="416" y="81" key="CommitChangelistDialog2" timestamp="1602491148526">
+    <state width="1877" height="393" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1613907315724" />
+    <state width="1877" height="393" key="GridCell.Tab.0.center" timestamp="1613907315723">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="416" y="81" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1602491148526" />
-    <state x="184" y="85" key="DiffContextDialog" timestamp="1602490994618">
+    <state width="1877" height="393" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1613907315723" />
+    <state width="1877" height="393" key="GridCell.Tab.0.left" timestamp="1613907315723">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="184" y="85" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602490994618" />
-    <state x="592" y="218" key="FileChooserDialogImpl" timestamp="1603206479197">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="592" y="218" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1603206479197" />
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1602585899950" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1603205166812">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603205166812" />
-    <state width="1877" height="275" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602585903121" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1603205166811">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1603205166811" />
-    <state width="1877" height="275" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602585903121" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1603205166810">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1603205166810" />
-    <state width="1877" height="275" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602585903121" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1603205166812">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1603205166812" />
-    <state width="1877" height="275" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602585903121" />
-    <state width="1493" height="210" key="GridCell.Tab.1.bottom" timestamp="1603205166813">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1603205166813" />
-    <state width="1877" height="275" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1602585903121" />
-    <state width="1493" height="210" key="GridCell.Tab.1.center" timestamp="1603205166812">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1603205166812" />
-    <state width="1877" height="275" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1602585903121" />
-    <state width="1493" height="210" key="GridCell.Tab.1.left" timestamp="1603205166812">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1603205166812" />
-    <state width="1877" height="275" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1602585903121" />
-    <state width="1493" height="210" key="GridCell.Tab.1.right" timestamp="1603205166813">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1603205166813" />
-    <state width="1877" height="275" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1602585903121" />
-    <state x="652" y="207" key="Maven.ArtifactSearchDialog" timestamp="1601885268549">
+    <state width="1877" height="393" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1613907315723" />
+    <state width="1877" height="393" key="GridCell.Tab.0.right" timestamp="1613907315723">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="652" y="207" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1601885268549" />
-    <state x="461" y="164" key="SettingsEditor" timestamp="1601877837092">
+    <state width="1877" height="393" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1613907315723" />
+    <state width="1877" height="393" key="GridCell.Tab.1.bottom" timestamp="1613907315724">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1601877837092" />
-    <state x="753" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602491135012">
+    <state width="1877" height="393" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1613907315724" />
+    <state width="1877" height="393" key="GridCell.Tab.1.center" timestamp="1613907315724">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="753" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1602491135012" />
-    <state x="669" y="306" key="git4idea.merge.GitPullDialog" timestamp="1602491157317">
+    <state width="1877" height="393" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1613907315724" />
+    <state width="1877" height="393" key="GridCell.Tab.1.left" timestamp="1613907315724">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="669" y="306" key="git4idea.merge.GitPullDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1602491157317" />
-    <state x="334" y="180" key="new project wizard" timestamp="1602415548709">
+    <state width="1877" height="393" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1613907315724" />
+    <state width="1877" height="393" key="GridCell.Tab.1.right" timestamp="1613907315724">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="334" y="180" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1602415548709" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602485505053">
+    <state width="1877" height="393" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1613907315724" />
+    <state x="490" y="174" key="Maven.ArtifactSearchDialog" timestamp="1613537218840">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602485505053" />
+    <state x="490" y="174" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613537218840" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1613895203234">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1613895203234" />
+    <state x="662" y="252" width="596" height="594" key="find.popup" timestamp="1614257382939">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="662" y="252" width="596" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1614257382939" />
   </component>
 </project>
