@@ -11,6 +11,16 @@
 }
 
 
+@font-face {
+    font-family: "biao_song";
+    src: url("font/biaoSong.ttf");
+}
+
+@font-face {
+    font-family: "fang_song";
+    src: url("font/Fangsong.ttf");
+}
+
 hgroup {
     font-family: 'thin_font';
 }
@@ -30,3 +40,10 @@ hgroup {
     font-family: jump_cool;
 }
 
+.biao_song{
+    font-family: biao_song;
+}
+
+.fang_song{
+    font-family: fang_song;
+}

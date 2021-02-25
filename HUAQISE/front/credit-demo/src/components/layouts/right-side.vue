@@ -16,8 +16,13 @@ export default {
     name: "right-side",
     methods: {
 
+    },
+    mounted() {
+        $(function () {
+            $('.toHide').hide()
+            $('.toHideHeader').hide()
+        })
     }
-
 }
 </script>
 <style lang="scss" scoped>

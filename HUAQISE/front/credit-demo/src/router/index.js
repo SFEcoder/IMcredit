@@ -8,6 +8,10 @@ import ChangeCompanyInfo from  "@/views/ChangeCompanyInfo"
 Vue.use(VueRouter)
 const routes = [
     {
+        path: '/',
+        redirect : '/home'
+    },
+    {
         path: '/login',
         name: 'login',
         component: Login
@@ -17,17 +21,7 @@ const routes = [
         name: 'home',
         component: Home
     },
-    {
-        path: '/ChangeCompanyInfo',
-        name: 'ChangeCompanyInfo',
-        component: ChangeCompanyInfo
 
-    },
-    {
-        path: '/ChangePersonInfo',
-        name: 'ChangePersonInfo',
-        component: ChangePersonInfo
-    },
     {
         path: '/NJUSE',
         name: 'layout',
@@ -40,9 +34,25 @@ const routes = [
                 component: () => import('@/views/credit/display')
             },
             {
+                path : '/credit/report',
+                name:"评级报告",
+                component: () => import('@/views/credit/report')
+            },
+            {
                 path: '/user/info/:userId',
                 name: '个人信息',
                 component: () => import('@/views/user/info')
+            },
+            {
+                path: '/ChangeCompanyInfo',
+                name: 'ChangeCompanyInfo',
+                component: ChangeCompanyInfo
+            },
+
+            {
+                path: '/4',
+                name: 'ChangePersonInfo',
+                component: ChangePersonInfo
             },
             {
                 path: '/credit/evaluate',
@@ -64,6 +74,11 @@ const routes = [
                         path: '/credit/evaluate/financial_index',
                         name: "财务指标",
                         component:()=> import("@/views/credit/evaluate/financial_index")
+                    },
+                    {
+                        path: '/credit/evaluate/finished_input',
+                        name : "填写完毕，至“我的评级”菜单栏下选择“查看报告”进行报告浏览",
+                        component: () => import("@/views/credit/evaluate/index_finished")
                     }
                 ]
             },

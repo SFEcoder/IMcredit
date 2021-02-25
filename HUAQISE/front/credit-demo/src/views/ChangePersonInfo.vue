@@ -341,7 +341,7 @@ export default {
 
     handleNewPasswordCheck (rule, value, callback) {
       const password = this.form.getFieldValue('newPassword')
-      console.log(password)
+      // console.log(password)
       if (value === undefined) {
         callback(new Error('请输入密码'))
         this.con3=false

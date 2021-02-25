@@ -59,6 +59,7 @@ const user = {//定义对象user
                 ...state.userInfo ,
                 ...data
             }
+            console.log(state.userInfo)
         } ,
     },
 
@@ -74,7 +75,7 @@ const user = {//定义对象user
         // },
         login: async ({dispatch , commit} , userData) => {
             userData.password = encrypt(userData.password,getKey())
-            console.log(decrypt(userData.password,getKey()))
+            // console.log(decrypt(userData.password,getKey()))
             const data={
                 email:userData.email,
                 password:userData.password
@@ -87,18 +88,18 @@ const user = {//定义对象user
                     setToken(res.id)//从'@/utils/auth'中导入的方法
                     commit('set_userId' , res.id)
                     dispatch('getUserInfo')
-                    router.push('/credit/main')//mutations的方法用commit，actions的方法用dispatch
+                    router.push('/NJUSE')//mutations的方法用commit，actions的方法用dispatch
                 }
             }else{
                 //console.log(data)
                 const res = await EloginAPI(data)
-                console.log(res)
+                // console.log(res)
                 if (res) {
                     commit('set_personal',userData.ispersonal)
                     setToken(res.id)//从'@/utils/auth'中导入的方法
                     commit('set_userId' , res.id)
                     dispatch('getUserInfo')
-                    router.push('/credit/main')//mutations的方法用commit，actions的方法用dispatch
+                    router.push('/NJUSE')//mutations的方法用commit，actions的方法用dispatch
                 }
             }
 
@@ -112,7 +113,7 @@ const user = {//定义对象user
 
         uploadADImg: async ({state , dispatch} , data) => {
             const res = await uploadImgAPI(data) //res就是图片字符串
-            console.log(res)
+            // console.log(res)
             if (res) {
                 state.Url = res
                 message.success("上传成功")
@@ -120,8 +121,10 @@ const user = {//定义对象user
         } ,
 
         register: async ({commit},data) => {
+            // 默认头像
+            data.avatarUrl = "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603824151266&di=026055c10f0b29fb81d4ecf1b66665de&imgtype=0&src=http%3A%2F%2Fku.90sjimg.com%2Felement_origin_min_pic%2F01%2F48%2F88%2F16574444edb24ea.jpg"
             data.password = encrypt(data.password,getKey())
-            console.log(data)
+            // console.log(data)
             if(data.userType === '0'){
                 const res = await CregisterAPI(data)
                 if (res) {
@@ -146,7 +149,7 @@ const user = {//定义对象user
                         }
                         commit('set_userInfo' , data)
                         commit('set_userId' , data.id)
-                        console.log('getUserInfo')
+                        // console.log('getUserInfo')
                         resolve(data)
                     }).catch(error => {
                         reject(error)
@@ -160,7 +163,7 @@ const user = {//定义对象user
                         }
                         commit('set_userInfo' , data)
                         commit('set_userId' , data.id)
-                        console.log('getUserInfo')
+                        // console.log('getUserInfo')
                         resolve(data)
                     }).catch(error => {
                         reject(error)

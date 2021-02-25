@@ -5,7 +5,7 @@
         <div class="row" style="margin-bottom: 20px;">
 
             <!--         右边的搜索框   -->
-            <div class="col-lg-6 col-md-6 col-sm-6 col-sxs-12">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-sxs-12" >
                 <a-input-search placeholder="输入企业名称以搜索" @search="onSearch">
                     <a-button slot="enterButton" class="display_search_btn" size="">
                         Search
@@ -26,9 +26,9 @@
 
         </div>
 
-        <isotope class="center-block" ref="cpt" id="isotope" :item-selector="'element-item'" :list="list"
+        <isotope class="center-block" ref="cpt" id="isotope" :item-selector="'element-item'" :list="this.display_list"
                  :options='option' v-images-loaded:on.progress="layout" @filter="filterOption=arguments[0]">
-            <div v-for="(element,index) in list" :key="index" :class="element.filter" class="col-md-3">
+            <div v-for="(element,index) in this.display_list" :key="index" :class="element.filter" class="col-md-3">
                 <div class="box_border box_color grade_display_box">
                     <div class="col-md-12 text-center">
 
@@ -41,7 +41,7 @@
 
                         <!--                        企业评级公式的图片-->
                         <a :href="element.ePhoto" class="text_color">
-                            <img style="height:250px; width: 250px" :src="element.ePhoto"
+                            <img style="height:250px; width: 250px" :src="element.license"
                                  class="img-fluid rounded-circle" alt="image missing">
                         </a>
                         <!--                        企业评级公式的图片-->
@@ -94,6 +94,7 @@
 </template>
 <script>
     var unsub;
+    import  {mapGetters, mapMutations, mapActions} from 'vuex'
     import isotope from 'vueisotope'
     import imagesLoaded from 'vue-images-loaded'
     import baguetteBox from 'baguettebox.js'
@@ -103,6 +104,11 @@
 
 
     export default {
+        computed:{
+          ...mapGetters([
+              "display_list"
+          ])
+        },
         directives: {
             imagesLoaded,
         },
@@ -111,157 +117,6 @@
         },
         data() {
             return {
-
-                list: [
-                    {
-                        ePhoto: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603432533688&di=c26b849b0ad7a0d0bf94dd21cccb7227&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170408%2Ff4463d2f3ad341b8884e4473550fe1ba_th.jpeg",
-                        name: "Tencent",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 2
-                    },
-                    {
-                        ePhoto: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603432789255&di=e633b52cbc5d3fb6fcd7937db8c7084f&imgtype=0&src=http%3A%2F%2Fn1.itc.cn%2Fimg8%2Fwb%2Frecom%2F2017%2F03%2F21%2F149006794778594397.JPEG",
-                        name: "Alibaba",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 0
-                    },
-                    {
-                        ePhoto: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1841747477,4197549819&fm=26&gp=0.jpg",
-                        name: "Nanjing University",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 1
-                    },
-                    {
-                        ePhoto: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603432533688&di=c26b849b0ad7a0d0bf94dd21cccb7227&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170408%2Ff4463d2f3ad341b8884e4473550fe1ba_th.jpeg",
-                        name: "Tencent",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 2
-                    },
-                    {
-                        ePhoto: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603432789255&di=e633b52cbc5d3fb6fcd7937db8c7084f&imgtype=0&src=http%3A%2F%2Fn1.itc.cn%2Fimg8%2Fwb%2Frecom%2F2017%2F03%2F21%2F149006794778594397.JPEG",
-                        name: "Alibaba",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 3
-                    },
-                    {
-                        ePhoto: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1841747477,4197549819&fm=26&gp=0.jpg",
-                        name: "Nanjing University",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 4
-                    },
-                    {
-                        ePhoto: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603432533688&di=c26b849b0ad7a0d0bf94dd21cccb7227&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170408%2Ff4463d2f3ad341b8884e4473550fe1ba_th.jpeg",
-                        name: "Tencent",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 2
-                    },
-                    {
-                        ePhoto: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603432789255&di=e633b52cbc5d3fb6fcd7937db8c7084f&imgtype=0&src=http%3A%2F%2Fn1.itc.cn%2Fimg8%2Fwb%2Frecom%2F2017%2F03%2F21%2F149006794778594397.JPEG",
-                        name: "Alibaba",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 0
-                    },
-                    {
-                        ePhoto: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1841747477,4197549819&fm=26&gp=0.jpg",
-                        name: "Nanjing University",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 1
-                    },
-                    {
-                        ePhoto: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603432533688&di=c26b849b0ad7a0d0bf94dd21cccb7227&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170408%2Ff4463d2f3ad341b8884e4473550fe1ba_th.jpeg",
-                        name: "Tencent",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 2
-                    },
-                    {
-                        ePhoto: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603432789255&di=e633b52cbc5d3fb6fcd7937db8c7084f&imgtype=0&src=http%3A%2F%2Fn1.itc.cn%2Fimg8%2Fwb%2Frecom%2F2017%2F03%2F21%2F149006794778594397.JPEG",
-                        name: "Alibaba",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 0
-                    },
-                    {
-                        ePhoto: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1841747477,4197549819&fm=26&gp=0.jpg",
-                        name: "Nanjing University",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 1
-                    },
-                    {
-                        ePhoto: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603432533688&di=c26b849b0ad7a0d0bf94dd21cccb7227&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170408%2Ff4463d2f3ad341b8884e4473550fe1ba_th.jpeg",
-                        name: "Tencent",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 2
-                    },
-                    {
-                        ePhoto: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603432789255&di=e633b52cbc5d3fb6fcd7937db8c7084f&imgtype=0&src=http%3A%2F%2Fn1.itc.cn%2Fimg8%2Fwb%2Frecom%2F2017%2F03%2F21%2F149006794778594397.JPEG",
-                        name: "Alibaba",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 0
-                    },
-                    {
-                        ePhoto: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1841747477,4197549819&fm=26&gp=0.jpg",
-                        name: "Nanjing University",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 1
-                    }, {
-                        ePhoto: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603432533688&di=c26b849b0ad7a0d0bf94dd21cccb7227&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170408%2Ff4463d2f3ad341b8884e4473550fe1ba_th.jpeg",
-                        name: "Tencent",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 2
-                    },
-                    {
-                        ePhoto: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603432789255&di=e633b52cbc5d3fb6fcd7937db8c7084f&imgtype=0&src=http%3A%2F%2Fn1.itc.cn%2Fimg8%2Fwb%2Frecom%2F2017%2F03%2F21%2F149006794778594397.JPEG",
-                        name: "Alibaba",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 0
-                    },
-                    {
-                        ePhoto: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1841747477,4197549819&fm=26&gp=0.jpg",
-                        name: "Nanjing University",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 1
-                    },
-                    {
-                        ePhoto: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603432533688&di=c26b849b0ad7a0d0bf94dd21cccb7227&imgtype=0&src=http%3A%2F%2Fimg.mp.itc.cn%2Fupload%2F20170408%2Ff4463d2f3ad341b8884e4473550fe1ba_th.jpeg",
-                        name: "Tencent",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 2
-                    },
-                    {
-                        ePhoto: "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1603432789255&di=e633b52cbc5d3fb6fcd7937db8c7084f&imgtype=0&src=http%3A%2F%2Fn1.itc.cn%2Fimg8%2Fwb%2Frecom%2F2017%2F03%2F21%2F149006794778594397.JPEG",
-                        name: "Alibaba",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 0
-                    },
-                    {
-                        ePhoto: "https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1841747477,4197549819&fm=26&gp=0.jpg",
-                        name: "Nanjing University",
-                        contactNumber: '18851074558',
-                        email: '251386202@qq.com',
-                        eGrade: 1
-                    },
-
-
-                ],
                 filterOption: "All",
                 option: {
                     itemSelector: ".element-item",
@@ -289,10 +144,11 @@
             }
 
         },
-        created() {
-
-        },
         methods: {
+          ...mapActions([
+              "get_display_list",
+              "search_enterprise_display_list"
+          ]),
             filter: function (key) {
                 this.$refs.cpt.filter(key);
             },
@@ -300,9 +156,8 @@
                 this.$refs.cpt.layout('masonry');
             },
             onSearch(value){
-
                 miniToastr.warn("目标企业: "+ value,"正在搜索…")
-
+                this.search_enterprise_display_list(value)
             },
 
             // 根据评级获取评级公式右上角盒子的颜色
@@ -323,24 +178,20 @@
             }
         },
         mounted() {
-            unsub = this.$store.subscribe((mutation, state) => {
-                if (mutation.type == "left_menu") {
-                    setTimeout(() => {
-                        this.$refs.cpt.layout('masonry');
-                        setTimeout(() => {
-                            this.$refs.cpt.layout('masonry');
-                        }, 600)
-                    });
-                }
-            });
-            baguetteBox.run('#isotope');
+
+          this.get_display_list()
+          baguetteBox.run('#isotope'); //点击查看大图
+
         },
         beforeRouteLeave(to, from, next) {
-            unsub();
             next();
         },
+
     }
 </script>
+
+
+
 <style scoped>
     .element-item {
         padding: 12px;
