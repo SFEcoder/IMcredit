@@ -1,10 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Login from '../views/login.vue'
+import Login from '../views/user/login.vue'
 import Home from '../views/home.vue'
-import UserInfo from '../views/userinfo'
-import ChangePersonInfo from "@/views/ChangePersonInfo"
-import ChangeCompanyInfo from  "@/views/ChangeCompanyInfo"
 Vue.use(VueRouter)
 const routes = [
     {
@@ -34,6 +31,11 @@ const routes = [
                 component: () => import('@/views/credit/display')
             },
             {
+                path: '/credit/history',
+                name: '浏览记录',
+                component: () => import('@/views/credit/history')
+            },
+            {
                 path : '/credit/report',
                 name:"评级报告",
                 component: () => import('@/views/credit/report')
@@ -44,15 +46,19 @@ const routes = [
                 component: () => import('@/views/user/info')
             },
             {
-                path: '/ChangeCompanyInfo',
-                name: 'ChangeCompanyInfo',
-                component: ChangeCompanyInfo
+                path: '/QandA/about_privacy',
+                name: '关于企业评级隐私',
+                component: () => import('@/views/QandA/about_privacy')
             },
-
             {
-                path: '/4',
-                name: 'ChangePersonInfo',
-                component: ChangePersonInfo
+                path: '/QandA/pdf_guide',
+                name: '信用报告生成教程',
+                component: () => import('@/views/QandA/pdf_guide')
+            },
+            {
+                path: '/QandA/reg_eva_guide',
+                name: '公司注册、参评指南',
+                component: () => import('@/views/QandA/register_evaluate_guide')
             },
             {
                 path: '/credit/evaluate',

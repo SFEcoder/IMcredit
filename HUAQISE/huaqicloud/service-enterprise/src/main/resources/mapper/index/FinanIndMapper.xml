@@ -12,6 +12,14 @@
                #{ebit_rev},#{industry_prosperity})
     </insert>
 
+    <update id="updateFinanPercent" parameterType="com.example.enterprise.po.index.financial.FinancialPercent">
+        update financialindex set ttm_p=#{ttm_p},debt_ratio_p=#{debt_ratio_p},current_ratio_p=#{current_ratio_p},quick_ratio_p=#{quick_ratio_p},
+                                  cf_cl_p=#{cf_cl_p},ttal_p=#{ttal_p},operating_revenue_p=#{operating_revenue_p},total_profit_p=#{total_profit_p},total_liabilities_p=#{total_liabilities_p},roe_p=#{roe_p},profit_rate_p=#{profit_rate_p},
+                                  gross_profit_p=#{gross_profit_p},fe_rev_p=#{fe_rev_p},turnover_days_p=#{turnover_days_p},current_assets_p=#{current_assets_p},
+                                  accounts_receivable_p=#{accounts_receivable_p},ebit_rev_p=#{ebit_rev_p},industry_prosperity_p=#{industry_prosperity_p}
+        where enterprise_id = #{enterprise_id}
+    </update>
+
     <select id="getFinanByEpId" resultType="com.example.enterprise.po.index.financial.FinancialIndex">
         select * from financialindex where enterprise_id=#{enterprise_id}
     </select>
@@ -20,7 +28,16 @@
         select * from financialindex
     </select>
 
+    <select id="getPercentByEpId" resultType="com.example.enterprise.po.index.financial.FinancialPercent">
+        select * from financialindex where enterprise_id=#{enterprise_id}
+    </select>
+
+    <select id="getAllPercent" resultType="com.example.enterprise.po.index.financial.FinancialPercent">
+        select * from financialindex
+    </select>
+
     <delete id="deleteFinanById">
         delete from financialindex where enterprise_id = #{id}
     </delete>
+
 </mapper>

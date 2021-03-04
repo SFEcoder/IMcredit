@@ -49,7 +49,6 @@ const getDefaultState = () => {
             productmodel_define_data : 0,
             info_manage_energy : 0,
             info_cooperate_business : 0,
-            info_intershare_business : 0,
             inter_realize_value_network_synergy : 0,
             online_product_ext_recontrol : 0,
             info_inputmoney_five : 0,
@@ -84,13 +83,14 @@ const getDefaultState = () => {
             current_assets : 0,
             accounts_receivable : 0,
             ebit_rev : 0,
-            industry_prosperity : 0
+            industry_prosperity : 0,
         },
-        report_list:[]
+        report_list:[],
+        checkedEnterpriseId:0
+
     }
 }
 import user from "@/store/modules/user";
-
 const evaluate_process = {
     state: getDefaultState(),
 
@@ -109,6 +109,9 @@ const evaluate_process = {
         },
         set_report_list : function (state, report_list) {
             state.report_list = report_list
+        },
+        set_checkedEnterpriseId : function (state, checkedEnterpriseId) {
+            state.checkedEnterpriseId = checkedEnterpriseId
         }
     },
 
@@ -176,7 +179,6 @@ const evaluate_process = {
                 integration_indicators_to_upload.push(state.integration_indicators.info_manage_energy)
                 integration_indicators_to_upload.push(state.integration_indicators.social_contribution_rate)
                 integration_indicators_to_upload.push(state.integration_indicators.info_cooperate_business)
-                integration_indicators_to_upload.push(state.integration_indicators.info_intershare_business)
                 integration_indicators_to_upload.push(state.integration_indicators.inter_realize_value_network_synergy)
                 integration_indicators_to_upload.push(state.integration_indicators.online_product_ext_recontrol)
                 integration_indicators_to_upload.push(state.integration_indicators.info_inputmoney_five)
@@ -263,11 +265,12 @@ const evaluate_process = {
             // 提交上去
             const res = await upload_indexAPI(user.state.userId, integration_indicators_to_upload , financial_index_to_upload)
             if (res){
-                console.log('上传完毕')
             }
         } ,
+
+        //获取所有企业的评分数据
         get_enterprise_report_text : async ({state, commit}) =>{
-            const res = await get_enterprise_reportAPI()
+            const res = await get_enterprise_reportAPI(state.checkedEnterpriseId)
             if (res){
                 commit("set_report_list", res)
             }

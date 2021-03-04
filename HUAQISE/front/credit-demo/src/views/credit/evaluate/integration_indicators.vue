@@ -382,7 +382,7 @@
 
                   <!--                                    产业链企业之间信息交互和共享情况（0~3）-->
                   <div
-                      v-if="this.enterprise_evaluate_type === 2 || this.enterprise_evaluate_type === 3 || this.enterprise_evaluate_type === 5"
+                      v-if="this.enterprise_evaluate_type === 2  || this.enterprise_evaluate_type === 5"
                       class="evaluate_input_box">
                     <a-row class="input_description_text">产业链企业之间信息交互和共享情况（0~3）</a-row>
                     <a-form-item>
@@ -1278,7 +1278,7 @@ export default {
     smeDiscrete_integration_indicators_finished() {
       //    取过来
       let smeDiscrete_integration = {...this.integration_indicators}
-
+      console.log(smeDiscrete_integration)
       //    更新值
       smeDiscrete_integration.system_manage_level = parseFloat(this.form.getFieldValue("应用信息系统进行项目管理实现的功能与层级"))
       smeDiscrete_integration.budget_management = parseFloat(this.form.getFieldValue("财务系统对销售实时监控的情况"))
@@ -1290,7 +1290,6 @@ export default {
       smeDiscrete_integration.info_manage_energy = parseFloat(this.form.getFieldValue("应用信息化手段进行能源管理实现的功能"))
       smeDiscrete_integration.social_contribution_rate = parseFloat(this.form.getFieldValue("社会贡献率"))
       smeDiscrete_integration.info_cooperate_business = parseFloat(this.form.getFieldValue("通过信息化实现与产业链企业间业务协同情况"))
-      smeDiscrete_integration.info_intershare_business = parseFloat(this.form.getFieldValue("产业链企业之间信息交互和共享情况"))
       smeDiscrete_integration.inter_realize_value_network_synergy = parseFloat(this.form.getFieldValue("通过建立互联网开放社区实现价值网络协同情况"))
       smeDiscrete_integration.online_product_ext_recontrol = parseFloat(this.form.getFieldValue("在线实现产品服务延伸或远程管控的情况"))
       smeDiscrete_integration.info_inputmoney_five = parseFloat(this.form.getFieldValue("近五年信息化建设投入"))

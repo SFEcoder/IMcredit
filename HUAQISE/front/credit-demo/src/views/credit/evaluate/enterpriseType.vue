@@ -25,11 +25,10 @@
                                         class="text-white">PI</span></div>
                             </div>
                             <ul class="pack-details list-unstyled">
-                                <li>通过对原材料物理形状的改变、组装</li>
-                                <li>成为产品, 使其增值</li>
-                                <li>同时，产品是标准或少数选配需求主要靠预测</li>
-                                <li>需求主要靠预测，也考虑订单</li>
-                                <li>生产是以物料为对象组成一条条流水生产线</li>
+                                <li>过程工业</li>
+                                <li>通过混合、分离、成型或化学反应</li>
+                                <li>使原材料增值的行业</li>
+                                <li>主要包括化工、冶金、石油等行业</li>
                             </ul>
                             <button class="btn purple_color_btn center-block btn-getit btn_pick_text"
                                     @click="start_btn_clicked('流程行业')">start now
@@ -54,11 +53,10 @@
                                         class="text-white">STI</span></div>
                             </div>
                             <ul class="pack-details list-unstyled">
-                                <li>通过对原材料物理形状的改变、组装</li>
-                                <li>成为产品, 使其增值</li>
-                                <li>同时，产品是标准或少数选配需求主要靠预测</li>
-                                <li>需求主要靠预测，也考虑订单</li>
-                                <li>生产是以物料为对象组成一条条流水生产线</li>
+                                <li>依靠高新技术和现代管理方法</li>
+                                <li>经营方式及组织形式发展起来</li>
+                                <li>主要为生产者提供中间投入的</li>
+                                <li>知识、技术、信息密集型服务部门</li>
                             </ul>
                             <button class="btn purple_color_btn center-block btn-getit btn_pick_text"
                                     @click="start_btn_clicked('服务行业')">start now
@@ -84,11 +82,11 @@
                                         class="text-white">MI</span></div>
                             </div>
                             <ul class="pack-details list-unstyled">
-                                <li>通过对原材料物理形状的改变、组装</li>
-                                <li>成为产品, 使其增值</li>
-                                <li>同时，产品是标准或少数选配需求主要靠预测</li>
-                                <li>需求主要靠预测，也考虑订单</li>
-                                <li>生产是以物料为对象组成一条条流水生产线</li>
+                                <li>产品前半段为流程</li>
+                                <li>后半段为离散</li>
+                                <li>主要体现在产品成本的构成中</li>
+                                <li>包装费用占了较大比率</li>
+                                <li>如制药、食品加工等</li>
                             </ul>
                             <button class="btn purple_color_btn center-block btn-getit btn_pick_text"
                                     @click="start_btn_clicked('混合行业')">start now
@@ -145,9 +143,9 @@
                             <ul class="pack-details list-unstyled">
                                 <li>通过对原材料物理形状的改变、组装</li>
                                 <li>成为产品, 使其增值</li>
-                                <li>同时，产品是标准或少数选配需求主要靠预测</li>
-                                <li>需求主要靠预测，也考虑订单</li>
-                                <li>生产是以物料为对象组成一条条流水生产线</li>
+                                <li>同时，需求可以是预测</li>
+                                <li>或按订单生产</li>
+                                <li>按订单装配</li>
                             </ul>
                             <button class="btn purple_color_btn center-block btn-getit btn_pick_text"
                                     @click="start_btn_clicked('离散中小批量行业')">start now

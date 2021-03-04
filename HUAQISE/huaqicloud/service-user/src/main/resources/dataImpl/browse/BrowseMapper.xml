@@ -3,7 +3,7 @@
 <mapper namespace="com.example.user.data.browse.BrowseMapper">
     <insert id="insertBrowse" parameterType="com.example.user.po.Browse" useGeneratedKeys="true" keyProperty="id">
         insert into Browse(user_id,ep_id,create_time)
-        values(#{userId},#{ePId},#{createTime})
+        values(#{userId},#{epId},#{createTime})
     </insert>
 
     <select id="selectBrowseByUid" resultMap="Browse">

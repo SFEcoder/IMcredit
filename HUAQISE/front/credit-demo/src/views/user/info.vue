@@ -5,26 +5,28 @@
         <a-tabs>
             <a-tab-pane tab="自己的信息" key="1">
 
-                <a-form :form="form" style="margin-top: 30px" v-if="type">
-                    <a-upload>
+                <a-form v-if="this.userInfo.userType === 1" :form="form" style="margin-top: 30px" >
+                    <a-upload
+                        name="file"
+                        :customRequest="customRequest_enterprise"
+                        :showUploadList = false
+                    >
                         <img
-                                style="margin-left:120px;width:150px;height:150px;border-radius:150px;"
-                                alt="example"
-                                :src= this.userInfo.avatarUrl
-
+                            style="margin-left:60px;width:80px;height:80px;border-radius:150px;"
+                                :src= this.userInfo.ephoto
                         />
-                        <a-tag color="green" style="margin-left: 100px; font-size: 16px" icon="cloud-upload">修改头像</a-tag>
+                        <a-tag color="" style="margin-left: 40px; font-size: 16px" icon="cloud-upload">修改头像</a-tag>
                     </a-upload>
                     <a-divider/>
 
 
                     <a-form-item label="企业的全称" :label-col="{ span: 3 }" :wrapper-col="{ span: 8, offset: 1  }">
-                        <span >{{ userInfo.companyName }}</span>
+                        <span >{{ userInfo.name }}</span>
                     </a-form-item>
                     <a-divider/>
 
                     <a-form-item label="企业注册号" :label-col="{ span: 3 }" :wrapper-col="{ span: 8, offset: 1  }">
-                        <span >{{ userInfo.regNumber }}</span>
+                        <span >{{ userInfo.registerNumber }}</span>
                     </a-form-item>
                     <a-divider/>
 
@@ -32,17 +34,17 @@
 
                         <a-input
                                 placeholder="请填写联系人姓名"
-                                v-decorator="['userInfo.personName', { rules: [{ required: true, message: '请输入联系人姓名' }] }]"
+                                v-decorator="['contactName', { rules: [{ required: false, message: '请输入联系人姓名' }] }]"
                                 v-if="modify"
                         />
-                        <span v-else>{{ userInfo.personName}}</span>
+                        <span v-else>{{ userInfo.contactName}}</span>
                     </a-form-item>
 
                     <a-form-item label="企业邮箱号" :label-col="{ span: 3 }" :wrapper-col="{ span: 8, offset: 1 }">
 
                         <a-input
                                 placeholder="请填写企业邮箱号"
-                                v-decorator="['userInfo.email', { rules: [{ required: true, message: '请输入企业邮箱号' }] }]"
+                                v-decorator="['email', { rules: [{ required: false, message: '请输入企业邮箱号' }] }]"
                                 v-if="modify"
                         />
                         <span v-else>{{ userInfo.email}}</span>
@@ -53,10 +55,10 @@
                     <a-form-item label="联系方式" :label-col="{ span: 3 }" :wrapper-col="{ span: 8, offset: 1 }">
                         <a-input
                                 placeholder="请填写手机号"
-                                v-decorator="['userInfo.phoneNumber', { rules: [{ required: true, message: '请输入手机号' }] }]"
+                                v-decorator="['contactNumber', { rules: [{ required: false, message: '请输入手机号' }] }]"
                                 v-if="modify"
                         />
-                        <span v-else>{{ userInfo.phoneNumber}}</span>
+                        <span v-else>{{ userInfo.contactNumber}}</span>
                     </a-form-item>
                     <a-divider/>
 
@@ -66,7 +68,6 @@
                                     style="margin-left:0px;width:150px;height:150px;"
                                     alt="example"
                                     :src= this.userInfo.avatarUrl
-
                             />
 
                         </a-upload>
@@ -75,7 +76,7 @@
                     <a-divider/>
 
                     <a-form-item label="评级" :label-col="{ span: 3 }" :wrapper-col="{ span: 8, offset: 1 }">
-                        <span>{{ userInfo.grade }}</span>
+                        <span>{{ userInfo.egrade }}</span>
                     </a-form-item>
                     <a-divider/>
 
@@ -84,20 +85,13 @@
 
                         <a-input
                                 placeholder="请输入新密码"
-                                v-decorator="['password', { rules: [{ required: true, message: '请输入新密码' }] }]"
+                                v-decorator="['password', { rules: [{ required: false, message: '请输入新密码' }] }]"
                                 v-if="modify"
                         />
 
 
                     </a-form-item>
 
-
-                    <a-form-item label="密码" :label-col="{ span: 3 }" :wrapper-col="{ span: 8, offset: 1 }" v-if="modify">
-                        <a-input
-                                placeholder="请输入新密码"
-                                v-decorator="['password', { rules: [{ required: true, message: '请输入新密码' }] }]"
-                        />
-                    </a-form-item>
 
                     <a-form-item :wrapper-col="{ span: 12, offset: 5 }" v-if="modify">
                         <a-button type="primary" @click="saveModify">
@@ -113,39 +107,39 @@
                             修改信息
                         </a-button>
                     </a-form-item>
-                </a-form>
+                </a-form >
 
 
                 <a-form :form="form" style="margin-top: 30px" v-else>
-                    <a-upload>
+                    <a-upload
+                        name="file"
+                        :customRequest="customRequest_user"
+                        :showUploadList = false
+                    >
                         <img
-                                style="margin-left:120px;width:150px;height:150px;border-radius:150px;"
-                                alt="example"
+                                style="margin-left:60px;width:80px;height:80px;border-radius:150px;"
                                 :src= this.userInfo.avatarUrl
-
                         />
-                        <a-tag color="green" style="margin-left: 100px; font-size: 16px" icon="cloud-upload">修改头像</a-tag>
+                        <a-tag color="" style="margin-left: 40px; font-size: 16px" icon="cloud-upload">修改头像</a-tag>
                     </a-upload>
                     <a-divider/>
 
                     <a-form-item label="个人昵称" :label-col="{ span: 3 }" :wrapper-col="{ span: 8, offset: 1  }">
-
                         <a-input
                                 placeholder="请填写联系人姓名"
-                                v-decorator="['phoneNumber', { rules: [{ required: true, message: '请输入联系人姓名' }] }]"
+                                v-decorator="['username', { rules: [{ required: false, message: '请输入联系人姓名' }] }]"
                                 v-if="modify"
                         />
-                        <span v-else>{{ userInfo.personName}}</span>
-
+                        <span v-else>{{ userInfo.username}}</span>
                     </a-form-item>
-                    <a-divider/>
 
+                    <a-divider/>
 
                     <a-form-item label="个人邮箱" :label-col="{ span: 3 }" :wrapper-col="{ span: 8, offset: 1 }">
 
                         <a-input
                                 placeholder="请填写企业邮箱号"
-                                v-decorator="['phoneNumber', { rules: [{ required: true, message: '请输入企业邮箱号' }] }]"
+                                v-decorator="['email', { rules: [{ required: false, message: '请输入邮箱号' }] }]"
                                 v-if="modify"
                         />
                         <span v-else>{{ userInfo.email}}</span>
@@ -156,7 +150,7 @@
                     <a-form-item label="联系方式" :label-col="{ span: 3 }" :wrapper-col="{ span: 8, offset: 1 }">
                         <a-input
                                 placeholder="请填写手机号"
-                                v-decorator="['phoneNumber', { rules: [{ required: true, message: '请输入手机号' }] }]"
+                                v-decorator="['phoneNumber', { rules: [{ required: false, message: '请输入手机号' }] }]"
                                 v-if="modify"
                         />
                         <span v-else>{{ userInfo.phoneNumber}}</span>
@@ -170,9 +164,10 @@
 
                         <a-input
                                 placeholder="请输入新密码"
-                                v-decorator="['password', { rules: [{ required: true, message: '请输入新密码' }] }]"
+                                v-decorator="['password', { rules: [{ required: false, message: '请输入新密码' }] }]"
                                 v-if="modify"
                         />
+                      <span v-else>**********</span>
 
 
                     </a-form-item>
@@ -237,23 +232,50 @@
         },
         async mounted() {
             await this.getUserInfo()
+          console.log(this.userInfo)
         },
         methods: {
             ...mapActions([
                 'getUserInfo',
                 'updateUserInfo',
+                'updateEnterprise',
+                'upload_user_avatar',
+                'upload_ephoto'
             ]),
+          customRequest_user (data) {
+            const formData = new FormData()
+            formData.append('file', data.file)
+            this.upload_user_avatar(formData)
+          },
+          customRequest_enterprise (data) {
+            const formData = new FormData()
+            formData.append('file', data.file)
+            this.upload_ephoto(formData)
+          },
             saveModify() {
                 this.form.validateFields((err, values) => {
                     if (!err) {
-                        const data = {
+
+                        if(this.userInfo.type === 1){
+                          const data = {
+                            contactName: this.form.getFieldValue('contactName'),
+                            contactNumber: this.form.getFieldValue('contactNumber'),
+                            email: this.form.getFieldValue('email'),
+                            password: this.form.getFieldValue('password')
+                          }
+                          this.updateEnterprise(data)
+                        }
+                        else {
+                          const data = {
                             username: this.form.getFieldValue('username'),
                             phoneNumber: this.form.getFieldValue('phoneNumber'),
+                            email: this.form.getFieldValue('email'),
                             password: this.form.getFieldValue('password')
-                        }
-                        this.updateUserInfo(data).then(()=>{
+                          }
+                          this.updateUserInfo(data).then(() => {
                             this.modify = false
-                        })
+                          })
+                        }
                     }
                 });
             },

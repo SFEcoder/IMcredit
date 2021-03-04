@@ -14,6 +14,10 @@ import $ from 'jquery'
 import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import 'bootstrap/dist/js/bootstrap.min.js'
 
+import htmlToPdf from './utils/htmlToPdf'
+Vue.use(htmlToPdf)
+
+
 import miniToastr from 'mini-toastr'
 miniToastr.init()
 miniToastr.setIcon('error', 'i', {

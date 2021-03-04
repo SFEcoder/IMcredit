@@ -35,13 +35,13 @@
                         <!--                        右上角的评级-->
                         <div>
                             <span class="eGrade_right_up_box jump_cool_font"
-                                  :style="'background-color:' + get_box_color_by_num_grade(element.eGrade) + '; -webkit-box-shadow:1px 1px 22px '+ get_box_color_by_num_grade(element.eGrade)">{{'评级: ' +get_str_grade_by_num_grade(element.eGrade)}}</span>
+                                  :style="'background-color:' + get_box_color_by_num_grade(element.egrade) + '; -webkit-box-shadow:1px 1px 22px '+ get_box_color_by_num_grade(element.egrade)">{{'评级: ' +get_str_grade_by_num_grade(element.egrade)}}</span>
                         </div>
                         <!--                        右上角的评级-->
 
                         <!--                        企业评级公式的图片-->
-                        <a :href="element.ePhoto" class="text_color">
-                            <img style="height:250px; width: 250px" :src="element.license"
+                        <a :href="element.ephoto" class="text_Gcolor">
+                            <img style="height:250px; width: 250px" :src="element.ephoto"
                                  class="img-fluid rounded-circle" alt="image missing">
                         </a>
                         <!--                        企业评级公式的图片-->
@@ -62,7 +62,7 @@
                             <span><b>企业评级</b></span>
                         </div>
                         <div class="col-md-6 col-6">
-                            <span style="font-weight: bold">{{get_str_grade_by_num_grade(element.eGrade)}}</span>
+                            <span style="font-weight: bold">{{get_str_grade_by_num_grade(element.egrade)}}</span>
                         </div>
 
                         <div class="col-md-6 col-6 text-center">
@@ -81,8 +81,8 @@
 
 
                         <div class="col-md-12 col-12 text-center mt-2">
-                            <div class="btn text-white cost_bold thin_font"
-                                 :style="'background-color:' + get_box_color_by_num_grade(element.eGrade) + '; -webkit-box-shadow:1px 1px 22px '+ get_box_color_by_num_grade(element.eGrade)">
+                            <div @click="check_report(element)" class="btn text-white cost_bold thin_font"
+                                 :style="'background-color:' + get_box_color_by_num_grade(element.egrade) + '; -webkit-box-shadow:1px 1px 22px '+ get_box_color_by_num_grade(element.egrade)">
                                 详细报告
                             </div>
                         </div>
@@ -94,6 +94,7 @@
 </template>
 <script>
     var unsub;
+    import  router from "@/router"
     import  {mapGetters, mapMutations, mapActions} from 'vuex'
     import isotope from 'vueisotope'
     import imagesLoaded from 'vue-images-loaded'
@@ -106,7 +107,8 @@
     export default {
         computed:{
           ...mapGetters([
-              "display_list"
+              "display_list",
+              'userId'
           ])
         },
         directives: {
@@ -125,19 +127,19 @@
                             return true;
                         },
                         SSS(el) {
-                            return el.eGrade === 0;
+                            return el.egrade === 0;
                         },
                         A(el) {
-                            return el.eGrade === 1;
+                            return el.egrade === 1;
                         },
                         B(el) {
-                            return el.eGrade === 2
+                            return el.egrade === 2
                         },
                         C(el) {
-                            return el.eGrade === 3
+                            return el.egrade === 3
                         },
                         D(el) {
-                            return el.eGrade === 4
+                            return el.egrade === 4
                         },
                     }
                 }
@@ -145,9 +147,13 @@
 
         },
         methods: {
+          ...mapMutations([
+            "set_checkedEnterpriseId"
+          ]),
           ...mapActions([
               "get_display_list",
-              "search_enterprise_display_list"
+              "search_enterprise_display_list",
+              'addBrowseHistory'
           ]),
             filter: function (key) {
                 this.$refs.cpt.filter(key);
@@ -159,6 +165,19 @@
                 miniToastr.warn("目标企业: "+ value,"正在搜索…")
                 this.search_enterprise_display_list(value)
             },
+
+          check_report(item){
+            //查看报告
+            if(this.userId === 0){
+              miniToastr.error("游客请先登录")
+            }
+            else{
+              this.addBrowseHistory(item.id)
+              this.set_checkedEnterpriseId(item.id)
+              router.push("/credit/report")
+            }
+
+          },
 
             // 根据评级获取评级公式右上角盒子的颜色
             get_box_color_by_num_grade(num_grade) {
@@ -181,7 +200,6 @@
 
           this.get_display_list()
           baguetteBox.run('#isotope'); //点击查看大图
-
         },
         beforeRouteLeave(to, from, next) {
             next();

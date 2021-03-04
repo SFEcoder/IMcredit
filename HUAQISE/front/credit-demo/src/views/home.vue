@@ -20,7 +20,16 @@
                 this.$router.push(`/login`)
 
             }
-        }
+        },
+      mounted() {
+        $(function () {
+          $('.toHide').fadeIn()
+          $('.toHideHeader').fadeIn()
+        })
+
+      },
+
+
     }
 </script>
 

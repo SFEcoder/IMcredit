@@ -25,12 +25,21 @@
 
 <script>
 import  router from "@/router"
+import {mapGetters, mapMutations} from "vuex";
 export default {
-
+  computed:{
+    ...mapGetters([
+      "userId"
+    ])
+  },
   name: "index_finished",
   methods:{
+    ...mapMutations([
+      "set_checkedEnterpriseId"
+    ]),
     go_to_check_report(){
       router.push("/credit/report")
+      this.set_checkedEnterpriseId(this.userId)
     }
   }
 }

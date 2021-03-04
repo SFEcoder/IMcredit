@@ -2,11 +2,14 @@
 import router from '@/router'
 import {  setToken, removeToken } from '@/utils/auth'
 import { resetRouter } from '@/router'
+import { setStore, getStore, removeStore } from '../../utils/store'
 import { message } from 'ant-design-vue'
 import {
     CloginAPI,
     CregisterAPI,
     getUserInfoAPI,
+    getBrowseHistoryAPI,
+    addBrowseHistoryAPI,
     updateUserInfoAPI,
 } from '@/api/user'
 import {
@@ -24,10 +27,14 @@ const getDefaultState = () => {
     return {
         personal:true,
         Url:'',
-        userId: '',
+        userId: 0,
         userInfo: {
-
         },
+        browseHistoryList:[],
+        access_token:getStore({
+            name: 'access_token'
+        }) || '',
+        port_change:false,
     }
 }
 
@@ -38,9 +45,20 @@ const user = {//定义对象user
         reset_state: function (state) {
             state.infoCredit = '',
                 state.token = '',
-                state.userId = '',
+                state.userId = 0,
                 state.Url='',
                 state.userInfo = {}
+        } ,
+
+        set_access_token: function (state , accessToken) {
+            state.access_token = accessToken
+            setStore({
+                name: 'access_token',
+                content: state.access_token
+            })
+        } ,
+        set_port_change: function (state , flag) {
+            state.port_change = flag
         } ,
 
         set_token: function (state , token) {
@@ -59,8 +77,10 @@ const user = {//定义对象user
                 ...state.userInfo ,
                 ...data
             }
-            console.log(state.userInfo)
         } ,
+        set_browseHistoryList: (state , data) => {
+            state.browseHistoryList = data
+        }
     },
 
     actions: {
@@ -91,9 +111,7 @@ const user = {//定义对象user
                     router.push('/NJUSE')//mutations的方法用commit，actions的方法用dispatch
                 }
             }else{
-                //console.log(data)
                 const res = await EloginAPI(data)
-                // console.log(res)
                 if (res) {
                     commit('set_personal',userData.ispersonal)
                     setToken(res.id)//从'@/utils/auth'中导入的方法
@@ -117,6 +135,21 @@ const user = {//定义对象user
             if (res) {
                 state.Url = res
                 message.success("上传成功")
+            }
+        } ,
+
+        upload_user_avatar: async ({state , dispatch} , data) => {
+            const res = await uploadImgAPI(data) //res就是图片字符串
+            if (res) {
+                const data = {avatarUrl:res}
+                dispatch('updateUserInfo', data)
+            }
+        } ,
+        upload_ephoto: async ({state , dispatch} , data) => {
+            const res = await uploadImgAPI(data) //res就是图片字符串
+            if (res) {
+                const data = {ephoto:res}
+                dispatch('updateEnterprise', data)
             }
         } ,
 
@@ -149,7 +182,6 @@ const user = {//定义对象user
                         }
                         commit('set_userInfo' , data)
                         commit('set_userId' , data.id)
-                        // console.log('getUserInfo')
                         resolve(data)
                     }).catch(error => {
                         reject(error)
@@ -221,6 +253,21 @@ const user = {//定义对象user
                 resolve()
             })
         } ,
+
+
+        getBrowseHistory: async ({state , commit}) => {
+            const res = await getBrowseHistoryAPI(state.userId)
+            if (res) {
+                commit('set_browseHistoryList', res)
+            }
+        },
+
+        addBrowseHistory: async ({state , dispatch}, epId) => {
+            const res = await addBrowseHistoryAPI(epId,state.userId)
+            if (res) {
+                message.success('增加成功')
+            }
+        },
 
     }
 }

@@ -12,11 +12,28 @@
                #{decision_support},#{equipment_management},#{hr_management})
     </insert>
 
+    <update id="updateMassPercent" parameterType="com.example.enterprise.po.index.integrate.MassPercent">
+        update massdiscrete set on_time_delivery_rate_p=#{on_time_delivery_rate_p},system_manage_level_p=#{system_manage_level_p},emergency_response_p=#{emergency_response_p},
+                                budget_management_p=#{budget_management_p},auto_instruction_content_p=#{auto_instruction_content_p},environmental_management_p=#{environmental_management_p},energy_management_p=#{energy_management_p},social_contribution_p=#{social_contribution_p},business_collaboration_p=#{business_collaboration_p},
+                                value_network_collaboration_p=#{value_network_collaboration_p},tracking_and_feedback_p=#{tracking_and_feedback_p},
+                                organizational_model_p=#{organizational_model_p},maintenance_investment_p=#{maintenance_investment_p},plan_implementation_p=#{plan_implementation_p},decision_support_p=#{decision_support_p},
+                                equipment_management_p=#{equipment_management_p},hr_management_p=#{hr_management_p}
+        where enterprise_id = #{enterprise_id}
+    </update>
+
     <select id="getMassDisByEpId" resultType="com.example.enterprise.po.index.integrate.MassDiscrete">
         select * from massdiscrete where enterprise_id=#{enterprise_id}
     </select>
 
     <select id="getAllMassDis" resultType="com.example.enterprise.po.index.integrate.MassDiscrete">
+        select * from massdiscrete
+    </select>
+
+    <select id="getPercentByEpId" resultType="com.example.enterprise.po.index.integrate.MassPercent">
+        select * from massdiscrete where enterprise_id=#{enterprise_id}
+    </select>
+
+    <select id="getAllPercent" resultType="com.example.enterprise.po.index.integrate.MassPercent">
         select * from massdiscrete
     </select>
 

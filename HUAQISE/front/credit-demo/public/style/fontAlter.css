@@ -12,8 +12,8 @@
 
 
 @font-face {
-    font-family: "biao_song";
-    src: url("font/biaoSong.ttf");
+    font-family: "title_song";
+    src: url("font/BiaoSong.TTF");
 }
 
 @font-face {
@@ -40,8 +40,8 @@ hgroup {
     font-family: jump_cool;
 }
 
-.biao_song{
-    font-family: biao_song;
+.title_song{
+    font-family: title_song;
 }
 
 .fang_song{

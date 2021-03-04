@@ -110,6 +110,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="ServiceAuthApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="service-auth" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.auth.ServiceAuthApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ZuulApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="zuul-gateway" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.zuul.ZuulApplication" />

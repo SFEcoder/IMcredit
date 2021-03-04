@@ -18,6 +18,14 @@
         select * from Enterprise order by rand() limit 20
     </select>
 
+    <select id="getAllEnterprises" resultMap="Enterprise">
+        select * from Enterprise
+    </select>
+
+    <select id="getEnterprisesByType" resultMap="Enterprise">
+        select * from Enterprise where type=#{type}
+    </select>
+
     <select id="getEnterpriseByEmail" resultMap="Enterprise">
         select * from Enterprise where email=#{email}
     </select>

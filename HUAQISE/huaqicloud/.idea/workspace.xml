@@ -19,186 +19,136 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e4229e71-5ad3-4d18-bd90-b202f45cdf02" name="Default Changelist" comment="feat: 后端企业用户业务，rsa&amp;aes加密utils，sql文件添加企业表">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Process.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/example/common/feign/CustomFeignConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/example/common/feign/CustomFeignHystrixConcurrencyStrategy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/common/src/main/java/com/example/common/security/CustomAccessDeniedHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eurake-server/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-auth/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-auth/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-auth/src/main/java/com/example/auth/ServiceAuthApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-auth/src/main/java/com/example/auth/config/AuthorizationServerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-auth/src/main/java/com/example/auth/config/CORSConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-auth/src/main/java/com/example/auth/config/SecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-auth/src/main/java/com/example/auth/config/Utils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-auth/src/main/java/com/example/auth/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-auth/src/main/java/com/example/auth/customImpl/MyRedisTokenStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-auth/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-enterprise/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/config/EpServerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-user/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/config/OAuth2ClientConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/config/UserServerConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zuul-gateway/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/zuul-gateway/src/main/java/com/example/zuul/config/ZuulServiceConfiguration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/common.iml" beforeDir="false" afterPath="$PROJECT_DIR$/common/common.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/common/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Calculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Calculation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/DivRank.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/DivRank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/FinRank.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/FinRank.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Target/DivTarget/EnterTarget.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Target/DivTarget/MassDiscrete.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Target/DivTarget/MixIndustry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Target/DivTarget/ProcIndustry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Target/DivTarget/ServeIndustry.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Target/DivTarget/SmeDiscrete.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Target/FinTarget/FinanceTarget.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Target/Target.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Tools.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/src/main/java/com/example/common/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/common/src/main/java/com/example/common/config/SwaggerConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/META-INF/common.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/aliyunOSS.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/aliyunOSS/AliyunOSSUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/aliyunOSS/PropertiesReader.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/cache/RedisCacheClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/calculation/Calculation.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/calculation/DivRank.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/calculation/FinRank.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/calculation/Process.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/calculation/enumType/EnumType.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/config/SwaggerConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/config/handler/CustomGlobalExceptionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/constant/AesKey.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/utils/AesUtil.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/common/target/classes/com/example/common/vo/ResponseVO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/eurake-server/eurake-server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/eurake-server/eurake-server.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eurake-server/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eurake-server/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eurake-server/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/eurake-server/target/classes/com/example/server/EurakeApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/huaqicloud.iml" beforeDir="false" afterPath="$PROJECT_DIR$/huaqicloud.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/service-enterprise.iml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/service-enterprise.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/api/fallback/EpServiceClientFallBack.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/api/fallback/EpServiceClientFallBack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/bl/index/IndexService.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/bl/index/IndexService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/blImpl/index/IndexServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/blImpl/index/IndexServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/controller/index/AnalyController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/controller/index/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/controller/index/IndexController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/FinanIndMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/FinanIndMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/MassDisMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/MassDisMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/MixInduMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/MixInduMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/ProcInduMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/ProcInduMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/ServInduMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/ServInduMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/SmeDisMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/dao/index/SmeDisMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/po/index/financial/FinancialPercent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/po/index/integrate/MassPercent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/po/index/integrate/MixPercent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/po/index/integrate/ProcPercent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/po/index/integrate/ServePercent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/po/index/integrate/SmePercent.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/vo/EnterpriseTarget.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/java/com/example/enterprise/vo/TargetObject.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/FinanIndMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/FinanIndMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/MassDisMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/MassDisMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/MixInduMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/MixInduMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/ProcInduMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/ProcInduMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/ServInduMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/ServInduMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/SmeDisMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/main/resources/mapper/index/SmeDisMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/test/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/test/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/test/com/example/enterprise/blImpl/index/IndexServiceImplTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/src/test/com/example/enterprise/controller/index/IndexControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-enterprise/src/test/com/example/enterprise/controller/index/IndexControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/EnterpriseApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/api/EpServiceClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/api/fallback/EpServiceClientFallBack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/bl/enterprise/EnterpriseService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/bl/index/IndexService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/blImpl/index/IndexServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/controller/enterprise/EnterpriseController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/controller/index/AnalyController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/controller/index/IndexController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/dao/enterprise/EnterpriseMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/dao/index/FinanIndMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/dao/index/MassDisMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/dao/index/MixInduMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/dao/index/ProcInduMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/dao/index/ServInduMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/dao/index/SmeDisMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/Enterprise.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/financial/FinancialIndex.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/financial/FinancialPercent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/MassDiscrete.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/MassPercent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/MixIndustry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/MixPercent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/ProcIndustry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/ProcPercent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/ServeIndustry.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/ServePercent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/SmeDiscrete.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/po/index/integrate/SmePercent.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/vo/EnterpriseForm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/vo/EnterpriseTarget.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/com/example/enterprise/vo/EnterpriseVO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/mapper/enterprise/EnterpriseMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/mapper/index/FinanIndMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/mapper/index/MassDisMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/mapper/index/MixInduMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/mapper/index/ProcInduMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/mapper/index/ServInduMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/classes/mapper/index/SmeDisMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/test-classes/META-INF/service-enterprise.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/test-classes/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImplTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/test-classes/com/example/enterprise/blImpl/index/IndexServiceImplTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/test-classes/com/example/enterprise/controller/enterprise/EnterpriseControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-enterprise/target/test-classes/com/example/enterprise/controller/index/IndexControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/service-user.iml" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/service-user.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/controller/File/FilesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/controller/File/ImageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/src/main/java/com/example/user/controller/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/service-user/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/META-INF/service-user.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/ProviderUserApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/api/UserServiceClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/api/fallback/UserServiceClientFallBack.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/bl/browse/BrowseService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/bl/user/UserService.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/blImpl/browse/BrowseServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/blImpl/user/UserServiceImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/controller/File/FilesController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/controller/FileController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/controller/browse/BrowseController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/controller/user/UserController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/data/browse/BrowseMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/data/index/Lsdpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/data/user/UserMapper.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/dto/browse/BrowseDto.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/po/Browse.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/po/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/vo/BrowseVO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/vo/UserForm.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/com/example/user/vo/UserVO.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/dataImpl/browse/BrowseMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/classes/dataImpl/user/UserMapper.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/service-user/target/test-classes/com/example/user/controller/user/UserControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-gateway/src/main/java/com/example/zuul/ZuulApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-gateway/src/main/java/com/example/zuul/ZuulApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-gateway/target/classes/META-INF/zuul-gateway.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-gateway/target/classes/application.yml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-gateway/target/classes/com/example/zuul/ZuulApplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-gateway/target/classes/com/example/zuul/config/CORSConfig.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/zuul-gateway/zuul-gateway.iml" beforeDir="false" afterPath="$PROJECT_DIR$/zuul-gateway/zuul-gateway.iml" afterDir="false" />
+    <list default="true" id="e4229e71-5ad3-4d18-bd90-b202f45cdf02" name="Default Changelist" comment="feat: docker&amp;auth">
+      <change afterPath="$PROJECT_DIR$/../huaqicloud/common/src/main/java/com/example/common/calculation/Target/DivTarget/EnterTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../huaqicloud/common/src/main/java/com/example/common/calculation/Target/DivTarget/MassDiscrete.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../huaqicloud/common/src/main/java/com/example/common/calculation/Target/DivTarget/MixIndustry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../huaqicloud/common/src/main/java/com/example/common/calculation/Target/DivTarget/ProcIndustry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../huaqicloud/common/src/main/java/com/example/common/calculation/Target/DivTarget/ServeIndustry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../huaqicloud/common/src/main/java/com/example/common/calculation/Target/DivTarget/SmeDiscrete.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../huaqicloud/common/src/main/java/com/example/common/calculation/Target/FinTarget/FinanceTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../huaqicloud/common/src/main/java/com/example/common/calculation/Target/Target.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../huaqicloud/common/src/main/java/com/example/common/calculation/Tools.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/controller/index/AnalyController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/po/index/financial/FinancialPercent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/po/index/integrate/MassPercent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/po/index/integrate/MixPercent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/po/index/integrate/ProcPercent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/po/index/integrate/ServePercent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/po/index/integrate/SmePercent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/vo/EnterpriseTarget.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/vo/TargetObject.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/babel.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/babel.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/bjdx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/case02.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/case03.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/cust.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/email.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/exhibit1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/icons1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/lhf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/lhf1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/libg2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/libg3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/libg4.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/listcase.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/lzy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/map.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/mouse4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/num1_bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/num2_bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/num3_bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/num4_bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/num5_bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/num6_bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/num7_bg.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/nut.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/pagecase.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/pagenews1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/pagenews2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/pagenews3.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/pj.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/qianduanfd.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/serv1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/serv2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/serv3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/serv5.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/six2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/six2_old.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/whiteCircle.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/wrod_icon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/xj.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/xwy.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/yyf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/zhinan01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/zhuti.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/zrx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/images/zzx.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/js/scroll.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/public/js/scroll.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/style/Intro.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/public/style/Intro.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/style/font/biaoSong.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/public/style/font/biaoSong.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/public/style/fontAlter.css" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/public/style/fontAlter.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/api/enterprise.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/api/enterprise.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/api/evaluate.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/api/evaluate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/api/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/api/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/components/layouts/left-side/left-profile/user_profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/components/layouts/left-side/left-profile/user_profile.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/components/layouts/left-side/left-side.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/components/layouts/left-side/left-side.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/router/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/store/getters.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/store/getters.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/store/modules/enterprise.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/store/modules/enterprise.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/store/modules/evaluate_process.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/store/modules/evaluate_process.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/store/modules/user.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/store/modules/user.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/utils/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/utils/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/utils/request.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/views/ChangeCompanyInfo.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/views/ChangePassword.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/views/ChangePersonInfo.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/views/add,vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/views/credit/display.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/views/credit/display.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/views/credit/evaluate/enterpriseType.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/views/credit/evaluate/enterpriseType.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/views/credit/evaluate/index_finished.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/views/credit/evaluate/index_finished.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/views/credit/evaluate/integration_indicators.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/views/credit/evaluate/integration_indicators.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/views/credit/evaluate/static_values_used/integration_indicators_items_to_check.js" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/views/credit/evaluate/static_values_used/integration_indicators_items_to_check.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/views/credit/report.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/views/credit/report.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/views/home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/views/home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/views/login.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/views/personalCenter.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/views/test.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/views/user/info.vue" beforeDir="false" afterPath="$PROJECT_DIR$/../front/credit-demo/src/views/user/info.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/views/userinfo.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/credit-demo/src/views/views.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../front/logo1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/common/src/main/java/com/example/common/calculation/Calculation.java" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/common/src/main/java/com/example/common/calculation/Calculation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/common/src/main/java/com/example/common/calculation/DivRank.java" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/common/src/main/java/com/example/common/calculation/DivRank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/common/src/main/java/com/example/common/calculation/FinRank.java" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/common/src/main/java/com/example/common/calculation/FinRank.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/common/src/main/java/com/example/common/calculation/Process.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/bl/index/IndexService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/bl/index/IndexService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/blImpl/index/IndexServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/blImpl/index/IndexServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/controller/index/IndexController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/controller/index/IndexController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/dao/index/FinanIndMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/dao/index/FinanIndMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/dao/index/MassDisMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/dao/index/MassDisMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/dao/index/MixInduMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/dao/index/MixInduMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/dao/index/ProcInduMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/dao/index/ProcInduMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/dao/index/ServInduMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/dao/index/ServInduMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/dao/index/SmeDisMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/java/com/example/enterprise/dao/index/SmeDisMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/resources/mapper/index/FinanIndMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/resources/mapper/index/FinanIndMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/resources/mapper/index/MassDisMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/resources/mapper/index/MassDisMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/resources/mapper/index/MixInduMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/resources/mapper/index/MixInduMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/resources/mapper/index/ProcInduMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/resources/mapper/index/ProcInduMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/resources/mapper/index/ServInduMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/resources/mapper/index/ServInduMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/resources/mapper/index/SmeDisMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/main/resources/mapper/index/SmeDisMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/test/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/service-enterprise/src/test/com/example/enterprise/blImpl/enterprise/EnterpriseServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../huaqicloud/service-user/src/main/java/com/example/user/controller/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../huaqicloud/service-user/src/main/java/com/example/user/controller/user/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,10 +189,10 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/zuul-gateway" />
+    <property name="database.data.extractors.current.export.id" value="Comma-separated (CSV)_id" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../front/credit-demo" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
@@ -400,7 +350,13 @@
       <workItem from="1613653506525" duration="4103000" />
       <workItem from="1613889433236" duration="10884000" />
       <workItem from="1613979207215" duration="298000" />
-      <workItem from="1614257209172" duration="273000" />
+      <workItem from="1614257209172" duration="737000" />
+      <workItem from="1614262152318" duration="745000" />
+      <workItem from="1614262913571" duration="9338000" />
+      <workItem from="1614667669012" duration="4177000" />
+      <workItem from="1614688535195" duration="2512000" />
+      <workItem from="1614695128705" duration="2453000" />
+      <workItem from="1614778511946" duration="19000" />
     </task>
     <task id="LOCAL-00001" summary="feat: 后端企业用户业务，rsa&amp;aes加密utils，sql文件添加企业表">
       <created>1602491158371</created>
@@ -409,7 +365,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602491158371</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat: docker&amp;auth">
+      <created>1614257587183</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1614257587184</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,68 +392,69 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="feat: 后端企业用户业务，rsa&amp;aes加密utils，sql文件添加企业表" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: 后端企业用户业务，rsa&amp;aes加密utils，sql文件添加企业表" />
+    <MESSAGE value="feat: docker&amp;auth" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: docker&amp;auth" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="536" y="442" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1613654497524">
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1614778531276">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="536" y="442" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613654497524" />
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1613532969726">
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1614778531276" />
+    <state width="1877" height="369" key="GridCell.Tab.0.bottom" timestamp="1614706068099">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613532969726" />
-    <state x="463" y="102" key="CommitChangelistDialog2" timestamp="1614257467492">
+    <state width="1877" height="369" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1614706068099" />
+    <state width="1877" height="369" key="GridCell.Tab.0.center" timestamp="1614706068098">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="463" y="102" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1614257467492" />
-    <state x="208" y="183" key="FileChooserDialogImpl" timestamp="1613891214600">
+    <state width="1877" height="369" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1614706068098" />
+    <state width="1877" height="369" key="GridCell.Tab.0.left" timestamp="1614706068098">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="208" y="183" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1613891214600" />
-    <state width="1877" height="393" key="GridCell.Tab.0.bottom" timestamp="1613907315724">
+    <state width="1877" height="369" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1614706068098" />
+    <state width="1877" height="369" key="GridCell.Tab.0.right" timestamp="1614706068098">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="393" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1613907315724" />
-    <state width="1877" height="393" key="GridCell.Tab.0.center" timestamp="1613907315723">
+    <state width="1877" height="369" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1614706068098" />
+    <state width="1877" height="271" key="GridCell.Tab.1.bottom" timestamp="1614691156828">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="393" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1613907315723" />
-    <state width="1877" height="393" key="GridCell.Tab.0.left" timestamp="1613907315723">
+    <state width="1877" height="271" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1614691156828" />
+    <state width="1877" height="271" key="GridCell.Tab.1.center" timestamp="1614691156828">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="393" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1613907315723" />
-    <state width="1877" height="393" key="GridCell.Tab.0.right" timestamp="1613907315723">
+    <state width="1877" height="271" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1614691156828" />
+    <state width="1877" height="271" key="GridCell.Tab.1.left" timestamp="1614691156828">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="393" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1613907315723" />
-    <state width="1877" height="393" key="GridCell.Tab.1.bottom" timestamp="1613907315724">
+    <state width="1877" height="271" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1614691156828" />
+    <state width="1877" height="271" key="GridCell.Tab.1.right" timestamp="1614691156828">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="393" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1613907315724" />
-    <state width="1877" height="393" key="GridCell.Tab.1.center" timestamp="1613907315724">
+    <state width="1877" height="271" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1614691156828" />
+    <state x="461" y="164" key="SettingsEditor" timestamp="1614696162941">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="393" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1613907315724" />
-    <state width="1877" height="393" key="GridCell.Tab.1.left" timestamp="1613907315724">
+    <state x="461" y="164" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1614696162941" />
+    <state x="1033" y="204" width="633" height="594" key="find.popup" timestamp="1614696281647">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="393" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1613907315724" />
-    <state width="1877" height="393" key="GridCell.Tab.1.right" timestamp="1613907315724">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="393" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1613907315724" />
-    <state x="490" y="174" key="Maven.ArtifactSearchDialog" timestamp="1613537218840">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="490" y="174" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1613537218840" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1613895203234">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1613895203234" />
-    <state x="662" y="252" width="596" height="594" key="find.popup" timestamp="1614257382939">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="662" y="252" width="596" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1614257382939" />
+    <state x="1033" y="204" width="633" height="594" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1614696281647" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/common/src/main/java/com/example/common/calculation/Tools.java</url>
+          <line>40</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="SpringBootApplicationConfigurationType">
+        <watch expression="list.get(i).get(j)" language="JAVA" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

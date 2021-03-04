@@ -57,6 +57,15 @@ public interface EnterpriseMapper {
      */
     List<Enterprise> getTwentyEnterprises();
 
+    /*
+    * 获取全部企业
+    * */
+    List<Enterprise> getAllEnterprises();
+
+    /*
+    * 获取目标企业同类型的所有公司
+    * */
+    List<Enterprise> getEnterprisesByType(@Param("type") Integer type);
 
     /**
      * 根据key获取企业信息
@@ -71,5 +80,6 @@ public interface EnterpriseMapper {
      * @return
      */
     int updateEpList(@Param("list") List<Enterprise> list);
+
 
 }

@@ -6,17 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="eurake-server" />
-        <module name="common" />
-        <module name="zuul-gateway" />
-        <module name="service-enterprise" />
         <module name="service-user" />
+        <module name="zuul-gateway" />
+        <module name="service-auth" />
+        <module name="common" />
+        <module name="eurake-server" />
+        <module name="service-enterprise" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="common" target="1.8" />
       <module name="eurake-server" target="1.8" />
       <module name="huaqicloud" target="1.8" />
+      <module name="service-auth" target="1.8" />
       <module name="service-enterprise" target="1.8" />
       <module name="service-user" target="1.8" />
       <module name="zuul-gateway" target="1.8" />
@@ -26,6 +28,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="common" options="-parameters" />
       <module name="eurake-server" options="-parameters" />
+      <module name="service-auth" options="-parameters" />
       <module name="service-enterprise" options="-parameters" />
       <module name="service-user" options="-parameters" />
       <module name="zuul-gateway" options="-parameters" />

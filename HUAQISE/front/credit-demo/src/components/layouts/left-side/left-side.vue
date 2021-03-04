@@ -12,13 +12,21 @@
                         <vmenu-item link = "/credit/display" icon="fa fa-globe" :class="{active_menu_clicked: ($route.path === '/credit/display') }">  评级公示</vmenu-item>
 
                   <vsub-menu title="我的评级" icon="fa fa-balance-scale ">
-                    <vmenu-item link = "/credit/evaluate" icon="fa fa-legal" :class="{active_menu_clicked: ($route.path.indexOf( '/credit/evaluate') !== -1) }">  申请评级</vmenu-item>
-                    <vmenu-item link = "/credit/report" icon="fa fa-file-pdf-o" :class="{active_menu_clicked: ($route.path === '/credit/grade/report') }">  查看报告</vmenu-item>
+                    <div @click="appeal_evaluate">
+                    <vmenu-item link = "" icon="fa fa-legal" :class="{active_menu_clicked: ($route.path.indexOf( '/credit/evaluate') !== -1) }">  申请评级</vmenu-item>
+                    </div>
+                    <div @click="check_my_report">
+                      <vmenu-item link = "" @click="check_my_report" icon="fa fa-file-pdf-o" :class="{active_menu_clicked: ($route.path === '/credit/report') }" >  查看报告</vmenu-item>
+                    </div>
                   </vsub-menu>
 
                         <vsub-menu title="个人中心" icon="fa fa-cube">
-                            <vmenu-item link="/credit/history" icon="fa fa-history"  :class="{active_menu_clicked: ($route.path === '/credit/history') }"> 浏览记录</vmenu-item>
-                            <vmenu-item link="/user/info/1" icon="fa fa-gear"  :class="{active_menu_clicked: ($route.path === '/user/info/1') }"> 个人资料</vmenu-item>
+                          <div @click="show_history">
+                          <vmenu-item link="" icon="fa fa-history"  :class="{active_menu_clicked: ($route.path === '/credit/history') }"> 浏览记录</vmenu-item>
+                          </div>
+                          <div @click="show_personal">
+                          <vmenu-item link="" icon="fa fa-gear"  :class="{active_menu_clicked: ($route.path === '/user/info/'+this.userId) }"> 个人资料</vmenu-item>
+                          </div>
                         </vsub-menu>
 
 
@@ -37,8 +45,54 @@ import {
     vmenuItem,
     vsubMenu
 } from './menu';
+import router from "@/router";
 import profile from "./left-profile/user_profile.vue"
+import {mapGetters, mapMutations} from "vuex";
+import miniToastr from 'mini-toastr'
+
 export default {
+  computed:{
+    ...mapGetters([
+      "userId"
+    ])
+  },
+  methods:{
+    ...mapMutations([
+      "set_checkedEnterpriseId"
+    ]),
+    check_my_report(){
+      if(this.userId === 0){
+        miniToastr.error("游客请先登录")
+      }
+      else{
+        this.set_checkedEnterpriseId(this.userId)
+        router.push("/credit/report")
+      }
+
+    },
+    appeal_evaluate(){
+      if(this.userId === 0){
+        miniToastr.error("游客请先登录")
+      }
+      else
+        router.push('/credit/evaluate')
+    },
+    show_history(){
+      if(this.userId === 0){
+        miniToastr.error("游客请先登录")
+      }
+      else
+        router.push('/credit/history')
+    },
+    show_personal(){
+      if(this.userId === 0){
+        miniToastr.error("游客请先登录")
+      }
+      else{
+        router.push( '/user/info/'+this.userId)
+      }
+    }
+  },
     name: "left-side",
     components: {
         vmenu,
@@ -51,8 +105,10 @@ export default {
             curMenuClickedName:'/credit/display'
         }
     },
+  mounted() {
+  },
 
-    watch: {
+  watch: {
         $route(to, from) {
             $(function () {
                 $('#right_side_title_h1').hide()
